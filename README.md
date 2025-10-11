@@ -96,7 +96,7 @@ OPENAI_BASE_URL=https://api.deepseek.com
 1. 进入仓库 **Settings → Pages** 页面。
 2. 在 **Build and deployment** 下，将 Source 设置为 **Deploy from a branch**。
 3. 将 Branch 设置为 `main` 分支和 `/(root)` 目录，然后点击 **Save**。
-4. 等待片刻，你的日报索引页即可通过 `https://<你的用户名>.github.io/<仓库名>` 访问，比如我的访问链接为：https://valoray.github.io/arxiv-daily/
+4. 等待片刻，你的日报索引页即可通过 `https://<你的用户名>.github.io/<仓库名>` 访问，比如我的访问链接为：https://valoray.github.io/arXiv-daily/ (注意大小写要和仓库一致)
 
 配置完成后，GitHub Actions 会根据预设时间自动运行，生成每日报告。
 
@@ -136,7 +136,9 @@ OPENAI_BASE_URL=https://api.deepseek.com
 1. **创建虚拟环境并安装依赖**
 
    ```
-   source /var/xxx/xxx/arXiv-daily/.venv/bin/activate
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   uv sync # 创建虚拟环境 .venv，安装 pyproject.toml 中的所有依赖
+   source /var/xxx/xxx/arXiv-daily/.venv/bin/activate # 激活虚拟环境
    ```
    
 2. 设置环境变量
