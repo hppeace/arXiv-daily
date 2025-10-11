@@ -1,14 +1,12 @@
 import os
 from os.path import join
-
+import markdown   # ✅ 新增导入 markdown 库
 
 def load_template(path: str) -> str:
-    with open(path, 'r') as handle:
+    with open(path, 'r', encoding='utf-8') as handle:
         return handle.read()
 
-
 MAX_LINKS = 90
-
 
 if __name__ == '__main__':
     template = load_template('template.md')
@@ -29,9 +27,9 @@ if __name__ == '__main__':
     ]
     readme_content = "\n".join(readme_lines) if readme_lines else '_(no digests yet)_'
 
-    markdown = template.format(readme_content=readme_content)
-    with open('README.md', 'w') as handle:
-        handle.write(markdown)
+    markdown_text = template.format(readme_content=readme_content)
+    with open('README.md', 'w', encoding='utf-8') as handle:
+        handle.write(markdown_text)
 
     if md_entries:
         latest_md = md_entries[0]
@@ -49,5 +47,31 @@ if __name__ == '__main__':
         latest_path=latest_path,
         history=history
     )
-    with open('index.md', 'w') as handle:
+    with open('index.md', 'w', encoding='utf-8') as handle:
         handle.write(index_markdown)
+
+    # ==========================================================
+    # ✅ 新增：将 index.md 自动转换为 index.html（供 GitHub Pages 使用）
+    # ==========================================================
+    try:
+        html_body = markdown.markdown(index_markdown, extensions=["tables", "fenced_code"])
+        html_template = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daily arXiv Digest</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+    <style>
+        body {{ margin: 2rem; }}
+        .markdown-body {{ max-width: 960px; margin: auto; }}
+    </style>
+</head>
+<body class="markdown-body">
+{html_body}
+</body>
+</html>"""
+        with open('index.html', 'w', encoding='utf-8') as f:
+            f.write(html_template)
+        print("✅ Successfully generated index.html for GitHub Pages.")
+    except Exception as e:
+        print(f"⚠️ Failed to generate index.html: {e}")
