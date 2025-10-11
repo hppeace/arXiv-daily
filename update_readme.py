@@ -16,13 +16,12 @@ if __name__ == '__main__':
     entries = sorted(os.listdir('data'), reverse=True)
     md_entries = [item for item in entries if item.endswith('.md')][:MAX_LINKS]
 
-    # line_template = readme_content_template.strip()
-    line_template = readme_content_template.strip().replace('.md', '.html')
+    line_template = readme_content_template.strip()
 
     readme_lines = [
         line_template.format(
             date=item.replace('.md', ''),
-            url=join('data', item)
+            url=join('data', item.replace('.md', '.html'))
         )
         for item in md_entries
     ]
@@ -35,7 +34,7 @@ if __name__ == '__main__':
     if md_entries:
         latest_md = md_entries[0]
         latest_date = latest_md.replace('.md', '')
-        latest_path = join('data', latest_md)
+        latest_path = join('data', latest_md.replace('.md', '.html'))
     else:
         latest_date = 'No reports yet'
         latest_path = '#'
