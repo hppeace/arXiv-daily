@@ -6,6 +6,12 @@
 
 ---
 
+## 每日报告索引
+
+- [2025-10-11](data/2025-10-11.md)
+
+---
+
 ## ✨ 项目特色
 
 相比原项目，本项目主要有以下几点改进：
@@ -120,12 +126,6 @@ OPENAI_BASE_URL=https://api.deepseek.com
 - **更改运行时间**: 编辑 `.github/workflows/run.yml` 文件中的 `cron`表达式。
 - **修改 AI 提示词**: 编辑 `ai/system.txt` 和 `ai/template.txt`。
 - **调整报告模板**: 编辑 `to_md/paper_template.md`。
-
----
-
-## 每日报告索引
-
-- [2025-10-11](data/2025-10-11.md)
 
 ---
 
