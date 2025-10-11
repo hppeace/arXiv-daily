@@ -4,6 +4,8 @@
 
 本项目基于 [dw-dengwei/daily-arXiv-ai-enhanced](https://github.com/dw-dengwei/daily-arXiv-ai-enhanced) 进行了二次开发，旨在提供一个更符合个人使用习惯的自动化流程。
 
+---
+
 ## ✨ 项目特色
 
 相比原项目，本项目主要有以下几点改进：
@@ -16,6 +18,8 @@
 
 1. 每日抓取的原始论文数据：`data/YYYY-MM-DD.jsonl`
 2. 经 AI 增强和排版的 Markdown 日报：`data/YYYY-MM-DD.md`
+
+---
 
 ## 🚀 快速开始
 
@@ -37,21 +41,24 @@
 
 ##### A. 添加Secrets
 
-进入你 Fork 后的仓库（注意是仓库的**Settings**，而不是账户的**Settings**），依次点击 **Settings → Secrets and variables → Actions**。
-
-> **重要提示**:
->
-> - `OPENAI_API_KEY` 是敏感信息，必须存储在 **Secrets** 中。
-> - 其他非敏感配置信息存储在 **Variables** 中。
+进入你 Fork 后的仓库（注意是仓库的**Settings**，而不是账户的**Settings**），依次点击 **Settings → Secrets and variables → Actions**。在 **Secrets** 选项卡下，点击 **New repository secret**，添加以下 Secrets：
 
 ```
 OPENAI_API_KEY=sk-xxxxxxxx # 步骤 1 中获取的 DeepSeek API Key
 OPENAI_BASE_URL=https://api.deepseek.com
 ```
 
+> **重要提示**:
+>
+> - `OPENAI_API_KEY` 是敏感信息，必须存储在 **Secrets** 中。
+> - 其他非敏感配置信息存储在 **Variables** 中。
+
+**填写示例：**
+![Secrets](https://raw.githubusercontent.com/ValoraY/blog-imgs/main/img/202510111508218.png)
+
 ##### B. 添加 Variables
 
-在仓库的 **Settings → Secrets and variables → Actions → Variables** ，创建对应的 **Variables**，给出一个示例
+在仓库的 **Settings → Secrets and variables → Actions** ，在 **Variables** 选项卡下，点击 **New repository variable**，添加以下 Variables：
 
 | 变量名       | 示例值                      | **说明**                                                     |
 | ------------ | --------------------------- | ------------------------------------------------------------ |
@@ -62,14 +69,32 @@ OPENAI_BASE_URL=https://api.deepseek.com
 | `NAME`       | `YourGitHubUsername`        | **必需**。你的 GitHub 用户名，用于 Git 提交。                |
 | `KEYWORDS`   | `diffusion,transformer,LLM` | **可选**。你感兴趣的关键词，用英文逗号分隔。如果设置，将只处理标题或摘要中包含这些词的论文。 |
 
-#### 4. 启用 GitHub Pages
+**填写示例：**
+![Variables](https://raw.githubusercontent.com/ValoraY/blog-imgs/main/img/202510111508175.png)
+
+#### 4. 手动运行与测试
+
+在你完成上述所有配置后，可以手动触发一次工作流来验证设置是否正确。
+
+1.  进入你 Fork 后的仓库页面，点击上方的 **Actions** 选项卡。
+2.  在左侧的工作流列表中，点击 **arXiv-daily-ai-enhanced**。
+3.  在右侧，你会看到一个 **Run workflow** 的按钮，点击它即可手动启动任务。
+
+请注意，工作流完整运行一次可能需要较长时间，请耐心等待其完成。默认情况下，此工作流会每日自动运行，你可以在 `.github/workflows/run.yml` 文件中修改定时设置。
+
+**运行示例：**
+![workflow](https://raw.githubusercontent.com/ValoraY/blog-imgs/main/img/202510111525358.png)
+
+#### 5. 启用 GitHub Pages
 
 1. 进入仓库 **Settings → Pages** 页面。
 2. 在 **Build and deployment** 下，将 Source 设置为 **Deploy from a branch**。
 3. 将 Branch 设置为 `main` 分支和 `/(root)` 目录，然后点击 **Save**。
-4. 等待片刻，你的日报索引页即可通过 `https://<你的用户名>.github.io/<仓库名>` 访问。
+4. 等待片刻，你的日报索引页即可通过 `https://<你的用户名>.github.io/<仓库名>` 访问，比如我的访问链接为：https://valoray.github.io/arxiv-daily/
 
 配置完成后，GitHub Actions 会根据预设时间自动运行，生成每日报告。
+
+---
 
 ## ⚙️ 工作流程
 
@@ -88,16 +113,21 @@ OPENAI_BASE_URL=https://api.deepseek.com
    - **任务**: 将 AI 生成的增强内容转换为格式化的 Markdown 文件 `data/YYYY-MM-DD.md`，并更新 `index.md` 索引页。
    - **定制**: 可通过修改 `to_md/paper_template.md` 来调整单篇论文在报告中的展示样式。
 
+---
+
 ## 🔧 深入定制
 
 - **更改运行时间**: 编辑 `.github/workflows/run.yml` 文件中的 `cron`表达式。
 - **修改 AI 提示词**: 编辑 `ai/system.txt` 和 `ai/template.txt`。
 - **调整报告模板**: 编辑 `to_md/paper_template.md`。
 
+---
+
 ## 每日报告索引
 
 - [2025-10-11](data/2025-10-11.md)
-- [2025-10-03](data/2025-10-03.md)
+
+---
 
 ## 💻 本地运行与调试
 
@@ -106,7 +136,7 @@ OPENAI_BASE_URL=https://api.deepseek.com
 1. **创建虚拟环境并安装依赖**
 
    ```
-   source /var/xjingyu/PIONEER/arXiv-daily/.venv/bin/activate
+   source /var/xxx/xxx/arXiv-daily/.venv/bin/activate
    ```
    
 2. 设置环境变量
@@ -132,9 +162,13 @@ OPENAI_BASE_URL=https://api.deepseek.com
    bash run.sh
    ```
 
+---
+
 ## 📚 相关工具
 
 - [ICML, ICLR, NeurIPS 等会议论文列表](https://dw-dengwei.github.io/OpenReview-paper-list/index.html)
+
+---
 
 ## 🤝 致谢
 
