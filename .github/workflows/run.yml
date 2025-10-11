@@ -159,6 +159,7 @@ jobs:
       if: steps.dedup_check.outputs.has_new_content == 'true'
       run: |
         source .venv/bin/activate
+        cd ..
         python update_readme.py
         
     - name: Summary
