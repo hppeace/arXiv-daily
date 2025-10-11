@@ -1,0 +1,15 @@
+Please analyze the following paper abstract and summarize it according to the required structure.
+
+Abstract:
+{content}
+
+IMPORTANT FORMATTING REQUIREMENT: The text for each of the 5 points below must be a single block of continuous text. **Do NOT insert any line breaks (`\n`) within the summary of a single point.**
+
+You should extract:
+1. The key motivation — what problem or gap this research aims to address.
+2. The main methods or techniques — including architectures, algorithms, or frameworks.
+3. The main results — including performance metrics, benchmarks, or experimental findings.
+4. The conclusion and implications — what insights or takeaways this research provides.
+5. A concise TL;DR (1–2 sentences) — capturing the overall contribution.
+
+Focus on clarity, precision, and correct technical interpretation.
