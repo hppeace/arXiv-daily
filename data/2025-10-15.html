@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-10-15.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-e-moflow-learning-egomotion-and-optical-flow-from-event-data-via-implicit-regularization">[1] <a href="https://arxiv.org/abs/2510.12753">E-MoFlow: Learning Egomotion and Optical Flow from Event Data via Implicit Regularization</a></h3>
+<p><em>Wenpu Li, Bangyan Liao, Yi Zhou, Qi Xu, Pian Wan, Peidong Liu</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种无监督框架E-MoFlow，通过隐式时空和几何正则化联合优化事件相机中的自运动和光流估计，解决了现有方法因独立处理这两个问题而导致的病态挑战。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统方法将光流估计和6自由度自运动估计作为独立任务处理，但在神经形态视觉（如事件相机）中，由于缺乏鲁棒的数据关联，这种分离处理方式在没有地面真值监督的情况下变得病态。现有方法通过显式变分正则化强制光流场平滑或利用显式结构运动先验来改善事件对齐，但前者会引入结果偏差和计算开销，后者则容易收敛到次优局部极小值。</p>
+<p><strong>Method:</strong> 该方法通过将相机自运动建模为连续样条、光流建模为隐式神经表示，在归纳偏置中嵌入时空一致性。同时引入微分几何约束来整合结构运动先验，绕过显式深度估计同时保持严格的几何一致性，从而在完全无监督范式下通过隐式正则化统一自运动和光流估计。</p>
+<p><strong>Result:</strong> 实验表明该框架对一般6自由度运动场景具有良好适应性，在无监督方法中达到最先进性能，甚至与有监督方法具有竞争力。</p>
+<p><strong>Conclusion:</strong> 该研究证明了通过隐式正则化联合优化自运动和光流估计的有效性，为神经形态视觉中的运动估计问题提供了新的解决方案，展示了隐式表示和几何约束在解决无监督视觉任务中的潜力。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>The estimation of optical flow and 6-DoF ego-motion, two fundamental tasks in
+3D vision, has typically been addressed independently. For neuromorphic vision
+(e.g., event cameras), however, the lack of robust data association makes
+solving the two problems separately an ill-posed challenge, especially in the
+absence of supervision via ground truth. Existing works mitigate this
+ill-posedness by either enforcing the smoothness of the flow field via an
+explicit variational regularizer or leveraging explicit structure-and-motion
+priors in the parametrization to improve event alignment. The former notably
+introduces bias in results and computational overhead, while the latter, which
+parametrizes the optical flow in terms of the scene depth and the camera
+motion, often converges to suboptimal local minima. To address these issues, we
+propose an unsupervised framework that jointly optimizes egomotion and optical
+flow via implicit spatial-temporal and geometric regularization. First, by
+modeling camera's egomotion as a continuous spline and optical flow as an
+implicit neural representation, our method inherently embeds spatial-temporal
+coherence through inductive biases. Second, we incorporate structure-and-motion
+priors through differential geometric constraints, bypassing explicit depth
+estimation while maintaining rigorous geometric consistency. As a result, our
+framework (called E-MoFlow) unifies egomotion and optical flow estimation via
+implicit regularization under a fully unsupervised paradigm. Experiments
+demonstrate its versatility to general 6-DoF motion scenarios, achieving
+state-of-the-art performance among unsupervised methods and competitive even
+with supervised approaches.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-spikepool-event-driven-spiking-transformer-with-pooling-attention">[2] <a href="https://arxiv.org/abs/2510.12102">SpikePool: Event-driven Spiking Transformer with Pooling Attention</a></h3>
+<p><em>Donghyun Lee, Alex Sima, Yuhang Li, Panos Stinis, Priyadarshini Panda</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文通过频域分析发现脉冲变压器具有高通滤波特性，并提出SpikePool方法将脉冲自注意力替换为最大池化注意力，实现选择性带通滤波，在事件视觉任务中取得竞争性性能并显著降低计算开销。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前脉冲变压器在事件视觉任务中表现出良好性能，但对其处理事件数据的基本机制缺乏深入理解，现有方法主要关注架构修改而忽略底层信号处理特性分析，这限制了模型的优化和设计。</p>
+<p><strong>Method:</strong> 通过频域分析揭示脉冲变压器的信号处理特性，发现其表现为高通滤波器，并提出SpikePool方法用最大池化注意力替代脉冲自注意力，最大池化作为低通滤波操作与脉冲的高通特性结合形成选择性带通滤波效果。</p>
+<p><strong>Result:</strong> 在事件分类和物体检测任务上取得竞争性结果，同时训练时间减少高达42.5%，推理时间减少32.8%，有效平衡了高频信息保留与噪声抑制的需求。</p>
+<p><strong>Conclusion:</strong> 频域分析为理解脉冲变压器提供了新视角，揭示了其高通滤波特性与事件数据处理的适配性，SpikePool的设计理念表明结合高通和低通滤波操作可以更好地处理事件数据的稀疏性和噪声问题，为未来脉冲神经网络设计提供了理论基础。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Building on the success of transformers, Spiking Neural Networks (SNNs) have
+increasingly been integrated with transformer architectures, leading to spiking
+transformers that demonstrate promising performance on event-based vision
+tasks. However, despite these empirical successes, there remains limited
+understanding of how spiking transformers fundamentally process event-based
+data. Current approaches primarily focus on architectural modifications without
+analyzing the underlying signal processing characteristics. In this work, we
+analyze spiking transformers through the frequency spectrum domain and discover
+that they behave as high-pass filters, contrasting with Vision Transformers
+(ViTs) that act as low-pass filters. This frequency domain analysis reveals why
+certain designs work well for event-based data, which contains valuable
+high-frequency information but is also sparse and noisy. Based on this
+observation, we propose SpikePool, which replaces spike-based self-attention
+with max pooling attention, a low-pass filtering operation, to create a
+selective band-pass filtering effect. This design preserves meaningful
+high-frequency content while capturing critical features and suppressing noise,
+achieving a better balance for event-based data processing. Our approach
+demonstrates competitive results on event-based datasets for both
+classification and object detection tasks while significantly reducing training
+and inference time by up to 42.5% and 32.8%, respectively.</p>
+  </article>
+</body>
+</html>
