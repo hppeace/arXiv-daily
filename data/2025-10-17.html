@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-10-17.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 3]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-event-interval-modulation-a-novel-scheme-for-event-based-optical-camera-communication">[1] <a href="https://arxiv.org/abs/2510.14245">Event Interval Modulation: A Novel Scheme for Event-based Optical Camera Communication</a></h3>
+<p><em>Miu Sumino, Mayu Ishii, Shun Kaizu, Daisuke Hisano, Yu Nakayama</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种专为事件相机光通信设计的新型调制方案——事件间隔调制，通过利用事件之间的时间间隔来调制信息，显著提升了传输速度，在室内环境中实现了28 kbps（10米）和8.4 kbps（50米）的传输速率，创下了事件相机光通信系统的比特率新纪录。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统基于帧相机的光通信系统存在比特率低和处理负载高等限制，而现有事件相机光通信系统虽然采用异步操作和高动态范围特性提升了性能，但使用的传统调制方案如OOK和脉冲位置调制未能充分利用事件相机的独特特性，因此需要开发专门针对事件相机特性的调制方法来进一步提升通信性能。</p>
+<p><strong>Method:</strong> 本文提出了事件间隔调制方案，通过调制事件之间的时间间隔来编码信息，建立了EIM的理论模型并进行了概念验证实验，首先对事件相机的参数进行调优和定制以优化针对EIM的频率响应，然后通过实验确定了EIM可用的最大调制阶数，最后基于获得的参数进行了传输实验验证。</p>
+<p><strong>Result:</strong> 实验结果表明，在室内环境中成功实现了28 kbps（10米距离）和8.4 kbps（50米距离）的传输速率，这一性能创下了事件相机光通信系统的比特率新纪录，证明了EIM方案在提升传输速度方面的有效性。</p>
+<p><strong>Conclusion:</strong> 事件间隔调制方案充分利用了事件相机的异步特性和高时间分辨率，为事件相机光通信系统提供了一种高效的调制方法，该研究不仅建立了新的性能基准，还为未来高速、低延迟的可见光通信系统开发提供了重要技术路径和理论支撑。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Optical camera communication (OCC) represents a promising visible light
+communication technology. Nonetheless, typical OCC systems utilizing
+frame-based cameras are encumbered by limitations, including low bit rate and
+high processing load. To address these issues, OCC system utilizing an
+event-based vision sensor (EVS) as receivers have been proposed. The EVS
+enables high-speed, low-latency, and robust communication due to its
+asynchronous operation and high dynamic range. In existing event-based OCC
+systems, conventional modulation schemes such as on-off keying (OOK) and pulse
+position modulation have been applied, however, to the best of our knowledge,
+no modulation method has been proposed that fully exploits the unique
+characteristics of the EVS. This paper proposes a novel modulation scheme,
+called the event interval modulation (EIM) scheme, specifically designed for
+event-based OCC. EIM enables improvement in transmission speed by modulating
+information using the intervals between events. This paper proposes a
+theoretical model of EIM and conducts a proof-of-concept experiment. First, the
+parameters of the EVS are tuned and customized to optimize the frequency
+response specifically for EIM. Then, the maximum modulation order usable in EIM
+is determined experimentally. We conduct transmission experiments based on the
+obtained parameters. Finally, we report successful transmission at 28 kbps over
+10 meters and 8.4 kbps over 50 meters in an indoor environment. This sets a new
+benchmark for bit rate in event-based OCC systems.</p>
+<h3 id="2-experimental-demonstration-of-event-based-optical-camera-communication-in-long-range-outdoor-environment">[2] <a href="https://arxiv.org/abs/2510.14266">Experimental Demonstration of Event-based Optical Camera Communication in Long-Range Outdoor Environment</a></h3>
+<p><em>Miu Sumino, Mayu Ishii, Shun Kaizu, Daisuke Hisano, Yu Nakayama</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了一种基于事件视觉传感器的光学相机通信鲁棒解调方案，首次在室外实验中实现了200米-60kbps和400米-30kbps条件下误码率低于10^-3的性能。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 光学相机通信系统在长距离传输中面临信号衰减和噪声干扰的挑战，需要开发更鲁棒的解调方案来提高通信可靠性和传输距离。</p>
+<p><strong>Method:</strong> 采用事件视觉传感器结合OOK调制与切换解调技术，并集成数字锁相环来实现精确的信号同步和稳定的解调性能。</p>
+<p><strong>Result:</strong> 在室外实验中实现了突破性的性能指标：在200米距离下达到60kbps传输速率时误码率低于10^-3，在400米距离下达到30kbps传输速率时同样保持误码率低于10^-3。</p>
+<p><strong>Conclusion:</strong> 该研究证明了事件视觉传感器在光学相机通信中的有效性，为长距离、高可靠性的可见光通信系统提供了新的技术路径，具有重要的实际应用价值。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>We propose a robust demodulation scheme for optical camera communication
+systems using an event-based vision sensor, combining OOK with toggle
+demodulation and a digital phase-locked loop. This is the first report to
+achieve a $\mathrm{BER} &lt; 10^{-3}$ at 200m-60kbps and 400m-30kbps in outdoor
+experiments.</p>
+<h3 id="3-mocom-motion-based-inter-mav-visual-communication-using-event-vision-and-spiking-neural-networks">[3] <a href="https://arxiv.org/abs/2510.14770">MoCom: Motion-based Inter-MAV Visual Communication Using Event Vision and Spiking Neural Networks</a></h3>
+<p><em>Zhang Nengbo, Hann Woei Ho, Ye Zhou</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出了一种基于视觉运动信号的微型飞行器群通信框架，灵感来源于蜜蜂摇摆舞，通过事件相机捕获MAV的飞行模式并使用脉冲神经网络进行解码，实现了在受限环境中的可靠低功耗通信。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统基于无线电的微型飞行器群通信在频谱拥塞、干扰和高功耗环境中面临挑战，需要寻找在受限环境下可靠且节能的替代通信方案。</p>
+<p><strong>Method:</strong> 提出基于运动信号的视觉通信框架，使用四种运动基元（垂直、水平、左-上-右、左-下-右）表示控制符号，设计事件帧分割模型和轻量级脉冲神经网络进行动作识别，结合集成解码算法解释MAV运动序列。</p>
+<p><strong>Result:</strong> 实验验证了框架的有效性，展示了精确的解码性能和低功耗特性，在受限环境中实现了可靠的通信。</p>
+<p><strong>Conclusion:</strong> 该视觉通信框架为微型飞行器群提供了一种节能高效的替代通信方案，特别适用于无线电受限环境，展示了生物启发方法在机器人通信中的潜力。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Reliable communication in Micro Air Vehicle (MAV) swarms is challenging in
+environments, where conventional radio-based methods suffer from spectrum
+congestion, jamming, and high power consumption. Inspired by the waggle dance
+of honeybees, which efficiently communicate the location of food sources
+without sound or contact, we propose a novel visual communication framework for
+MAV swarms using motion-based signaling. In this framework, MAVs convey
+information, such as heading and distance, through deliberate flight patterns,
+which are passively captured by event cameras and interpreted using a
+predefined visual codebook of four motion primitives: vertical (up/down),
+horizontal (left/right), left-to-up-to-right, and left-to-down-to-right,
+representing control symbols (<code>start'',</code>end'', <code>1'',</code>0''). To decode
+these signals, we design an event frame-based segmentation model and a
+lightweight Spiking Neural Network (SNN) for action recognition. An integrated
+decoding algorithm then combines segmentation and classification to robustly
+interpret MAV motion sequences. Experimental results validate the framework's
+effectiveness, which demonstrates accurate decoding and low power consumption,
+and highlights its potential as an energy-efficient alternative for MAV
+communication in constrained environments.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="4-spiking-neural-network-architecture-search-a-survey">[4] <a href="https://arxiv.org/abs/2510.14235">Spiking Neural Network Architecture Search: A Survey</a></h3>
+<p><em>Kama Svoboda, Tosiron Adegbija</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文从硬件/软件协同设计的独特视角对脉冲神经网络架构搜索进行了全面调查，强调协同设计方法对于释放神经形态计算全部潜力的重要性。该调查旨在为研究人员提供SNN架构搜索的整体视图，并作为该领域的宝贵资源。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 脉冲神经网络因其在能效和实时资源受限处理方面的显著优势，成为神经形态计算的有前景方法，特别适合边缘计算和物联网应用。然而，设计最优SNN架构面临重大挑战，包括其固有的复杂性以及硬件约束与SNN模型之间的相互作用，这需要专门的架构搜索方法。</p>
+<p><strong>Method:</strong> 本文采用调查分析方法，首先概述SNN的操作原理及其与传统人工神经网络的关键区别，然后简要回顾ANN中神经架构搜索的最新技术，重点分析将这些方法直接应用于SNN所面临的挑战。最后系统调查SNN特定的NAS方法，从硬件/软件协同设计角度进行分析。</p>
+<p><strong>Result:</strong> 调查揭示了硬件/软件协同设计在SNN架构搜索中的关键作用，强调了传统ANN NAS方法不能直接应用于SNN的局限性。通过系统分析现有SNN特定NAS方法，识别了当前研究中的空白和挑战，为未来研究方向提供了基础。</p>
+<p><strong>Conclusion:</strong> 硬件/软件协同设计对于充分发挥SNN潜力至关重要，未来研究应更加注重这种协同方法。该调查为SNN研究提供了重要见解，强调了协同设计在解锁神经形态计算全部能力方面的潜力，并为该领域的进一步发展指明了方向。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>This survey paper presents a comprehensive examination of Spiking Neural
+Network (SNN) architecture search (SNNaS) from a unique hardware/software
+co-design perspective. SNNs, inspired by biological neurons, have emerged as a
+promising approach to neuromorphic computing. They offer significant advantages
+in terms of power efficiency and real-time resource-constrained processing,
+making them ideal for edge computing and IoT applications. However, designing
+optimal SNN architectures poses significant challenges, due to their inherent
+complexity (e.g., with respect to training) and the interplay between hardware
+constraints and SNN models. We begin by providing an overview of SNNs,
+emphasizing their operational principles and key distinctions from traditional
+artificial neural networks (ANNs). We then provide a brief overview of the
+state of the art in NAS for ANNs, highlighting the challenges of directly
+applying these approaches to SNNs. We then survey the state-of-the-art in
+SNN-specific NAS approaches. Finally, we conclude with insights into future
+research directions for SNN research, emphasizing the potential of
+hardware/software co-design in unlocking the full capabilities of SNNs. This
+survey aims to serve as a valuable resource for researchers and practitioners
+in the field, offering a holistic view of SNNaS and underscoring the importance
+of a co-design approach to harness the true potential of neuromorphic
+computing.</p>
+  </article>
+</body>
+</html>
