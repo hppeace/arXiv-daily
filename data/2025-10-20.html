@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-10-20.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-spikefit-towards-optimal-deployment-of-spiking-networks-on-neuromorphic-hardware">[1] <a href="https://arxiv.org/abs/2510.15542">SpikeFit: Towards Optimal Deployment of Spiking Networks on Neuromorphic Hardware</a></h3>
+<p><em>Ivan Kartashov, Mariia Pushkareva, Iakov Karandashev</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>SpikeFit是一种新颖的脉冲神经网络训练方法，通过联合优化离散权重集与硬件约束，实现了在神经形态硬件上的高效推理，同时满足神经元数量、突触连接数和低比特位宽表示等严格硬件要求。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有脉冲神经网络压缩方法仅能解决数值精度受限或网络神经元数量受限等部分硬件约束问题，无法全面满足神经形态处理器对神经元数量、突触连接数和低比特位宽表示的多重严格要求，限制了SNN在多样化神经形态硬件上的完整部署。</p>
+<p><strong>Method:</strong> SpikeFit提出将允许的权重离散值本身作为可学习参数与模型共同优化，实现低精度（2位、4位或8位）下的最优聚类感知训练，同时引入硬件友好的Fisher脉冲贡献剪枝方法，限制唯一突触连接数量以适应神经形态处理器的要求。</p>
+<p><strong>Result:</strong> 在仅允许四个唯一突触权重值（M=4）的约束下，SpikeFit不仅超越了现有最先进的SNN压缩方法和传统基线方法，还满足了更广泛的神经形态硬件要求，在实验中实现了最低的能耗使用。</p>
+<p><strong>Conclusion:</strong> 该研究表明联合优化离散权重集与硬件约束的方法能够实现更高效的网络压缩，为脉冲神经网络在多样化神经形态处理器上的完整部署提供了有效解决方案，同时提出的FSC剪枝方法展现了最先进的性能表现。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>This paper introduces SpikeFit, a novel training method for Spiking Neural
+Networks (SNNs) that enables efficient inference on neuromorphic hardware,
+considering all its stringent requirements: the number of neurons and synapses
+that can fit on a single device, and lower bit-width representations (e.g.,
+4-bit, 8-bit). Unlike conventional compressing approaches that address only a
+subset of these requirements (limited numerical precision and limited number of
+neurons in the network), SpikeFit treats the allowed weights' discrete values
+themselves as learnable parameters co-optimized with the model, allowing for
+optimal Clusterization-Aware Training (CAT) of the model's weights at low
+precision (2-, 4-, or 8-bit) which results in higher network compression
+efficiency, as well as limiting the number of unique synaptic connections to a
+value required by neuromorphic processor. This joint optimization allows
+SpikeFit to find a discrete weight set aligned with hardware constraints,
+enabling the most complete deployment across a broader range of neuromorphic
+processors than existing methods of SNN compression support. Moreover, SpikeFit
+introduces a new hardware-friendly Fisher Spike Contribution (FSC) pruning
+method showing the state-of-the-art performance. We demonstrate that for
+spiking neural networks constrained to only four unique synaptic weight values
+(M = 4), our SpikeFit method not only outperforms state-of-the-art SNNs
+compression methods and conventional baselines combining extreme quantization
+schemes and clustering algorithms, but also meets a wider range of neuromorphic
+hardware requirements and provides the lowest energy use in experiments.</p>
+  </article>
+</body>
+</html>
