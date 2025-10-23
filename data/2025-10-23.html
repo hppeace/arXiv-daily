@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-10-23.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-had-hierarchical-asymmetric-distillation-to-bridge-spatio-temporal-gaps-in-event-based-object-tracking">[1] <a href="https://arxiv.org/abs/2510.19560">HAD: Hierarchical Asymmetric Distillation to Bridge Spatio-Temporal Gaps in Event-Based Object Tracking</a></h3>
+<p><em>Yao Deng, Xian Zhong, Wenxuan Liu, Zhaofei Yu, Jingling Yuan, Tiejun Huang</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种层次化非对称蒸馏（HAD）框架，通过显式建模和缓解RGB相机与事件相机之间的时空不对称性，有效融合两种模态的互补优势，显著提升了目标跟踪性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> RGB相机和事件相机在成像机制上存在根本差异，导致显著的时空不对称性，阻碍了两种模态的有效融合。这种不对称性限制了在高速运动、高动态范围环境和动态背景干扰等挑战性条件下目标跟踪性能的提升。</p>
+<p><strong>Method:</strong> 提出层次化非对称蒸馏（HAD）框架，采用层次化对齐策略，在保持学生网络计算效率和参数紧凑性的同时最小化信息损失。该框架通过显式建模时空不对称性来实现多模态知识蒸馏。</p>
+<p><strong>Result:</strong> 大量实验表明HAD框架在多个基准测试中持续优于现有最先进方法，全面的消融研究进一步验证了每个设计组件的有效性和必要性。</p>
+<p><strong>Conclusion:</strong> 该研究证明了通过显式建模和缓解模态间不对称性可以有效融合互补信息，为多模态视觉任务提供了新的解决方案，并为未来在计算效率和性能平衡方面的研究指明了方向。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>RGB cameras excel at capturing rich texture details with high spatial
+resolution, whereas event cameras offer exceptional temporal resolution and a
+high dynamic range (HDR). Leveraging their complementary strengths can
+substantially enhance object tracking under challenging conditions, such as
+high-speed motion, HDR environments, and dynamic background interference.
+However, a significant spatio-temporal asymmetry exists between these two
+modalities due to their fundamentally different imaging mechanisms, hindering
+effective multi-modal integration. To address this issue, we propose
+{Hierarchical Asymmetric Distillation} (HAD), a multi-modal knowledge
+distillation framework that explicitly models and mitigates spatio-temporal
+asymmetries. Specifically, HAD proposes a hierarchical alignment strategy that
+minimizes information loss while maintaining the student network's
+computational efficiency and parameter compactness. Extensive experiments
+demonstrate that HAD consistently outperforms state-of-the-art methods, and
+comprehensive ablation studies further validate the effectiveness and necessity
+of each designed component. The code will be released soon.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-a-flexible-framework-for-structural-plasticity-in-gpu-accelerated-sparse-spiking-neural-networks">[2] <a href="https://arxiv.org/abs/2510.19764">A flexible framework for structural plasticity in GPU-accelerated sparse spiking neural networks</a></h3>
+<p><em>James C. Knight, Johanna Senk, Thomas Nowotny</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本研究提出了一种支持GPU加速结构可塑性规则的新型灵活框架，首次实现了在监督和无监督学习环境中训练稀疏脉冲神经网络，相比密集模型训练时间减少高达10倍，同时保持同等性能。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前人工神经网络和生物大脑学习研究主要关注突触可塑性，而忽视了结构可塑性在有效学习、损伤恢复和资源优化中的关键作用。虽然剪枝技术常用于减少推理计算需求，但现有机器学习框架针对密集连接优化，无法降低大型模型的训练成本。</p>
+<p><strong>Method:</strong> 开发了基于GeNN模拟器的新型GPU加速结构可塑性框架，首先使用e-prop监督学习规则和DEEP R训练高效的稀疏SNN分类器，然后在无监督学习环境中学习拓扑映射。该框架支持动态创建和移除连接的结构可塑性机制。</p>
+<p><strong>Result:</strong> 稀疏分类器相比基线密集模型训练时间减少高达10倍，DEEP R重连接机制使其性能与原始模型相当。实现了快于实时模拟的拓扑映射形成，提供了连接性演化洞察，并测量了模拟速度与网络规模的关系。</p>
+<p><strong>Conclusion:</strong> 该框架为在网络结构和神经通信中实现和维持稀疏性的进一步研究奠定了基础，同时为探索稀疏性在各种神经形态应用中的计算优势提供了平台，推动了结构可塑性在机器学习中的应用发展。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>The majority of research in both training Artificial Neural Networks (ANNs)
+and modeling learning in biological brains focuses on synaptic plasticity,
+where learning equates to changing the strength of existing connections.
+However, in biological brains, structural plasticity - where new connections
+are created and others removed - is also vital, not only for effective learning
+but also for recovery from damage and optimal resource usage. Inspired by
+structural plasticity, pruning is often used in machine learning to remove weak
+connections from trained models to reduce the computational requirements of
+inference. However, the machine learning frameworks typically used for
+backpropagation-based training of both ANNs and Spiking Neural Networks (SNNs)
+are optimized for dense connectivity, meaning that pruning does not help reduce
+the training costs of ever-larger models. The GeNN simulator already supports
+efficient GPU-accelerated simulation of sparse SNNs for computational
+neuroscience and machine learning. Here, we present a new flexible framework
+for implementing GPU-accelerated structural plasticity rules and demonstrate
+this first using the e-prop supervised learning rule and DEEP R to train
+efficient, sparse SNN classifiers and then, in an unsupervised learning
+context, to learn topographic maps. Compared to baseline dense models, our
+sparse classifiers reduce training time by up to 10x while the DEEP R rewiring
+enables them to perform as well as the original models. We demonstrate
+topographic map formation in faster-than-realtime simulations, provide insights
+into the connectivity evolution, and measure simulation speed versus network
+size. The proposed framework will enable further research into achieving and
+maintaining sparsity in network structure and neural communication, as well as
+exploring the computational benefits of sparsity in a range of neuromorphic
+applications.</p>
+  </article>
+</body>
+</html>
