@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-10-27.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-unveiling-the-spatial-temporal-effective-receptive-fields-of-spiking-neural-networks">[1] <a href="https://arxiv.org/abs/2510.21403">Unveiling the Spatial-temporal Effective Receptive Fields of Spiking Neural Networks</a></h3>
+<p><em>Jieyuan Zhang, Xiaolong Zhou, Shuai Wang, Wenjie Wei, Hanwen Liu, Qian Sun, Malu Zhang, Yang Yang, Haizhou Li</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了时空有效感受野（ST-ERF）框架来分析基于Transformer的脉冲神经网络，并设计了两种新型通道混合器架构MLPixer和SRB来增强全局时空感受野，显著提升了视觉长序列建模任务的性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 脉冲神经网络在视觉长序列建模任务中难以达到竞争性性能，主要问题在于缺乏有效的全局时空特征提取能力，而传统有效感受野分析工具在SNN中的适用性尚未得到充分探索。</p>
+<p><strong>Method:</strong> 提出了时空有效感受野（ST-ERF）分析框架来评估Transformer-based SNNs的感受野分布特性，并设计了两种新型通道混合器架构：基于多层感知机的MLPixer和基于splash-and-reconstruct的SRB模块，通过在早期网络阶段增强全局空间感受野来改进特征建模能力。</p>
+<p><strong>Result:</strong> 在Meta-SDT变体以及目标检测和语义分割任务上的广泛实验验证了所提方法的有效性，显著提升了基于Transformer的SNNs在视觉长序列建模任务中的性能表现。</p>
+<p><strong>Conclusion:</strong> 提出的ST-ERF框架不仅解决了当前SNNs在视觉长序列建模中的性能瓶颈，还为更广泛SNN架构的设计和优化提供了有价值的分析工具和设计思路，推动了脉冲神经网络在复杂视觉任务中的应用发展。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) demonstrate significant potential for
+energy-efficient neuromorphic computing through an event-driven paradigm. While
+training methods and computational models have greatly advanced, SNNs struggle
+to achieve competitive performance in visual long-sequence modeling tasks. In
+artificial neural networks, the effective receptive field (ERF) serves as a
+valuable tool for analyzing feature extraction capabilities in visual
+long-sequence modeling. Inspired by this, we introduce the Spatio-Temporal
+Effective Receptive Field (ST-ERF) to analyze the ERF distributions across
+various Transformer-based SNNs. Based on the proposed ST-ERF, we reveal that
+these models suffer from establishing a robust global ST-ERF, thereby limiting
+their visual feature modeling capabilities. To overcome this issue, we propose
+two novel channel-mixer architectures:
+\underline{m}ulti-\underline{l}ayer-\underline{p}erceptron-based
+m\underline{ixer} (MLPixer) and \underline{s}plash-and-\underline{r}econstruct
+\underline{b}lock (SRB). These architectures enhance global spatial ERF through
+all timesteps in early network stages of Transformer-based SNNs, improving
+performance on challenging visual long-sequence modeling tasks. Extensive
+experiments conducted on the Meta-SDT variants and across object detection and
+semantic segmentation tasks further validate the effectiveness of our proposed
+method. Beyond these specific applications, we believe the proposed ST-ERF
+framework can provide valuable insights for designing and optimizing SNN
+architectures across a broader range of tasks. The code is available at
+\href{https://github.com/EricZhang1412/Spatial-temporal-ERF}{\faGithub~EricZhang1412/Spatial-temporal-ERF}.</p>
+  </article>
+</body>
+</html>
