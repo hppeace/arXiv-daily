@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-11-05.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-autobiasing-event-cameras-for-flickering-mitigation">[1] <a href="https://arxiv.org/abs/2511.02180">Autobiasing Event Cameras for Flickering Mitigation</a></h3>
+<p><em>Mehdi Sefidgar Dilmaghani, Waseem Shariff, Cian Ryan, Joe Lemley, Peter Corcoran</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种基于卷积神经网络的自适应偏置调节机制，通过动态调整事件相机的偏置设置来抑制25-500Hz范围内的闪烁效应，显著提升了事件相机在复杂光照环境下的性能表现。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机在动态光照环境中容易受到闪烁效应的影响，传统方法需要额外硬件或软件滤波，本研究旨在利用事件相机固有的偏置设置自主解决闪烁问题，提升其在多样化环境中的适应性。</p>
+<p><strong>Method:</strong> 采用卷积神经网络在空间域识别闪烁现象，并动态调节事件相机的特定偏置参数，通过自偏置系统实现无需外部干预的闪烁抑制。</p>
+<p><strong>Result:</strong> 在人脸检测框架下验证显示，YOLO置信度显著提升，检测到人脸的帧比例增加，平均梯度指标在良好光照下降低38.2%，低光条件下降低53.6%，有效指示了闪烁抑制效果。</p>
+<p><strong>Conclusion:</strong> 该自偏置方法证明了通过智能调节事件相机内部参数可有效应对复杂光照挑战，为事件相机在恶劣光照条件下的实际应用提供了可行的解决方案和重要技术支撑。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Understanding and mitigating flicker effects caused by rapid variations in
+light intensity is critical for enhancing the performance of event cameras in
+diverse environments. This paper introduces an innovative autonomous mechanism
+for tuning the biases of event cameras, effectively addressing flicker across a
+wide frequency range -25 Hz to 500 Hz. Unlike traditional methods that rely on
+additional hardware or software for flicker filtering, our approach leverages
+the event cameras inherent bias settings. Utilizing a simple Convolutional
+Neural Networks -CNNs, the system identifies instances of flicker in a spatial
+space and dynamically adjusts specific biases to minimize its impact. The
+efficacy of this autobiasing system was robustly tested using a face detector
+framework under both well-lit and low-light conditions, as well as across
+various frequencies. The results demonstrated significant improvements:
+enhanced YOLO confidence metrics for face detection, and an increased
+percentage of frames capturing detected faces. Moreover, the average gradient,
+which serves as an indicator of flicker presence through edge detection,
+decreased by 38.2 percent in well-lit conditions and by 53.6 percent in
+low-light conditions. These findings underscore the potential of our approach
+to significantly improve the functionality of event cameras in a range of
+adverse lighting scenarios.</p>
+  </article>
+</body>
+</html>
