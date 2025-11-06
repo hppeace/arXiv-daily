@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-11-06.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-evtslowtv-a-large-and-diverse-dataset-for-event-based-depth-estimation">[1] <a href="https://arxiv.org/abs/2511.02953">EvtSlowTV - A Large and Diverse Dataset for Event-Based Depth Estimation</a></h3>
+<p><em>Sadiq Layi Macaulay, Nimet Kaygusuz, Simon Hadfield</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了EvtSlowTV，一个从YouTube视频构建的大规模事件相机数据集，包含超过130亿个事件，用于解决事件相机深度估计中标注数据不足的问题，并通过自监督学习框架展示了其在复杂场景中的泛化能力。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机因其高动态范围和低延迟特性，在挑战性环境中具有鲁棒深度估计的潜力，但现有方法受限于小规模标注数据集，限制了其在真实场景中的泛化能力。</p>
+<p><strong>Method:</strong> 研究引入了EvtSlowTV大规模事件相机数据集，构建了自监督学习框架以利用原始事件流的高动态范围潜力，该方法无需基于帧的标注并保持了事件数据的异步特性。</p>
+<p><strong>Result:</strong> EvtSlowTV数据集比现有事件数据集大一个数量级，包含各种环境条件和运动场景，训练使用该数据集能显著提升模型在复杂场景和运动中的泛化能力。</p>
+<p><strong>Conclusion:</strong> 该研究证明了大规模无约束自然场景事件数据对于深度估计的重要性，自监督学习框架能够有效利用事件相机的高动态范围特性，为事件视觉在真实世界应用中的发展提供了重要基础。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Event cameras, with their high dynamic range (HDR) and low latency, offer a
+promising alternative for robust depth estimation in challenging environments.
+However, many event-based depth estimation approaches are constrained by
+small-scale annotated datasets, limiting their generalizability to real-world
+scenarios. To bridge this gap, we introduce EvtSlowTV, a large-scale event
+camera dataset curated from publicly available YouTube footage, which contains
+more than 13B events across various environmental conditions and motions,
+including seasonal hiking, flying, scenic driving, and underwater exploration.
+EvtSlowTV is an order of magnitude larger than existing event datasets,
+providing an unconstrained, naturalistic setting for event-based depth
+learning. This work shows the suitability of EvtSlowTV for a self-supervised
+learning framework to capitalise on the HDR potential of raw event streams. We
+further demonstrate that training with EvtSlowTV enhances the model's ability
+to generalise to complex scenes and motions. Our approach removes the need for
+frame-based annotations and preserves the asynchronous nature of event data.</p>
+<h3 id="2-a-lightweight-3d-cnn-for-event-based-human-action-recognition-with-privacy-preserving-potential">[2] <a href="https://arxiv.org/abs/2511.03665">A Lightweight 3D-CNN for Event-Based Human Action Recognition with Privacy-Preserving Potential</a></h3>
+<p><em>Mehdi Sefidgar Dilmaghani, Francis Fowley, Peter Corcoran</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了一种轻量级三维卷积神经网络，利用事件视觉数据进行人类活动识别，在保护隐私的同时实现了94.17%的准确率，优于现有3D-CNN基准模型。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统基于帧的摄像头在人类监控系统中会捕获可识别的个人信息，存在隐私保护挑战，而事件相机仅记录像素强度变化，提供了一种固有的隐私保护感知模式，但需要有效的深度学习方法来实现准确的活动识别。</p>
+<p><strong>Method:</strong> 采用轻量级三维卷积神经网络有效建模空间和时间动态，同时保持紧凑设计以适应边缘部署；为解决类别不平衡和增强泛化能力，使用了带类别重新加权的焦点损失和针对性数据增强策略。</p>
+<p><strong>Result:</strong> 在丰田智能家居和ETRI数据集组合上的实验结果显示，模型F1分数达到0.9415，整体准确率为94.17%，比C3D、ResNet3D和MC3_18等基准3D-CNN架构性能提升高达3%。</p>
+<p><strong>Conclusion:</strong> 研究结果表明基于事件的深度学习方法具有开发准确、高效且隐私感知的人类动作识别系统的潜力，特别适合现实世界的边缘应用场景，为隐私保护监控系统提供了有前景的技术路径。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>This paper presents a lightweight three-dimensional convolutional neural
+network (3DCNN) for human activity recognition (HAR) using event-based vision
+data. Privacy preservation is a key challenge in human monitoring systems, as
+conventional frame-based cameras capture identifiable personal information. In
+contrast, event cameras record only changes in pixel intensity, providing an
+inherently privacy-preserving sensing modality. The proposed network
+effectively models both spatial and temporal dynamics while maintaining a
+compact design suitable for edge deployment. To address class imbalance and
+enhance generalization, focal loss with class reweighting and targeted data
+augmentation strategies are employed. The model is trained and evaluated on a
+composite dataset derived from the Toyota Smart Home and ETRI datasets.
+Experimental results demonstrate an F1-score of 0.9415 and an overall accuracy
+of 94.17%, outperforming benchmark 3D-CNN architectures such as C3D, ResNet3D,
+and MC3_18 by up to 3%. These results highlight the potential of event-based
+deep learning for developing accurate, efficient, and privacy-aware human
+action recognition systems suitable for real-world edge applications.</p>
+  </article>
+</body>
+</html>
