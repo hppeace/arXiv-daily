@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-11-13.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-stabilizing-direct-training-of-spiking-neural-networks-membrane-potential-initialization-and-threshold-robust-surrogate-gradient">[1] <a href="https://arxiv.org/abs/2511.08708">Stabilizing Direct Training of Spiking Neural Networks: Membrane Potential Initialization and Threshold-robust Surrogate Gradient</a></h3>
+<p><em>Hyunho Kook, Byeongho Yu, Jeong Min Oh, Eunhyeok Park</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了MP-Init和TrSG两种创新方法，分别通过膜电位初始化和阈值鲁棒代理梯度解决了SNN训练中的时间协变量偏移和梯度不稳定问题，在静态和动态图像数据集上实现了最先进的准确率。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管直接训练脉冲神经网络在早期时间步已能产生高质量输出，但其固有的非线性和时间依赖性带来了持续挑战，包括时间协变量偏移以及可学习神经元阈值导致的梯度流不稳定问题。</p>
+<p><strong>Method:</strong> 提出了MP-Init通过将初始膜电位与其平稳分布对齐来解决时间协变量偏移问题，同时开发了TrSG在训练过程中稳定关于阈值电压的梯度流。</p>
+<p><strong>Result:</strong> 广泛的实验验证了该方法的有效性，在静态和动态图像数据集上均达到了最先进的准确率水平。</p>
+<p><strong>Conclusion:</strong> 该研究为构建新型节能AI范式提供了重要技术支撑，通过解决SNN训练中的关键稳定性问题，推动了脉冲神经网络在实际应用中的发展。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Recent advancements in the direct training of Spiking Neural Networks (SNNs) have demonstrated high-quality outputs even at early timesteps, paving the way for novel energy-efficient AI paradigms. However, the inherent non-linearity and temporal dependencies in SNNs introduce persistent challenges, such as temporal covariate shift (TCS) and unstable gradient flow with learnable neuron thresholds. In this paper, we present two key innovations: MP-Init (Membrane Potential Initialization) and TrSG (Threshold-robust Surrogate Gradient). MP-Init addresses TCS by aligning the initial membrane potential with its stationary distribution, while TrSG stabilizes gradient flow with respect to threshold voltage during training. Extensive experiments validate our approach, achieving state-of-the-art accuracy on both static and dynamic image datasets. The code is available at: https://github.com/kookhh0827/SNN-MP-Init-TRSG</p>
+  </article>
+</body>
+</html>
