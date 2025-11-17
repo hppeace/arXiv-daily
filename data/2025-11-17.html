@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-11-17.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-ycb-ev-sd-synthetic-event-vision-dataset-for-6dof-object-pose-estimation">[1] <a href="https://arxiv.org/abs/2511.11344">YCB-Ev SD: Synthetic event-vision dataset for 6DoF object pose estimation</a></h3>
+<p><em>Pavel Rojtberg, Julius Kühn</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了YCB-Ev SD，一个用于6DoF物体姿态估计的标准分辨率事件相机合成数据集，填补了事件视觉领域缺乏综合性合成数据资源的空白。通过系统评估不同事件表示方法，研究发现线性衰减时间表面与双通道极性编码在CNN推理中实现了最优的姿态估计性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前合成数据在基于帧的计算机视觉中已成为基础资源，但事件视觉领域缺乏可比较的综合性数据集。本文旨在解决这一研究空白，为6DoF物体姿态估计提供标准分辨率的事件相机合成数据资源。</p>
+<p><strong>Method:</strong> 采用基于物理渲染的场景生成50,000个持续34毫秒的事件序列，遵循BOP基准方法。生成框架使用模拟线性相机运动确保完整场景覆盖，包括背景活动。系统评估了不同事件表示方法，包括时间表面编码策略和极性信息处理方式。</p>
+<p><strong>Result:</strong> 实验表明线性衰减时间表面与双通道极性编码在姿态估计性能上显著优于指数衰减和单通道替代方案。极性信息对性能提升贡献最大，而线性时间编码比指数衰减更有效地保留了关键运动信息。</p>
+<p><strong>Conclusion:</strong> 该研究为事件视觉社区提供了首个综合性合成数据集，促进了可复现的基准测试和立即研究使用。极性信息和线性时间编码的优化组合为事件相机数据处理提供了重要指导，数据集以结构化格式提供原始事件流和预计算最优表示。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>We introduce YCB-Ev SD, a synthetic dataset of event-camera data at standard definition (SD) resolution for 6DoF object pose estimation. While synthetic data has become fundamental in frame-based computer vision, event-based vision lacks comparable comprehensive resources. Addressing this gap, we present 50,000 event sequences of 34 ms duration each, synthesized from Physically Based Rendering (PBR) scenes of YCB-Video objects following the Benchmark for 6D Object Pose (BOP) methodology. Our generation framework employs simulated linear camera motion to ensure complete scene coverage, including background activity.
+  Through systematic evaluation of event representations for CNN-based inference, we demonstrate that time-surfaces with linear decay and dual-channel polarity encoding achieve superior pose estimation performance, outperforming exponential decay and single-channel alternatives by significant margins. Our analysis reveals that polarity information contributes most substantially to performance gains, while linear temporal encoding preserves critical motion information more effectively than exponential decay. The dataset is provided in a structured format with both raw event streams and precomputed optimal representations to facilitate immediate research use and reproducible benchmarking.
+  The dataset is publicly available at https://huggingface.co/datasets/paroj/ycbev_sd.</p>
+  </article>
+</body>
+</html>
