@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-11-19.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-compevent-complex-valued-event-rgb-fusion-for-low-light-video-enhancement-and-deblurring">[1] <a href="https://arxiv.org/abs/2511.14469">CompEvent: Complex-valued Event-RGB Fusion for Low-light Video Enhancement and Deblurring</a></h3>
+<p><em>Mingchen Zhong, Xin Lu, Dong Li, Senyan Xu, Ruixuan Jiang, Xueyang Fu, Baocai Yin</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出CompEvent，一种基于复数神经网络的框架，实现事件数据和RGB视频帧的全流程融合，显著提升了低光视频去模糊性能。该方法通过复数时间对齐GRU和复数空间-频率学习模块，在时空维度上实现深度模态互补学习。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 低光视频去模糊在夜间监控和自动驾驶等应用中面临严重挑战，现有基于事件相机的融合方法通常采用分阶段策略，无法有效应对低光照和运动模糊的联合退化问题。</p>
+<p><strong>Method:</strong> CompEvent框架包含两个核心组件：复数时间对齐GRU利用复数卷积和GRU迭代处理视频和事件流实现时间对齐和连续融合；复数空间-频率学习模块在空间域和频域执行统一的复数信号处理，通过空间结构和系统级特性促进深度融合。</p>
+<p><strong>Result:</strong> 大量实验表明，CompEvent在解决这一挑战性任务方面优于当前最先进的方法，证明了其在低光视频去模糊方面的显著性能提升。</p>
+<p><strong>Conclusion:</strong> 通过复数神经网络的整体表示能力，CompEvent实现了全流程时空融合，最大化模态间的互补学习，为低光视频恢复提供了新的技术途径，具有重要的实际应用价值。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Low-light video deblurring poses significant challenges in applications like nighttime surveillance and autonomous driving due to dim lighting and long exposures. While event cameras offer potential solutions with superior low-light sensitivity and high temporal resolution, existing fusion methods typically employ staged strategies, limiting their effectiveness against combined low-light and motion blur degradations. To overcome this, we propose CompEvent, a complex neural network framework enabling holistic full-process fusion of event data and RGB frames for enhanced joint restoration. CompEvent features two core components: 1) Complex Temporal Alignment GRU, which utilizes complex-valued convolutions and processes video and event streams iteratively via GRU to achieve temporal alignment and continuous fusion; and 2) Complex Space-Frequency Learning module, which performs unified complex-valued signal processing in both spatial and frequency domains, facilitating deep fusion through spatial structures and system-level characteristics. By leveraging the holistic representation capability of complex-valued neural networks, CompEvent achieves full-process spatiotemporal fusion, maximizes complementary learning between modalities, and significantly strengthens low-light video deblurring capability. Extensive experiments demonstrate that CompEvent outperforms SOTA methods in addressing this challenging task. The code is available at https://github.com/YuXie1/CompEvent.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-ms2edge-towards-energy-efficient-and-crisp-edge-detection-with-multi-scale-residual-learning-in-snns">[2] <a href="https://arxiv.org/abs/2511.13735">MS2Edge: Towards Energy-Efficient and Crisp Edge Detection with Multi-Scale Residual Learning in SNNs</a></h3>
+<p><em>Yimeng Fan, Changsong Liu, Mingyang Li, Yuzhou Dai, Yanyan Liu, Wei Zhang</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了MS2Edge，这是首个基于脉冲神经网络（SNN）的边缘检测模型，通过多尺度残差学习和新型神经元设计解决了SNN量化误差导致的边缘不连续问题，在多个数据集上实现了最先进的性能，同时保持极低能耗且无需后处理。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前基于人工神经网络（ANN）的边缘检测方法面临两个主要挑战：需要大规模预训练数据和复杂先验知识设计导致高能耗，以及预测边缘清晰度差且严重依赖后处理。脉冲神经网络（SNN）虽然具有量化特性和脉冲驱动计算机制，能够提供边缘检测的强先验并抑制纹理伪影，但其量化误差会引入稀疏边缘不连续性，限制了清晰度的进一步提升。</p>
+<p><strong>Method:</strong> 提出的MS2Edge模型核心是构建了名为MS2ResNet的新型脉冲骨干网络，该网络集成了多尺度残差学习以恢复缺失的边界线并生成清晰边缘，同时结合I-LIF神经元和基于膜电位的变形捷径（MDS）来减轻量化误差。模型还包含用于上采样过程中细节重建的脉冲多尺度上采样块（SMSUB），以及用于有效整合多时间步边缘图的膜平均解码（MAD）方法。</p>
+<p><strong>Result:</strong> 实验结果表明，MS2Edge在BSDS500、NYUDv2、BIPED、PLDU和PLDM数据集上超越了基于ANN的方法，实现了最先进的性能，且无需预训练骨干网络。该模型同时保持了极低的能耗，并能够生成无需后处理的清晰边缘图。</p>
+<p><strong>Conclusion:</strong> 这项研究证明了SNN在边缘检测任务中的巨大潜力，通过精心设计的架构有效克服了量化误差带来的挑战。MS2Edge的成功表明SNN不仅能够实现能源高效的边缘检测，还能在性能上超越传统ANN方法，为未来低功耗计算机视觉应用提供了新的解决方案方向。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Edge detection with Artificial Neural Networks (ANNs) has achieved remarkable prog-ress but faces two major challenges. First, it requires pre-training on large-scale extra data and complex designs for prior knowledge, leading to high energy consumption. Second, the predicted edges perform poorly in crispness and heavily rely on post-processing. Spiking Neural Networks (SNNs), as third generation neural networks, feature quantization and spike-driven computation mechanisms. They inherently provide a strong prior for edge detection in an energy-efficient manner, while its quantization mechanism helps suppress texture artifact interference around true edges, improving prediction crispness. However, the resulting quantization error inevitably introduces sparse edge discontinuities, compromising further enhancement of crispness. To address these challenges, we propose MS2Edge, the first SNN-based model for edge detection. At its core, we build a novel spiking backbone named MS2ResNet that integrates multi-scale residual learning to recover missing boundary lines and generate crisp edges, while combining I-LIF neurons with Membrane-based Deformed Shortcut (MDS) to mitigate quantization errors. The model is complemented by a Spiking Multi-Scale Upsample Block (SMSUB) for detail reconstruction during upsampling and a Membrane Average Decoding (MAD) method for effective integration of edge maps across multiple time steps. Experimental results demonstrate that MS2Edge outperforms ANN-based methods and achieves state-of-the-art performance on the BSDS500, NYUDv2, BIPED, PLDU, and PLDM datasets without pre-trained backbones, while maintaining ultralow energy consumption and generating crisp edge maps without post-processing.</p>
+  </article>
+</body>
+</html>
