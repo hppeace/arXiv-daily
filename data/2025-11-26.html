@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-11-26.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-realizing-fully-integrated-low-power-event-based-pupil-tracking-with-neuromorphic-hardware">[1] <a href="https://arxiv.org/abs/2511.20175">Realizing Fully-Integrated, Low-Power, Event-Based Pupil Tracking with Neuromorphic Hardware</a></h3>
+<p><em>Federico Paredes-Valles, Yoshitaka Miyatani, Kirk Y. W. Scheper</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本研究提出了首个电池供电的可穿戴瞳孔中心追踪系统，通过事件视觉传感与神经形态处理的端到端集成，在Speck2f片上系统上实现了100Hz双目光学追踪，每眼平均功耗低于5mW。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前可穿戴平台在实现稳健、高频率眼动追踪的同时保持超低功耗面临挑战，事件视觉传感器虽然提供微秒级分辨率和稀疏数据流，但缺乏完全集成的低功耗实时推理解决方案。</p>
+<p><strong>Method:</strong> 采用商用Speck2f片上系统集成事件传感与神经形态处理，结合低功耗微控制器进行轻量级坐标解码；提出新型不确定性量化脉冲神经网络，配备门控时序解码机制，针对严格内存和带宽约束优化，并通过系统化部署机制弥合现实差距。</p>
+<p><strong>Result:</strong> 在多用户数据集上验证了系统性能，可穿戴原型配备双神经形态设备，实现100Hz稳健双目光学追踪，每眼平均功耗低于5mW。</p>
+<p><strong>Conclusion:</strong> 端到端神经形态计算为下一代高能效可穿戴系统实现了实用的常开眼动追踪，证明了完全集成的事件驱动系统在超低功耗下的可行性。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Eye tracking is fundamental to numerous applications, yet achieving robust, high-frequency tracking with ultra-low power consumption remains challenging for wearable platforms. While event-based vision sensors offer microsecond resolution and sparse data streams, they have lacked fully integrated, low-power processing solutions capable of real-time inference. In this work, we present the first battery-powered, wearable pupil-center-tracking system with complete on-device integration, combining event-based sensing and neuromorphic processing on the commercially available Speck2f system-on-chip with lightweight coordinate decoding on a low-power microcontroller. Our solution features a novel uncertainty-quantifying spiking neural network with gated temporal decoding, optimized for strict memory and bandwidth constraints, complemented by systematic deployment mechanisms that bridge the reality gap. We validate our system on a new multi-user dataset and demonstrate a wearable prototype with dual neuromorphic devices achieving robust binocular pupil tracking at 100 Hz with an average power consumption below 5 mW per eye. Our work demonstrates that end-to-end neuromorphic computing enables practical, always-on eye tracking for next-generation energy-efficient wearable systems.</p>
+  </article>
+</body>
+</html>
