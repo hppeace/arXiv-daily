@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-11-27.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-hybrid-sift-snn-for-efficient-anomaly-detection-of-traffic-flow-control-infrastructure">[1] <a href="https://arxiv.org/abs/2511.21337">Hybrid SIFT-SNN for Efficient Anomaly Detection of Traffic Flow-Control Infrastructure</a></h3>
+<p><em>Munish Rathee, Boris Bačić, Maryam Doborjeh</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了SIFT-SNN框架，一种用于交通基础设施结构异常实时检测的低延迟神经形态信号处理管道，通过结合尺度不变特征变换和脉冲神经网络实现了92.3%的分类准确率和9.5毫秒的推理时间。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 该研究旨在解决传统基于CNN的方法在实时结构安全监测中的局限性，包括高延迟、高功耗以及缺乏可解释性等问题，特别是在边缘设备部署场景下需要低延迟和透明决策支持的需求。</p>
+<p><strong>Method:</strong> 提出的方法整合了尺度不变特征变换用于空间特征编码，结合延迟驱动的脉冲转换层和泄漏积分发放脉冲神经网络进行分类，在奥克兰海港大桥数据集上使用6000个标记帧进行验证，包含真实和合成增强的不安全案例。</p>
+<p><strong>Result:</strong> 系统实现了92.3%的分类准确率，每帧推理时间为9.5毫秒，稀疏脉冲活动率为8.1%，合成增强提高了鲁棒性，但在未见现场条件下的泛化能力仍需验证。</p>
+<p><strong>Conclusion:</strong> SIFT-SNN框架在保持空间特征基础的同时增强了可解释性，支持透明决策，并在嵌入式硬件上高效运行，作为可移动混凝土护栏结构安全监测的可推广案例研究，已在全球20多个城市部署的交通流控制基础设施中得到验证。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>This paper presents the SIFT-SNN framework, a low-latency neuromorphic signal-processing pipeline for real-time detection of structural anomalies in transport infrastructure. The proposed approach integrates Scale-Invariant Feature Transform (SIFT) for spatial feature encoding with a latency-driven spike conversion layer and a Leaky Integrate-and-Fire (LIF) Spiking Neural Network (SNN) for classification. The Auckland Harbour Bridge dataset is recorded under various weather and lighting conditions, comprising 6,000 labelled frames that include both real and synthetically augmented unsafe cases. The presented system achieves a classification accuracy of 92.3% (+- 0.8%) with a per-frame inference time of 9.5 ms. Achieved sub-10 millisecond latency, combined with sparse spike activity (8.1%), enables real-time, low-power edge deployment. Unlike conventional CNN-based approaches, the hybrid SIFT-SNN pipeline explicitly preserves spatial feature grounding, enhances interpretability, supports transparent decision-making, and operates efficiently on embedded hardware. Although synthetic augmentation improved robustness, generalisation to unseen field conditions remains to be validated. The SIFT-SNN framework is validated through a working prototype deployed on a consumer-grade system and framed as a generalisable case study in structural safety monitoring for movable concrete barriers, which, as a traffic flow-control infrastructure, is deployed in over 20 cities worldwide.</p>
+<h3 id="2-evraindrop-hypergraph-guided-completion-for-effective-frame-and-event-stream-aggregation">[2] <a href="https://arxiv.org/abs/2511.21439">EvRainDrop: HyperGraph-guided Completion for Effective Frame and Event Stream Aggregation</a></h3>
+<p><em>Futian Wang, Fan Zhang, Xiao Wang, Mengqi Wang, Dexing Huang, Jin Tang</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了一种基于超图引导的时空事件流补全机制，通过超图连接不同时间和空间位置的事件标记，利用上下文信息传递来补全稀疏事件，有效解决了事件相机数据空间稀疏性导致的欠采样问题。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 主流事件表示学习方法通常使用事件帧、体素或张量作为输入，虽然取得了显著进展，但难以解决由空间稀疏性导致的欠采样问题，限制了事件数据的有效利用和特征学习能力。</p>
+<p><strong>Method:</strong> 提出超图引导的时空事件流补全机制，通过超图连接不同时间和空间位置的事件标记，利用上下文信息传递完成稀疏事件补全；该框架可灵活集成RGB标记作为超图节点，实现多模态超图信息补全，并通过跨时间步的自注意力聚合超图节点信息。</p>
+<p><strong>Result:</strong> 在单标签和多标签事件分类任务上的广泛实验充分验证了所提框架的有效性，表明该方法能够显著提升事件数据的表示学习性能和处理效率。</p>
+<p><strong>Conclusion:</strong> 该研究为事件相机数据处理提供了新的超图补全范式，通过时空上下文信息传递和多模态融合，有效克服了事件流空间稀疏性带来的挑战，为事件表示学习开辟了新的技术路径。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Event cameras produce asynchronous event streams that are spatially sparse yet temporally dense. Mainstream event representation learning algorithms typically use event frames, voxels, or tensors as input. Although these approaches have achieved notable progress, they struggle to address the undersampling problem caused by spatial sparsity. In this paper, we propose a novel hypergraph-guided spatio-temporal event stream completion mechanism, which connects event tokens across different times and spatial locations via hypergraphs and leverages contextual information message passing to complete these sparse events. The proposed method can flexibly incorporate RGB tokens as nodes in the hypergraph within this completion framework, enabling multi-modal hypergraph-based information completion. Subsequently, we aggregate hypergraph node information across different time steps through self-attention, enabling effective learning and fusion of multi-modal features. Extensive experiments on both single- and multi-label event classification tasks fully validated the effectiveness of our proposed framework. The source code of this paper will be released on https://github.com/Event-AHU/EvRainDrop.</p>
+  </article>
+</body>
+</html>
