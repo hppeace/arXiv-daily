@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-12-02.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-uav-mm3d-a-large-scale-synthetic-benchmark-for-3d-perception-of-unmanned-aerial-vehicles-with-multi-modal-data">[1] <a href="https://arxiv.org/abs/2511.22404">UAV-MM3D: A Large-Scale Synthetic Benchmark for 3D Perception of Unmanned Aerial Vehicles with Multi-Modal Data</a></h3>
+<p><em>Longkun Zou, Jiale Wang, Rongqin Liang, Hai Wu, Ke Chen, Yaowei Wang</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了UAV-MM3D，一个用于低空无人机感知的高保真多模态合成数据集，包含40万帧同步数据、五种传感器模态和丰富标注，并提供了LiDAR引导的多模态融合基准网络LGFusionNet和轨迹预测基准，为无人机3D感知研究建立了公共基准。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 无人机在复杂低空环境中的精确感知对空域安全和智能系统至关重要，但真实世界数据收集面临空域管制、隐私问题和环境变化等固有约束，而手动标注3D姿态和跨模态对应关系耗时且昂贵，现有数据集难以满足大规模、精确标注和多模态数据的需求。</p>
+<p><strong>Method:</strong> 研究提出了UAV-MM3D高保真多模态合成数据集，包含40万帧同步数据，覆盖城市、郊区、森林、海岸等多样场景和不同天气条件，包含微型、小型、中型多种无人机模型，提供RGB、红外、LiDAR、雷达和动态视觉传感器五种模态数据，每帧包含2D/3D边界框、6自由度姿态和实例级标注。同时提出了LiDAR引导的多模态融合基准网络LGFusionNet和专用的无人机轨迹预测基准。</p>
+<p><strong>Result:</strong> UAV-MM3D数据集支持无人机3D检测、姿态估计、目标跟踪和短期轨迹预测等核心任务，通过可控仿真环境实现了全面场景覆盖和丰富标注，为无人机3D感知研究提供了首个大规模多模态公共基准，LGFusionNet和轨迹预测基准为相关研究提供了可比较的基线方法。</p>
+<p><strong>Conclusion:</strong> 该研究通过合成数据方法有效解决了真实世界无人机数据收集的局限性，为低空无人机感知和运动理解提供了高质量的多模态基准，其可控仿真环境和全面场景覆盖为无人机3D感知算法的开发和评估提供了重要平台，将推动无人机感知技术在实际复杂环境中的应用。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Accurate perception of UAVs in complex low-altitude environments is critical for airspace security and related intelligent systems. Developing reliable solutions requires large-scale, accurately annotated, and multimodal data. However, real-world UAV data collection faces inherent constraints due to airspace regulations, privacy concerns, and environmental variability, while manual annotation of 3D poses and cross-modal correspondences is time-consuming and costly. To overcome these challenges, we introduce UAV-MM3D, a high-fidelity multimodal synthetic dataset for low-altitude UAV perception and motion understanding. It comprises 400K synchronized frames across diverse scenes (urban areas, suburbs, forests, coastal regions) and weather conditions (clear, cloudy, rainy, foggy), featuring multiple UAV models (micro, small, medium-sized) and five modalities - RGB, IR, LiDAR, Radar, and DVS (Dynamic Vision Sensor). Each frame provides 2D/3D bounding boxes, 6-DoF poses, and instance-level annotations, enabling core tasks related to UAVs such as 3D detection, pose estimation, target tracking, and short-term trajectory forecasting. We further propose LGFusionNet, a LiDAR-guided multimodal fusion baseline, and a dedicated UAV trajectory prediction baseline to facilitate benchmarking. With its controllable simulation environment, comprehensive scenario coverage, and rich annotations, UAV3D offers a public benchmark for advancing 3D perception of UAVs.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-privacy-preserving-fall-detection-at-the-edge-using-sony-imx636-event-based-vision-sensor-and-intel-loihi-2-neuromorphic-processor">[2] <a href="https://arxiv.org/abs/2511.22554">Privacy-preserving fall detection at the edge using Sony IMX636 event-based vision sensor and Intel Loihi 2 neuromorphic processor</a></h3>
+<p><em>Lyes Khacef, Philipp Weidel, Susumu Hogyoku, Harry Liu, Claire Alexandra Bräuer, Shunsuke Koshino, Takeshi Oyakawa, Vincent Parret, Yoshitaka Miyatani, Mike Davies, Mathis Richter</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>该研究提出了一种用于老年人护理的神经形态跌倒检测系统，该系统将索尼IMX636事件视觉传感器与英特尔Loihi 2神经形态处理器集成，通过专用FPGA接口实现边缘计算，在严格硬件约束下实现了高效、实时的隐私保护检测。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 基于非侵入式视觉的老年人跌倒检测系统面临隐私保护、实时性要求和边缘设备硬件资源有限的挑战，需要在传感器边缘实现鲁棒、实时且持续运行的感知，同时满足严格的隐私要求。</p>
+<p><strong>Method:</strong> 研究采用索尼IMX636事件视觉传感器与英特尔Loihi 2神经形态处理器集成架构，通过专用FPGA接口连接，利用事件数据的稀疏性和近内存异步处理优势，探索了稀疏神经网络设计空间，包括基于LIF的卷积脉冲神经网络和MCUNet特征提取器与S4D状态空间模型的组合方法。</p>
+<p><strong>Result:</strong> 基于LIF的卷积SNN采用分级脉冲实现了最高计算效率，在F1分数58%时达到55倍突触操作稀疏度；分级脉冲相比二进制脉冲在F1分数上提升6%且操作减少5倍；MCUNet特征提取器与S4D模型组合实现了84%的最高F1分数，突触操作稀疏度为2倍，Loihi 2上的总功耗为90mW。</p>
+<p><strong>Conclusion:</strong> 该研究证明了神经形态传感与处理集成的巨大潜力，特别适用于延迟、能耗和隐私要求严格的边缘AI应用，智能安防摄像头概念验证展示了稀疏神经网络在资源受限边缘设备上的实用价值。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Fall detection for elderly care using non-invasive vision-based systems remains an important yet unsolved problem. Driven by strict privacy requirements, inference must run at the edge of the vision sensor, demanding robust, real-time, and always-on perception under tight hardware constraints. To address these challenges, we propose a neuromorphic fall detection system that integrates the Sony IMX636 event-based vision sensor with the Intel Loihi 2 neuromorphic processor via a dedicated FPGA-based interface, leveraging the sparsity of event data together with near-memory asynchronous processing. Using a newly recorded dataset under diverse environmental conditions, we explore the design space of sparse neural networks deployable on a single Loihi 2 chip and analyze the tradeoffs between detection F1 score and computational cost. Notably, on the Pareto front, our LIF-based convolutional SNN with graded spikes achieves the highest computational efficiency, reaching a 55x synaptic operations sparsity for an F1 score of 58%. The LIF with graded spikes shows a gain of 6% in F1 score with 5x less operations compared to binary spikes. Furthermore, our MCUNet feature extractor with patched inference, combined with the S4D state space model, achieves the highest F1 score of 84% with a synaptic operations sparsity of 2x and a total power consumption of 90 mW on Loihi 2. Overall, our smart security camera proof-of-concept highlights the potential of integrating neuromorphic sensing and processing for edge AI applications where latency, energy consumption, and privacy are critical.</p>
+  </article>
+</body>
+</html>
