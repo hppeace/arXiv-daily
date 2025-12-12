@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-12-12.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-neuromorphic-eye-tracking-for-low-latency-pupil-detection">[1] <a href="https://arxiv.org/abs/2512.09969">Neuromorphic Eye Tracking for Low-Latency Pupil Detection</a></h3>
+<p><em>Paul Hueber, Luca Peres, Florian Pitters, Alejandro Gloriani, Oliver Rhodes</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种用于可穿戴眼动追踪的神经形态模型，通过将高性能事件驱动眼动追踪架构转换为脉冲神经网络，在保持精度的同时实现了20倍模型压缩和850倍计算效率提升。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统基于帧的眼动追踪系统存在运动模糊、计算成本高和时间分辨率有限的问题，难以满足增强现实和虚拟现实等可穿戴设备对低延迟和毫瓦级功耗的需求，而现有脉冲神经网络方法要么过于专用化，要么性能不及现代人工神经网络架构。</p>
+<p><strong>Method:</strong> 本研究将高性能事件驱动眼动追踪模型转换为神经形态版本，用轻量级LIF层替换原有的循环和注意力模块，并利用深度可分离卷积降低模型复杂度，构建了高效的脉冲神经网络架构。</p>
+<p><strong>Result:</strong> 所提模型实现了3.7-4.1像素的平均误差，接近专用神经形态系统Retina的3.24像素精度，同时相比最接近的人工神经网络变体，模型大小减少20倍，理论计算量降低850倍，预计可在3.9-4.9毫瓦功耗和3毫秒延迟下以1千赫兹频率运行。</p>
+<p><strong>Conclusion:</strong> 研究表明高性能事件驱动眼动追踪架构可以重新设计为脉冲神经网络，在保持实时可穿戴部署所需精度的同时获得显著的效率提升，为低功耗可穿戴眼动追踪系统提供了可行的技术路径。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Eye tracking for wearable systems demands low latency and milliwatt-level power, but conventional frame-based pipelines struggle with motion blur, high compute cost, and limited temporal resolution. Such capabilities are vital for enabling seamless and responsive interaction in emerging technologies like augmented reality (AR) and virtual reality (VR), where understanding user gaze is key to immersion and interface design. Neuromorphic sensors and spiking neural networks (SNNs) offer a promising alternative, yet existing SNN approaches are either too specialized or fall short of the performance of modern ANN architectures. This paper presents a neuromorphic version of top-performing event-based eye-tracking models, replacing their recurrent and attention modules with lightweight LIF layers and exploiting depth-wise separable convolutions to reduce model complexity. Our models obtain 3.7-4.1px mean error, approaching the accuracy of the application-specific neuromorphic system, Retina (3.24px), while reducing model size by 20x and theoretical compute by 850x, compared to the closest ANN variant of the proposed model. These efficient variants are projected to operate at an estimated 3.9-4.9 mW with 3 ms latency at 1 kHz. The present results indicate that high-performing event-based eye-tracking architectures can be redesigned as SNNs with substantial efficiency gains, while retaining accuracy suitable for real-time wearable deployment.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-spatial-spiking-neural-networks-enable-efficient-and-robust-temporal-computation">[2] <a href="https://arxiv.org/abs/2512.10011">Spatial Spiking Neural Networks Enable Efficient and Robust Temporal Computation</a></h3>
+<p><em>Lennart P. L. Landsmeer, Amirreza Movahedin, Mario Negrello, Said Hamdioui, Christos Strydis</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了空间脉冲神经网络（SpSNN），通过让神经元学习有限维欧几里得空间中的坐标，使突触延迟从神经元间的物理距离中自然产生，从而在保持时间表达能力的同时大幅减少参数数量，并为高效神经形态实现提供了硬件友好的基础。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前脉冲神经网络（SNN）将突触延迟视为完全可训练且无约束的参数，这导致内存占用大、计算需求高，并偏离了生物合理性。在大脑中，延迟源于神经元在空间中的物理距离，而现有模型未能利用这一空间结构原理。</p>
+<p><strong>Method:</strong> 本文提出了空间脉冲神经网络（SpSNN）框架，其中神经元学习有限维欧几里得空间中的坐标，突触延迟从神经元间的距离自然产生，从而用位置学习替代了每个突触的延迟学习。该方法通过自动微分和自定义推导规则计算精确的延迟梯度，支持任意神经元模型和架构。</p>
+<p><strong>Result:</strong> 在Yin-Yang和Spiking Heidelberg Digits基准测试中，SpSNN在参数数量大幅减少的情况下，性能优于具有无约束延迟的SNN。性能在2D和3D网络中达到峰值，显示出几何正则化效应。动态稀疏化的SpSNN在90%稀疏度下仍保持完全精度，与标准延迟训练SNN相当，同时参数数量减少高达18倍。</p>
+<p><strong>Conclusion:</strong> SpSNN为探索时间计算中的空间结构提供了原则性平台，并为可扩展、高能效的神经形态智能提供了硬件友好的基础。学习到的空间布局自然地映射到硬件几何结构上，有利于高效的神经形态实现，揭示了空间嵌入作为延迟学习的高效替代方案的价值。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>The efficiency of modern machine intelligence depends on high accuracy with minimal computational cost. In spiking neural networks (SNNs), synaptic delays are crucial for encoding temporal structure, yet existing models treat them as fully trainable, unconstrained parameters, leading to large memory footprints, higher computational demand, and a departure from biological plausibility. In the brain, however, delays arise from physical distances between neurons embedded in space. Building on this principle, we introduce Spatial Spiking Neural Networks (SpSNNs), a framework in which neurons learn coordinates in a finite-dimensional Euclidean space and delays emerge from inter-neuron distances. This replaces per-synapse delay learning with position learning, substantially reducing parameter count while retaining temporal expressiveness. Across the Yin-Yang and Spiking Heidelberg Digits benchmarks, SpSNNs outperform SNNs with unconstrained delays despite using far fewer parameters. Performance consistently peaks in 2D and 3D networks rather than infinite-dimensional delay spaces, revealing a geometric regularization effect. Moreover, dynamically sparsified SpSNNs maintain full accuracy even at 90% sparsity, matching standard delay-trained SNNs while using up to 18x fewer parameters. Because learned spatial layouts map naturally onto hardware geometries, SpSNNs lend themselves to efficient neuromorphic implementation. Methodologically, SpSNNs compute exact delay gradients via automatic differentiation with custom-derived rules, supporting arbitrary neuron models and architectures. Altogether, SpSNNs provide a principled platform for exploring spatial structure in temporal computation and offer a hardware-friendly substrate for scalable, energy-efficient neuromorphic intelligence.</p>
+<h3 id="3-a-spiking-neural-network-implementation-of-gaussian-belief-propagation">[3] <a href="https://arxiv.org/abs/2512.10638">A Spiking Neural Network Implementation of Gaussian Belief Propagation</a></h3>
+<p><em>Sepideh Adamiat, Wouter M. Kouw, Bert de Vries</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>该研究提出了一种基于泄漏积分发放神经元的脉冲神经网络实现高斯置信度传播的方法，为生物合理的概率推理提供了神经机制解释。通过将因子图消息传递映射到脉冲信号处理，实现了三种核心线性运算的神经实现。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管贝叶斯推理为自然智能体的信息处理提供了原则性解释，但神经网络如何执行这些抽象运算的神经机制仍是一个开放问题。本研究旨在探索分布式贝叶斯推理（特别是因子图上的消息传递）是否可以通过泄漏积分发放神经元网络来实现，从而弥合抽象计算理论与生物神经实现之间的鸿沟。</p>
+<p><strong>Method:</strong> 研究采用泄漏积分发放神经元构建的脉冲神经网络实现高斯置信度传播，将因子节点传入的消息编码为脉冲信号，通过SNN传播这些信号，再将脉冲信号解码为传出消息。具体实现了三种核心线性运算：等式（分支）、加法和乘法，这些运算在泄漏积分发放模型网络中得以实现，构成了完整的消息传递框架。</p>
+<p><strong>Result:</strong> 验证实验表明，该脉冲神经网络实现的消息更新与标准和积算法相比具有高准确性。在卡尔曼滤波和贝叶斯线性回归等应用中的表现证明了该框架在静态和动态推理任务中的潜力，展示了神经实现能够有效执行概率推理操作。</p>
+<p><strong>Conclusion:</strong> 该研究为生物基础的神经形态概率推理实现提供了重要进展，展示了脉冲神经网络如何执行分布式贝叶斯推理的核心运算。这一框架不仅为理解大脑中的概率计算提供了新视角，也为开发神经形态计算系统执行复杂推理任务奠定了基础，推动了抽象算法与神经实现之间的桥梁构建。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Bayesian inference offers a principled account of information processing in natural agents. However, it remains an open question how neural mechanisms perform their abstract operations. We investigate a hypothesis where a distributed form of Bayesian inference, namely message passing on factor graphs, is performed by a simulated network of leaky-integrate-and-fire neurons. Specifically, we perform Gaussian belief propagation by encoding messages that come into factor nodes as spike-based signals, propagating these signals through a spiking neural network (SNN) and decoding the spike-based signal back to an outgoing message. Three core linear operations, equality (branching), addition, and multiplication, are realized in networks of leaky integrate-and-fire models. Validation against the standard sum-product algorithm shows accurate message updates, while applications to Kalman filtering and Bayesian linear regression demonstrate the framework's potential for both static and dynamic inference tasks. Our results provide a step toward biologically grounded, neuromorphic implementations of probabilistic reasoning.</p>
+  </article>
+</body>
+</html>
