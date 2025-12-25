@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025-12-25.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-optical-flow-guided-6dof-object-pose-tracking-with-an-event-camera">[1] <a href="https://arxiv.org/abs/2512.21053">Optical Flow-Guided 6DoF Object Pose Tracking with an Event Camera</a></h3>
+<p><em>Zibin Liu, Banglei Guan, Yang Shang, Shunkun Liang, Zhenbao Yu, Qifeng Yu</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种基于事件相机的光流引导6自由度物体姿态跟踪方法，通过2D-3D混合特征提取策略和事件关联概率最大化实现精确运动表征，在精度和鲁棒性方面超越了现有事件基准方法。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统相机在物体姿态跟踪中面临运动模糊、传感器噪声、部分遮挡和光照变化等挑战，而新兴的生物启发传感器特别是事件相机具有高动态范围和低延迟优势，为解决这些问题提供了潜力。</p>
+<p><strong>Method:</strong> 该方法采用光流引导的6自由度物体姿态跟踪框架，首先使用2D-3D混合特征提取策略从事件和物体模型中检测角点和边缘以精确表征物体运动，然后通过在时空窗口内最大化事件关联概率来搜索角点的光流，并建立光流引导下的角点与边缘相关性，最后通过最小化角点与边缘之间的距离来迭代优化6自由度物体姿态。</p>
+<p><strong>Result:</strong> 在模拟和真实事件数据上的实验结果表明，该方法在精度和鲁棒性方面均优于基于事件的最先进方法，验证了所提光流引导策略和混合特征提取方法的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究证明了事件相机在物体姿态跟踪任务中的优势，提出的光流引导框架和混合特征提取策略为解决传统视觉系统的局限性提供了有效方案，为事件视觉在多媒体应用中的进一步发展奠定了基础。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Object pose tracking is one of the pivotal technologies in multimedia, attracting ever-growing attention in recent years. Existing methods employing traditional cameras encounter numerous challenges such as motion blur, sensor noise, partial occlusion, and changing lighting conditions. The emerging bio-inspired sensors, particularly event cameras, possess advantages such as high dynamic range and low latency, which hold the potential to address the aforementioned challenges. In this work, we present an optical flow-guided 6DoF object pose tracking method with an event camera. A 2D-3D hybrid feature extraction strategy is firstly utilized to detect corners and edges from events and object models, which characterizes object motion precisely. Then, we search for the optical flow of corners by maximizing the event-associated probability within a spatio-temporal window, and establish the correlation between corners and edges guided by optical flow. Furthermore, by minimizing the distances between corners and edges, the 6DoF object pose is iteratively optimized to achieve continuous pose tracking. Experimental results of both simulated and real events demonstrate that our methods outperform event-based state-of-the-art methods in terms of both accuracy and robustness.</p>
+<h3 id="2-surgical-scene-segmentation-using-a-spike-driven-video-transformer-with-real-time-potential">[2] <a href="https://arxiv.org/abs/2512.21284">Surgical Scene Segmentation using a Spike-Driven Video Transformer with Real-Time Potential</a></h3>
+<p><em>Shihao Zou, Jingjing Li, Wei Ji, Jincai Huang, Kai Wang, Guo Dan, Weixin Si, Yi Pan</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出SpikeSurgSeg，首个针对手术场景分割的尖峰驱动视频Transformer框架，通过手术场景掩码自编码预训练和轻量级分割头，在非GPU平台上实现实时性能，相比ANN模型减少至少8倍推理延迟。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现代手术系统依赖智能场景理解提供术中态势感知，但现有深度学习方法特别是大规模基础模型计算需求高、功耗大，难以在资源受限的手术环境中实时部署，同时尖峰神经网络受限于标记手术数据稀缺和手术视频表示的固有稀疏性。</p>
+<p><strong>Method:</strong> 提出SpikeSurgSeg框架，包含手术场景掩码自编码预训练策略，通过分层管状掩码实现鲁棒的时空表示学习；在此基础上采用轻量级尖峰驱动分割头，保持时间一致性预测同时保留SNN的低延迟特性，专门针对非GPU平台优化。</p>
+<p><strong>Result:</strong> 在EndoVis18和内部SurgBleed数据集上的实验表明，SpikeSurgSeg达到与最先进ANN模型相当的mIoU，同时减少至少8倍推理延迟；相比大多数基础模型基线实现超过20倍加速，验证了其在时间关键手术场景分割中的潜力。</p>
+<p><strong>Conclusion:</strong> 该研究证明了尖峰神经网络在资源受限手术环境中的可行性，通过创新的预训练策略和架构设计解决了数据稀缺和计算效率的挑战，为实时手术智能系统提供了高效替代方案，推动了边缘计算在医疗领域的应用。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Modern surgical systems increasingly rely on intelligent scene understanding to provide timely situational awareness for enhanced intra-operative safety. Within this pipeline, surgical scene segmentation plays a central role in accurately perceiving operative events. Although recent deep learning models, particularly large-scale foundation models, achieve remarkable segmentation accuracy, their substantial computational demands and power consumption hinder real-time deployment in resource-constrained surgical environments. To address this limitation, we explore the emerging SNN as a promising paradigm for highly efficient surgical intelligence. However, their performance is still constrained by the scarcity of labeled surgical data and the inherently sparse nature of surgical video representations. To this end, we propose \textit{SpikeSurgSeg}, the first spike-driven video Transformer framework tailored for surgical scene segmentation with real-time potential on non-GPU platforms. To address the limited availability of surgical annotations, we introduce a surgical-scene masked autoencoding pretraining strategy for SNNs that enables robust spatiotemporal representation learning via layer-wise tube masking. Building on this pretrained backbone, we further adopt a lightweight spike-driven segmentation head that produces temporally consistent predictions while preserving the low-latency characteristics of SNNs. Extensive experiments on EndoVis18 and our in-house SurgBleed dataset demonstrate that SpikeSurgSeg achieves mIoU comparable to SOTA ANN-based models while reducing inference latency by at least $8\times$. Notably, it delivers over $20\times$ acceleration relative to most foundation-model baselines, underscoring its potential for time-critical surgical scene segmentation.</p>
+  </article>
+</body>
+</html>
