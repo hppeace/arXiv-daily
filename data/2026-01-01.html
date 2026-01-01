@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-01-01.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-u-net-like-spiking-neural-networks-for-single-image-dehazing">[1] <a href="https://arxiv.org/abs/2512.23950">U-Net-Like Spiking Neural Networks for Single Image Dehazing</a></h3>
+<p><em>Huibin Li, Haoran Liu, Mingzhe Liu, Yulong Xiao, Peng Li, Guibin Zan</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出DehazeSNN，一种将U-Net架构与脉冲神经网络(SNN)相结合的新型图像去雾方法，通过正交泄漏积分发放块(OLIFBlock)增强跨通道通信，在降低计算成本的同时实现高效去雾。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 图像去雾是计算机视觉中的关键挑战，传统方法依赖大气散射模型，而深度学习方法如CNN和Transformer虽提升了性能但存在局限：CNN难以处理长程依赖，Transformer则需要大量计算资源，因此需要一种既能有效捕获多尺度特征又能降低计算负担的新方法。</p>
+<p><strong>Method:</strong> 本文提出DehazeSNN架构，采用U-Net式设计集成脉冲神经网络(SNN)，有效捕获多尺度图像特征并管理局部与长程依赖关系，通过引入正交泄漏积分发放块(OLIFBlock)增强跨通道通信，从而在保持高性能的同时显著降低计算复杂度。</p>
+<p><strong>Result:</strong> 在基准数据集上的广泛实验表明，DehazeSNN与最先进方法相比具有高度竞争力，能够生成高质量无雾图像，同时模型尺寸更小且乘积累加运算(MAC)更少，实现了计算效率与去雾性能的良好平衡。</p>
+<p><strong>Conclusion:</strong> 该研究展示了SNN在图像去雾任务中的潜力，提供了一种计算高效的替代方案，为未来低功耗视觉应用开辟了新方向，同时公开的代码库促进了该领域的研究与复现。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Image dehazing is a critical challenge in computer vision, essential for enhancing image clarity in hazy conditions. Traditional methods often rely on atmospheric scattering models, while recent deep learning techniques, specifically Convolutional Neural Networks (CNNs) and Transformers, have improved performance by effectively analyzing image features. However, CNNs struggle with long-range dependencies, and Transformers demand significant computational resources. To address these limitations, we propose DehazeSNN, an innovative architecture that integrates a U-Net-like design with Spiking Neural Networks (SNNs). DehazeSNN captures multi-scale image features while efficiently managing local and long-range dependencies. The introduction of the Orthogonal Leaky-Integrate-and-Fire Block (OLIFBlock) enhances cross-channel communication, resulting in superior dehazing performance with reduced computational burden. Our extensive experiments show that DehazeSNN is highly competitive to state-of-the-art methods on benchmark datasets, delivering high-quality haze-free images with a smaller model size and less multiply-accumulate operations. The proposed dehazing method is publicly available at https://github.com/HaoranLiu507/DehazeSNN.</p>
+<h3 id="2-mambaseg-harnessing-mamba-for-accurate-and-efficient-image-event-semantic-segmentation">[2] <a href="https://arxiv.org/abs/2512.24243">MambaSeg: Harnessing Mamba for Accurate and Efficient Image-Event Semantic Segmentation</a></h3>
+<p><em>Fuqiang Gu, Yuanke Li, Xianlei Long, Kangping Ji, Chao Chen, Qingyi Gu, Zhenliang Ni</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了MambaSeg，一种新颖的双分支语义分割框架，采用并行Mamba编码器高效建模RGB图像和事件流，并通过双维交互模块实现空间和时间维度的细粒度融合，在显著降低计算成本的同时实现了最先进的性能。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> RGB相机在快速运动、低光照或高动态范围条件下性能下降，而事件相机虽然具有高时间分辨率和低延迟优势，但缺乏颜色和纹理信息。现有RGB与事件数据融合方法计算成本高且主要关注空间融合，忽略了事件流固有的时间动态特性，需要更高效、全面的跨模态融合方法。</p>
+<p><strong>Method:</strong> MambaSeg采用并行Mamba编码器分别处理RGB图像和事件流，并引入双维交互模块（DDIM）包含跨空间交互模块（CSIM）和跨时间交互模块（CTIM），在空间和时间维度上联合执行细粒度融合，改善跨模态对齐并减少模糊性。</p>
+<p><strong>Result:</strong> 在DDD17和DSEC数据集上的广泛实验表明，MambaSeg实现了最先进的语义分割性能，同时显著降低了计算成本，展示了其在高效、可扩展和鲁棒的多模态感知方面的潜力。</p>
+<p><strong>Conclusion:</strong> 该研究证明了通过并行Mamba编码器和双维交互模块可以有效融合RGB和事件数据的互补特性，为高效的多模态感知系统提供了有前景的解决方案，特别是在计算资源受限的实时应用中具有重要价值。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Semantic segmentation is a fundamental task in computer vision with wide-ranging applications, including autonomous driving and robotics. While RGB-based methods have achieved strong performance with CNNs and Transformers, their effectiveness degrades under fast motion, low-light, or high dynamic range conditions due to limitations of frame cameras. Event cameras offer complementary advantages such as high temporal resolution and low latency, yet lack color and texture, making them insufficient on their own. To address this, recent research has explored multimodal fusion of RGB and event data; however, many existing approaches are computationally expensive and focus primarily on spatial fusion, neglecting the temporal dynamics inherent in event streams. In this work, we propose MambaSeg, a novel dual-branch semantic segmentation framework that employs parallel Mamba encoders to efficiently model RGB images and event streams. To reduce cross-modal ambiguity, we introduce the Dual-Dimensional Interaction Module (DDIM), comprising a Cross-Spatial Interaction Module (CSIM) and a Cross-Temporal Interaction Module (CTIM), which jointly perform fine-grained fusion along both spatial and temporal dimensions. This design improves cross-modal alignment, reduces ambiguity, and leverages the complementary properties of each modality. Extensive experiments on the DDD17 and DSEC datasets demonstrate that MambaSeg achieves state-of-the-art segmentation performance while significantly reducing computational cost, showcasing its promise for efficient, scalable, and robust multimodal perception.</p>
+  </article>
+</body>
+</html>
