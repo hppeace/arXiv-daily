@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-01-14.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 2]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-sleep-based-homeostatic-regularization-for-stabilizing-spike-timing-dependent-plasticity-in-recurrent-spiking-neural-networks">[1] <a href="https://arxiv.org/abs/2601.08447">Sleep-Based Homeostatic Regularization for Stabilizing Spike-Timing-Dependent Plasticity in Recurrent Spiking Neural Networks</a></h3>
+<p><em>Andreas Massey, Aliaksandr Hubin, Stefano Nichele, Solve Sæbø</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>该研究提出了一种受突触稳态假说启发的神经形态正则化方案，通过引入睡眠-觉醒周期来稳定具有循环连接的脉冲神经网络的STDP学习，防止病理性权重动态并保持学习结构。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 具有循环连接的脉冲神经网络中，基于脉冲时序依赖可塑性的赫布式权重更新存在病理性权重动态问题，包括无界增长、灾难性遗忘和表征多样性丧失，这限制了生物可塑性学习机制的实际应用。</p>
+<p><strong>Method:</strong> 提出了一种受突触稳态假说启发的神经形态正则化方案，引入周期性的离线睡眠阶段，在此期间抑制外部输入，使突触权重随机衰减到稳态基线，并通过自发活动实现记忆巩固，形成睡眠-觉醒循环的学习机制。</p>
+<p><strong>Result:</strong> 实验表明，在STDP-SNN模型中，低到中等睡眠持续时间（训练时间的10-20%）显著提高了MNIST类基准测试的稳定性，无需数据特定的超参数调整；然而，相同的睡眠干预对替代梯度脉冲神经网络没有可测量的益处。</p>
+<p><strong>Conclusion:</strong> 周期性基于睡眠的重新归一化可能是稳定神经形态系统中局部赫布学习的基本机制，但将其与现有基于梯度的优化方法集成时需要特别谨慎，这为生物可塑性学习与人工神经网络训练的融合提供了重要见解。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spike-timing-dependent plasticity (STDP) provides a biologically-plausible learning mechanism for spiking neural networks (SNNs); however, Hebbian weight updates in architectures with recurrent connections suffer from pathological weight dynamics: unbounded growth, catastrophic forgetting, and loss of representational diversity. We propose a neuromorphic regularization scheme inspired by the synaptic homeostasis hypothesis: periodic offline phases during which external inputs are suppressed, synaptic weights undergo stochastic decay toward a homeostatic baseline, and spontaneous activity enables memory consolidation. We demonstrate that this sleep-wake cycle prevents weight saturation while preserving learned structure. Empirically, we find that low to intermediate sleep durations (10-20\% of training) improve stability on MNIST-like benchmarks in our STDP-SNN model, without any data-specific hyperparameter tuning. In contrast, the same sleep intervention yields no measurable benefit for the surrogate-gradient spiking neural network (SG-SNN). Taken together, these results suggest that periodic, sleep-based renormalization may represent a fundamental mechanism for stabilizing local Hebbian learning in neuromorphic systems, while also indicating that special care is required when integrating such protocols with existing gradient-based optimization methods.</p>
+<h3 id="2-supervised-spike-agreement-dependent-plasticity-for-fast-local-learning-in-spiking-neural-networks">[2] <a href="https://arxiv.org/abs/2601.08526">Supervised Spike Agreement Dependent Plasticity for Fast Local Learning in Spiking Neural Networks</a></h3>
+<p><em>Gouri Lakshmi S, Athira Chandrasekharan, Harshit Kumar, Muhammed Sahad E, Bikas C Das, Saptarshi Bej</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了一种监督式尖峰一致性依赖可塑性（SADP）学习规则，作为传统STDP的扩展，通过群体一致性度量取代精确的尖峰时序比较，实现了无需反向传播、替代梯度或教师强制的快速监督学习。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统尖峰时序依赖可塑性（STDP）依赖于精确的尖峰时序和成对更新，限制了尖峰神经网络（SNN）的快速权重学习，需要一种更高效且生物学合理的监督学习范式。</p>
+<p><strong>Method:</strong> 提出了监督式尖峰一致性依赖可塑性（SADP）学习规则，使用群体一致性度量（如Cohen's kappa）替代成对尖峰时序比较，并将其集成到混合CNN-SNN架构中，其中卷积编码器提供紧凑特征表示，随后转换为泊松尖峰序列进行一致性驱动学习。</p>
+<p><strong>Result:</strong> 在MNIST、Fashion-MNIST、CIFAR-10和生物医学图像分类任务上的广泛实验表明，该方法实现了竞争性性能和快速收敛，同时在广泛的超参数范围内保持稳定性能，并与设备启发的突触更新动力学兼容。</p>
+<p><strong>Conclusion:</strong> 监督式SADP被确立为一种可扩展、生物学基础且与硬件对齐的尖峰神经网络学习范式，为无需反向传播的SNN训练提供了新的方向，并展示了在神经形态计算硬件中的实际应用潜力。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Spike-Timing-Dependent Plasticity (STDP) provides a biologically grounded learning rule for spiking neural networks (SNNs), but its reliance on precise spike timing and pairwise updates limits fast learning of weights. We introduce a supervised extension of Spike Agreement-Dependent Plasticity (SADP), which replaces pairwise spike-timing comparisons with population-level agreement metrics such as Cohen's kappa. The proposed learning rule preserves strict synaptic locality, admits linear-time complexity, and enables efficient supervised learning without backpropagation, surrogate gradients, or teacher forcing.
+  We integrate supervised SADP within hybrid CNN-SNN architectures, where convolutional encoders provide compact feature representations that are converted into Poisson spike trains for agreement-driven learning in the SNN. Extensive experiments on MNIST, Fashion-MNIST, CIFAR-10, and biomedical image classification tasks demonstrate competitive performance and fast convergence. Additional analyses show stable performance across broad hyperparameter ranges and compatibility with device-inspired synaptic update dynamics. Together, these results establish supervised SADP as a scalable, biologically grounded, and hardware-aligned learning paradigm for spiking neural networks.</p>
+  </article>
+</body>
+</html>
