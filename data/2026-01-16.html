@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-01-16.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-ueof-a-benchmark-dataset-for-underwater-event-based-optical-flow">[1] <a href="https://arxiv.org/abs/2601.10054">UEOF: A Benchmark Dataset for Underwater Event-Based Optical Flow</a></h3>
+<p><em>Nick Truong, Pritam P. Karmokar, William J. Beksi</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了首个基于物理渲染的合成水下事件相机光流基准数据集，解决了水下环境中事件相机研究缺乏真实数据的问题，并为水下事件感知算法建立了新的评估基准。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 水下成像面临波长相关光衰减、悬浮粒子散射、浑浊模糊和非均匀照明等挑战，传统相机难以获取地面真实运动数据，而事件相机虽具有微秒分辨率和宽动态范围，但缺乏结合真实水下光学特性的配对数据集，限制了水下事件相机光流研究的发展。</p>
+<p><strong>Method:</strong> 研究采用基于物理的光线追踪RGBD序列生成合成水下基准数据集，通过现代视频到事件转换管道应用于渲染的水下视频，产生具有密集地面真实光流、深度和相机运动的真实事件数据流，并基准测试了最先进的基于学习和基于模型的光流预测方法。</p>
+<p><strong>Result:</strong> 该数据集为水下事件感知算法提供了首个评估基准，通过基准测试揭示了水下光传输对事件形成和运动估计精度的影响，建立了未来算法开发和评估的新基线，所有源代码和数据集均已公开可用。</p>
+<p><strong>Conclusion:</strong> 该研究填补了水下事件相机光流数据集的空白，为理解水下光学特性对事件形成的影响提供了系统分析框架，推动了水下事件感知算法的发展，并为未来研究提供了可复现的基准平台。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Underwater imaging is fundamentally challenging due to wavelength-dependent light attenuation, strong scattering from suspended particles, turbidity-induced blur, and non-uniform illumination. These effects impair standard cameras and make ground-truth motion nearly impossible to obtain. On the other hand, event cameras offer microsecond resolution and high dynamic range. Nonetheless, progress on investigating event cameras for underwater environments has been limited due to the lack of datasets that pair realistic underwater optics with accurate optical flow. To address this problem, we introduce the first synthetic underwater benchmark dataset for event-based optical flow derived from physically-based ray-traced RGBD sequences. Using a modern video-to-event pipeline applied to rendered underwater videos, we produce realistic event data streams with dense ground-truth flow, depth, and camera motion. Moreover, we benchmark state-of-the-art learning-based and model-based optical flow prediction methods to understand how underwater light transport affects event formation and motion estimation accuracy. Our dataset establishes a new baseline for future development and evaluation of underwater event-based perception algorithms. The source code and dataset for this project are publicly available at https://robotic-vision-lab.github.io/ueof.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-heterogeneous-computing-platform-for-real-time-robotics">[2] <a href="https://arxiv.org/abs/2601.09755">Heterogeneous computing platform for real-time robotics</a></h3>
+<p><em>Jakub Fil, Yulia Sandamirskaya, Hector Gonzalez, Loïc Azzalin, Stefan Glüge, Lukas Friedenstab, Friedrich Wolf, Tim Rosmeisl, Matthias Lohrmann, Mahmoud Akl, Khaleel Khan, Leonie Wolf, Kristin Richter, Holm Puder, Mazhar Ali Bari, Xuan Choo, Noha Alharthi, Michael Hopkins, Mansoor Hanif Christian Mayr, Jens Struckmeier, Steve Furber</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>该研究提出了一种混合计算架构，将神经形态计算硬件（Loihi2处理器）与事件相机相结合进行实时感知，并与基于GPU的AI计算集群集成，用于高级语言处理和任务规划，以支持人机共存的智慧城市愿景。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 随着Society 5.0概念和NEOM智慧城市倡议的兴起，需要为人类与机器人共存的未来城市开发高效的计算平台。现有系统缺乏能够无缝整合实时感知、高级认知和任务规划能力的异构计算架构，这限制了机器人在复杂交互环境中的自主性和响应能力。</p>
+<p><strong>Method:</strong> 研究提出了一种混合计算架构，将神经形态计算硬件（Intel Loihi2处理器）与事件相机结合用于低延迟感知和实时交互，同时与基于GPU的本地AI计算集群集成，负责高级语言处理、认知推理和任务规划。该架构强调不同组件的高效无缝集成，通过软硬件协同最大化系统整体性能和响应性。</p>
+<p><strong>Result:</strong> 研究通过人形机器人与人类共同演奏乐器的交互任务演示了该混合架构的有效性。系统展示了神经形态硬件在实时感知方面的优势与GPU集群在高级认知处理方面的能力之间的协同作用，实现了复杂实时交互应用中的高性能和响应性。</p>
+<p><strong>Conclusion:</strong> 该研究证明了异构计算架构在推进机器人自主性和交互智能方面的潜力，为未来复杂实时应用中集成系统的设计提供了范例。这种软硬件协同的设计方法指向了人机共存智慧城市中机器人系统的发展方向，强调了不同计算范式无缝集成的重要性。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>After Industry 4.0 has embraced tight integration between machinery (OT), software (IT), and the Internet, creating a web of sensors, data, and algorithms in service of efficient and reliable production, a new concept of Society 5.0 is emerging, in which infrastructure of a city will be instrumented to increase reliability, efficiency, and safety. Robotics will play a pivotal role in enabling this vision that is pioneered by the NEOM initiative - a smart city, co-inhabited by humans and robots. In this paper we explore the computing platform that will be required to enable this vision. We show how we can combine neuromorphic computing hardware, exemplified by the Loihi2 processor used in conjunction with event-based cameras, for sensing and real-time perception and interaction with a local AI compute cluster (GPUs) for high-level language processing, cognition, and task planning. We demonstrate the use of this hybrid computing architecture in an interactive task, in which a humanoid robot plays a musical instrument with a human. Central to our design is the efficient and seamless integration of disparate components, ensuring that the synergy between software and hardware maximizes overall performance and responsiveness. Our proposed system architecture underscores the potential of heterogeneous computing architectures in advancing robotic autonomy and interactive intelligence, pointing toward a future where such integrated systems become the norm in complex, real-time applications.</p>
+  </article>
+</body>
+</html>
