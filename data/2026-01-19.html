@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-01-19.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 2]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-line-based-event-preprocessing-towards-low-energy-neuromorphic-computer-vision">[1] <a href="https://arxiv.org/abs/2601.10742">Line-based Event Preprocessing: Towards Low-Energy Neuromorphic Computer Vision</a></h3>
+<p><em>Amélie Gruel, Pierre Lewden, Adrien F. Vincent, Sylvain Saïghi</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>该研究提出了一种基于线段的事件数据预处理方法，用于优化神经形态视觉系统的能耗，在三个基准事件数据集上实现了能耗与分类性能之间的有利权衡。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管神经形态视觉在生物启发性、能耗、延迟和动态视觉数据处理内存使用方面具有优势，但其能耗优化仍是嵌入式应用面临的重要挑战，特别是神经形态硬件的能耗与突触操作数量成正比，因此需要预处理事件数据以优化数据量。</p>
+<p><strong>Method:</strong> 研究扩展了端到端神经形态线段检测机制，引入了基于线段的事件数据预处理方法，通过预处理策略减少需要处理的事件数量，从而降低神经形态硬件上的理论能耗。</p>
+<p><strong>Result:</strong> 在三个基准事件数据集上的实验表明，预处理方法在能耗和分类性能之间实现了有利权衡，根据不同的线段预处理策略和分类任务复杂度，可以保持或提高分类准确率的同时显著降低理论能耗。</p>
+<p><strong>Conclusion:</strong> 该研究系统性地提高了神经形态分类的效率，为通过事件预处理实现更节能的神经形态计算机视觉奠定了基础，展示了预处理在优化神经形态系统能耗性能平衡方面的有效性。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Neuromorphic vision made significant progress in recent years, thanks to the natural match between spiking neural networks and event data in terms of biological inspiration, energy savings, latency and memory use for dynamic visual data processing. However, optimising its energy requirements still remains a challenge within the community, especially for embedded applications. One solution may reside in preprocessing events to optimise data quantity thus lowering the energy cost on neuromorphic hardware, proportional to the number of synaptic operations. To this end, we extend an end-to-end neuromorphic line detection mechanism to introduce line-based event data preprocessing. Our results demonstrate on three benchmark event-based datasets that preprocessing leads to an advantageous trade-off between energy consumption and classification performance. Depending on the line-based preprocessing strategy and the complexity of the classification task, we show that one can maintain or increase the classification accuracy while significantly reducing the theoretical energy consumption. Our approach systematically leads to a significant improvement of the neuromorphic classification efficiency, thus laying the groundwork towards a more frugal neuromorphic computer vision thanks to event preprocessing.</p>
+<h3 id="2-effects-of-introducing-synaptic-scaling-on-spiking-neural-network-learning">[2] <a href="https://arxiv.org/abs/2601.11261">Effects of Introducing Synaptic Scaling on Spiking Neural Network Learning</a></h3>
+<p><em>Shinnosuke Touda, Hirotsugu Okuno</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>该研究探索了多种神经可塑性机制（STDP和突触缩放）对脉冲神经网络中胜者全得网络学习性能的影响，发现基于L2范数的突触缩放能显著提升分类准确率。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 该研究旨在探索多种神经可塑性机制（如脉冲时间依赖可塑性和突触缩放）对脉冲神经网络学习性能的影响，特别是这些生物启发的无监督学习机制如何协同作用以提升胜者全得网络的分类能力。</p>
+<p><strong>Method:</strong> 研究构建了一个基于Python实现的胜者全得脉冲神经网络，整合了多种神经可塑性机制，包括脉冲时间依赖可塑性和不同类型的突触缩放方法，使用MNIST和Fashion-MNIST数据集进行训练和测试，并系统调整了神经元数量、STDP时间常数和突触缩放归一化方法等关键参数。</p>
+<p><strong>Result:</strong> 实验结果表明，基于L2范数的突触缩放方法对提升分类性能最为有效，当兴奋层和抑制层均设置为400个神经元时，网络在MNIST数据集上达到88.84%的分类准确率，在Fashion-MNIST数据集上达到68.01%的准确率，仅需一个训练周期。</p>
+<p><strong>Conclusion:</strong> 该研究证实了多种神经可塑性机制协同作用能有效提升脉冲神经网络的学习性能，特别是L2范数突触缩放的关键作用，为开发更高效、更生物合理的无监督学习算法提供了重要见解，并展示了脉冲神经网络在模式识别任务中的潜力。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Spiking neural networks (SNNs) employing unsupervised learning methods inspired by neural plasticity are expected to be a new framework for artificial intelligence. In this study, we investigated the effect of multiple types of neural plasticity, such as spike-time-dependent plasticity (STDP) and synaptic scaling, on the learning in a winner-take-all (WTA) network composed of spiking neurons. We implemented a WTA network with multiple types of neural plasticity using Python. The MNIST and the Fashion-MNIST datasets were used for training and testing. We varied the number of neurons, the time constant of STDP, and the normalization method used in synaptic scaling to compare classification accuracy. The results demonstrated that synaptic scaling based on the L2 norm was the most effective in improving classification performance. By implementing L2-norm-based synaptic scaling and setting the number of neurons in both excitatory and inhibitory layers to 400, the network achieved classification accuracies of 88.84 % on the MNIST dataset and 68.01 % on the Fashion-MNIST dataset after one epoch of training.</p>
+  </article>
+</body>
+</html>
