@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-01-26.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-reliable-brain-tumor-segmentation-based-on-spiking-neural-networks-with-efficient-training">[1] <a href="https://arxiv.org/abs/2601.16652">Reliable Brain Tumor Segmentation Based on Spiking Neural Networks with Efficient Training</a></h3>
+<p><em>Aurora Pia Ghiardelli, Guangzhi Tang, Tao Sun</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种基于脉冲神经网络（SNN）的可靠且高能效的三维脑肿瘤分割框架，通过多视角集成实现体素级不确定性估计，并采用前向传播时间（FPTT）算法显著降低计算成本。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 本研究旨在解决医学图像分割中可靠性和能效性的双重挑战，特别是针对脑肿瘤分割任务中传统深度学习方法计算成本高、缺乏不确定性估计的问题，为医疗物联网和床旁系统开发低功耗的可靠分割方案。</p>
+<p><strong>Method:</strong> 该框架采用基于脉冲神经网络的多视角集成方法，通过矢状面、冠状面和轴状面三个SNN模型进行体素级不确定性估计；为降低训练计算成本，引入了前向传播时间（FPTT）算法，在保持时间学习效率的同时显著减少计算复杂度。</p>
+<p><strong>Result:</strong> 在BraTS 2017和BraTS 2023数据集上的实验表明，该方法取得了具有竞争力的分割精度，提供了良好校准的不确定性估计，同时将浮点运算次数（FLOPs）减少了87%，显著提升了能效比。</p>
+<p><strong>Conclusion:</strong> 该研究证明了脉冲神经网络在医学图像分割领域的应用潜力，特别是为可靠、低功耗的医疗物联网和床旁诊断系统提供了可行的技术方案，展示了SNN在保持性能的同时大幅降低计算成本的独特优势。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>We propose a reliable and energy-efficient framework for 3D brain tumor segmentation using spiking neural networks (SNNs). A multi-view ensemble of sagittal, coronal, and axial SNN models provides voxel-wise uncertainty estimation and enhances segmentation robustness. To address the high computational cost in training SNN models for semantic image segmentation, we employ Forward Propagation Through Time (FPTT), which maintains temporal learning efficiency with significantly reduced computational cost. Experiments on the Multimodal Brain Tumor Segmentation Challenges (BraTS 2017 and BraTS 2023) demonstrate competitive accuracy, well-calibrated uncertainty, and an 87% reduction in FLOPs, underscoring the potential of SNNs for reliable, low-power medical IoT and Point-of-Care systems.</p>
+  </article>
+</body>
+</html>
