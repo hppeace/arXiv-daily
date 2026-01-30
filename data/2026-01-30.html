@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-01-30.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 4]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 1]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-staer-temporal-aligned-rehearsal-for-continual-spiking-neural-network">[1] <a href="https://arxiv.org/abs/2601.20870">STAER: Temporal Aligned Rehearsal for Continual Spiking Neural Network</a></h3>
+<p><em>Matteo Gianferrari, Omayma Moussadek, Riccardo Salami, Cosimo Fiorini, Lorenzo Tartarini, Daniela Gandolfi, Simone Calderara</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了STAER框架，通过显式保持脉冲时序结构来解决脉冲神经网络在类增量学习中的灾难性遗忘问题，实现了与人工神经网络相媲美的性能，同时保持了生物合理的动态特性。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 脉冲神经网络虽然天生适合连续学习，但在类增量学习应用中受到灾难性遗忘和脉冲模式时序错位的阻碍，导致其性能与人工神经网络存在显著差距，需要专门的方法来保持时序结构并提升表示稳定性。</p>
+<p><strong>Method:</strong> 提出了STAER框架，集成了可微分的Soft-DTW对齐损失来保持脉冲时序保真度，并采用输出logits的时序扩展和收缩机制来增强鲁棒表示学习，该方法基于深度ResNet19脉冲骨干网络实现。</p>
+<p><strong>Result:</strong> 在Sequential-MNIST和Sequential-CIFAR10基准测试中实现了最先进的性能，经验结果表明该方法匹配或超越了强人工神经网络基线（ER、DER++），同时保持了生物合理的动态特性，消融研究进一步证实显式时序对齐对表示稳定性至关重要。</p>
+<p><strong>Conclusion:</strong> STAER框架通过显式保持脉冲时序结构成功解决了脉冲神经网络在类增量学习中的关键挑战，为脉冲原生终身学习提供了可扩展的解决方案，证明了时序对齐在保持表示稳定性中的关键作用，为生物合理计算与实用机器学习性能的融合开辟了新途径。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) are inherently suited for continuous learning due to their event-driven temporal dynamics; however, their application to Class-Incremental Learning (CIL) has been hindered by catastrophic forgetting and the temporal misalignment of spike patterns. In this work, we introduce Spiking Temporal Alignment with Experience Replay (STAER), a novel framework that explicitly preserves temporal structure to bridge the performance gap between SNNs and ANNs. Our approach integrates a differentiable Soft-DTW alignment loss to maintain spike timing fidelity and employs a temporal expansion and contraction mechanism on output logits to enforce robust representation learning. Implemented on a deep ResNet19 spiking backbone, STAER achieves state-of-the-art performance on Sequential-MNIST and Sequential-CIFAR10. Empirical results demonstrate that our method matches or outperforms strong ANN baselines (ER, DER++) while preserving biologically plausible dynamics. Ablation studies further confirm that explicit temporal alignment is critical for representational stability, positioning STAER as a scalable solution for spike-native lifelong learning. Code is available at https://github.com/matteogianferrari/staer.</p>
+<h3 id="2-nexus-bit-exact-ann-to-snn-equivalence-via-neuromorphic-gate-circuits-with-surrogate-free-training">[2] <a href="https://arxiv.org/abs/2601.21279">NEXUS: Bit-Exact ANN-to-SNN Equivalence via Neuromorphic Gate Circuits with Surrogate-Free Training</a></h3>
+<p><em>Zhengzheng Tang</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了NEXUS框架，首次实现了ANN到SNN的比特精确等价转换，通过纯IF神经元逻辑门构建IEEE-754兼容浮点运算，在保持相同精度的同时实现显著的能效提升。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有SNN方法通过离散脉冲近似连续值导致精度损失，无法实现与ANN的精确等价，这限制了SNN在能效计算中的实际应用潜力，需要一种能保持数学等价性的转换框架。</p>
+<p><strong>Method:</strong> NEXUS框架采用空间比特编码实现零编码误差，通过纯IF神经元逻辑门构建IEEE-754兼容浮点算术运算，包括线性和非线性操作，采用分层神经形态门电路设计和无代理STE训练实现精确身份映射。</p>
+<p><strong>Result:</strong> 在LLaMA-2 70B等模型上实现零精度损失（0.00%退化），平均ULP误差仅为6.19，在神经形态硬件上实现27-168,000倍能效提升，单时间步设计使其对膜电位泄漏完全免疫，在σ=0.2的突触噪声下保持&gt;98%门级精度。</p>
+<p><strong>Conclusion:</strong> 该研究首次证明了ANN到SNN的比特精确等价转换可行性，为神经形态计算提供了理论保证，其单时间步设计解决了传统SNN的时序相关性问题，为高效AI硬件部署开辟了新途径。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) promise energy-efficient computing through event-driven sparsity, yet all existing approaches sacrifice accuracy by approximating continuous values with discrete spikes. We propose NEXUS, a framework that achieves bit-exact ANN-to-SNN equivalence -- not approximate, but mathematically identical outputs. Our key insight is constructing all arithmetic operations, both linear and nonlinear, from pure IF neuron logic gates that implement IEEE-754 compliant floating-point arithmetic. Through spatial bit encoding (zero encoding error by construction), hierarchical neuromorphic gate circuits (from basic logic gates to complete transformer layers), and surrogate-free STE training (exact identity mapping rather than heuristic approximation), NEXUS produces outputs identical to standard ANNs up to machine precision. Experiments on models up to LLaMA-2 70B demonstrate identical task accuracy (0.00\% degradation) with mean ULP error of only 6.19, while achieving 27-168,000$\times$ energy reduction on neuromorphic hardware. Crucially, spatial bit encoding's single-timestep design renders the framework inherently immune to membrane potential leakage (100\% accuracy across all decay factors $β\in[0.1,1.0]$), while tolerating synaptic noise up to $σ=0.2$ with &gt;98\% gate-level accuracy.</p>
+<h3 id="3-error-amplification-limits-ann-to-snn-conversion-in-continuous-control">[3] <a href="https://arxiv.org/abs/2601.21778">Error Amplification Limits ANN-to-SNN Conversion in Continuous Control</a></h3>
+<p><em>Zijie Xu, Zihan Huang, Yiting Dong, Kang Chen, Wenxuan Liu, Zhaofei Yu</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出了一种名为跨步残差电位初始化（CRPI）的轻量级免训练机制，用于解决脉冲神经网络在连续控制任务中转换性能差的问题。该方法通过跨决策步传递残差膜电位来抑制时间相关的误差放大，显著提升了ANN到SNN转换在连续控制基准上的性能。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有的人工神经网络到脉冲神经网络转换方法在连续控制任务中表现不佳，主要原因是误差放大问题：小的动作近似误差在决策步骤间产生时间相关性，导致累积状态分布偏移和严重的性能下降。由于强化学习训练成本高且可能不安全，需要有效的免训练转换方法来解决这一关键挑战。</p>
+<p><strong>Method:</strong> 本文提出了跨步残差电位初始化（CRPI），这是一种轻量级的免训练机制，通过跨决策步骤传递残差膜电位来抑制时间相关的误差。CRPI可以集成到现有的转换流程中，不需要额外的训练成本，专门针对连续控制任务中误差放大的问题设计，通过保持电位连续性来减少累积误差。</p>
+<p><strong>Result:</strong> 在包含向量和视觉观察的连续控制基准测试中，CRPI显著恢复了转换过程中丢失的性能。实验表明该方法能够有效集成到现有的转换流程中，并大幅改善脉冲神经网络在连续控制任务中的表现，验证了CRPI机制对抑制时间相关误差的有效性。</p>
+<p><strong>Conclusion:</strong> 连续控制是ANN到SNN转换的关键且具有挑战性的基准，其中小误差会被强烈放大并影响性能。CRPI机制为解决这一挑战提供了有效的解决方案，强调了在强化学习等应用中开发鲁棒转换方法的重要性，为脉冲神经网络在连续控制领域的实际应用铺平了道路。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) can achieve competitive performance by converting already existing well-trained Artificial Neural Networks (ANNs), avoiding further costly training. This property is particularly attractive in Reinforcement Learning (RL), where training through environment interaction is expensive and potentially unsafe. However, existing conversion methods perform poorly in continuous control, where suitable baselines are largely absent. We identify error amplification as the key cause: small action approximation errors become temporally correlated across decision steps, inducing cumulative state distribution shift and severe performance degradation. To address this issue, we propose Cross-Step Residual Potential Initialization (CRPI), a lightweight training-free mechanism that carries over residual membrane potentials across decision steps to suppress temporally correlated errors. Experiments on continuous control benchmarks with both vector and visual observations demonstrate that CRPI can be integrated into existing conversion pipelines and substantially recovers lost performance. Our results highlight continuous control as a critical and challenging benchmark for ANN-to-SNN conversion, where small errors can be strongly amplified and impact performance.</p>
+<h3 id="4-general-self-prediction-enhancement-for-spiking-neurons">[4] <a href="https://arxiv.org/abs/2601.21823">General Self-Prediction Enhancement for Spiking Neurons</a></h3>
+<p><em>Zihan Huang, Zijie Xu, Yihan Huang, Shanshan Jia, Tong Bu, Yiting Dong, Wenxuan Liu, Jianhao Ding, Zhaofei Yu, Tiejun Huang</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出了一种自预测增强的脉冲神经元方法，通过从输入输出历史生成内部预测电流来调制膜电位，既创建了连续梯度路径缓解梯度消失问题，又符合生物预测编码原理，从而提升了SNNs的训练稳定性和性能。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 脉冲神经网络虽然具有事件驱动稀疏计算的高能效优势，但其训练面临脉冲不可微性以及性能、效率和生物合理性之间的权衡挑战。主流SNNs忽略了预测编码这一大脑核心皮层机制，即大脑通过预测输入并编码误差来实现高效感知，这构成了研究的关键动机。</p>
+<p><strong>Method:</strong> 本文提出了一种自预测增强的脉冲神经元方法，该方法从神经元的输入输出历史中生成内部预测电流来调制膜电位。这种设计创造了连续的梯度路径，缓解了梯度消失问题并提升了训练稳定性，同时符合生物原理，类似于远端树突调制和误差驱动的突触可塑性机制。</p>
+<p><strong>Result:</strong> 实验结果表明，该方法在不同架构、神经元类型、时间步长和任务上均能带来一致的性能提升，证明了其增强SNNs的广泛适用性。该方法不仅提高了训练稳定性和准确性，还在保持生物合理性的同时显著改善了网络性能。</p>
+<p><strong>Conclusion:</strong> 该研究通过将生物预测编码机制融入SNNs设计，成功解决了训练中的梯度消失问题并提升了性能，为构建更高效、更生物合理的脉冲神经网络提供了新思路。该方法展示了将神经科学原理与深度学习技术相结合的巨大潜力，为未来SNNs的发展指明了方向。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) are highly energy-efficient due to event-driven, sparse computation, but their training is challenged by spike non-differentiability and trade-offs among performance, efficiency, and biological plausibility. Crucially, mainstream SNNs ignore predictive coding, a core cortical mechanism where the brain predicts inputs and encodes errors for efficient perception. Inspired by this, we propose a self-prediction enhanced spiking neuron method that generates an internal prediction current from its input-output history to modulate membrane potential. This design offers dual advantages, it creates a continuous gradient path that alleviates vanishing gradients and boosts training stability and accuracy, while also aligning with biological principles, which resembles distal dendritic modulation and error-driven synaptic plasticity. Experiments show consistent performance gains across diverse architectures, neuron types, time steps, and tasks demonstrating broad applicability for enhancing SNNs.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="5-mar-efficient-large-language-models-via-module-aware-architecture-refinement">[5] <a href="https://arxiv.org/abs/2601.21503">MAR: Efficient Large Language Models via Module-aware Architecture Refinement</a></h3>
+<p><em>Junhong Cai, Guiqin Wang, Kejie Zhao, Jianxiong Tang, Xiang Wang, Luziwei Leng, Ran Cheng, Yuxin Ma, Qinghai Guo</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出模块感知架构优化（MAR）框架，通过集成状态空间模型实现线性时间序列建模，并结合激活稀疏化与自适应三元多步神经元设计，显著降低大语言模型的推理能耗同时保持性能。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 大语言模型在多个领域表现出色，但面临二次注意力机制和密集前馈网络带来的高能耗问题，现有高效模型在信息密度和时序匹配方面存在不足，需要新的架构优化方法。</p>
+<p><strong>Method:</strong> 提出模块感知架构优化（MAR）两阶段框架，集成状态空间模型实现线性时间序列建模，应用激活稀疏化降低前馈网络成本，设计自适应三元多步神经元（ATMN）和脉冲感知双向蒸馏策略（SBDS）解决脉冲神经网络与状态空间模型集成时的信息密度和时序失配问题。</p>
+<p><strong>Result:</strong> 实验表明MAR在资源受限条件下有效恢复了密集对应模型的性能，同时显著降低推理能耗，在可比或更大规模的高效模型中表现优异，验证了其实际应用潜力。</p>
+<p><strong>Conclusion:</strong> 该研究展示了通过架构优化和新型神经元设计实现高效大语言模型的可行性，为构建实用且节能的语言模型提供了新方向，特别是在线性时间建模与稀疏激活的协同优化方面具有重要价值。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Large Language Models (LLMs) excel across diverse domains but suffer from high energy costs due to quadratic attention and dense Feed-Forward Network (FFN) operations. To address these issues, we propose Module-aware Architecture Refinement (MAR), a two-stage framework that integrates State Space Models (SSMs) for linear-time sequence modeling and applies activation sparsification to reduce FFN costs. In addition, to mitigate low information density and temporal mismatch in integrating Spiking Neural Networks (SNNs) with SSMs, we design the Adaptive Ternary Multi-step Neuron (ATMN) and the Spike-aware Bidirectional Distillation Strategy (SBDS). Extensive experiments demonstrate that MAR effectively restores the performance of its dense counterpart under constrained resources while substantially reducing inference energy consumption. Furthermore, it outperforms efficient models of comparable or even larger scale, underscoring its potential for building efficient and practical LLMs.</p>
+  </article>
+</body>
+</html>
