@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-02-04.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 3]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-efficient-sequential-neural-network-with-spatial-temporal-attention-and-linear-lstm-for-robust-lane-detection-using-multi-frame-images">[1] <a href="https://arxiv.org/abs/2602.03669">Efficient Sequential Neural Network with Spatial-Temporal Attention and Linear LSTM for Robust Lane Detection Using Multi-Frame Images</a></h3>
+<p><em>Sandeep Patil, Yongqi Dong, Haneen Farah, Hans Hellendoorn</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本研究提出了一种具有时空注意力机制的序列神经网络模型，用于车道线检测，该模型能够聚焦车道线关键特征并利用连续图像帧间的时空相关性，在保持计算效率的同时实现了卓越的检测性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前车道线检测方法在混合交通环境下缺乏准确性、鲁棒性和实时性，特别是基于视觉的方法往往忽略图像关键区域及其时空显著性，导致在严重遮挡和眩光等困难场景下性能不佳。</p>
+<p><strong>Method:</strong> 本研究提出了一种新颖的序列神经网络模型，采用时空注意力机制来聚焦车道线关键特征并利用连续图像帧间的时空相关性，模型基于标准的编码器-解码器结构和常见的神经网络骨干网络构建。</p>
+<p><strong>Result:</strong> 在三个大规模开源数据集上的广泛实验表明，该模型在各种测试场景中均优于最先进方法，展现出强大的鲁棒性；同时，时空注意力机制使模型参数更少、乘加运算量更低，计算效率显著提升。</p>
+<p><strong>Conclusion:</strong> 该研究证明了时空注意力机制在车道线检测中的有效性，不仅提升了检测精度和鲁棒性，还通过减少参数和计算量实现了更高的计算效率，为自动驾驶感知系统提供了实用的解决方案。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Lane detection is a crucial perception task for all levels of automated vehicles (AVs) and Advanced Driver Assistance Systems, particularly in mixed-traffic environments where AVs must interact with human-driven vehicles (HDVs) and challenging traffic scenarios. Current methods lack versatility in delivering accurate, robust, and real-time compatible lane detection, especially vision-based methods often neglect critical regions of the image and their spatial-temporal (ST) salience, leading to poor performance in difficult circumstances such as serious occlusion and dazzle lighting. This study introduces a novel sequential neural network model with a spatial-temporal attention mechanism to focus on key features of lane lines and exploit salient ST correlations among continuous image frames. The proposed model, built on a standard encoder-decoder structure and common neural network backbones, is trained and evaluated on three large-scale open-source datasets. Extensive experiments demonstrate the strength and robustness of the proposed model, outperforming state-of-the-art methods in various testing scenarios. Furthermore, with the ST attention mechanism, the developed sequential neural network models exhibit fewer parameters and reduced Multiply-Accumulate Operations (MACs) compared to baseline sequential models, highlighting their computational efficiency. Relevant data, code, and models are released at https://doi.org/10.4121/4619cab6-ae4a-40d5-af77-582a77f3d821.</p>
+<h3 id="2-eventflash-towards-efficient-mllms-for-event-based-vision">[2] <a href="https://arxiv.org/abs/2602.03230">EventFlash: Towards Efficient MLLMs for Event-Based Vision</a></h3>
+<p><em>Shaoyu Liu, Jianing Li, Guanghui Zhao, Yunjian Zhang, Wen Jiang, Ming Li, Xiangyang Ji</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出EventFlash，一种高效的事件驱动多模态大语言模型，通过时空令牌稀疏化技术减少数据冗余并加速推理，在保持性能的同时实现12.4倍的吞吐量提升。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前基于事件的多模态大语言模型通常采用密集的图像式处理范式，忽视了事件流的时空稀疏特性，导致计算成本高昂，需要探索更高效的时空令牌稀疏化方法来减少数据冗余并加速推理。</p>
+<p><strong>Method:</strong> 研究构建了包含50万指令集的大规模多样化数据集EventMind，采用课程训练策略；设计了自适应时间窗口聚合模块以高效压缩时间令牌并保留关键时间线索；开发了稀疏密度引导注意力模块，通过选择信息丰富区域并抑制空稀疏区域来提高空间令牌效率。</p>
+<p><strong>Result:</strong> EventFlash相比基线模型EventFlash-Zero实现了12.4倍的吞吐量提升，同时保持可比性能；支持处理长达1000个时间仓的长范围事件流，显著优于EventGPT的5仓限制，展示了高效的事件视觉基础模型能力。</p>
+<p><strong>Conclusion:</strong> EventFlash通过探索时空令牌稀疏化，为基于事件的多模态大语言模型提供了高效的基础模型框架，解决了传统密集处理范式的高计算成本问题，为高速和低光场景下的鲁棒感知开辟了新方向。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Event-based multimodal large language models (MLLMs) enable robust perception in high-speed and low-light scenarios, addressing key limitations of frame-based MLLMs. However, current event-based MLLMs often rely on dense image-like processing paradigms, overlooking the spatiotemporal sparsity of event streams and resulting in high computational cost. In this paper, we propose EventFlash, a novel and efficient MLLM to explore spatiotemporal token sparsification for reducing data redundancy and accelerating inference. Technically, we build EventMind, a large-scale and scene-diverse dataset with over 500k instruction sets, providing both short and long event stream sequences to support our curriculum training strategy. We then present an adaptive temporal window aggregation module for efficient temporal sampling, which adaptively compresses temporal tokens while retaining key temporal cues. Finally, a sparse density-guided attention module is designed to improve spatial token efficiency by selecting informative regions and suppressing empty or sparse areas. Experimental results show that EventFlash achieves a $12.4\times$ throughput improvement over the baseline (EventFlash-Zero) while maintaining comparable performance. It supports long-range event stream processing with up to 1,000 bins, significantly outperforming the 5-bin limit of EventGPT. We believe EventFlash serves as an efficient foundation model for event-based vision.</p>
+<h3 id="3-eventneus-3d-mesh-reconstruction-from-a-single-event-camera">[3] <a href="https://arxiv.org/abs/2602.03847">EventNeuS: 3D Mesh Reconstruction from a Single Event Camera</a></h3>
+<p><em>Shreyas Sachan, Viktor Rudnev, Mohamed Elgharib, Christian Theobalt, Vladislav Golyanik</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出了EventNeuS，一种用于从单目彩色事件流中学习3D表示的自监督神经模型，首次将3D符号距离函数和密度场学习与事件监督相结合，显著提升了事件相机在3D网格重建方面的性能。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机在许多场景中提供了RGB相机的替代方案，但现有的事件基新颖视角合成方法在密集3D网格重建方面探索不足，且现有事件基技术在3D重建精度上存在严重限制，需要解决这一性能差距。</p>
+<p><strong>Method:</strong> 该方法首次将3D符号距离函数和密度场学习与事件基监督相结合，并引入球谐编码以增强对视角相关效应的处理能力，构建了一个自监督神经模型用于从单目彩色事件流中学习3D表示。</p>
+<p><strong>Result:</strong> EventNeuS在性能上显著优于现有方法，平均比先前最佳方法降低了34%的Chamfer距离和31%的平均绝对误差，在3D重建精度方面取得了突破性进展。</p>
+<p><strong>Conclusion:</strong> 该研究证明了将神经隐式表示与事件基监督相结合的有效性，为事件相机在3D重建任务中的应用开辟了新途径，展示了球谐编码在处理视角相关效应方面的优势，为未来事件基3D感知系统的发展提供了重要基础。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Event cameras offer a considerable alternative to RGB cameras in many scenarios. While there are recent works on event-based novel-view synthesis, dense 3D mesh reconstruction remains scarcely explored and existing event-based techniques are severely limited in their 3D reconstruction accuracy. To address this limitation, we present EventNeuS, a self-supervised neural model for learning 3D representations from monocular colour event streams. Our approach, for the first time, combines 3D signed distance function and density field learning with event-based supervision. Furthermore, we introduce spherical harmonics encodings into our model for enhanced handling of view-dependent effects. EventNeuS outperforms existing approaches by a significant margin, achieving 34% lower Chamfer distance and 31% lower mean absolute error on average compared to the best previous method.</p>
+  </article>
+</body>
+</html>
