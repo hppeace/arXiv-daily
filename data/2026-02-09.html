@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-02-09.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-a-neuromorphic-model-of-the-insect-visual-system-for-natural-image-processing">[1] <a href="https://arxiv.org/abs/2602.06405">A neuromorphic model of the insect visual system for natural image processing</a></h3>
+<p><em>Adam D. Hines, Karin Nordström, Andrew B. Barron</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种受昆虫视觉启发的生物启发视觉模型，通过完全自监督的对比学习目标生成稀疏、可区分的视觉编码，该模型在花朵识别任务和自然图像基准测试中表现出色，并实现了人工神经网络和脉冲神经网络两种实现形式。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前许多计算模型过于关注任务性能而忽视了生物真实的处理路径，本研究旨在填补这一空白，通过捕捉昆虫视觉系统的原理来构建更符合生物机制的视觉处理模型。</p>
+<p><strong>Method:</strong> 该研究引入了一个生物启发视觉模型，将密集视觉输入转换为稀疏、可区分的编码，采用完全自监督的对比学习目标进行训练，无需标注数据即可学习表示，并支持跨任务重用而无需依赖特定领域分类器，同时实现了人工神经网络和脉冲神经网络两种实现形式。</p>
+<p><strong>Result:</strong> 模型在花朵识别任务和自然图像基准测试中持续产生可靠的稀疏编码，能够区分视觉相似的输入，在模拟定位设置中，该方法优于简单的图像下采样基线，突显了整合神经形态视觉处理路径的功能优势。</p>
+<p><strong>Conclusion:</strong> 这些结果推进了昆虫计算建模领域，提供了一个通用的生物启发视觉模型，能够在多样化任务中执行稀疏计算，为理解生物视觉处理提供了新的计算框架，并展示了自监督学习在生物启发模型中的有效性。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Insect vision supports complex behaviors including associative learning, navigation, and object detection, and has long motivated computational models for understanding biological visual processing. However, many contemporary models prioritize task performance while neglecting biologically grounded processing pathways. Here, we introduce a bio-inspired vision model that captures principles of the insect visual system to transform dense visual input into sparse, discriminative codes. The model is trained using a fully self-supervised contrastive objective, enabling representation learning without labeled data and supporting reuse across tasks without reliance on domain-specific classifiers. We evaluated the resulting representations on flower recognition tasks and natural image benchmarks. The model consistently produced reliable sparse codes that distinguish visually similar inputs. To support different modelling and deployment uses, we have implemented the model as both an artificial neural network and a spiking neural network. In a simulated localization setting, our approach outperformed a simple image downsampling comparison baseline, highlighting the functional benefit of incorporating neuromorphic visual processing pathways. Collectively, these results advance insect computational modelling by providing a generalizable bio-inspired vision model capable of sparse computation across diverse tasks.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-sparse-spike-encoding-of-channel-responses-for-energy-efficient-human-activity-recognition">[2] <a href="https://arxiv.org/abs/2602.06766">Sparse Spike Encoding of Channel Responses for Energy Efficient Human Activity Recognition</a></h3>
+<p><em>Eleonora Cicciarella, Riccardo Mazzieri, Jacopo Pegoraro, Michele Rossi</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了一种用于集成传感与通信（ISAC）中人类活动识别的脉冲卷积自编码器（SCAE），该模型能够学习信道冲激响应（CIR）的稀疏脉冲编码表示，并与脉冲神经网络（SNN）联合训练，在保持高准确率的同时显著降低能耗。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 集成传感与通信（ISAC）系统需要边缘设备进行持续监测，但现代传感算法通常过于复杂，无法满足能量受限边缘设备的能效要求。脉冲神经网络（SNNs）因其处理稀疏二进制脉冲序列的特性，有望将能耗降低数个数量级，但需要开发能够有效学习传感数据表示的脉冲编码方法。</p>
+<p><strong>Method:</strong> 本文提出了一种脉冲卷积自编码器（SCAE），专门学习信道冲激响应（CIR）数据的定制化脉冲编码表示。该模型与用于人类活动识别（HAR）的脉冲神经网络（SNN）进行联合训练，从而消除了传统方法中对多普勒域预处理的需求，实现了从原始CIR数据到分类结果的端到端脉冲处理。</p>
+<p><strong>Result:</strong> 实验结果表明，SCAE-SNN模型在人类活动识别任务中达到了与混合方法相当的F1分数（接近96%），同时生成了显著更稀疏的脉冲编码（81.1%的稀疏度）。在分类前对CIR数据进行编码不仅提高了HAR的准确性，还显著提升了系统的能效。</p>
+<p><strong>Conclusion:</strong> 该研究证明了脉冲编码自编码器在ISAC系统中处理传感数据的有效性，为能量受限边缘设备上的实时感知任务提供了一种高效解决方案。联合训练方法消除了预处理需求，简化了系统架构，而高稀疏度的脉冲编码为实现超低功耗的传感算法奠定了基础。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>ISAC enables pervasive monitoring, but modern sensing algorithms are often too complex for energy-constrained edge devices. This motivates the development of learning techniques that balance accuracy performance and energy efficiency. Spiking Neural Networks (SNNs) are a promising alternative, processing information as sparse binary spike trains and potentially reducing energy consumption by orders of magnitude. In this work, we propose a spiking convolutional autoencoder (SCAE) that learns tailored spike-encoded representations of channel impulse responses (CIR), jointly trained with an SNN for human activity recognition (HAR), thereby eliminating the need for Doppler domain preprocessing. The results show that our SCAE-SNN achieves F1 scores comparable to a hybrid approach (almost 96%), while producing substantially sparser spike encoding (81.1% sparsity). We also show that encoding CIR data prior to classification improves both HAR accuracy and efficiency. The code is available at https://github.com/ele-ciccia/SCAE-SNN-HAR.</p>
+  </article>
+</body>
+</html>
