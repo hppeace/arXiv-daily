@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-02-13.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-energy-aware-spike-budgeting-for-continual-learning-in-spiking-neural-networks-for-neuromorphic-vision">[1] <a href="https://arxiv.org/abs/2602.12236">Energy-Aware Spike Budgeting for Continual Learning in Spiking Neural Networks for Neuromorphic Vision</a></h3>
+<p><em>Anika Tabassum Meem, Muntasir Hossain Nadid, Md Zesun Ahmed Mia</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种面向脉冲神经网络持续学习的能量感知脉冲预算框架，该框架通过整合经验回放、可学习的泄漏积分发放神经元参数和自适应脉冲调度器，在训练过程中强制执行数据集特定的能量约束，从而在保持准确性的同时显著降低能耗。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 基于脉冲神经网络的神经形态视觉系统虽然为事件型和帧型相机提供了超低功耗感知能力，但灾难性遗忘仍然是其在持续演化环境中部署的关键障碍。现有的持续学习方法主要针对人工神经网络开发，很少同时优化准确性和能量效率，特别是在事件型数据集上的探索尤为有限。</p>
+<p><strong>Method:</strong> 该方法提出了一个能量感知的脉冲预算框架，整合了经验回放、可学习的泄漏积分发放神经元参数以及自适应脉冲调度器。该框架在训练过程中强制执行数据集特定的能量约束，通过控制脉冲预算来实现能量效率与准确性之间的平衡。</p>
+<p><strong>Result:</strong> 在帧型数据集（MNIST、CIFAR-10）上，脉冲预算作为稀疏性诱导正则化器，在提高准确性的同时将脉冲率降低高达47%；在事件型数据集（DVS-Gesture、N-MNIST、CIFAR-10-DVS）上，受控的预算松弛使准确率提升高达17.45个百分点，且计算开销最小。在涵盖两种模态的五个基准测试中，该方法在最小化动态功耗的同时表现出持续的性能改进。</p>
+<p><strong>Conclusion:</strong> 该研究展示了脉冲预算在神经形态视觉系统中实现持续学习的双重作用：在帧型数据上作为正则化器提高稀疏性，在事件型数据上通过预算松弛提升准确性。该方法在保持性能的同时显著降低能耗，推动了神经形态视觉系统中持续学习的实际可行性，为能量受限环境下的自适应感知系统提供了有效解决方案。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Neuromorphic vision systems based on spiking neural networks (SNNs) offer ultra-low-power perception for event-based and frame-based cameras, yet catastrophic forgetting remains a critical barrier to deployment in continually evolving environments. Existing continual learning methods, developed primarily for artificial neural networks, seldom jointly optimize accuracy and energy efficiency, with particularly limited exploration on event-based datasets. We propose an energy-aware spike budgeting framework for continual SNN learning that integrates experience replay, learnable leaky integrate-and-fire neuron parameters, and an adaptive spike scheduler to enforce dataset-specific energy constraints during training. Our approach exhibits modality-dependent behavior: on frame-based datasets (MNIST, CIFAR-10), spike budgeting acts as a sparsity-inducing regularizer, improving accuracy while reducing spike rates by up to 47\%; on event-based datasets (DVS-Gesture, N-MNIST, CIFAR-10-DVS), controlled budget relaxation enables accuracy gains up to 17.45 percentage points with minimal computational overhead. Across five benchmarks spanning both modalities, our method demonstrates consistent performance improvements while minimizing dynamic power consumption, advancing the practical viability of continual learning in neuromorphic vision systems.</p>
+  </article>
+</body>
+</html>
