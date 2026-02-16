@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-02-16.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-unbiased-gradient-estimation-for-event-binning-via-functional-backpropagation">[1] <a href="https://arxiv.org/abs/2602.12590">Unbiased Gradient Estimation for Event Binning via Functional Backpropagation</a></h3>
+<p><em>Jinze Chen, Wei Zhai, Han Han, Tiankai Ma, Yang Cao, Bin Li, Zheng-Jun Zha</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种用于事件相机视觉的无偏梯度估计框架，通过在前向传播中保持原始分箱函数输出不变，同时在反向传播中合成弱导数来解决分箱操作不连续性导致的梯度截断问题。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机将动态场景编码为异步时空事件，通常需要分箱成帧以利用传统图像处理流程，但分箱函数的不连续性导致帧级梯度截断，迫使大多数事件算法仅依赖基于帧的特征。直接从未处理事件学习的方法则因分箱操作的不连续性而遭受有偏梯度估计，限制了学习效率。</p>
+<p><strong>Method:</strong> 提出了一种新颖的无偏梯度估计框架，通过利用分部积分原理，在反向传播过程中合成弱导数同时保持前向输出不变。该方法将目标函数提升为泛函，在反向传播中获得分箱函数导数的积分形式，其中余切函数自然出现，通过从采样的余切向量重构该余切函数来计算弱导数，可证明匹配平滑和非平滑目标的长期有限差分。</p>
+<p><strong>Result:</strong> 实验表明，该方法在简单的基于优化的自我运动估计中将RMS误差降低了3.2%，收敛速度提高了1.57倍。在复杂下游任务中，自监督光流估计的EPE降低了9.4%，SLAM中的RMS误差降低了5.1%，展示了在事件视觉感知中的广泛效益。</p>
+<p><strong>Conclusion:</strong> 该研究提供了一种通用的无偏梯度估计方法，解决了事件相机视觉中分箱操作不连续性的根本问题，显著提升了事件表示的学习效率和下游任务性能，为事件视觉感知系统开辟了新的优化途径。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Event-based vision encodes dynamic scenes as asynchronous spatio-temporal spikes called events. To leverage conventional image processing pipelines, events are typically binned into frames. However, binning functions are discontinuous, which truncates gradients at the frame level and forces most event-based algorithms to rely solely on frame-based features. Attempts to directly learn from raw events avoid this restriction but instead suffer from biased gradient estimation due to the discontinuities of the binning operation, ultimately limiting their learning efficiency. To address this challenge, we propose a novel framework for unbiased gradient estimation of arbitrary binning functions by synthesizing weak derivatives during backpropagation while keeping the forward output unchanged. The key idea is to exploit integration by parts: lifting the target functions to functionals yields an integral form of the derivative of the binning function during backpropagation, where the cotangent function naturally arises. By reconstructing this cotangent function from the sampled cotangent vector, we compute weak derivatives that provably match long-range finite differences of both smooth and non-smooth targets. Experimentally, our method improves simple optimization-based egomotion estimation with 3.2\% lower RMS error and 1.57$\times$ faster convergence. On complex downstream tasks, we achieve 9.4\% lower EPE in self-supervised optical flow, and 5.1\% lower RMS error in SLAM, demonstrating broad benefits for event-based visual perception. Source code can be found at https://github.com/chjz1024/EventFBP.</p>
+  </article>
+</body>
+</html>
