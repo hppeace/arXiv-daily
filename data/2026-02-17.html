@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-02-17.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-a-feedback-control-optimizer-for-online-and-hardware-aware-training-of-spiking-neural-networks">[1] <a href="https://arxiv.org/abs/2602.13261">A feedback control optimizer for online and hardware-aware training of Spiking Neural Networks</a></h3>
+<p><em>Matteo Saponati, Chiara De Luca, Giacomo Indiveri, Benjamin Grewe</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种用于混合信号神经形态设备的新型尖峰神经网络学习算法，该算法通过尖峰控制器生成反馈信号来指导网络活动和权重更新，实现了可扩展的片上学习，在分类任务上达到与传统人工神经网络相当的性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 混合信号神经形态设备主要依赖半监督或无监督学习规则，这些规则在监督学习任务中优化硬件效果有限，缺乏可扩展的片上学习解决方案限制了混合信号设备在可持续智能边缘系统中的潜力，因此需要开发适用于此类设备的有效学习算法。</p>
+<p><strong>Method:</strong> 本文提出了一种新型尖峰神经网络学习算法，该算法将基于尖峰的权重更新与反馈控制信号相结合，通过尖峰控制器生成反馈信号来指导SNN活动并驱动权重更新，实现了可扩展且局部的片上学习机制。</p>
+<p><strong>Result:</strong> 在多种分类任务评估中，使用反馈控制训练的单层尖峰神经网络达到了与传统人工神经网络相当的性能，在混合信号神经形态设备上的连续在线学习场景测试表明，该算法具有良好的网络性能和对超参数失配的鲁棒性。</p>
+<p><strong>Conclusion:</strong> 反馈控制优化器与神经形态应用兼容，推进了边缘应用中可扩展片上学习解决方案的潜力，为混合信号神经形态设备在可持续智能边缘系统中的实际应用提供了关键技术支撑。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Unlike traditional artificial neural networks (ANNs), biological neuronal networks solve complex cognitive tasks with sparse neuronal activity, recurrent connections, and local learning rules. These mechanisms serve as design principles in Neuromorphic computing, which addresses the critical challenge of energy consumption in modern computing. However, most mixed-signal neuromorphic devices rely on semi- or unsupervised learning rules, which are ineffective for optimizing hardware in supervised learning tasks. This lack of scalable solutions for on-chip learning restricts the potential of mixed-signal devices to enable sustainable, intelligent edge systems. To address these challenges, we present a novel learning algorithm for Spiking Neural Networks (SNNs) on mixed-signal devices that integrates spike-based weight updates with feedback control signals. In our framework, a spiking controller generates feedback signals to guide SNN activity and drive weight updates, enabling scalable and local on-chip learning. We first evaluate the algorithm on various classification tasks, demonstrating that single-layer SNNs trained with feedback control achieve performance comparable to artificial neural networks (ANNs). We then assess its implementation on mixed-signal neuromorphic devices by testing network performance in continuous online learning scenarios and evaluating resilience to hyperparameter mismatches. Our results show that the feedback control optimizer is compatible with neuromorphic applications, advancing the potential for scalable, on-chip learning solutions in edge applications.</p>
+  </article>
+</body>
+</html>
