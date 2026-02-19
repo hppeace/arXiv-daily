@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-02-19.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-land-a-longitudinal-analysis-of-neuromorphic-datasets">[1] <a href="https://arxiv.org/abs/2602.15973">LAND: A Longitudinal Analysis of Neuromorphic Datasets</a></h3>
+<p><em>Gregory Cohen, Alexandre Marcireau</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文对423个神经形态数据集进行了系统性综述，揭示了该领域面临的数据标准化、可访问性和合成数据依赖等关键问题，并提出了元数据集作为减少数据需求和消除偏见的解决方案。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 神经形态工程领域面临严重的数据问题，尽管过去十年数据集数量激增，但研究论文仍普遍呼吁需要更多、更大的数据集。现有数据集存在标准化不足、难以查找和理解、下载使用困难等问题，同时合成数据集的兴起带来了新的挑战，这些因素共同阻碍了神经形态技术的进一步发展。</p>
+<p><strong>Method:</strong> 研究采用系统性综述方法，首先对现有423个神经形态数据集进行全面梳理和快照捕捉，然后深入分析这些数据集的任务性质、数据结构、大小特征和标准化程度。特别关注合成数据集（通过模拟或视频转事件方法创建）的增长趋势，并引入元数据集概念，即从现有数据集创建的新数据集，以减少数据需求并消除任务定义中的潜在偏见。</p>
+<p><strong>Result:</strong> 分析揭示了神经形态数据集存在的多个关键问题：数据集规模不断扩大导致处理复杂性增加，缺乏统一标准造成互操作困难，数据访问实际障碍限制了研究可重复性。更重要的是，研究发现合成数据集的兴起虽然有利于算法测试，但对探索神经形态技术新应用存在潜在陷阱，可能引入系统性偏见。</p>
+<p><strong>Conclusion:</strong> 该综述强调了神经形态领域数据基础设施建设的紧迫性，提出元数据集作为解决数据稀缺和偏见问题的有效途径。研究指出需要建立标准化的数据格式、元数据描述和共享机制，同时谨慎对待合成数据的使用场景，为未来神经形态数据集的发展方向提供了重要指导。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Neuromorphic engineering has a data problem. Despite the meteoric rise in the number of neuromorphic datasets published over the past ten years, the conclusion of a significant portion of neuromorphic research papers still states that there is a need for yet more data and even larger datasets. Whilst this need is driven in part by the sheer volume of data required by modern deep learning approaches, it is also fuelled by the current state of the available neuromorphic datasets and the difficulties in finding them, understanding their purpose, and determining the nature of their underlying task. This is further compounded by practical difficulties in downloading and using these datasets. This review starts by capturing a snapshot of the existing neuromorphic datasets, covering over 423 datasets, and then explores the nature of their tasks and the underlying structure of the presented data. Analysing these datasets shows the difficulties arising from their size, the lack of standardisation, and difficulties in accessing the actual data. This paper also highlights the growth in the size of individual datasets and the complexities involved in working with the data. However, a more important concern is the rise of synthetic datasets, created by either simulation or video-to-events methods. This review explores the benefits of simulated data for testing existing algorithms and applications, highlighting the potential pitfalls for exploring new applications of neuromorphic technologies. This review also introduces the concepts of meta-datasets, created from existing datasets, as a way of both reducing the need for more data, and to remove potential bias arising from defining both the dataset and the task.</p>
+  </article>
+</body>
+</html>
