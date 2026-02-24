@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-02-24.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-unie2f-a-unified-diffusion-framework-for-event-to-frame-reconstruction-with-video-foundation-models">[1] <a href="https://arxiv.org/abs/2602.19202">UniE2F: A Unified Diffusion Framework for Event-to-Frame Reconstruction with Video Foundation Models</a></h3>
+<p><em>Gang Xu, Zhiyu Zhu, Junhui Hou</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种利用预训练视频扩散模型的生成先验，从稀疏事件数据重建高保真视频帧的统一框架。该方法通过事件引导和帧间残差增强，显著提升了事件相机视频重建的质量，并实现了零样本的视频帧插值和预测。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机虽然在高速度、低功耗和高动态范围场景感知方面表现出色，但其仅记录相对强度变化而非绝对强度的特性导致数据流存在显著的空间信息和静态纹理细节损失。本研究旨在解决这一限制，通过从稀疏事件数据重建高质量视频帧来弥补事件相机的固有缺陷。</p>
+<p><strong>Method:</strong> 该方法首先建立基线模型，直接将事件数据作为条件输入来合成视频。基于事件流与视频帧之间的物理相关性，进一步引入基于事件的帧间残差引导以增强视频帧重建的准确性。此外，通过调制反向扩散采样过程，该方法以零样本方式扩展到视频帧插值和预测，从而构建了一个统一的事件到帧重建框架。</p>
+<p><strong>Result:</strong> 在真实世界和合成数据集上的实验结果表明，该方法在定量和定性评估上均显著优于先前的方法。具体而言，该方法在视频帧重建质量方面取得了明显提升，同时能够以零样本方式实现视频帧插值和预测任务，展示了其优越的性能和泛化能力。</p>
+<p><strong>Conclusion:</strong> 本研究证明了利用预训练视频扩散模型的生成先验可以有效解决事件相机数据的信息损失问题，为事件视觉系统提供了高质量的视频重建能力。该方法构建的统一框架不仅提升了重建精度，还扩展了事件相机的应用范围，为未来事件视觉与生成模型的结合开辟了新的研究方向。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Event cameras excel at high-speed, low-power, and high-dynamic-range scene perception. However, as they fundamentally record only relative intensity changes rather than absolute intensity, the resulting data streams suffer from a significant loss of spatial information and static texture details. In this paper, we address this limitation by leveraging the generative prior of a pre-trained video diffusion model to reconstruct high-fidelity video frames from sparse event data. Specifically, we first establish a baseline model by directly applying event data as a condition to synthesize videos. Then, based on the physical correlation between the event stream and video frames, we further introduce the event-based inter-frame residual guidance to enhance the accuracy of video frame reconstruction. Furthermore, we extend our method to video frame interpolation and prediction in a zero-shot manner by modulating the reverse diffusion sampling process, thereby creating a unified event-to-frame reconstruction framework. Experimental results on real-world and synthetic datasets demonstrate that our method significantly outperforms previous approaches both quantitatively and qualitatively. We also refer the reviewers to the video demo contained in the supplementary material for video results. The code will be publicly available at https://github.com/CS-GangXu/UniE2F.</p>
+<h3 id="2-pay-attention-to-ctc-fast-and-robust-pseudo-labelling-for-unified-speech-recognition">[2] <a href="https://arxiv.org/abs/2602.19316">Pay Attention to CTC: Fast and Robust Pseudo-Labelling for Unified Speech Recognition</a></h3>
+<p><em>Alexandros Haliassos, Rodrigo Mira, Stavros Petridis</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了USR 2.0，一种改进的统一语音识别框架，通过CTC驱动的教师强制和混合采样技术，显著降低了训练成本并提升了模型在分布偏移下的鲁棒性，在多个基准测试中达到了最先进性能。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有统一语音识别框架依赖自回归伪标签导致训练成本高昂，且CTC与注意力分支的解耦监督使其在面临长序列、噪声或未见域等分布偏移时容易产生自我强化错误，限制了模型的效率和鲁棒性。</p>
+<p><strong>Method:</strong> 提出了CTC驱动的教师强制方法，将贪婪解码的CTC伪标签直接馈入解码器以在单次前向传播中生成注意力目标，同时引入混合采样技术来缓解解码器仅依赖CTC输入带来的曝光偏差问题。</p>
+<p><strong>Result:</strong> USR 2.0将训练时间减半，显著提升了对分布外输入的鲁棒性，在LRS3、LRS2和WildVSR基准测试中超越了原始USR框架和模态特定的自监督基线方法，达到了最先进的性能水平。</p>
+<p><strong>Conclusion:</strong> 该研究表明CTC驱动的伪标签方法能够实现高效的知识迁移，使模型同时受益于CTC的鲁棒性和注意力的表达能力，为半监督语音识别提供了一种更高效且鲁棒的训练范式。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Unified Speech Recognition (USR) has emerged as a semi-supervised framework for training a single model for audio, visual, and audiovisual speech recognition, achieving state-of-the-art results on in-distribution benchmarks. However, its reliance on autoregressive pseudo-labelling makes training expensive, while its decoupled supervision of CTC and attention branches increases susceptibility to self-reinforcing errors, particularly under distribution shifts involving longer sequences, noise, or unseen domains. We propose CTC-driven teacher forcing, where greedily decoded CTC pseudo-labels are fed into the decoder to generate attention targets in a single forward pass. Although these can be globally incoherent, in the pseudo-labelling setting they enable efficient and effective knowledge transfer. Because CTC and CTC-driven attention pseudo-labels have the same length, the decoder can predict both simultaneously, benefiting from the robustness of CTC and the expressiveness of attention without costly beam search. We further propose mixed sampling to mitigate the exposure bias of the decoder relying solely on CTC inputs. The resulting method, USR 2.0, halves training time, improves robustness to out-of-distribution inputs, and achieves state-of-the-art results on LRS3, LRS2, and WildVSR, surpassing USR and modality-specific self-supervised baselines.</p>
+  </article>
+</body>
+</html>
