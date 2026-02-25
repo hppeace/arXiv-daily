@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-02-25.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-robust-spiking-neural-networks-against-adversarial-attacks">[1] <a href="https://arxiv.org/abs/2602.20548">Robust Spiking Neural Networks Against Adversarial Attacks</a></h3>
+<p><em>Shuai Wang, Malu Zhang, Yulin Jiang, Dehao Zhang, Ammar Belatreche, Yu Liang, Yimeng Shan, Zijian Zhou, Yang Yang, Haizhou Li</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本研究提出了一种阈值守卫优化方法，通过将神经元膜电位远离阈值并引入噪声尖峰神经元，显著提升了直接训练脉冲神经网络的对抗鲁棒性，为可靠神经形态计算奠定了基础。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 脉冲神经网络因其生物可塑性和脉冲驱动特性在节能神经形态计算中具有潜力，但其在复杂对抗环境中的鲁棒性受到显著限制。研究发现阈值邻近的脉冲神经元是限制直接训练SNN鲁棒性的关键因素，这些神经元设定了对抗攻击最大潜在强度的上限，并容易在微小扰动下发生状态翻转。</p>
+<p><strong>Method:</strong> 本研究提出了阈值守卫优化方法，包含两个关键方面：首先在损失函数中加入额外约束，使神经元膜电位远离阈值，从而增加SNN的梯度稀疏性并降低对抗攻击的理论上限；其次引入噪声尖峰神经元，将神经元放电机制从确定性转变为概率性，降低因微小扰动导致的状态翻转概率。</p>
+<p><strong>Result:</strong> 在标准对抗场景下进行的广泛实验证明，该方法显著增强了直接训练SNN的鲁棒性。具体而言，通过将神经元膜电位远离阈值和引入概率性放电机制，有效降低了对抗攻击的理论上限和状态翻转概率，从而提升了网络在对抗环境中的稳定性。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了阈值邻近神经元对SNN鲁棒性的限制机制，并提出了有效的优化方法。这些发现为推进现实应用中更可靠、更安全的神经形态计算铺平了道路，为构建抗对抗攻击的SNN系统提供了新的理论框架和技术途径。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) represent a promising paradigm for energy-efficient neuromorphic computing due to their bio-plausible and spike-driven characteristics. However, the robustness of SNNs in complex adversarial environments remains significantly constrained. In this study, we theoretically demonstrate that those threshold-neighboring spiking neurons are the key factors limiting the robustness of directly trained SNNs. We find that these neurons set the upper limits for the maximum potential strength of adversarial attacks and are prone to state-flipping under minor disturbances. To address this challenge, we propose a Threshold Guarding Optimization (TGO) method, which comprises two key aspects. First, we incorporate additional constraints into the loss function to move neurons' membrane potentials away from their thresholds. It increases SNNs' gradient sparsity, thereby reducing the theoretical upper bound of adversarial attacks. Second, we introduce noisy spiking neurons to transition the neuronal firing mechanism from deterministic to probabilistic, decreasing their state-flipping probability due to minor disturbances. Extensive experiments conducted in standard adversarial scenarios prove that our method significantly enhances the robustness of directly trained SNNs. These findings pave the way for advancing more reliable and secure neuromorphic computing in real-world applications.</p>
+<h3 id="2-real-time-motion-segmentation-with-event-based-normal-flow">[2] <a href="https://arxiv.org/abs/2602.20790">Real-time Motion Segmentation with Event-based Normal Flow</a></h3>
+<p><em>Sheng Zhong, Zhongyang Ren, Xiya Zhu, Dehao Yuan, Cornelia Fermuller, Yi Zhou</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了一种基于法向流的事件相机运动分割框架，通过将法向流作为中间表示来压缩事件簇中的运动信息，并采用图割能量最小化方法实现高效分割，相比现有方法实现了近800倍的加速。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机虽然具有微秒级分辨率的优势，但单个事件包含的信息稀疏，直接处理原始事件数据解决视觉任务效率低下，严重限制了现有方法在实时任务（如运动分割）中的适用性，而法向流作为中间表示能够压缩局部区域内事件簇的运动信息，提供更有效的解决方案。</p>
+<p><strong>Method:</strong> 该方法提出基于法向流的事件视觉运动分割框架，利用从事件邻域直接学习得到的密集法向流作为输入，将运动分割任务表述为通过图割解决的能量最小化问题，并通过法向流聚类和运动模型拟合进行迭代优化，采用基于法向流的运动模型初始化和拟合方法，仅需有限数量的候选模型即可高效估计独立运动物体的运动模型。</p>
+<p><strong>Result:</strong> 所提系统显著降低了计算复杂度并确保了实时性能，相比开源的最先进方法实现了近800倍的加速，在多个公共数据集上的广泛评估充分证明了该框架的准确性和效率。</p>
+<p><strong>Conclusion:</strong> 该研究通过引入法向流作为中间表示，有效解决了事件相机运动分割中的计算效率问题，提出的框架在保持高精度的同时实现了实时性能，为动态场景理解中的实时视觉任务提供了实用解决方案，展示了法向流在事件视觉处理中的潜力。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Event-based cameras are bio-inspired sensors with pixels that independently and asynchronously respond to brightness changes at microsecond resolution, offering the potential to handle visual tasks in challenging scenarios. However, due to the sparse information content in individual events, directly processing the raw event data to solve vision tasks is highly inefficient, which severely limits the applicability of state-of-the-art methods in real-time tasks, such as motion segmentation, a fundamental task for dynamic scene understanding. Incorporating normal flow as an intermediate representation to compress motion information from event clusters within a localized region provides a more effective solution. In this work, we propose a normal flow-based motion segmentation framework for event-based vision. Leveraging the dense normal flow directly learned from event neighborhoods as input, we formulate the motion segmentation task as an energy minimization problem solved via graph cuts, and optimize it iteratively with normal flow clustering and motion model fitting. By using a normal flow-based motion model initialization and fitting method, the proposed system is able to efficiently estimate the motion models of independently moving objects with only a limited number of candidate models, which significantly reduces the computational complexity and ensures real-time performance, achieving nearly a 800x speedup in comparison to the open-source state-of-the-art method. Extensive evaluations on multiple public datasets fully demonstrate the accuracy and efficiency of our framework.</p>
+  </article>
+</body>
+</html>
