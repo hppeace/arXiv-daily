@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-02-26.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-rgb-event-hypergraph-prompt-for-kilometer-marker-recognition-based-on-pre-trained-foundation-models">[1] <a href="https://arxiv.org/abs/2602.22026">RGB-Event HyperGraph Prompt for Kilometer Marker Recognition based on Pre-trained Foundation Models</a></h3>
+<p><em>Xiaoyu Xian, Shiao Wang, Xiao Wang, Daxin Tian, Yan Tian</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种用于地铁自主定位的鲁棒千米标记识别方法，通过将事件相机与RGB相机结合，并基于预训练的OCR基础模型进行多模态适应，同时构建了首个大规模RGB-Event数据集EvMetro5K。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 地铁运营环境复杂多变，存在光照变化、高速运动和恶劣天气等挑战，传统RGB相机在这些条件下的视觉感知能力受限。事件相机在低光照、高速场景和低功耗方面具有优势，但缺乏适用于地铁千米标记识别任务的多模态数据集和方法。</p>
+<p><strong>Method:</strong> 提出了一种基于预训练RGB OCR基础模型的鲁棒基线方法，通过多模态适应技术将事件相机数据与RGB数据融合。构建了首个大规模RGB-Event数据集EvMetro5K，包含5,599对同步的RGB-Event样本，分为4,479个训练样本和1,120个测试样本。</p>
+<p><strong>Result:</strong> 在EvMetro5K数据集和其他广泛使用的基准测试上进行了大量实验，结果表明所提方法在千米标记识别任务中表现出色。数据集和源代码将在GitHub上公开，为后续研究提供了重要的基准资源。</p>
+<p><strong>Conclusion:</strong> 该研究证明了事件相机与RGB相机融合在地铁复杂环境感知中的有效性，为GNSS拒止条件下的自主地铁定位提供了可靠解决方案。EvMetro5K数据集的构建填补了该领域多模态数据资源的空白，推动了事件相机在轨道交通应用中的发展。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Metro trains often operate in highly complex environments, characterized by illumination variations, high-speed motion, and adverse weather conditions. These factors pose significant challenges for visual perception systems, especially those relying solely on conventional RGB cameras. To tackle these difficulties, we explore the integration of event cameras into the perception system, leveraging their advantages in low-light conditions, high-speed scenarios, and low power consumption. Specifically, we focus on Kilometer Marker Recognition (KMR), a critical task for autonomous metro localization under GNSS-denied conditions. In this context, we propose a robust baseline method based on a pre-trained RGB OCR foundation model, enhanced through multi-modal adaptation. Furthermore, we construct the first large-scale RGB-Event dataset, EvMetro5K, containing 5,599 pairs of synchronized RGB-Event samples, split into 4,479 training and 1,120 testing samples. Extensive experiments on EvMetro5K and other widely used benchmarks demonstrate the effectiveness of our approach for KMR. Both the dataset and source code will be released on https://github.com/Event-AHU/EvMetro5K_benchmark</p>
+  </article>
+</body>
+</html>
