@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-02-28.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 3]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-locally-adaptive-decay-surfaces-for-high-speed-face-and-landmark-detection-with-event-cameras">[1] <a href="https://arxiv.org/abs/2602.23101">Locally Adaptive Decay Surfaces for High-Speed Face and Landmark Detection with Event Cameras</a></h3>
+<p><em>Paul Kielty, Timothy Hanley, Peter Corcoran</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了局部自适应衰减表面（LADS），这是一种新型事件相机表示方法，通过根据局部信号动态调制每个位置的时间衰减，解决了传统固定时间参数表示在静态区域和快速运动区域之间的权衡问题。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机以微秒级分辨率记录亮度变化，但将其稀疏异步输出转换为神经网络可利用的密集张量仍是一个核心挑战。传统直方图或全局衰减时间表面表示在整个图像平面上应用固定的时间参数，这在实际中造成了在静止期间保留空间结构与在快速运动期间保留清晰边缘之间的权衡问题。</p>
+<p><strong>Method:</strong> 本文引入了局部自适应衰减表面（LADS），这是一种事件表示方法家族，其中每个位置的时间衰减根据局部信号动态进行调制。探索了三种策略：基于事件率、拉普拉斯-高斯响应和高频频谱能量。这些自适应方案在静止区域保留细节，同时在密集活动区域减少模糊。</p>
+<p><strong>Result:</strong> 在公开数据集上的广泛实验表明，LADS相比标准非自适应表示持续改善了人脸检测和面部关键点准确性。在30Hz下，LADS实现了比基线更高的检测准确性和更低的关键点误差；在240Hz下，它缓解了通常在高频下观察到的准确性下降，维持了2.44%的归一化平均误差用于关键点和0.966 mAP50用于人脸检测。这些高频结果甚至超过了先前工作在30Hz下报告的准确性，为基于事件的人脸分析设定了新基准。</p>
+<p><strong>Conclusion:</strong> 通过在表示阶段保留空间结构，LADS支持使用更轻量的网络架构，同时仍保持实时性能。这些结果突显了上下文感知时间集成对于神经形态视觉的重要性，并指向利用事件相机独特优势的实时高频人机交互系统。该方法为事件相机表示提供了一种自适应框架，能够在不同运动条件下优化时空信息保留。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Event cameras record luminance changes with microsecond resolution, but converting their sparse, asynchronous output into dense tensors that neural networks can exploit remains a core challenge. Conventional histograms or globally-decayed time-surface representations apply fixed temporal parameters across the entire image plane, which in practice creates a trade-off between preserving spatial structure during still periods and retaining sharp edges during rapid motion. We introduce Locally Adaptive Decay Surfaces (LADS), a family of event representations in which the temporal decay at each location is modulated according to local signal dynamics. Three strategies are explored, based on event rate, Laplacian-of-Gaussian response, and high-frequency spectral energy. These adaptive schemes preserve detail in quiescent regions while reducing blur in regions of dense activity. Extensive experiments on the public data show that LADS consistently improves both face detection and facial landmark accuracy compared to standard non-adaptive representations. At 30 Hz, LADS achieves higher detection accuracy and lower landmark error than either baseline, and at 240 Hz it mitigates the accuracy decline typically observed at higher frequencies, sustaining 2.44 % normalized mean error for landmarks and 0.966 mAP50 in face detection. These high-frequency results even surpass the accuracy reported in prior works operating at 30 Hz, setting new benchmarks for event-based face analysis. Moreover, by preserving spatial structure at the representation stage, LADS supports the use of much lighter network architectures while still retaining real-time performance. These results highlight the importance of context-aware temporal integration for neuromorphic vision and point toward real-time, high-frequency human-computer interaction systems that exploit the unique advantages of event cameras.</p>
+<h3 id="2-motion-aware-event-suppression-for-event-cameras">[2] <a href="https://arxiv.org/abs/2602.23204">Motion-aware Event Suppression for Event Cameras</a></h3>
+<p><em>Roberto Pellerito, Nico Messikommer, Giovanni Cioffi, Marco Cannici, Davide Scaramuzza</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了首个运动感知事件抑制框架，能够实时过滤由独立运动物体和自身运动触发的事件。该模型同时分割当前事件流中的独立运动物体并预测其未来运动，实现了对动态事件的预见性抑制。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机在动态场景中面临独立运动物体和自身运动触发的大量冗余事件干扰，现有方法难以实时有效地过滤这些动态事件，限制了事件相机在实时应用中的性能表现和下游任务效率。</p>
+<p><strong>Method:</strong> 该框架采用轻量级架构实现运动感知事件抑制，通过联合分割当前事件流中的独立运动物体并预测其未来运动轨迹，实现了对动态事件的预见性抑制。模型设计注重计算效率，能够在消费级GPU上实现实时推理。</p>
+<p><strong>Result:</strong> 在EVIMO基准测试中，该方法在分割准确率上比先前最优方法提升67%，推理速度提高53%，达到173Hz。在下游应用中，通过令牌剪枝将视觉Transformer推理速度提升83%，并将事件视觉里程计的绝对轨迹误差降低13%。</p>
+<p><strong>Conclusion:</strong> 该研究证明了运动感知事件抑制框架在提升事件相机系统实时性能和下游任务效率方面的显著价值，为事件相机在动态环境中的实际应用提供了有效的预处理解决方案，同时展示了轻量级架构在保持高性能的同时实现实时推理的可行性。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>In this work, we introduce the first framework for Motion-aware Event Suppression, which learns to filter events triggered by IMOs and ego-motion in real time. Our model jointly segments IMOs in the current event stream while predicting their future motion, enabling anticipatory suppression of dynamic events before they occur. Our lightweight architecture achieves 173 Hz inference on consumer-grade GPUs with less than 1 GB of memory usage, outperforming previous state-of-the-art methods on the challenging EVIMO benchmark by 67\% in segmentation accuracy while operating at a 53\% higher inference rate. Moreover, we demonstrate significant benefits for downstream applications: our method accelerates Vision Transformer inference by 83\% via token pruning and improves event-based visual odometry accuracy, reducing Absolute Trajectory Error (ATE) by 13\%.</p>
+<h3 id="3-sensor-generalization-for-adaptive-sensing-in-event-based-object-detection-via-joint-distribution-training">[3] <a href="https://arxiv.org/abs/2602.23357">Sensor Generalization for Adaptive Sensing in Event-based Object Detection via Joint Distribution Training</a></h3>
+<p><em>Aheli Saha, René Schuster, Didier Stricker</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>该研究深入分析了事件相机内在参数对基于事件数据的物体检测模型性能的影响，并利用这些发现扩展了下游模型对传感器无关鲁棒性的能力。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管生物启发的事件相机因其异步和低延迟特性而受到关注，但由于其输出信号的新颖性，现有数据存在可变性差距，且缺乏对其信号特征参数的广泛分析，这限制了基于事件数据的模型性能优化和传感器无关鲁棒性的实现。</p>
+<p><strong>Method:</strong> 研究通过系统分析事件相机的内在参数如何影响基于事件数据的物体检测模型性能，并利用这些分析结果来扩展下游模型的传感器无关鲁棒性能力，具体方法包括参数影响分析和模型能力扩展框架。</p>
+<p><strong>Result:</strong> 研究提供了关于内在参数对事件数据训练模型性能影响的深入理解，特别是在物体检测任务上的具体影响，并成功扩展了下游模型对传感器变化的鲁棒性，实现了传感器无关的性能表现。</p>
+<p><strong>Conclusion:</strong> 该研究填补了事件相机参数分析领域的空白，为优化基于事件数据的模型提供了重要指导，同时提出的传感器无关鲁棒性扩展方法为事件相机在实际应用中的部署提供了更可靠的解决方案，推动了事件视觉领域的发展。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Bio-inspired event cameras have recently attracted significant research due to their asynchronous and low-latency capabilities. These features provide a high dynamic range and significantly reduce motion blur. However, because of the novelty in the nature of their output signals, there is a gap in the variability of available data and a lack of extensive analysis of the parameters characterizing their signals. This paper addresses these issues by providing readers with an in-depth understanding of how intrinsic parameters affect the performance of a model trained on event data, specifically for object detection. We also use our findings to expand the capabilities of the downstream model towards sensor-agnostic robustness.</p>
+  </article>
+</body>
+</html>
