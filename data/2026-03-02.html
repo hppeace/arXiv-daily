@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-02.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-modelling-and-simulation-of-neuromorphic-datasets-for-anomaly-detection-in-computer-vision">[1] <a href="https://arxiv.org/abs/2602.23514">Modelling and Simulation of Neuromorphic Datasets for Anomaly Detection in Computer Vision</a></h3>
+<p><em>Mike Middleton, Teymoor Ali, Hakan Kayan, Basabdatta Sen Bhattacharya, Charith Perera, Oliver Rhodes, Elena Gheorghiu, Mark Vousden, Martin A. Trefzer</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了ANTShapes，一种基于Unity引擎构建的新型神经形态视觉数据集仿真框架，旨在解决动态视觉传感器数据稀缺问题，通过模拟可配置的3D场景和随机生成物体行为来生成定制化数据集。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 动态视觉传感器的可用性限制对神经形态计算机视觉研究构成了根本性挑战，现有数据集通常样本数量有限或场景单一，缺乏全面的神经形态视觉数据集仿真工具。</p>
+<p><strong>Method:</strong> 研究团队开发了ANTShapes框架，基于Unity引擎构建可配置的抽象3D场景，其中物体展示随机生成的行为属性如运动和旋转，异常物体标记遵循中心极限定理原则的统计过程，通过调整少量参数即可生成任意数量的数据集样本。</p>
+<p><strong>Result:</strong> ANTShapes能够生成包含任意数量样本的数据集，并导出相应的标签和帧数据，为事件型计算机视觉研究提供了定制化数据集生成能力，特别适用于物体识别、定位和异常检测等应用场景。</p>
+<p><strong>Conclusion:</strong> 该框架有效解决了神经形态视觉研究中数据可用性的限制问题，通过提供可定制的数据集仿真工具，使研究人员能够根据特定研究目的生成适合的数据集，推动了事件型计算机视觉领域的发展。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Limitations on the availability of Dynamic Vision Sensors (DVS) present a fundamental challenge to researchers of neuromorphic computer vision applications. In response, datasets have been created by the research community, but often contain a limited number of samples or scenarios. To address the lack of a comprehensive simulator of neuromorphic vision datasets, we introduce the Anomalous Neuromorphic Tool for Shapes (ANTShapes), a novel dataset simulation framework. Built in the Unity engine, ANTShapes simulates abstract, configurable 3D scenes populated by objects displaying randomly-generated behaviours describing attributes such as motion and rotation. The sampling of object behaviours, and the labelling of anomalously-acting objects, is a statistical process following central limit theorem principles. Datasets containing an arbitrary number of samples can be created and exported from ANTShapes, along with accompanying label and frame data, through the adjustment of a limited number of parameters within the software. ANTShapes addresses the limitations of data availability to researchers of event-based computer vision by allowing for the simulation of bespoke datasets to suit purposes including object recognition and localisation alongside anomaly detection.</p>
+<h3 id="2-spiketrack-a-spike-driven-framework-for-efficient-visual-tracking">[2] <a href="https://arxiv.org/abs/2602.23963">SpikeTrack: A Spike-driven Framework for Efficient Visual Tracking</a></h3>
+<p><em>Qiuyang Zhang, Jiujun Cheng, Qichao Mao, Cong Liu, Yu Fang, Yuhong Li, Mengying Ge, Shangce Gao</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了SpikeTrack，一种用于RGB目标跟踪的尖峰驱动框架，通过非对称设计和记忆检索模块，在保持高精度的同时显著降低了能耗，首次实现了尖峰神经网络在RGB跟踪任务中准确性与能效的平衡。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有尖峰神经网络跟踪框架要么未能完全符合尖峰驱动计算范式，要么未能充分利用神经元的时空动态特性，导致能效与准确性之间存在权衡，这阻碍了SNN在RGB视觉跟踪中的应用。</p>
+<p><strong>Method:</strong> SpikeTrack采用非对称设计，包括非对称时间步扩展和单向信息流，以利用时空动态特性同时减少计算量；设计了受神经推理机制启发的记忆检索模块，通过循环查询由模板初始化的紧凑记忆来检索目标线索并随时间增强目标感知。</p>
+<p><strong>Result:</strong> 实验表明SpikeTrack在SNN跟踪器中达到最先进水平，并与先进ANN跟踪器保持竞争力；在LaSOT数据集上超越TransT，同时仅消耗其1/26的能量，首次实现了RGB跟踪的准确性与能效兼备。</p>
+<p><strong>Conclusion:</strong> 该研究证明了尖峰驱动框架在RGB目标跟踪中的可行性，通过非对称设计和记忆检索机制成功平衡了精度与能效，为低功耗视觉系统开辟了新途径，并提供了首个同时实现高精度和低能耗的尖峰驱动RGB跟踪框架。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) promise energy-efficient vision, but applying them to RGB visual tracking remains difficult: Existing SNN tracking frameworks either do not fully align with spike-driven computation or do not fully leverage neurons' spatiotemporal dynamics, leading to a trade-off between efficiency and accuracy. To address this, we introduce SpikeTrack, a spike-driven framework for energy-efficient RGB object tracking. SpikeTrack employs a novel asymmetric design that uses asymmetric timestep expansion and unidirectional information flow, harnessing spatiotemporal dynamics while cutting computation. To ensure effective unidirectional information transfer between branches, we design a memory-retrieval module inspired by neural inference mechanisms. This module recurrently queries a compact memory initialized by the template to retrieve target cues and sharpen target perception over time. Extensive experiments demonstrate that SpikeTrack achieves the state-of-the-art among SNN-based trackers and remains competitive with advanced ANN trackers. Notably, it surpasses TransT on LaSOT dataset while consuming only 1/26 of its energy. To our knowledge, SpikeTrack is the first spike-driven framework to make RGB tracking both accurate and energy efficient. The code and models are available at https://github.com/faicaiwawa/SpikeTrack.</p>
+  </article>
+</body>
+</html>
