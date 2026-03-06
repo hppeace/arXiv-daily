@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-06.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-bievlight-bi-level-learning-of-task-aware-event-refinement-for-low-light-image-enhancement">[1] <a href="https://arxiv.org/abs/2603.04975">BiEvLight: Bi-level Learning of Task-Aware Event Refinement for Low-Light Image Enhancement</a></h3>
+<p><em>Zishu Yao, Xiang-Xiang Su, Shengning Zhou, Guang-Yong Chen, Guodong Fan, Xing Chen</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出BiEvLight，一种用于低光图像增强的分层任务感知框架，通过将事件去噪重新构建为受增强任务约束的双层优化问题，协同优化增强与去噪，解决了事件相机中背景活动噪声与低信噪比图像的双重退化问题。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机在低光图像增强中面临关键挑战：事件中的固有背景活动噪声与图像的低信噪比导致双重退化，在模态融合过程中产生严重的噪声耦合，成为性能瓶颈。现有研究主要关注模态融合策略设计，但精确的事件去噪是释放事件融合潜力的先决条件。</p>
+<p><strong>Method:</strong> 提出BiEvLight分层任务感知框架，利用图像与事件之间的强梯度相关性构建梯度引导的事件去噪先验，缓解重度噪声区域去噪不足问题。将事件去噪重新构建为受增强任务约束的双层优化问题，通过跨任务交互使上层去噪问题学习适应下层增强目标的事件表示，避免传统静态预处理中的过/欠去噪权衡。</p>
+<p><strong>Result:</strong> 在真实噪声数据集SDE上的广泛实验表明，该方法显著优于现有最先进方法，在PSNR、PSNR*和SSIM指标上分别平均提升1.30dB、2.03dB和0.047，验证了协同优化增强与去噪的有效性。</p>
+<p><strong>Conclusion:</strong> 研究表明精确的事件去噪是事件增强的关键前提，通过双层优化框架实现增强与去噪的协同优化能够显著提升性能。该方法为事件相机在低光条件下的应用提供了新思路，强调了任务感知去噪相对于静态预处理的重要性。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Event cameras, with their high dynamic range, show great promise for Low-light Image Enhancement (LLIE). Existing works primarily focus on designing effective modal fusion strategies. However, a key challenge is the dual degradation from intrinsic background activity (BA) noise in events and low signal-to-noise ratio (SNR) in images, which causes severe noise coupling during modal fusion, creating a critical performance bottleneck. We therefore posit that precise event denoising is the prerequisite to unlocking the full potential of event-based fusion. To this end, we propose BiEvLight, a hierarchical and task-aware framework that collaboratively optimizes enhancement and denoising by exploiting their intrinsic interdependence. Specifically, BiEvLight exploits the strong gradient correlation between images and events to build a gradient-guided event denoising prior that alleviates insufficient denoising in heavily noisy regions. Moreover, instead of treating event denoising as a static pre-processing stage-which inevitably incurs a trade-off between over- and under-denoising and cannot adapt to the requirements of a specific enhancement objective-we recast it as a bilevel optimization problem constrained by the enhancement task. Through cross-task interaction, the upper-level denoising problem learns event representations tailored to the lower-level enhancement objective, thereby substantially improving overall enhancement quality. Extensive experiments on the Real-world noise Dataset SDE demonstrate that our method significantly outperforms state-of-the-art (SOTA) approaches, with average improvements of 1.30dB in PSNR, 2.03dB in PSNR* and 0.047 in SSIM, respectively. The code will be publicly available at https://github.com/iijjlk/BiEvlight.</p>
+  </article>
+</body>
+</html>
