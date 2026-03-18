@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-18.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-spikeclr-contrastive-self-supervised-learning-for-few-shot-event-based-vision-using-spiking-neural-networks">[1] <a href="https://arxiv.org/abs/2603.16338">SpikeCLR: Contrastive Self-Supervised Learning for Few-Shot Event-Based Vision using Spiking Neural Networks</a></h3>
+<p><em>Maxime Vaillant, Axel Carlier, Lai Xing Ng, Christophe Hurter, Benoit R. Cottereau</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了SpikeCLR，一种用于脉冲神经网络（SNNs）的对比自监督学习框架，能够从未标记的事件数据中学习鲁棒的视觉表示，解决了事件视觉中大规模标注数据集稀缺的问题。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件视觉传感器与脉冲神经网络结合在嵌入式系统上具有能效优势，但其潜力受到大规模标注数据集稀缺的严重限制，这阻碍了此类模型的有效训练。</p>
+<p><strong>Method:</strong> 该研究提出了SpikeCLR框架，将先前的基于帧的方法通过替代梯度训练适应到脉冲领域，并引入了一套利用空间、时间和极性变换的事件特定增强方法。</p>
+<p><strong>Result:</strong> 在CIFAR10-DVS、N-Caltech101、N-MNIST和DVS-Gesture基准测试中，自监督预训练结合后续微调在低数据机制下优于监督学习，在少样本和半监督设置中取得了一致的性能提升。</p>
+<p><strong>Conclusion:</strong> 研究表明结合空间和时间增强对于学习事件数据中有效的时空不变性至关重要，学习到的表示能够在数据集间迁移，为标签稀缺环境下构建强大的事件视觉模型提供了有效途径。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Event-based vision sensors provide significant advantages for high-speed perception, including microsecond temporal resolution, high dynamic range, and low power consumption. When combined with Spiking Neural Networks (SNNs), they can be deployed on neuromorphic hardware, enabling energy-efficient applications on embedded systems. However, this potential is severely limited by the scarcity of large-scale labeled datasets required to effectively train such models. In this work, we introduce SpikeCLR, a contrastive self-supervised learning framework that enables SNNs to learn robust visual representations from unlabeled event data. We adapt prior frame-based methods to the spiking domain using surrogate gradient training and introduce a suite of event-specific augmentations that leverage spatial, temporal, and polarity transformations. Through extensive experiments on CIFAR10-DVS, N-Caltech101, N-MNIST, and DVS-Gesture benchmarks, we demonstrate that self-supervised pretraining with subsequent fine-tuning outperforms supervised learning in low-data regimes, achieving consistent gains in few-shot and semi-supervised settings. Our ablation studies reveal that combining spatial and temporal augmentations is critical for learning effective spatio-temporal invariances in event data. We further show that learned representations transfer across datasets, contributing to efforts for powerful event-based models in label-scarce settings.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="2-neuronspark-a-spiking-neural-network-language-model-with-selective-state-space-dynamics">[2] <a href="https://arxiv.org/abs/2603.16148">NeuronSpark: A Spiking Neural Network Language Model with Selective State Space Dynamics</a></h3>
+<p><em>Zhengzheng Tang</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了NeuronSpark，一个0.9B参数的纯脉冲神经网络语言模型，首次证明无需Transformer蒸馏即可从随机初始化学习大规模语言建模，支持端到端的脉冲神经网络语言建模可行性。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 本研究旨在探索纯脉冲神经网络架构是否能够从随机初始化学习大规模语言建模，而不依赖Transformer蒸馏，解决当前脉冲神经网络在语言建模任务中通常需要预训练Transformer模型进行知识蒸馏的限制问题。</p>
+<p><strong>Method:</strong> NeuronSpark模型采用选择性状态空间脉冲动力学、漏电流层间通信、PonderNet自适应时间步长、融合Triton PLIF内核等技术，并结合残差中心化、侧向抑制归一化和自然梯度补偿等稳定化方法，使用下一词预测和替代梯度进行训练。</p>
+<p><strong>Result:</strong> 在受限预算条件下（约14亿预训练token和6.5K步监督微调），NeuronSpark-0.9B达到3.6的预训练损失，并在监督微调后展现出早期多轮对话行为，验证了纯脉冲神经网络架构在该规模下语言建模的可行性。</p>
+<p><strong>Conclusion:</strong> 该研究证明了纯脉冲神经网络架构能够从随机初始化实现端到端语言建模，为大规模脉冲神经网络语言模型的发展提供了重要实证支持，展示了脉冲神经网络在自然语言处理任务中的潜力，无需依赖Transformer蒸馏。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>We ask whether a pure spiking backbone can learn large-scale language modeling from random initialization, without Transformer distillation. We introduce NeuronSpark, a 0.9B-parameter SNN language model trained with next-token prediction and surrogate gradients. The model combines selective state-space spiking dynamics, leakage-current inter-layer communication, PonderNet adaptive timesteps, fused Triton PLIF kernels, and stabilization techniques (residual centering, lateral-inhibition normalization, and natural-gradient compensation). Under a constrained budget (about 1.4B pretraining tokens and 6.5K SFT steps), NeuronSpark-0.9B reaches 3.6 pretraining loss and shows early multi-turn dialogue behavior after SFT. These results support the feasibility of end-to-end language modeling with a pure SNN architecture at this scale.</p>
+  </article>
+</body>
+</html>
