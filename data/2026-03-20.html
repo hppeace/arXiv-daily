@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-20.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-s3t-former-a-purely-spike-driven-state-space-topology-transformer-for-skeleton-action-recognition">[1] <a href="https://arxiv.org/abs/2603.18062">S3T-Former: A Purely Spike-Driven State-Space Topology Transformer for Skeleton Action Recognition</a></h3>
+<p><em>Naichuan Zheng, Hailun Xia, Zepeng Sun, Weiyi Li, Yujia Wang</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了S3T-Former，这是首个专为骨架动作识别设计的纯脉冲驱动Transformer架构，通过多流解剖脉冲嵌入和脉冲状态空间引擎，在保持高精度同时显著降低能耗，为神经形态计算建立了新的能效基准。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 基于骨架的动作识别对多媒体应用至关重要，但严重依赖高功耗的人工神经网络，限制了在资源受限边缘设备上的部署。脉冲神经网络提供了能效替代方案，但现有脉冲模型通常通过密集矩阵聚合、重型多模态融合模块或非稀疏频域变换来损害SNNs的固有稀疏性，并且严重受到脉冲神经元短期记忆问题的困扰。</p>
+<p><strong>Method:</strong> 本文提出了Spiking State-Space Topology Transformer (S3T-Former)，这是首个专门为能效骨架动作识别设计的纯脉冲驱动Transformer架构。方法包括：多流解剖脉冲嵌入作为广义运动微分算子，将多模态骨架特征转换为异构高稀疏事件流；侧向脉冲拓扑路由实现按需条件脉冲传播；脉冲状态空间引擎系统捕获长程时间动态，无需非稀疏频谱解决方案。</p>
+<p><strong>Result:</strong> 在多个大规模数据集上的广泛实验表明，S3T-Former实现了高度竞争力的准确率，同时在理论上相比经典人工神经网络显著降低了能耗消耗。该模型为能效神经形态动作识别建立了新的最先进水平，在保持高性能的同时实现了显著的能效改进。</p>
+<p><strong>Conclusion:</strong> 该研究展示了纯脉冲驱动Transformer架构在骨架动作识别中的可行性，通过创新的稀疏表示和长程时间建模方法，解决了现有脉冲模型的能效与性能权衡问题。S3T-Former为资源受限边缘设备上的实时动作识别应用提供了有前景的解决方案，推动了神经形态计算在计算机视觉任务中的实际部署。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Skeleton-based action recognition is crucial for multimedia applications but heavily relies on power-hungry Artificial Neural Networks (ANNs), limiting their deployment on resource-constrained edge devices. Spiking Neural Networks (SNNs) provide an energy-efficient alternative; however, existing spiking models for skeleton data often compromise the intrinsic sparsity of SNNs by resorting to dense matrix aggregations, heavy multimodal fusion modules, or non-sparse frequency domain transformations. Furthermore, they severely suffer from the short-term amnesia of spiking neurons. In this paper, we propose the Spiking State-Space Topology Transformer (S3T-Former), which, to the best of our knowledge, is the first purely spike-driven Transformer architecture specifically designed for energy-efficient skeleton action recognition. Rather than relying on heavy fusion overhead, we formulate a Multi-Stream Anatomical Spiking Embedding (M-ASE) that acts as a generalized kinematic differential operator, elegantly transforming multimodal skeleton features into heterogeneous, highly sparse event streams. To achieve true topological and temporal sparsity, we introduce Lateral Spiking Topology Routing (LSTR) for on-demand conditional spike propagation, and a Spiking State-Space (S3) Engine to systematically capture long-range temporal dynamics without non-sparse spectral workarounds. Extensive experiments on multiple large-scale datasets demonstrate that S3T-Former achieves highly competitive accuracy while theoretically reducing energy consumption compared to classic ANNs, establishing a new state-of-the-art for energy-efficient neuromorphic action recognition.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-sharpness-aware-surrogate-training-for-spiking-neural-networks">[2] <a href="https://arxiv.org/abs/2603.18039">Sharpness Aware Surrogate Training for Spiking Neural Networks</a></h3>
+<p><em>Maximilian Nicholson</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了一种基于锐度感知最小化的代理梯度训练方法（SAST），用于改进脉冲神经网络的训练，通过将锐度感知优化应用于代理前向模型，显著减少了硬脉冲传递差距并提升了模型鲁棒性。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统脉冲神经网络训练中，代理梯度方法存在硬前向或代理反向训练将非平滑前向模型与有偏梯度估计器耦合的问题，这限制了训练效率和模型性能的传递性，需要一种能够减少传递差距并提升鲁棒性的训练框架。</p>
+<p><strong>Method:</strong> 本文提出了锐度感知代理训练（SAST），将锐度感知最小化（SAM）应用于通过反向传播训练的代理前向脉冲神经网络，该框架将优化目标定义为普通平滑经验风险，从而获得辅助模型的精确训练梯度，并在显式有界性和收缩假设下建立了状态稳定性、输入Lipschitz界和代理目标平滑性分析。</p>
+<p><strong>Result:</strong> 实验在N-MNIST和DVS Gesture数据集上评估了干净准确率、硬脉冲传递、腐败鲁棒性和训练开销，最显著的实践效果是传递差距的显著减少：在N-MNIST上，硬脉冲准确率从65.7%提升至94.7%（最佳ρ=0.30），而代理前向准确率保持高位；在DVS Gesture上，硬脉冲准确率从31.8%提升至63.3%（最佳ρ=0.40）。</p>
+<p><strong>Conclusion:</strong> SAST框架通过锐度感知优化有效解决了脉冲神经网络训练中的传递差距问题，提供了理论保证和实际性能提升，同时建立了局部机制命题将每样本参数梯度控制与局部Jacobian条件下的输入梯度范数减小联系起来，为实际评估提供了计算匹配、校准和理论对齐的控制要求。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Surrogate gradients are a standard tool for training spiking neural networks (SNNs), but conventional hard forward or surrogate backward training couples a nonsmooth forward model with a biased gradient estimator. We study sharpness aware Surrogate Training (SAST), which applies sharpness aware Minimization (SAM) to a surrogate forward SNN trained by backpropagation. In this formulation, the optimization target is an ordinary smooth empirical risk, so the training gradient is exact for the auxiliary model being optimized. Under explicit boundedness and contraction assumptions, we derive compact state stability and input Lipschitz bounds, establish smoothness of the surrogate objective, provide a first order SAM approximation bound, and prove a nonconvex convergence guarantee for stochastic SAST with an independent second minibatch. We also isolate a local mechanism proposition, stated separately from the unconditional guarantees, that links per sample parameter gradient control to smaller input gradient norms under local Jacobian conditioning. Empirically, we evaluate clean accuracy, hard spike transfer, corruption robustness, and training overhead on N-MNIST and DVS Gesture. The clearest practical effect is transfer gap reduction: on N-MNIST, hard spike accuracy rises from 65.7% to 94.7% (best at $ρ=0.30$) while surrogate forward accuracy remains high; on DVS Gesture, hard spike accuracy improves from 31.8% to 63.3% (best at $ρ=0.40$). We additionally specify the compute matched, calibration, and theory alignment controls required for a final practical assessment.</p>
+  </article>
+</body>
+</html>
