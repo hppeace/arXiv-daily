@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-23.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 3]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-pfm-vepar-prompting-foundation-models-for-rgb-event-camera-based-pedestrian-attribute-recognition">[1] <a href="https://arxiv.org/abs/2603.19565">PFM-VEPAR: Prompting Foundation Models for RGB-Event Camera based Pedestrian Attribute Recognition</a></h3>
+<p><em>Minghe Xu, Rouying Wu, ChiaWei Chu, Xiao Wang, Yu Li</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种基于事件提示器的RGB-Event行人属性识别框架，通过轻量级频域特征提取和关联记忆增强表示学习，在降低计算开销的同时有效利用事件数据增强RGB模态，显著提升了低光照和运动模糊场景下的识别性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基于事件的行人属性识别方法存在两个主要问题：双流多模态融合方法引入显著计算开销，且忽视了跨样本上下文信息的价值。这些限制阻碍了事件数据在实际应用中的高效利用，特别是在需要实时处理的场景下。</p>
+<p><strong>Method:</strong> 本文提出事件提示器模块，摒弃计算密集的辅助骨干网络，直接对事件数据应用轻量级离散余弦变换和逆变换操作提取频域特征。结合外部记忆库和现代Hopfield网络实现关联记忆增强表示学习，挖掘跨样本全局关系知识。最后通过交叉注意力机制融合RGB和事件模态，前馈网络完成属性预测。</p>
+<p><strong>Result:</strong> 在多个基准数据集上的广泛实验充分验证了所提RGB-Event PAR框架的有效性。该方法在保持低计算开销的同时，显著提升了低光照和运动模糊场景下的行人属性识别性能，具体量化指标在论文中详细报告。</p>
+<p><strong>Conclusion:</strong> 该研究证明了轻量级频域特征提取和关联记忆增强学习的有效性，为多模态行人属性识别提供了高效解决方案。事件提示器设计展示了如何以最小计算成本有效利用事件数据，为实际部署中的实时处理需求提供了可行路径。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Event-based pedestrian attribute recognition (PAR) leverages motion cues to enhance RGB cameras in low-light and motion-blur scenarios, enabling more accurate inference of attributes like age and emotion. However, existing two-stream multimodal fusion methods introduce significant computational overhead and neglect the valuable guidance from contextual samples. To address these limitations, this paper proposes an Event Prompter. Discarding the computationally expensive auxiliary backbone, this module directly applies extremely lightweight and efficient Discrete Cosine Transform (DCT) and Inverse DCT (IDCT) operations to the event data. This design extracts frequency-domain event features at a minimal computational cost, thereby effectively augmenting the RGB branch. Furthermore, an external memory bank designed to provide rich prior knowledge, combined with modern Hopfield networks, enables associative memory-augmented representation learning. This mechanism effectively mines and leverages global relational knowledge across different samples. Finally, a cross-attention mechanism fuses the RGB and event modalities, followed by feed-forward networks for attribute prediction. Extensive experiments on multiple benchmark datasets fully validate the effectiveness of the proposed RGB-Event PAR framework. The source code of this paper will be released on https://github.com/Event-AHU/OpenPAR</p>
+<h3 id="2-flashcap-millisecond-accurate-human-motion-capture-via-flashing-leds-and-event-based-vision">[2] <a href="https://arxiv.org/abs/2603.19770">FlashCap: Millisecond-Accurate Human Motion Capture via Flashing LEDs and Event-Based Vision</a></h3>
+<p><em>Zekai Wu, Shuqi Fan, Mengyin Liu, Yuhua Luo, Xincheng Lin, Ming Yan, Junhao Wu, Xiuhong Lin, Yuexin Ma, Chenglu Wen, Lan Xu, Siqi Shen, Cheng Wang</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了FlashCap系统，这是首个基于闪烁LED的运动捕捉系统，用于实现精确运动时序分析，并构建了毫秒级分辨率的多模态数据集FlashMotion，同时提出了ResPose基线方法，显著提升了高时间分辨率人体姿态估计的精度。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 精确运动时序在快速运动分析中至关重要，但当前人体姿态估计领域由于缺乏高时间分辨率标注数据集而忽视了这一问题；现有基于高速RGB相机的解决方案成本高昂、对光线敏感且计算复杂，难以在日常场景中应用。</p>
+<p><strong>Method:</strong> 研究开发了FlashCap系统，这是首个基于闪烁LED的运动捕捉系统，用于采集毫秒级分辨率的多模态数据集FlashMotion，包含事件、RGB、LiDAR和IMU数据；同时提出了ResPose基线方法，该方法基于事件和RGB数据学习残差姿态，用于精确运动时序和高时间分辨率人体姿态估计任务。</p>
+<p><strong>Result:</strong> 实验结果表明，ResPose方法将姿态估计误差降低了约40%，并实现了毫秒级时序精度；FlashMotion数据集经过严格验证显示出高质量特性，为相关研究提供了可靠的数据基础。</p>
+<p><strong>Conclusion:</strong> 该研究填补了精确运动时序分析领域的空白，通过创新的硬件系统和多模态数据集为高时间分辨率人体姿态估计开辟了新的研究方向；FlashCap系统的低成本特性使其在日常应用场景中具有可行性，为体育分析、医疗康复等领域提供了新的技术解决方案。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Precise motion timing (PMT) is crucial for swift motion analysis. A millisecond difference may determine victory or defeat in sports competitions. Despite substantial progress in human pose estimation (HPE), PMT remains largely overlooked by the HPE community due to the limited availability of high-temporal-resolution labeled datasets. Today, PMT is achieved using high-speed RGB cameras in specialized scenarios such as the Olympic Games; however, their high costs, light sensitivity, bandwidth, and computational complexity limit their feasibility for daily use. We developed FlashCap, the first flashing LED-based MoCap system for PMT. With FlashCap, we collect a millisecond-resolution human motion dataset, FlashMotion, comprising the event, RGB, LiDAR, and IMU modalities, and demonstrate its high quality through rigorous validation. To evaluate the merits of FlashMotion, we perform two tasks: precise motion timing and high-temporal-resolution HPE. For these tasks, we propose ResPose, a simple yet effective baseline that learns residual poses based on events and RGBs. Experimental results show that ResPose reduces pose estimation errors by ~40% and achieves millisecond-level timing accuracy, enabling new research opportunities. The dataset and code will be shared with the community.</p>
+<h3 id="3-nec-diff-noise-robust-event-raw-complementary-diffusion-for-seeing-motion-in-extreme-darkness">[3] <a href="https://arxiv.org/abs/2603.20005">NEC-Diff: Noise-Robust Event-RAW Complementary Diffusion for Seeing Motion in Extreme Darkness</a></h3>
+<p><em>Haoyue Liu, Jinghan Xu, Luxin Feng, Hanyu Zhou, Haozhi Zhao, Yi Chang, Luxin Yan</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出NEC-Diff，一种基于扩散模型的RAW-事件混合成像框架，用于在极低光照条件下重建高质量图像。该框架通过物理驱动的双模态去噪和自适应特征融合，从严重噪声信号中提取可靠信息，实现精细场景结构重建。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 在极低光照条件下，光子稀缺导致严重噪声和纹理丢失，造成显著的图像退化。现有方法主要关注从事件中恢复纹理，却忽视了图像噪声和事件本身固有噪声的问题，这阻碍了在光子匮乏条件下的准确像素重建。</p>
+<p><strong>Method:</strong> NEC-Diff是一种基于扩散的RAW-事件混合成像框架，结合RAW图像的线性光响应特性与事件亮度变化特性，建立物理驱动的双模态去噪约束。框架动态估计两种模态的信噪比，基于去噪结果指导自适应特征融合，将可靠线索注入扩散过程以实现高保真视觉重建。</p>
+<p><strong>Result:</strong> 研究构建了REAL数据集，包含47,800个像素对齐的低光照RAW图像、事件和高质量参考图像，光照范围为0.001-0.8勒克斯。大量实验证明NEC-Diff在极端黑暗条件下的优越性能，实现了高质量动态场景成像。</p>
+<p><strong>Conclusion:</strong> 该研究展示了结合RAW图像物理特性与事件相机运动敏感性的混合成像框架的有效性，为极低光照条件下的高质量成像提供了新解决方案。物理驱动的去噪约束和自适应特征融合策略为多模态信号处理提供了重要见解，推动了事件相机在极端环境下的应用。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>High-quality imaging of dynamic scenes in extremely low-light conditions is highly challenging. Photon scarcity induces severe noise and texture loss, causing significant image degradation. Event cameras, featuring a high dynamic range (120 dB) and high sensitivity to motion, serve as powerful complements to conventional cameras by offering crucial cues for preserving subtle textures. However, most existing approaches emphasize texture recovery from events, while paying little attention to image noise or the intrinsic noise of events themselves, which ultimately hinders accurate pixel reconstruction under photon-starved conditions. In this work, we propose NEC-Diff, a novel diffusion-based event-RAW hybrid imaging framework that extracts reliable information from heavily noisy signals to reconstruct fine scene structures. The framework is driven by two key insights: (1) combining the linear light-response property of RAW images with the brightness-change nature of events to establish a physics-driven constraint for robust dual-modal denoising; and (2) dynamically estimating the SNR of both modalities based on denoising results to guide adaptive feature fusion, thereby injecting reliable cues into the diffusion process for high-fidelity visual reconstruction. Furthermore, we construct the REAL (Raw and Event Acquired in Low-light) dataset which provides 47,800 pixel-aligned low-light RAW images, events, and high-quality references under 0.001-0.8 lux illumination. Extensive experiments demonstrate the superiority of NEC-Diff under extreme darkness. The project are available at: https://github.com/jinghan-xu/NEC-Diff.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="4-neural-dynamics-self-attention-for-spiking-transformers">[4] <a href="https://arxiv.org/abs/2603.19290">Neural Dynamics Self-Attention for Spiking Transformers</a></h3>
+<p><em>Dehao Zhang, Fukai Guo, Shuai Wang, Jingya Wang, Jieyuan Zhang, Yimeng Shan, Malu Zhang, Yang Yang, Haizhou Li</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出LRF-Dyn，一种用于脉冲Transformer的新型脉冲自注意力机制，通过引入局部感受野和膜电位动态近似，在降低推理内存开销的同时显著提升性能，为边缘视觉应用提供高效解决方案。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有脉冲Transformer面临两个关键挑战：与人工神经网络相比存在显著性能差距，以及在推理过程中内存开销过高。通过理论分析，作者将这两个限制归因于脉冲自注意力机制缺乏局部性偏置以及需要存储大型注意力矩阵的问题。</p>
+<p><strong>Method:</strong> 受生物视觉神经元的局部感受野和膜电位动态启发，提出LRF-Dyn方法，将局部感受野引入脉冲自注意力机制，为邻近区域分配更高权重以增强局部建模能力。在此基础上，通过充放电重置动态近似注意力计算，消除显式注意力矩阵存储，从而减少推理时内存需求。</p>
+<p><strong>Result:</strong> 在视觉任务上的广泛实验表明，该方法在显著降低内存开销的同时，带来了明显的性能提升。具体而言，LRF-Dyn在保持能量效率的同时，缩小了脉冲Transformer与人工神经网络之间的性能差距，验证了其作为高效脉冲Transformer关键单元的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究确立了LRF-Dyn作为实现能量高效脉冲Transformer的关键构建单元，为边缘视觉应用提供了平衡性能与效率的新途径。通过结合生物启发的局部感受野和膜电位动态，该方法解决了脉冲自注意力机制的核心限制，为未来脉冲神经网络与Transformer架构的融合指明了方向。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Integrating Spiking Neural Networks (SNNs) with Transformer architectures offers a promising pathway to balance energy efficiency and performance, particularly for edge vision applications. However, existing Spiking Transformers face two critical challenges: (i) a substantial performance gap compared to their Artificial Neural Networks (ANNs) counterparts and (ii) high memory overhead during inference. Through theoretical analysis, we attribute both limitations to the Spiking Self-Attention (SSA) mechanism: the lack of locality bias and the need to store large attention matrices. Inspired by the localized receptive fields (LRF) and membrane-potential dynamics of biological visual neurons, we propose LRF-Dyn, which uses spiking neurons with localized receptive fields to compute attention while reducing memory requirements. Specifically, we introduce a LRF method into SSA to assign higher weights to neighboring regions, strengthening local modeling and improving performance. Building on this, we approximate the resulting attention computation via charge-fire-reset dynamics, eliminating explicit attention-matrix storage and reducing inference-time memory. Extensive experiments on visual tasks confirm that our method reduces memory overhead while delivering significant performance improvements. These results establish it as a key unit for achieving energy-efficient Spiking Transformers.</p>
+  </article>
+</body>
+</html>
