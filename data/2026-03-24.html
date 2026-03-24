@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-24.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 4]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-high-quality-and-efficient-turbulence-mitigation-with-events">[1] <a href="https://arxiv.org/abs/2603.20708">High-Quality and Efficient Turbulence Mitigation with Events</a></h3>
+<p><em>Xiaoran Zhang, Jian Ding, Yuxing Duan, Haoyue Liu, Gang Chen, Yi Chang, Luxin Yan</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出EHETM，一种基于事件相机的高效湍流消除方法，通过利用事件流的极性交替模式和事件管结构，实现了在少量帧数下的高质量湍流消除，显著降低了数据开销和系统延迟。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统湍流消除方法依赖多帧图像，面临精度与效率的权衡：更多帧数提升恢复质量但增加系统延迟和数据开销。事件相机具有微秒级时间分辨率和动态变化高效感知能力，为突破这一瓶颈提供了机会，但需要有效利用事件流中的湍流与动态物体模式差异。</p>
+<p><strong>Method:</strong> 方法基于两个关键发现：湍流诱导事件表现出与图像梯度相关的极性交替模式，为场景恢复提供结构线索；动态物体形成时空连贯的"事件管"，与湍流事件的随机模式形成对比，为物体与湍流解耦提供运动先验。基于此设计两个互补模块：利用极性加权梯度进行场景细化的模块，以及利用事件管约束进行运动解耦的模块。</p>
+<p><strong>Result:</strong> 实验表明EHETM在包含动态物体的场景中显著优于现有最优方法，同时将数据开销和系统延迟分别降低约77.3%和89.5%。研究构建了两个真实世界的事件-帧湍流数据集，涵盖大气和热湍流情况，验证了方法的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究展示了事件相机在湍流消除中的独特优势，通过挖掘事件流中的极性模式和时空连贯性，实现了高效高质量的湍流与动态物体分离。方法为实时湍流消除系统提供了新思路，事件管概念和极性加权机制为事件视觉处理开辟了新方向，构建的数据集将促进该领域进一步发展。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Turbulence mitigation (TM) is highly ill-posed due to the stochastic nature of atmospheric turbulence. Most methods rely on multiple frames recorded by conventional cameras to capture stable patterns in natural scenarios. However, they inevitably suffer from a trade-off between accuracy and efficiency: more frames enhance restoration at the cost of higher system latency and larger data overhead. Event cameras, equipped with microsecond temporal resolution and efficient sensing of dynamic changes, offer an opportunity to break the bottleneck. In this work, we present EHETM, a high-quality and efficient TM method inspired by the superiority of events to model motions in continuous sequences. We discover two key phenomena: (1) turbulence-induced events exhibit distinct polarity alternation correlated with sharp image gradients, providing structural cues for restoring scenes; and (2) dynamic objects form spatiotemporally coherent ``event tubes'' in contrast to irregular patterns within turbulent events, providing motion priors for disentangling objects from turbulence. Based on these insights, we design two complementary modules that respectively leverage polarity-weighted gradients for scene refinement and event-tube constraints for motion decoupling, achieving high-quality restoration with few frames. Furthermore, we construct two real-world event-frame turbulence datasets covering atmospheric and thermal cases. Experiments show that EHETM outperforms SOTA methods, especially under scenes with dynamic objects, while reducing data overhead and system latency by approximately 77.3% and 89.5%, respectively. Our code is available at: https://github.com/Xavier667/EHETM.</p>
+<h3 id="2-lifr-seg-anytime-high-frame-rate-segmentation-via-event-guided-propagation">[2] <a href="https://arxiv.org/abs/2603.21115">LiFR-Seg: Anytime High-Frame-Rate Segmentation via Event-Guided Propagation</a></h3>
+<p><em>Xiaoshan Wu, Xiaoyang Lyu, Yifei Yu, Bo Wang, Zhongrui Wang, Xiaojuan Qi</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了Anytime Interframe Semantic Segmentation新任务和LiFR-Seg框架，利用异步事件数据在低帧率RGB相机上实现任意时刻的密集语义分割，通过不确定性感知的扭曲传播和时序记忆注意力模块，在动态场景中实现了接近高帧率上限的性能。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 动态环境中的密集语义分割受限于标准相机的低帧率特性，这会在帧间产生关键的感知间隙。为了解决这一问题，本文引入了Anytime Interframe Semantic Segmentation新任务，旨在仅使用单个过去的RGB帧和异步事件数据流，在任意时刻预测语义分割结果。该任务的核心挑战在于如何利用稀疏且通常嘈杂的事件数据导出的运动场来鲁棒地传播密集语义特征，同时减轻高度动态场景中的特征退化问题。</p>
+<p><strong>Method:</strong> 本文提出了LiFR-Seg框架，通过时间传播深度语义特征来直接应对上述挑战。该方法的核心是一个不确定性感知的扭曲过程，由事件驱动的运动场及其学习到的显式置信度指导。此外，一个时序记忆注意力模块进一步确保了动态场景中的特征一致性。该方法在DSEC数据集和作者贡献的新高频合成基准SHF-DSEC上进行了验证。</p>
+<p><strong>Result:</strong> 在DSEC数据集上，该低帧率系统实现了73.82%的mIoU性能，与完全访问目标帧的高帧率上限性能在统计上无法区分（差异仅为0.09%）。这一结果表明，LiFR-Seg框架能够有效利用事件数据弥补低帧率RGB相机的感知间隙，在动态场景中实现接近理想高帧率系统的分割精度。</p>
+<p><strong>Conclusion:</strong> 这项工作提出了一种新的高效范式，利用低帧率硬件实现鲁棒的高帧率感知。通过结合异步事件数据和不确定性感知的特征传播机制，LiFR-Seg框架为动态环境中的实时语义分割提供了实用解决方案，展示了事件相机在弥补传统RGB相机帧率限制方面的巨大潜力，为机器人、自动驾驶等领域的实时感知系统开辟了新方向。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Dense semantic segmentation in dynamic environments is fundamentally limited by the low-frame-rate (LFR) nature of standard cameras, which creates critical perceptual gaps between frames. To solve this, we introduce Anytime Interframe Semantic Segmentation: a new task for predicting segmentation at any arbitrary time using only a single past RGB frame and a stream of asynchronous event data. This task presents a core challenge: how to robustly propagate dense semantic features using a motion field derived from sparse and often noisy event data, all while mitigating feature degradation in highly dynamic scenes. We propose LiFR-Seg, a novel framework that directly addresses these challenges by propagating deep semantic features through time. The core of our method is an uncertainty-aware warping process, guided by an event-driven motion field and its learned, explicit confidence. A temporal memory attention module further ensures coherence in dynamic scenarios. We validate our method on the DSEC dataset and a new high-frequency synthetic benchmark (SHF-DSEC) we contribute. Remarkably, our LFR system achieves performance (73.82% mIoU on DSEC) that is statistically indistinguishable from an HFR upper-bound (within 0.09%) that has full access to the target frame. This work presents a new, efficient paradigm for achieving robust, high-frame-rate perception with low-frame-rate hardware. Project Page: https://candy-crusher.github.io/LiFR_Seg_Proj/#; Code: https://github.com/Candy-Crusher/LiFR-Seg.git.</p>
+<h3 id="3-no-dense-tensors-needed-fully-sparse-object-detection-on-event-camera-voxel-grids">[3] <a href="https://arxiv.org/abs/2603.21638">No Dense Tensors Needed: Fully Sparse Object Detection on Event-Camera Voxel Grids</a></h3>
+<p><em>Mohamad Yazan Sadoun, Sarah Sharif, Yaser Mike Banad</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出了SparseVoxelDet，这是首个完全稀疏的事件相机目标检测器，它通过3D稀疏卷积在占用体素位置上执行所有计算，无需实例化任何密集特征张量，从而充分利用了神经形态传感的表示效率。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机产生异步、高动态范围的流数据，非常适合检测小型快速移动的无人机，但大多数基于事件的检测器将稀疏事件流转换为密集张量，丢弃了神经形态传感的表示效率。现有方法未能充分利用事件数据的固有稀疏性，导致计算和存储资源浪费。</p>
+<p><strong>Method:</strong> SparseVoxelDet采用完全稀疏的检测架构，其中骨干特征提取、特征金字塔融合和检测头都通过3D稀疏卷积在占用体素位置上操作，整个流程中不实例化任何密集特征张量。该方法仅处理活跃体素位置，数据结构的规模与场景动态而非传感器分辨率成比例。</p>
+<p><strong>Result:</strong> 在FRED基准测试（629,832个标注帧）上，SparseVoxelDet在IoU阈值为0.50时达到83.38% mAP，每帧仅处理14,900个活跃体素（占T.H.W网格的0.23%）。将IoU阈值从0.50放宽到0.40可将mAP恢复到89.26%。稀疏表示相对于等效密集3D体素张量实现了858倍GPU内存压缩和3,670倍存储减少，错误分析显示71%的失败是定位接近失误而非目标漏检。</p>
+<p><strong>Conclusion:</strong> 本研究表明原生稀疏处理是事件相机目标检测的可行范式，能够在不依赖神经形态计算硬件的情况下利用神经形态传感器数据的结构稀疏性。该框架的表示成本由场景活动而非像素数量决定，这一特性随着事件相机向更高分辨率扩展而变得日益重要，为高效的事件数据处理提供了新方向。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Event cameras produce asynchronous, high-dynamic-range streams well suited for detecting small, fast-moving drones, yet most event-based detectors convert the sparse event stream into dense tensors, discarding the representational efficiency of neuromorphic sensing. We propose SparseVoxelDet, to our knowledge the first fully sparse object detector for event cameras, in which backbone feature extraction, feature pyramid fusion, and the detection head all operate exclusively on occupied voxel positions through 3D sparse convolutions; no dense feature tensor is instantiated at any stage of the pipeline. On the FRED benchmark (629,832 annotated frames), SparseVoxelDet achieves 83.38% mAP at 50 while processing only 14,900 active voxels per frame (0.23% of the T.H.W grid), compared to 409,600 pixels for the dense YOLOv11 baseline (87.68% mAP at 50). Relaxing the IoU threshold from 0.50 to 0.40 recovers mAP to 89.26%, indicating that the remaining accuracy gap is dominated by box regression precision rather than detection capability. The sparse representation yields 858 times GPU memory compression and 3,670 times storage reduction relative to the equivalent dense 3D voxel tensor, with data-structure size that scales with scene dynamics rather than sensor resolution. Error forensics across 119,459 test frames confirms that 71 percent of failures are localization near-misses rather than missed targets. These results demonstrate that native sparse processing is a viable paradigm for event-camera object detection, exploiting the structural sparsity of neuromorphic sensor data without requiring neuromorphic computing hardware, and providing a framework whose representation cost is governed by scene activity rather than pixel count, a property that becomes increasingly valuable as event cameras scale to higher resolutions.</p>
+<h3 id="4-benchmarking-recurrent-event-based-object-detection-for-industrial-multi-class-recognition-on-mtevent">[4] <a href="https://arxiv.org/abs/2603.21787">Benchmarking Recurrent Event-Based Object Detection for Industrial Multi-Class Recognition on MTEvent</a></h3>
+<p><em>Lokeshwaran Manohar, Moritz Roidl</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本研究对基于事件的工业多类物体检测进行基准测试，通过比较循环与非循环YOLOv8s变体分析时序记忆的影响，并评估不同预训练策略在MTEvent数据集上的效果。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机在工业机器人领域具有高时间分辨率、高动态范围和低运动模糊的优势，但现有基于事件的物体检测研究主要集中于户外驾驶场景或有限类别设置，缺乏针对工业多类识别场景的系统性基准测试和分析。</p>
+<p><strong>Method:</strong> 研究采用循环ReYOLOv8s架构在MTEvent数据集上进行工业多类识别基准测试，使用非循环YOLOv8s变体作为基线分析时序记忆效应，并比较了从零训练、GEN1预训练和PEDRo预训练三种初始化策略的效果。</p>
+<p><strong>Result:</strong> 最佳从零训练的循环模型在MTEvent验证集上达到0.285 mAP50，相比非循环基线提升9.6%；GEN1预训练微调获得最佳整体结果0.329 mAP50，且性能随片段长度增加而持续提升；PEDRo预训练性能下降至0.251，表明不匹配的源域预训练可能不如从零训练有效。</p>
+<p><strong>Conclusion:</strong> 研究证实了循环架构在事件相机检测中的优势，强调了领域匹配预训练的重要性，并识别出类别不平衡和人-物交互是主要的持续失败模式，为工业环境中基于事件的检测提供了系统的基准分析和实践指导。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Event cameras are attractive for industrial robotics because they provide high temporal resolution, high dynamic range, and reduced motion blur. However, most event-based object detection studies focus on outdoor driving scenarios or limited class settings. In this work, we benchmark recurrent ReYOLOv8s on MTEvent for industrial multi-class recognition and use a non-recurrent YOLOv8s variant as a baseline to analyze the effect of temporal memory. On the MTEvent validation split, the best scratch recurrent model (C21) reaches 0.285 mAP50, corresponding to a 9.6% relative improvement over the nonrecurrent YOLOv8s baseline (0.260). Event-domain pretraining has a stronger effect: GEN1-initialized fine-tuning yields the best overall result of 0.329 mAP50 at clip length 21, and unlike scratch training, GEN1-pretrained models improve consistently with clip length. PEDRo initialization drops to 0.251, indicating that mismatched source-domain pretraining can be less effective than training from scratch. Persistent failure modes are dominated by class imbalance and human-object interaction. Overall, we position this work as a focused benchmarking and analysis study of recurrent event-based detection in industrial environments.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="5-optimal-memory-encoding-through-fluctuation-response-structure">[5] <a href="https://arxiv.org/abs/2603.21666">Optimal Memory Encoding Through Fluctuation-Response Structure</a></h3>
+<p><em>Lianxiang Cui, Kohei Nakajima, Kazuyuki Aihara</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>该研究揭示了物理储层计算中输入编码的几何本质，提出了基于系统涨落-响应结构的响应式最优记忆编码（ROME）准则，为不同物理平台上的编码器设计提供了通用框架。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 物理储层计算利用物理系统的内在动力学进行信息处理，但保持内部动力学固定仅训练线性读出层，导致输入编码的作用机制尚不明确，需要深入理解输入编码如何影响系统性能。</p>
+<p><strong>Method:</strong> 通过测量稳态涨落和线性响应，推导出在固定功率约束下最大化任务特定线性记忆的输入方向分析准则，即响应式最优记忆编码（ROME），并证明基于反向传播的编码器优化与ROME等价。</p>
+<p><strong>Result:</strong> ROME揭示了任务依赖特征混合与固有噪声之间的权衡关系，并在多种储层平台上验证了其有效性，包括自旋波波导和脉冲神经网络，证明了该方法在物理和神经形态储层中的普适性。</p>
+<p><strong>Conclusion:</strong> 该研究建立了输入编码的几何理论基础，为物理储层计算提供了系统化的编码器设计方法，即使在不可微分系统中也能有效应用，推动了物理计算系统的优化设计。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Physical reservoir computing exploits the intrinsic dynamics of physical systems for information processing, while keeping the internal dynamics fixed and training only linear readouts; yet the role of input encoding remains poorly understood. We show that optimal input encoding is a geometric problem governed by the system's fluctuation-response structure. By measuring steady-state fluctuations and linear response, we derive an analytical criterion for the input direction that maximizes task-specific linear memory under a fixed power constraint, termed Response-based Optimal Memory Encoding (ROME). Backpropagation-based encoder optimization is shown to be equivalent to ROME, revealing a trade-off between task-dependent feature mixing and intrinsic noise. We apply ROME to various reservoir platforms, including spin-wave waveguides and spiking neural networks, demonstrating effective encoder design across physical and neuromorphic reservoirs, even in non-differentiable systems.</p>
+  </article>
+</body>
+</html>
