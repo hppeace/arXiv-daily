@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-26.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-advsplat-adversarial-attacks-on-feed-forward-gaussian-splatting-models">[1] <a href="https://arxiv.org/abs/2603.23686">AdvSplat: Adversarial Attacks on Feed-Forward Gaussian Splatting Models</a></h3>
+<p><em>Yiran Qiao, Yiren Lu, Yunlai Zhou, Rui Yang, Linlin Hou, Yu Yin, Jing Ma</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了AdvSplat，这是首个针对前馈式3D高斯泼溅模型的系统性对抗攻击研究，揭示了该模型家族存在严重安全漏洞，并开发了两种查询高效的频域参数化黑盒攻击算法。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管前馈式3D高斯泼溅模型通过大规模预训练实现了从少量输入视图的快速重建，避免了逐场景优化的限制，但其神经网络架构放大了对抗操纵的风险，而该领域的安全性和鲁棒性挑战尚未得到系统研究。</p>
+<p><strong>Method:</strong> 研究首先采用白盒攻击揭示模型家族的基本脆弱性，随后开发了两种改进的、查询高效的黑盒攻击算法：一种基于梯度估计，另一种是无梯度的，两者都通过频域参数化优化像素空间扰动，无需访问模型内部信息。</p>
+<p><strong>Result:</strong> 在多个数据集上的广泛实验表明，AdvSplat能够通过向输入图像注入难以察觉的扰动，显著破坏重建结果，证明了前馈式3DGS模型对对抗攻击的高度脆弱性。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了3D高斯泼溅领域一个被忽视但紧迫的安全问题，表明前馈式3DGS模型存在严重的对抗脆弱性，呼吁社区关注这一新兴的安全和鲁棒性挑战，为未来防御机制的研究奠定了基础。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>3D Gaussian Splatting (3DGS) is increasingly recognized as a powerful paradigm for real-time, high-fidelity 3D reconstruction. However, its per-scene optimization pipeline limits scalability and generalization, and prevents efficient inference. Recently emerged feed-forward 3DGS models address these limitations by enabling fast reconstruction from a few input views after large-scale pretraining, without scene-specific optimization. Despite their advantages and strong potential for commercial deployment, the use of neural networks as the backbone also amplifies the risk of adversarial manipulation. In this paper, we introduce AdvSplat, the first systematic study of adversarial attacks on feed-forward 3DGS. We first employ white-box attacks to reveal fundamental vulnerabilities of this model family. We then develop two improved, practically relevant, query-efficient black-box algorithms that optimize pixel-space perturbations via a frequency-domain parameterization: one based on gradient estimation and the other gradient-free, without requiring any access to model internals. Extensive experiments across multiple datasets demonstrate that AdvSplat can significantly disrupt reconstruction results by injecting imperceptible perturbations into the input images. Our findings surface an overlooked yet urgent problem in this domain, and we hope to draw the community's attention to this emerging security and robustness challenge.</p>
+  </article>
+</body>
+</html>
