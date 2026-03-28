@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-03-28.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-reconstructing-spiking-neural-networks-using-a-single-neuron-with-autapses">[1] <a href="https://arxiv.org/abs/2603.24692">Reconstructing Spiking Neural Networks Using a Single Neuron with Autapses</a></h3>
+<p><em>Wuque Cai, Hongze Sun, Quan Tang, Shifeng Mao, Zhenxing Wang, Jiayi He, Duo Chen, Dezhong Yao, Daqing Guo</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种基于时间延迟自突触的脉冲神经网络框架TDA-SNN，该框架使用单个泄漏积分发放神经元重构多种网络架构，显著减少了神经元数量和状态存储需求，同时提高了单神经元信息容量。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 脉冲神经网络在神经形态计算中具有潜力，但高性能模型通常依赖密集的多层架构，导致通信和状态存储成本高昂。现有方法在计算效率和资源消耗方面存在局限，需要探索更紧凑的计算单元设计。</p>
+<p><strong>Method:</strong> 受自突触启发，提出了时间延迟自突触脉冲神经网络框架TDA-SNN，该框架使用单个泄漏积分发放神经元和基于原型学习的训练策略。通过重新组织内部时间状态，TDA-SNN能够在统一框架内实现储备池、多层感知机和类卷积脉冲架构。</p>
+<p><strong>Result:</strong> 在序列、事件驱动和图像基准测试中，TDA-SNN在储备池和多层感知机设置下表现出竞争性性能。卷积结果显示明显的时空权衡，与标准脉冲神经网络相比，TDA-SNN显著减少了神经元数量和状态内存，同时提高了单神经元信息容量，代价是在极端单神经元设置下增加了额外的时间延迟。</p>
+<p><strong>Conclusion:</strong> 研究结果表明时间复用单神经元模型作为脑启发计算的紧凑计算单元具有潜力。TDA-SNN框架为脉冲神经网络设计提供了新的方向，通过时间维度而非空间维度扩展计算能力，在资源受限的神经形态硬件应用中具有重要价值。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking neural networks (SNNs) are promising for neuromorphic computing, but high-performing models still rely on dense multilayer architectures with substantial communication and state-storage costs. Inspired by autapses, we propose time-delayed autapse SNN (TDA-SNN), a framework that reconstructs SNNs with a single leaky integrate-and-fire neuron and a prototype-learning-based training strategy. By reorganizing internal temporal states, TDA-SNN can realize reservoir, multilayer perceptron, and convolution-like spiking architectures within a unified framework. Experiments on sequential, event-based, and image benchmarks show competitive performance in reservoir and MLP settings, while convolutional results reveal a clear space--time trade-off. Compared with standard SNNs, TDA-SNN greatly reduces neuron count and state memory while increasing per-neuron information capacity, at the cost of additional temporal latency in extreme single-neuron settings. These findings highlight the potential of temporally multiplexed single-neuron models as compact computational units for brain-inspired computing.</p>
+  </article>
+</body>
+</html>
