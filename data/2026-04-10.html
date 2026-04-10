@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-10.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-e-3dpsm-a-state-machine-for-event-based-egocentric-3d-human-pose-estimation">[1] <a href="https://arxiv.org/abs/2604.08543">E-3DPSM: A State Machine for Event-Based Egocentric 3D Human Pose Estimation</a></h3>
+<p><em>Mayur Deshmukh, Hiroyasu Akada, Helge Rhodin, Christian Theobalt, Vladislav Golyanik</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出E-3DPSM，一种事件驱动的连续姿态状态机，用于解决事件相机在单目第一人称3D人体姿态估计中精度不足和时序抖动的问题，通过将连续人体运动与细粒度事件动态对齐，实现了稳定且无漂移的3D姿态重建。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机在单目第一人称3D人体姿态估计中具有毫秒级时间分辨率、高动态范围和可忽略运动模糊等优势，但现有方法未能充分利用事件流的异步连续特性，导致对自遮挡高度敏感且估计结果存在时序抖动，3D估计精度不足，限制了在沉浸式VR/AR等应用中的实用性。</p>
+<p><strong>Method:</strong> 本文提出E-3DPSM（事件驱动连续姿态状态机），通过将连续人体运动与细粒度事件动态对齐，演化潜在状态并预测与观测事件相关的3D关节位置连续变化，然后将这些预测与直接的3D人体姿态预测融合，从而实现稳定且无漂移的最终3D姿态重建。</p>
+<p><strong>Result:</strong> E-3DPSM在单个工作站上以80Hz实时运行，在两个基准测试中均达到新的最先进水平，将MPJPE精度提升高达19%，时序稳定性提升高达2.7倍，显著改善了事件相机在3D人体姿态估计中的性能表现。</p>
+<p><strong>Conclusion:</strong> 该研究表明，通过专门针对事件流的异步连续特性设计算法，可以显著提升事件相机在3D人体姿态估计中的精度和稳定性，为沉浸式VR/AR应用提供了更可靠的姿态跟踪解决方案，并为事件视觉与连续状态机模型的结合开辟了新方向。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Event cameras offer multiple advantages in monocular egocentric 3D human pose estimation from head-mounted devices, such as millisecond temporal resolution, high dynamic range, and negligible motion blur. Existing methods effectively leverage these properties, but suffer from low 3D estimation accuracy, insufficient in many applications (e.g., immersive VR/AR). This is due to the design not being fully tailored towards event streams (e.g., their asynchronous and continuous nature), leading to high sensitivity to self-occlusions and temporal jitter in the estimates. This paper rethinks the setting and introduces E-3DPSM, an event-driven continuous pose state machine for event-based egocentric 3D human pose estimation. E-3DPSM aligns continuous human motion with fine-grained event dynamics; it evolves latent states and predicts continuous changes in 3D joint positions associated with observed events, which are fused with direct 3D human pose predictions, leading to stable and drift-free final 3D pose reconstructions. E-3DPSM runs in real-time at 80 Hz on a single workstation and sets a new state of the art in experiments on two benchmarks, improving accuracy by up to 19% (MPJPE) and temporal stability by up to 2.7x. See our project page for the source code and trained models.</p>
+  </article>
+</body>
+</html>
