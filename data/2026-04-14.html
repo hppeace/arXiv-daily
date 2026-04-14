@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-14.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 3]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-dual-exposure-imaging-with-events">[1] <a href="https://arxiv.org/abs/2604.10273">Dual-Exposure Imaging with Events</a></h3>
+<p><em>Mingyuan Lin, Hongyi Liu, Chu He, Wen Yang, Gui-Song Xia, Lei Yu</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种基于事件的双曝光成像算法（E-DEI），通过结合双曝光图像对和事件数据，利用事件相机的高时间分辨率提供精确的动态信息，有效解决了传统双曝光成像中因场景运动和曝光差异导致的伪影问题。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统双曝光成像方法在低光场景中结合短曝光和长曝光图像的互补优势，但不可避免地会因场景运动导致的空间位移和不同曝光时间引起的图像特征差异而产生伪影，这限制了图像质量的进一步提升。</p>
+<p><strong>Method:</strong> 该方法将复杂任务分解为事件去模糊和低光增强两个子任务，设计了双路径并行特征传播架构，并提出了双路径特征对齐与融合模块，利用事件数据有效对齐和融合从双曝光图像中提取的特征，同时构建了包含配对低光/正常光图像和事件的真实世界数据集。</p>
+<p><strong>Result:</strong> 在多个数据集上的实验表明，该方法在图像质量重建方面表现出优越性能，能够有效减少伪影并提升低光场景下的图像质量，验证了事件数据在双曝光成像中的重要作用。</p>
+<p><strong>Conclusion:</strong> 该研究证明了事件相机的高时间分辨率能够为双曝光成像提供准确的帧间/帧内动态信息，通过任务分解和特征对齐融合策略有效解决了传统方法的局限性，为低光成像提供了新的技术路径，相关代码和数据集已开源供进一步研究。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>By combining complementary benefits of short- and long-exposure images, Dual-Exposure Imaging (DEI) enhances image quality in low-light scenarios. However, existing DEI approaches inevitably suffer from producing artifacts due to spatial displacement from scene motion and image feature discrepancies from different exposure times. To tackle this problem, we propose a novel Event-based DEI (E-DEI) algorithm, which reconstructs high-quality images from dual-exposure image pairs and events, leveraging high temporal resolution of event cameras to provide accurate inter-/intra-frame dynamic information. Specifically, we decompose this complex task into an integration of two sub-tasks, i.e., event-based motion deblurring and low-light image enhancement tasks, which guides us to design E-DEI network as a dual-path parallel feature propagation architecture. We propose a Dual-path Feature Alignment and Fusion (DFAF) module to effectively align and fuse features extracted from dual-exposure images with assistance of events. Furthermore, we build a real-world Dataset containing Paired low-/normal-light Images and Events (PIED). Experiments on multiple datasets show the superiority of our method. The code and dataset are available at github.</p>
+<h3 id="2-spatio-temporal-difference-guided-motion-deblurring-with-the-complementary-vision-sensor">[2] <a href="https://arxiv.org/abs/2604.10554">Spatio-Temporal Difference Guided Motion Deblurring with the Complementary Vision Sensor</a></h3>
+<p><em>Yapeng Meng, Lin Yang, Yuguo Chen, Xiangru Chen, Taoyi Wang, Lijian Wang, Zheyu Yang, Yihan Lin, Rong Zhao</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出STGDNet，一种时空差分引导的去模糊网络，利用新型互补视觉传感器Tianmouc提供的同步RGB、空间差分和时序差分多模态数据，解决极端动态场景下的运动模糊问题。该方法通过循环多分支架构迭代编码融合时空差分序列，显著提升了去模糊性能。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统RGB去模糊在极端运动下效果有限，而事件相机存在事件率饱和问题且边缘特征与运动线索纠缠。新型互补视觉传感器Tianmouc能够捕获同步RGB帧以及高帧率、多比特的空间差分（编码结构边缘）和时序差分（编码运动线索）数据，为解决极端动态场景下的RGB去模糊提供了新机遇。</p>
+<p><strong>Method:</strong> 提出时空差分引导去模糊网络STGDNet，采用循环多分支架构，迭代编码和融合空间差分与时序差分序列，以恢复模糊RGB输入中丢失的结构和颜色细节。该方法充分利用互补模态的优势，通过多分支设计分别处理结构边缘信息和运动线索。</p>
+<p><strong>Result:</strong> STGDNet在合成CVS数据集和真实世界评估中均优于当前RGB或基于事件的方法。该方法在超过100个极端真实世界场景中展现出强大的泛化能力，证明了其在处理极端动态场景下的有效性。</p>
+<p><strong>Conclusion:</strong> 研究表明，利用互补视觉传感器提供的多模态数据能够有效解决极端运动下的去模糊问题。STGDNet的成功验证了时空差分信息在恢复丢失细节方面的关键作用，为动态场景视觉感知提供了新的技术路径。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Motion blur arises when rapid scene changes occur during the exposure period, collapsing rich intra-exposure motion into a single RGB frame. Without explicit structural or temporal cues, RGB-only deblurring is highly ill-posed and often fails under extreme motion. Inspired by the human visual system, brain-inspired vision sensors introduce temporally dense information to alleviate this problem. However, event cameras still suffer from event rate saturation under rapid motion, while the event modality entangles edge features and motion cues, which limits their effectiveness. As a recent breakthrough, the complementary vision sensor (CVS), Tianmouc, captures synchronized RGB frames together with high-frame-rate, multi-bit spatial difference (SD, encoding structural edges) and temporal difference (TD, encoding motion cues) data within a single RGB exposure, offering a promising solution for RGB deblurring under extreme dynamic scenes. To fully leverage these complementary modalities, we propose Spatio-Temporal Difference Guided Deblur Net (STGDNet), which adopts a recurrent multi-branch architecture that iteratively encodes and fuses SD and TD sequences to restore structure and color details lost in blurry RGB inputs. Our method outperforms current RGB or event-based approaches in both synthetic CVS dataset and real-world evaluations. Moreover, STGDNet exhibits strong generalization capability across over 100 extreme real-world scenarios. Project page: https://tmcDeblur.github.io/</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="3-sharpness-aware-surrogate-training-for-on-sensor-spiking-neural-networks">[3] <a href="https://arxiv.org/abs/2604.09696">Sharpness-Aware Surrogate Training for On-Sensor Spiking Neural Networks</a></h3>
+<p><em>Maximilian Nicholson</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>该研究提出Sharpness-Aware Surrogate Training (SAST)方法，将Sharpness-Aware Minimization (SAM)应用于脉冲神经网络的代理梯度训练中，显著减小了训练时使用的平滑代理非线性与部署时硬阈值之间的性能差距，从而提升了在传感器端视觉任务中的推理精度。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 脉冲神经网络是传感器端和近传感器视觉的自然计算模型，但使用代理梯度训练的模型在部署时将平滑代理非线性替换为硬阈值时性能会急剧下降，这种代理到硬件的转移差距直接限制了传感器端的推理精度，需要有效的解决方案。</p>
+<p><strong>Method:</strong> 该方法提出Sharpness-Aware Surrogate Training (SAST)，将Sharpness-Aware Minimization (SAM)应用于代理前向的脉冲神经网络，使训练目标平滑且梯度精确；在明确收缩假设下提供了状态稳定性、输入Lipschitz性和平滑性边界，并给出了相应的非凸收敛结果。</p>
+<p><strong>Result:</strong> 在两个事件相机基准测试中，仅交换硬脉冲的准确率在N-MNIST上从65.7%提升至94.7%，在DVS Gesture上从31.8%提升至63.3%；在硬件感知推理模拟下（INT8/INT4权重量化、定点膜电位、离散泄漏因子），SAST表现依然强劲：N-MNIST上硬脉冲准确率从47.6%提升至96.9%（INT8）和从43.2%提升至81.0%（INT4），DVS Gesture上从25.3%提升至47.6%（INT8）和从26.0%提升至43.8%（INT4）。</p>
+<p><strong>Conclusion:</strong> 该研究表明SAST是减小代理到硬件转移差距的有效策略之一，在测试设置下可作为传感器端脉冲推理工具箱中的有前景组件；同时强调该方法是在测试设置下可行的差距减小策略之一，而非唯一可行机制，为脉冲神经网络在资源受限的传感器端部署提供了重要技术支撑。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Spiking neural networks (SNNs) are a natural computational model for on-sensor and near-sensor vision, where event driven processors must operate under strict power budgets with hard binary spikes. However, models trained with surrogate gradients often degrade sharply when the smooth surrogate nonlinearity is replaced by a hard threshold at deployment; a surrogate-to-hard transfer gap that directly limits on-sensor accuracy. We study Sharpness-Aware Surrogate Training (SAST), which applies Sharpness-Aware Minimization (SAM) to a surrogate-forward SNN so that the training objective is smooth and the gradient is exact, and position it as one gap-reduction strategy under the tested settings rather than the only viable mechanism. Under explicit contraction assumptions we provide state-stability, input-Lipschitz, and smoothness bounds, together with a corresponding nonconvex convergence result. On two event-camera benchmarks, swap-only hard-spike accuracy improves from 65.7\% to 94.7\% on N-MNIST and from 31.8\% to 63.3\% on DVS Gesture. Under a hardware-aware inference simulation (INT8/INT4 weight quantization, fixed-point membrane potentials, discrete leak factors), SAST remains strong: on N-MNIST, hard-spike accuracy improves from 47.6\% to 96.9\% (INT8) and from 43.2\% to 81.0\% (INT4), while on DVS Gesture it improves from 25.3\% to 47.6\% (INT8) and from 26.0\% to 43.8\% (INT4). SynOps also decrease under the same hardware-aware setting, including 1734k$\rightarrow$1315k (N-MNIST, INT8) and 86221k$\rightarrow$4323k (DVS Gesture, INT8). These results suggest that SAST is a promising component in a broader toolbox for on-sensor spiking inference under the tested settings.</p>
+<h3 id="4-winner-take-all-spiking-transformer-for-language-modeling">[4] <a href="https://arxiv.org/abs/2604.11321">Winner-Take-All Spiking Transformer for Language Modeling</a></h3>
+<p><em>Chenlin Zhou, Sihang Guo, Jiaqi Wang, Dongyang Ma, Kaiwei Che, Baiyu Chen, Qingyan Meng, Zhengyu Ma, Yonghong Tian</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出了一种基于胜者通吃机制的软最大值自由脉冲自注意力模块，构建了用于自然语言处理的脉冲Transformer架构，在保持高性能的同时显著降低了能耗。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有直接训练的脉冲Transformer主要专注于视觉任务，而在语言建模中依赖基于softmax的脉冲自注意力机制，这导致高能耗并给神经形态部署带来挑战，需要开发更高效的软最大值自由脉冲Transformer架构。</p>
+<p><strong>Method:</strong> 本文引入了胜者通吃机制到脉冲Transformer中，提出了两种新颖的软最大值自由、脉冲驱动的自注意力模块：WTA脉冲自注意力和因果WTA脉冲自注意力，并基于此设计了用于掩码语言建模的WE-Spikingformer和用于因果语言建模的WD-Spikingformer。</p>
+<p><strong>Result:</strong> 在涵盖自然语言理解、问答任务和常识推理任务的16个数据集上进行广泛实验，验证了所提方法的有效性，证明了脉冲Transformer在通用语言建模和节能人工智能方面的潜力。</p>
+<p><strong>Conclusion:</strong> 该研究展示了软最大值自由脉冲Transformer架构在自然语言处理任务中的可行性，为开发更节能的神经形态计算系统提供了新方向，推动了脉冲神经网络在通用语言建模领域的应用。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Spiking Transformers, which combine the scalability of Transformers with the sparse, energy-efficient property of Spiking Neural Networks (SNNs), have achieved impressive results in neuromorphic and vision tasks and attracted increasing attention. However, existing directly trained spiking transformers primarily focus on vision tasks. For language modeling with spiking transformer, convergence relies heavily on softmax-based spiking self-attention, which incurs high energy costs and poses challenges for neuromorphic deployment. To address this issue, we introduce Winner-Take-All (WTA) mechanisms into spiking transformers and propose two novel softmax-free, spike-driven self-attention modules: WTA Spiking Self-Attention (WSSA) and Causal WTA Spiking Self-Attention (CWSSA). Based on them, we design WTA-based Encoder-only Spiking Transformer (WE-Spikingformer) for masked language modeling and WTA-based Decoder-only Spiking Transformer (WD-Spikingformer) for causal language modeling, systematically exploring softmax-free, spiking-driven Transformer architectures trained end-to-end for natural language processing tasks. Extensive experiments on 16 datasets spanning natural language understanding, question-answering tasks, and commonsense reasoning tasks validate the effectiveness of our approach and highlight the promise of spiking transformers for general language modeling and energy-efficient artificial intelligence.</p>
+<h3 id="5-beyond-llms-sparse-distributed-memory-and-neuromorphics">[5] <a href="https://arxiv.org/abs/2604.11665">Beyond LLMs, Sparse Distributed Memory, and Neuromorphics <A Hyper-Dimensional SRAM-CAM "VaCoAl" for Ultra-High Speed, Ultra-Low Power, and Low Cost></a></h3>
+<p><em>Hiroyuki Chuma, Kanji Otsuka, Yoichi Sato</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出了一种基于伽罗瓦场代数的确定性超维计算架构VaCoAl，发现了与脉冲时序依赖可塑性等效的路径依赖语义选择机制，为解决现代AI的灾难性遗忘、学习停滞和绑定问题提供了代数层面的解决方案。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 本研究旨在解决现代人工智能系统的关键局限性，包括灾难性遗忘、学习停滞以及绑定问题，这些问题在传统神经网络架构中难以从根本上解决。研究探索在代数层面提供解决方案，通过超维计算框架实现可逆的多跳推理和组合泛化能力。</p>
+<p><strong>Method:</strong> 本文提出了VaCoAl（Vague Coincident Algorithm）及其Python实现PyVaCoAl，这是一种基于伽罗瓦场代数的确定性超维计算架构。该方法结合了超高维内存与确定性逻辑，利用伽罗瓦场扩散解决高维二进制空间中的正交化和检索问题，采用基于CR评分的去噪机制，并实现了HDC捆绑和解绑操作以支持多跳推理。</p>
+<p><strong>Result:</strong> 研究在Wikidata约47万导师-学生关系上评估了多跳推理，追踪了多达57代（超过2550万条路径）。结果显示系统能够重新解释牛顿-莱布尼茨争议，并观察到从稀疏收敛到后莱布尼茨"超级高速公路"的相变。碰撞容忍机制诱导了基于路径的剪枝，产生了与STDP等效的涌现语义选择行为。</p>
+<p><strong>Conclusion:</strong> VaCoAl定义了第三种范式HDC-AI，补充了大语言模型在可逆多跳推理方面的能力。该研究揭示了超维计算中涌现的路径依赖语义选择机制，为理解认知过程中的结构化指标和库恩范式转变提供了新视角，同时为内存中心架构提供了透明可靠性度量和可逆组合能力。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>This paper reports an unexpected finding: in a deterministic hyperdimensional computing (HDC) architecture based on Galois-field algebra, a path-dependent semantic selection mechanism emerges, equivalent to spike-timing-dependent plasticity (STDP), with magnitude predictable a priori by a closed-form expression matching large-scale measurements. This addresses limitations of modern AI including catastrophic forgetting, learning stagnation, and the Binding Problem at an algebraic level. We propose VaCoAl (Vague Coincident Algorithm) and its Python implementation PyVaCoAl, combining ultra-high-dimensional memory with deterministic logic. Rooted in Sparse Distributed Memory, it resolves orthogonalisation and retrieval in high-dimensional binary spaces via Galois-field diffusion, enabling low-load deployment. VaCoAl is a memory-centric architecture prioritising retrieval and association, enabling reversible composition while preserving element independence and supporting compositional generalisation with a transparent reliability metric (CR score). We evaluated multi-hop reasoning on about 470k mentor-student relations from Wikidata, tracing up to 57 generations (over 25.5M paths). Using HDC bundling and unbinding with CR-based denoising, we quantify concept propagation over DAGs. Results show a reinterpretation of the Newton-Leibniz dispute and a phase transition from sparse convergence to a post-Leibniz "superhighway", from which structural indicators emerge supporting a Kuhnian paradigm shift. Collision-tolerance mechanisms further induce path-based pruning that favors direct paths, yielding emergent semantic selection equivalent to STDP. VaCoAl thus defines a third paradigm, HDC-AI, complementing LLMs with reversible multi-hop reasoning.</p>
+  </article>
+</body>
+</html>
