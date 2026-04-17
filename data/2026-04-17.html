@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-17.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-bidirectional-cross-modal-prompting-for-event-frame-asymmetric-stereo">[1] <a href="https://arxiv.org/abs/2604.15312">Bidirectional Cross-Modal Prompting for Event-Frame Asymmetric Stereo</a></h3>
+<p><em>Ninghui Xu, Fabio Tosi, Lihui Wang, Jiawei Han, Luca Bartolomei, Zhiting Yao, Matteo Poggi, Stefano Mattoccia</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出Bi-CMPStereo，一种新颖的双向跨模态提示框架，通过充分利用事件相机和帧相机的互补特性，解决跨模态立体匹配中的模态鸿沟问题，显著提升动态场景下的3D感知性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统帧相机在动态场景中存在时间分辨率有限和运动模糊的问题，而事件相机虽具有高动态范围但缺乏丰富的上下文信息。两种模态的互补特性使其在快速运动和挑战性光照下的3D感知具有潜力，但模态鸿沟导致跨模态立体匹配中特定领域线索的边缘化，限制了匹配性能。</p>
+<p><strong>Method:</strong> 本文提出Bi-CMPStereo双向跨模态提示框架，通过在学习目标规范空间内精细对齐立体表示，并将每个模态投影到事件和帧两个域中，充分利用两个领域的语义和结构特征进行鲁棒匹配。该方法通过跨模态投影集成互补表示，有效弥合模态鸿沟。</p>
+<p><strong>Result:</strong> 大量实验表明，该方法在准确性和泛化能力方面显著优于现有最先进方法。Bi-CMPStereo在跨模态立体匹配任务中取得了卓越的性能表现，验证了双向跨模态提示框架在利用事件-帧互补特性方面的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究证明了双向跨模态提示框架在解决事件-帧不对称立体匹配问题上的有效性，为动态场景下的可靠3D感知提供了新思路。通过充分利用两种模态的互补特性并弥合模态鸿沟，该方法为跨模态视觉感知开辟了有前景的研究方向。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Conventional frame-based cameras capture rich contextual information but suffer from limited temporal resolution and motion blur in dynamic scenes. Event cameras offer an alternative visual representation with higher dynamic range free from such limitations. The complementary characteristics of the two modalities make event-frame asymmetric stereo promising for reliable 3D perception under fast motion and challenging illumination. However, the modality gap often leads to marginalization of domain-specific cues essential for cross-modal stereo matching. In this paper, we introduce Bi-CMPStereo, a novel bidirectional cross-modal prompting framework that fully exploits semantic and structural features from both domains for robust matching. Our approach learns finely aligned stereo representations within a target canonical space and integrates complementary representations by projecting each modality into both event and frame domains. Extensive experiments demonstrate that our approach significantly outperforms state-of-the-art methods in accuracy and generalization.</p>
+  </article>
+</body>
+</html>
