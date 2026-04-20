@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-20.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-lp2dh-a-locality-preserving-pixel-difference-hashing-framework-for-dynamic-texture-recognition">[1] <a href="https://arxiv.org/abs/2604.15707">LP$^{2}$DH: A Locality-Preserving Pixel-Difference Hashing Framework for Dynamic Texture Recognition</a></h3>
+<p><em>Ruxin Ding, Jianfeng Ren, Heng Yu, Jiawei Li, Xudong Jiang</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种局部保持的像素差异哈希（LP²DH）框架，用于解决动态纹理描述子STLBP的高维问题，通过联合编码完整时空邻域中的像素差异，实现了紧凑且具有判别力的二进制特征表示。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 时空局部二值模式（STLBP）作为广泛使用的动态纹理描述子存在维度极高的问题，现有方法通常在三个正交平面上提取特征，但牺牲了平面间的相关性，因此需要一种能够有效降低维度同时保持判别力的新方法。</p>
+<p><strong>Method:</strong> 提出的LP²DH框架将像素差异向量（PDVs）转换为紧凑的二进制编码，并引入局部保持嵌入来维持哈希前后PDVs的局部结构，采用Stiefel流形上的梯度下降和曲线搜索策略联合优化哈希矩阵和二进制码，最后通过字典学习将二进制向量编码为码字并生成直方图特征表示。</p>
+<p><strong>Result:</strong> 在三个主要动态纹理识别基准测试中，LP²DH取得了最先进的性能：在UCLA数据集上达到99.80%（优于DT-GoogleNet的98.93%），在DynTex++上达到98.52%（优于HoGF³D的97.63%），在YUPENN上达到96.19%（优于STS的95.00%）。</p>
+<p><strong>Conclusion:</strong> 该研究表明，通过联合编码完整时空邻域的像素差异并保持局部结构，可以显著提升动态纹理识别的性能，LP²DH框架为高维特征的有效压缩和表示提供了新的解决方案，在多个基准测试中验证了其优越性。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spatiotemporal Local Binary Pattern (STLBP) is a widely used dynamic texture descriptor, but it suffers from extremely high dimensionality. To tackle this, STLBP features are often extracted on three orthogonal planes, which sacrifice inter-plane correlation. In this work, we propose a Locality-Preserving Pixel-Difference Hashing (LP$^{2}$DH) framework that jointly encodes pixel differences in the full spatiotemporal neighbourhood. LP$^{2}$DH transforms Pixel-Difference Vectors (PDVs) into compact binary codes with maximal discriminative power. Furthermore, we incorporate a locality-preserving embedding to maintain the PDVs' local structure before and after hashing. Then, a curvilinear search strategy is utilized to jointly optimize the hashing matrix and binary codes via gradient descent on the Stiefel manifold. After hashing, dictionary learning is applied to encode the binary vectors into codewords, and the resulting histogram is utilized as the final feature representation. The proposed LP$^{2}$DH achieves state-of-the-art performance on three major dynamic texture recognition benchmarks: 99.80% against DT-GoogleNet's 98.93% on UCLA, 98.52% against HoGF$^{3D}$'s 97.63% on DynTex++, and 96.19% compared to STS's 95.00% on YUPENN. The source code is available at: https://github.com/drx770/LP2DH.</p>
+<h3 id="2-neurolip-an-event-driven-spatiotemporal-learning-framework-for-cross-scene-lip-motion-based-visual-speaker-recognition">[2] <a href="https://arxiv.org/abs/2604.15718">NeuroLip: An Event-driven Spatiotemporal Learning Framework for Cross-Scene Lip-Motion-based Visual Speaker Recognition</a></h3>
+<p><em>Junguang Yao, Wenye Liu, Stjepan Picek, Yue Zheng</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出NeuroLip，一种基于事件相机的唇部运动识别框架，通过捕捉精细的唇部动态行为特征，在跨场景协议下实现了鲁棒的视觉说话人识别。该方法结合了时间感知体素编码、结构感知空间增强器和极性一致性正则化，并在新构建的DVSpeaker数据集上验证了其优越性能。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统基于外观的视觉说话人识别方法受环境变化影响较大，而唇部运动编码了主体特定的行为动态，具有内在稳定性。然而，传统帧式相机难以捕捉精细的唇部动态，存在运动模糊和动态范围低的限制。本研究旨在利用事件相机解决这些传感限制，在严格的跨场景协议下实现鲁棒的唇部运动识别。</p>
+<p><strong>Method:</strong> NeuroLip框架包含三个核心组件：1）具有自适应事件加权的时间感知体素编码模块，用于有效表示事件数据；2）结构感知空间增强器，通过抑制噪声同时保留垂直结构运动信息来放大判别性行为模式；3）极性一致性正则化机制，保留事件极性编码的运动方向线索。该框架在单次受控条件下训练，但必须在未见过的视角和光照条件下进行识别。</p>
+<p><strong>Result:</strong> 在构建的DVSpeaker数据集（包含50个主体在四种不同视角和光照场景下的记录）上的实验表明，NeuroLip实现了近乎完美的匹配场景准确率，并在跨场景泛化方面表现优异。在未见过的视角上达到超过71%的准确率，在低光照条件下接近76%，比现有代表性方法至少高出8.54%。</p>
+<p><strong>Conclusion:</strong> NeuroLip证明了事件相机在捕捉精细唇部动态方面的优势，为视觉说话人识别提供了鲁棒的解决方案。该方法在严格跨场景协议下的成功表明，基于行为动态的识别方法比传统外观依赖方法更具环境稳定性。公开的数据集和代码为未来事件视觉研究提供了宝贵资源。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Visual speaker recognition based on lip motion offers a silent, hands-free, and behavior-driven biometric solution that remains effective even when acoustic cues are unavailable. Compared to traditional methods that rely heavily on appearance-dependent representations, lip motion encodes subject-specific behavioral dynamics driven by consistent articulation patterns and muscle coordination, offering inherent stability across environmental changes. However, capturing these robust, fine-grained dynamics is challenging for conventional frame-based cameras due to motion blur and low dynamic range. To exploit the intrinsic stability of lip motion and address these sensing limitations, we propose NeuroLip, an event-based framework that captures fine-grained lip dynamics under a strict yet practical cross-scene protocol: training is performed under a single controlled condition, while recognition must generalize to unseen viewing and lighting conditions. NeuroLip features a 1) Temporal-aware Voxel Encoding module with adaptive event weighting, 2) Structure-aware Spatial Enhancer that amplifies discriminative behavioral patterns by suppressing noise while preserving vertically structured motion information, and 3) Polarity Consistency Regularization mechanism to retain motion-direction cues encoded in event polarities. To facilitate systematic evaluation, we introduce DVSpeaker, a comprehensive event-based lip-motion dataset comprising 50 subjects recorded under four distinct viewpoint and illumination scenarios. Extensive experiments demonstrate that NeuroLip achieves near-perfect matched-scene accuracy and robust cross-scene generalization, attaining over 71% accuracy on unseen viewpoints and nearly 76% under low-light conditions, outperforming representative existing methods by at least 8.54%. The dataset and code are publicly available at https://github.com/JiuZeongit/NeuroLip.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="3-neuromorphic-parameter-estimation-for-power-converter-health-monitoring-using-spiking-neural-networks">[3] <a href="https://arxiv.org/abs/2604.15714">Neuromorphic Parameter Estimation for Power Converter Health Monitoring Using Spiking Neural Networks</a></h3>
+<p><em>Hyeongmeen Baik, Hamed Poursiami, Maryam Parsa, Jinia Roy</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出了一种用于电力转换器健康监测的节能边缘推理方法，通过将脉冲神经网络的时间处理与物理约束解耦，实现了在亚毫瓦级功耗下的准确参数估计和故障检测。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 持续运行的转换器健康监测需要亚毫瓦级的边缘推理能力，而基于GPU的物理信息神经网络无法在此功耗范围内运行，这限制了实时监控系统的部署可行性。</p>
+<p><strong>Method:</strong> 该方法将脉冲时间处理与物理约束分离：采用三层泄漏积分发放脉冲神经网络估计无源元件参数，同时通过可微分ODE求解器提供物理一致性训练，将ODE物理损失与展开的脉冲循环解耦。</p>
+<p><strong>Result:</strong> 在EMI干扰的同步降压转换器基准测试中，SNN将集总电阻误差从25.8%降低至10.2%，处于无源元件±10%制造公差范围内，在神经形态硬件上预计实现约270倍的能量减少，93%的脉冲稀疏性使其适合在Intel Loihi 2或BrainChip Akida上持续部署。</p>
+<p><strong>Conclusion:</strong> 该架构通过分离时间处理与物理约束，为低功耗边缘设备上的实时健康监测提供了可行方案，持续的膜电位状态支持退化跟踪和事件驱动的故障检测，在突发故障时通过+5.5个百分点的脉冲率跳变实现故障识别。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Always-on converter health monitoring demands sub-mW edge inference, a regime inaccessible to GPU-based physics-informed neural networks. This work separates spiking temporal processing from physics enforcement: a three-layer leaky integrate-and-fire SNN estimates passive component parameters while a differentiable ODE solver provides physics-consistent training by decoupling the ODE physics loss from the unrolled spiking loop. On an EMI-corrupted synchronous buck converter benchmark, the SNN reduces lumped resistance error from $25.8\%$ to $10.2\%$ versus a feedforward baseline, within the $\pm 10\%$ manufacturing tolerance of passive components, at a projected ${\sim}270\times$ energy reduction on neuromorphic hardware. Persistent membrane states further enable degradation tracking and event-driven fault detection via a $+5.5$ percentage-point spike-rate jump at abrupt faults. With $93\%$ spike sparsity, the architecture is suited for always-on deployment on Intel Loihi 2 or BrainChip Akida.</p>
+<h3 id="4-combining-convolution-and-delay-learning-in-recurrent-spiking-neural-networks">[4] <a href="https://arxiv.org/abs/2604.15997">Combining Convolution and Delay Learning in Recurrent Spiking Neural Networks</a></h3>
+<p><em>Lúcio Folly Sanches Zebendo, Eleonora Cicciarella, Michele Rossi</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>该研究提出了一种结合卷积循环连接与延迟学习机制的尖峰神经网络架构，在音频分类任务上实现了参数数量减少99%和推理速度提升52倍的同时保持了原有精度。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尖峰神经网络在资源受限的边缘系统中作为传统人工神经网络的替代方案日益受到关注，但现有方法在参数效率和推理速度方面仍有改进空间，特别是结合循环连接与延迟学习机制的架构优化潜力尚未充分挖掘。</p>
+<p><strong>Method:</strong> 研究扩展了先前提出的DelRec延迟学习机制，将其与卷积循环连接相结合，构建了一种新型的尖峰神经网络架构，其中轴突延迟与网络参数在运行时共同学习，实现了更紧凑的网络结构设计。</p>
+<p><strong>Result:</strong> 在音频分类任务上的实验表明，所提方法在保持DelRec原有精度的同时，将循环参数数量减少了约99%，推理速度提升了52倍，显著降低了内存占用并大幅加速了推理过程。</p>
+<p><strong>Conclusion:</strong> 该研究表明卷积循环连接与延迟学习机制的结合能够显著提升尖峰神经网络的参数效率和推理速度，为资源受限的边缘设备部署提供了更优的解决方案，同时保持了模型的表达能力。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Spiking neural networks (SNNs) are rapidly gaining momentum as an alternative to conventional artificial neural networks in resource constrained edge systems. In this work, we continue a recent research line on recurrent SNNs where axonal delays are learned at runtime along with the other network parameters. The first proposed approach, dubbed DelRec, demonstrated the benefit of recurrent delay learning in SNNs. Here, we extend it by advocating the use of convolutional recurrent connections in conjunction with the DelRec delay learning mechanism. According to our tests on an audio classification task, this leads to a streamlined architecture with smaller memory footprint (around 99% savings in terms of number of recurrent parameters) and a much faster (52x) inference time, while retaining DelRec's accuracy. Our code is available at: https://github.com/luciozebendo/delrec_snn/tree/conv_delays</p>
+  </article>
+</body>
+</html>
