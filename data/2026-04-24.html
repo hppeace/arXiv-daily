@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-24.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CL">cs.CL</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 2]</li>
+</ul>
+<div id='cs.CL'></div>
+
+<h1 id="cscl-back">cs.CL <a href="#toc">[Back]</a></h1>
+<h3 id="1-cross-entropy-is-load-bearing-a-pre-registered-scope-test-of-the-k-way-energy-probe-on-bidirectional-predictive-coding">[1] <a href="https://arxiv.org/abs/2604.21286">Cross-Entropy Is Load-Bearing: A Pre-Registered Scope Test of the K-Way Energy Probe on Bidirectional Predictive Coding</a></h3>
+<p><em>Jon-Paul Cacioli</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>该预注册实验检验了Cacioli(2026)关于判别性预测编码网络中K-way能量探针约简为log-softmax边际单调函数的理论，发现交叉熵损失是该约简的关键载荷组件：使用MSE替代CE可使探针-softmax差距减半，而双向PC下探针反超softmax；约66%的差距归因于logit尺度效应，34%反映CE训练表征的尺度不变排序优势。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> Cacioli (2026) 证明在标准判别性预测编码网络中，K-way能量探针近似约简为log-softmax边际的单调函数，但该结论依赖于包括输出层使用交叉熵损失在内的五项假设。本研究旨在检验该约简对移除交叉熵损失的敏感性，以厘清CE在探针-softmax关系中的具体贡献。</p>
+<p><strong>Method:</strong> 研究采用两种实验条件：标准PC网络使用MSE替代CE训练，以及双向PC（bPC；Oliviers, Tang &amp; Bogacz, 2025）。在CIFAR-10上使用匹配的2.1M参数骨干网络，基于10个随机种子进行预注册实验。此外还进行了后验温度缩放消融实验以分解探针-softmax差距的组成成分。</p>
+<p><strong>Result:</strong> 标准PC下负结果可复现：探针低于softmax（Delta = -0.082, p &lt; 10^-6）；bPC下探针在所有10个种子中均超过softmax（Delta = +0.008, p = 0.000027），但bPC的潜在运动比仅1.6（阈值10），未达到实质性更大；移除CE后探针-softmax差距减半（Delta_MSE = -0.037 vs Delta_stdPC = -0.082）；CE训练的输出logit范数约为MSE或bPC训练的15倍；温度缩放消融显示约66%的差距可归因于logit尺度效应，约34%反映CE表征的尺度不变排序优势。</p>
+<p><strong>Conclusion:</strong> 交叉熵损失是Cacioli (2026)约简理论在此计算规模下主要的经验载荷组件；CE训练通过产生更大的logit范数以及表征层面的排序优势共同主导探针-softmax关系。研究同时操作性地使用"元认知"指代读出器对其自身Type-1正确性的Type-2判别，而非类比人类内省能力。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Cacioli (2026) showed that the K-way energy probe on standard discriminative predictive coding networks reduces approximately to a monotone function of the log-softmax margin. The reduction rests on five assumptions, including cross-entropy (CE) at the output and effectively feedforward inference dynamics. This pre-registered study tests the reduction's sensitivity to CE removal using two conditions: standard PC trained with MSE instead of CE, and bidirectional PC (bPC; Oliviers, Tang &amp; Bogacz, 2025). Across 10 seeds on CIFAR-10 with a matched 2.1M-parameter backbone, we find three results. The negative result replicates on standard PC: the probe sits below softmax (Delta = -0.082, p &lt; 10^-6). On bPC the probe exceeds softmax across all 10 seeds (Delta = +0.008, p = 0.000027), though a pre-registered manipulation check shows that bPC does not produce materially greater latent movement than standard PC at this scale (ratio 1.6, threshold 10). Removing CE alone without changing inference dynamics halves the probe-softmax gap (Delta_MSE = -0.037 vs Delta_stdPC = -0.082). CE is a major empirically load-bearing component of the decomposition at this scale. CE training produces output logit norms approximately 15x larger than MSE or bPC training. A post-hoc temperature scaling ablation decomposes the probe-softmax gap into two components: approximately 66% is attributable to logit-scale effects removable by temperature rescaling, and approximately 34% reflects a scale-invariant ranking advantage of CE-trained representations. We use "metacognitive" operationally to denote Type-2 discrimination of a readout over its own Type-1 correctness, not to imply human-like introspective access.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-on-the-role-of-preprocessing-and-memristor-dynamics-in-reservoir-computing-for-image-classification">[2] <a href="https://arxiv.org/abs/2604.21602">On the Role of Preprocessing and Memristor Dynamics in Reservoir Computing for Image Classification</a></h3>
+<p><em>Rishona Daniels, Duna Wattad, Ronny Ronen, David Saad, Shahar Kvatinsky</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文系统分析了基于易失性忆阻器的并行延迟反馈网络（PDFN）储备池计算架构，通过探讨器件特性（衰减率、量化、变异性）对性能的影响，在MNIST上达到95.89%的分类准确率，并在20%器件变异性下保持94.2%的鲁棒性，验证了易失性忆阻器在紧凑、高速、节能的类脑计算系统中的潜力。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管储备池计算（RC）已通过多种忆阻器件得到验证，但针对器件级需求的全面评估仍然有限，缺乏对器件特性如何影响储备池性能的系统性分析。</p>
+<p><strong>Method:</strong> 本文分析并解释了基于易失性忆阻器的并行延迟反馈网络（PDFN）RC架构的工作原理，重点研究了衰减率、量化和变异性等器件特性对储备池性能的影响，并提出了利用预处理方法改善储备池中数据表示的策略。</p>
+<p><strong>Result:</strong> 所提方法在MNIST图像识别任务上达到95.89%的分类准确率，与已有最优的忆阻器RC实现性能相当；在20%器件变异性下仍保持94.2%的高准确率，展现出强鲁棒性。</p>
+<p><strong>Conclusion:</strong> 研究结果表明易失性忆阻器能够支持可靠的时空信息处理，并进一步印证了其作为紧凑、高速、节能的神经形态计算系统关键构建模块的潜力。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Reservoir computing (RC) is an emerging recurrent neural network architecture that has attracted growing attention for its low training cost and modest hardware requirements. Memristor-based circuits are particularly promising for RC, as their intrinsic dynamics can reduce network size and parameter overhead in tasks such as time-series prediction and image recognition. Although RC has been demonstrated with several memristive devices, a comprehensive evaluation of device-level requirements remains limited. In this paper, we analyze and explain the operation of a parallel delayed feedback network (PDFN) RC architecture with volatile memristors, focusing on how device characteristics -- such as decay rate, quantization, and variability -- affect reservoir performance. We further discuss strategies to improve data representation in the reservoir using preprocessing methods and suggest potential improvements. The proposed approach achieves 95.89% classification accuracy on MNIST, comparable with the best reported memristor-based RC implementations. Furthermore, the method maintains high robustness under 20% device variability, achieving an accuracy of up to 94.2%. These results demonstrate that volatile memristors can support reliable spatio-temporal information processing and reinforce their potential as key building blocks for compact, high-speed, and energy-efficient neuromorphic computing systems.</p>
+<h3 id="3-neuromorphic-computing-based-on-parametrically-driven-oscillators-and-frequency-combs">[3] <a href="https://arxiv.org/abs/2604.21861">Neuromorphic Computing Based on Parametrically-Driven Oscillators and Frequency Combs</a></h3>
+<p><em>Mahadev Sunil Kumar, Adarsh Ganesan</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文研究了双模参量谐振系统的储层计算能力，发现参量共振态在保持时间相干性的同时激活非线性相互作用，可实现最优的混沌时间序列预测性能，并建立了计算能力与系统分岔结构之间的直接对应关系。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 参量驱动振荡器为神经形态计算提供了天然平台，但不同动力学状态（如亚阈值态、参量共振态、频率梳态）对储层计算性能的影响尚不明确，缺乏系统的设计准则来指导物理系统向最优神经形态功能调谐。</p>
+<p><strong>Method:</strong> 采用一个具有2:1参量共振的双模系统，通过将输入信号编码为驱动幅度并采样时域和频谱响应，在不同动力学状态（亚阈值、参量共振、频率梳）下进行储层计算；以Mackey-Glass、Rössler和Lorenz混沌系统的一步前向预测为基准任务，系统评估各状态的计算性能。</p>
+<p><strong>Result:</strong> 参量共振态在保持时间相干性的同时激活非线性相互作用，实现了最优预测性能；频率梳态虽具有更高频谱维度，但其性能在存在带内不一致，且在混沌梳态因相位相干性丧失而退化；低预测误差区域与参量共振边界对齐，表明计算能力与系统分岔结构直接对应；输入调制、失谐量、阻尼比和数据速率系统性调控可访问的动力学状态及计算性能。</p>
+<p><strong>Conclusion:</strong> 参量共振是振荡器储层计算的稳健工作状态，研究结果提供了将物理系统调谐至最优神经形态功能的设计原则，揭示了计算能力与底层分岔结构之间的内在联系。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Parametrically driven oscillators provide a natural platform for neuromorphic computation, where nonlinear mode coupling and intrinsic dynamics enable both memory and high-dimensional transformation. Here, we investigate a two-mode system exhibiting 2:1 parametric resonance and demonstrate its operation as a reservoir computer across distinct dynamical regimes, including sub-threshold, parametric resonance, and frequency-comb states. By encoding input signals into the drive amplitude and sampling the resulting temporal and spectral responses, we perform one step-ahead prediction of benchmark chaotic systems, including Mackey-Glass, Rossler, and Lorenz dynamics. We find that optimal computational performance is achieved within the parametric resonance regime, where nonlinear interactions are activated while temporal coherence is preserved. In contrast, although frequency-comb states introduce increased spectral dimensionality, their performance is not consistently good across their existence band and also degrades in the chaotic comb regime due to loss of phase coherence. Mapping prediction error over parameter space reveals a direct correspondence between computational capability and the underlying bifurcation structure, with low-error regions aligned with the parametric resonance boundary. We further show that the input modulation, the detuning from the frequency matching condition, damping ratio, and input data rate systematically control the accessible dynamical regimes and thereby the computational performance. These results establish parametric resonance as a robust operating regime for oscillator-based reservoir computing and provide design principles for tuning physical systems toward optimal neuromorphic functionality.</p>
+  </article>
+</body>
+</html>
