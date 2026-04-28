@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-28.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-bsvit-a-burst-spiking-vision-transformer-for-expressive-and-efficient-visual-representation-learning">[1] <a href="https://arxiv.org/abs/2604.23165">BSViT: A Burst Spiking Vision Transformer for Expressive and Efficient Visual Representation Learning</a></h3>
+<p><em>Hongxiang Peng, Dewei Bai, Hong Qu</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>BSViT提出了一种基于脉冲驱动的双通道爆发脉冲自注意力机制（DBSSA），通过将查询编码为二进制脉冲、键编码为爆发脉冲、值采用双通道兴奋-抑制调制，并结合邻域遮蔽策略实现结构感知稀疏性，在静态和事件视觉任务上以加法运算为主的计算方式超越现有脉冲视觉Transformer的精度并保持高能效。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有的脉冲视觉Transformer（S-ViT）受限于二进制脉冲编码的信息容量不足以及全局自注意力带来的密集令牌交互两个根本问题，导致其表示能力和计算效率均存在瓶颈。</p>
+<p><strong>Method:</strong> 提出BSViT模型，核心为双通道爆发脉冲自注意力（DBSSA）机制：查询使用二进制脉冲编码、键使用爆发脉冲（burst spikes）编码以增强表示容量；值路径采用双通道兴奋性和抑制性二进制通道实现符号调制和更丰富的脉冲交互；整个注意力运算保持纯加法计算以兼容神经形态硬件。此外，引入补丁邻域遮蔽（patch adjacency masking）策略，将注意力限制在局部邻域，实现结构感知的稀疏性和计算开销降低；并在全网络中系统整合爆发脉冲编码以提升脉冲级表示能力。</p>
+<p><strong>Result:</strong> 在静态图像和事件驱动视觉等多个基准上的大量实验表明，BSViT在精度上持续优于现有脉冲Transformer，同时保持了竞争力的能量效率。</p>
+<p><strong>Conclusion:</strong> 通过爆发脉冲编码和局部稀疏注意力机制，BSViT有效克服了二进制脉冲的信息容量限制和全局注意力的密集计算问题，证明了脉冲驱动Transformer在保持神经形态硬件兼容性的前提下可以实现更优的精度-效率权衡。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking Vision Transformers (S-ViTs) offer a promising framework for energy-efficient visual learning. However, existing designs remain limited by two fundamental issues: the restricted information capacity of binary spike coding and the dense token interactions introduced by global self-attention. To address these challenges, this work proposes BSViT, a burst spiking-driven Vision Transformer featuring a Dual-Channel Burst Spiking Self-Attention (DBSSA) mechanism. DBSSA encodes queries with binary spikes and keys with burst spikes to enhance representational capacity. The value pathway adopts dual excitatory and inhibitory binary channels, enabling signed modulation and richer spike interactions. Importantly, the entire attention operation preserves addition-only computation, ensuring compatibility with energy-efficient neuromorphic hardware. To further reduce spike activity and incorporate spatial priors, a patch adjacency masking strategy is introduced to restrict attention to local neighborhoods, resulting in structure-aware sparsity and reduced computational overhead. In addition, burst spike coding is systematically integrated across the network to increase spike-level representational capacity beyond conventional binary spiking. Extensive experiments on both static and event-based vision benchmarks demonstrate that BSViT consistently outperforms existing spiking Transformers in accuracy while maintaining competitive energy efficiency.</p>
+<h3 id="2-keypoint-based-dynamic-object-6-dof-pose-tracking-via-event-camera">[2] <a href="https://arxiv.org/abs/2604.23387">Keypoint-based Dynamic Object 6-DoF Pose Tracking via Event Camera</a></h3>
+<p><em>Zhe Wang, Qijin Song, Zihao Li, Jingyu Xiao, Weibang Bai</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了一种基于事件相机的关键点检测与跟踪方法，通过利用事件流生成的时间表面提取关键点，并结合事件极性、空间坐标和局部事件密度实现连续跟踪，最终使用EPnP算法进行6-DoF动态物体位姿估计，在仿真和真实事件环境中均取得了优于现有事件基方法的精度和鲁棒性。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统的基于帧的相机在动态物体位姿估计中面临运动模糊、传感器噪声和低光照限制等挑战，这些问题严重影响了位姿估计的准确性和鲁棒性，因此需要一种能够在高动态范围和低延迟条件下工作的替代方案。</p>
+<p><strong>Method:</strong> 首先构建关键点检测网络，从事件流生成的时间表面中提取关键点；然后利用事件的极性和空间坐标，结合关键点附近的事件密度实现连续关键点跟踪；最后建立2D关键点与3D模型关键点之间的哈希映射，使用EPnP算法估计物体的6-DoF位姿。</p>
+<p><strong>Result:</strong> 在仿真事件环境和真实事件环境中，所提方法在精度和鲁棒性上均优于现有的事件基最先进方法，验证了事件相机在动态物体位姿估计中的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究表明，事件相机因其高动态范围和低延迟特性，能够有效克服传统相机在动态场景中的局限性，而所提出的关键点检测与跟踪方法在动态物体6-DoF位姿估计任务中具有显著优势，为机器人精准操作提供了新的技术路径。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Accurate 6-DoF pose estimation of objects is critical for robots to perform precise manipulation tasks. However, for dynamic object pose estimation, conventional camera-based approaches face several major challenges, such as motion blur, sensor noise, and low-light limitation. To address these issues, we employ event cameras, whose high dynamic range and low latency offer a promising solution. Furthermore, we propose a keypoint-based detection and tracking approach for dynamic object pose estimation. Firstly, a keypoint detection network is constructed to extract keypoints from the time surface generated by the event stream. Subsequently, the polarity and spatial coordinates of the events are leveraged, and the event density in the vicinity of each keypoint is utilized to achieve continuous keypoint tracking. Finally, a hash mapping is established between the 2D keypoints and the 3D model keypoints, and the EPnP algorithm is employed to estimate the 6-DoF pose. Experimental results demonstrate that, whether in simulated or real event environments, the proposed method outperforms the event-based state-of-the-art methods in terms of both accuracy and robustness.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="3-a-multiplication-free-spike-time-learning-algorithm-and-its-efficient-fpga-implementation-for-on-chip-snn-training">[3] <a href="https://arxiv.org/abs/2604.23218">A Multiplication-Free Spike-Time Learning Algorithm and its Efficient FPGA Implementation for On-Chip SNN Training</a></h3>
+<p><em>Maryam Mirsadeghi, Mojtaba Mirbagheri, Saeed Reza Kheradpisheh</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>提出了一种适用于FPGA的无乘法、基于脉冲时序的脉冲神经网络监督学习算法，实现了全事件驱动数字训练流水线，在低资源消耗下达到高运行速度，并在MNIST和Fashion-MNIST上分别取得96.5%和84.8%的准确率，为边缘场景下的片上SNN训练提供了实用且可扩展的硬件方案。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 脉冲神经网络（SNN）虽然具备低功耗与事件驱动的生物合理性优势，但其直接的片上有监督训练在硬件实现上仍面临关键挑战，现有方法难以兼顾计算效率与硬件资源约束。</p>
+<p><strong>Method:</strong> 提出了一种无乘法、基于脉冲时序的SNN学习算法，完全消除了浮点算术运算和显式梯度存储，实现了全事件驱动的数字训练流水线；并在Xilinx Artix-7 FPGA上完成了对应硬件架构实现。</p>
+<p><strong>Result:</strong> 在Xilinx Artix-7 FPGA上，该架构实现了高运行速度和极低的资源占用，同时保持了有竞争力的识别精度；软件仿真验证了可扩展性，在MNIST和Fashion-MNIST上分别达到96.5%和84.8%的准确率。</p>
+<p><strong>Conclusion:</strong> 该学习算法能够高效映射到可重构硬件上，兼具计算效率与能效优势，其脉冲驱动、无乘法的操作特性使其成为边缘环境中实时、片上SNN学习的实用且可扩展的硬件解决方案。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) offer a biologically inspired foundation for low-power, event-driven intelligence, yet their direct on-chip supervised training remains a key hardware challenge. This paper presents a multiplication-free, spike-time-based learning algorithm specifically designed for efficient FPGA realization. The proposed approach eliminates floating-point arithmetic and explicit gradient storage, enabling a fully event-driven, digital training pipeline. Implemented on a Xilinx Artix-7 FPGA, the architecture achieves high operating speed and minimal resource usage while maintaining competitive accuracy. These results demonstrate that the learning algorithm effectively maps onto reconfigurable hardware, achieving both computational and energy efficiency. Software simulations further validate scalability, with 96.5\% and 84.8\% accuracy on MNIST and Fashion-MNIST. With its spike-driven and multiplier-free operation, the proposed framework delivers a practical and scalable hardware solution for real-time, on-chip SNN learning in edge environments.</p>
+  </article>
+</body>
+</html>
