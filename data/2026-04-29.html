@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-29.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-vision-smolmamba-spike-guided-token-pruning-for-energy-efficient-spiking-state-space-vision-models">[1] <a href="https://arxiv.org/abs/2604.25570">Vision SmolMamba: Spike-Guided Token Pruning for Energy-Efficient Spiking State-Space Vision Models</a></h3>
+<p><em>Dewei Bai, Hongxiang Peng, Yunyun Zeng, Ziyu Zhang, Hong Qu, Yi Zhang</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出 Vision SmolMamba，一种将脉冲驱动动力学与线性时间选择性状态空间递归相结合的能量高效脉冲视觉架构，通过脉冲引导的空时令牌剪枝器（SST-TP）实现冗余令牌的渐进式移除，在多个静态和事件驱动基准上以至少1.5倍的能耗降低取得了优于或持平于脉冲Transformer和Spiking Mamba基线的精度-效率权衡。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有的Spiking Transformers虽通过脉冲驱动自注意力实现了长程视觉建模，但其二次复杂度的令牌交互从根本上与脉冲神经计算的稀疏、事件驱动特性不匹配，导致计算效率低下。</p>
+<p><strong>Method:</strong> 提出Vision SmolMamba架构，核心包括一个脉冲引导的空时令牌剪枝器（SST-TP），利用脉冲激活强度和首次脉冲延迟估计令牌重要性，逐步移除冗余令牌并保留关键空时信息；在此基础上，SmolMamba模块将脉冲事件直接集成到双向状态空间递归中，构成高效的脉冲状态空间视觉骨干网络。</p>
+<p><strong>Result:</strong> 在ImageNet-1K、CIFAR10/100、CIFAR10-DVS和DVS128 Gesture等多个静态与事件驱动基准上，Vision SmolMamba在保持竞争性甚至更高精度的同时，相比之前的脉冲Transformer基线和Spiking Mamba变体，估计能耗至少降低了1.5倍。</p>
+<p><strong>Conclusion:</strong> 将脉冲引导的令牌稀疏性与状态空间建模相结合，为脉冲视觉系统提供了一种可扩展且能量高效的范式，表明通过利用脉冲本身的稀疏特性来驱动递归动态是一种有前景的方向。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking Transformers have shown strong potential for long-range visual modeling through spike-driven self-attention. However, their quadratic token interactions remain fundamentally misaligned with the sparse and event-driven nature of spiking neural computation. To address this limitation, we propose Vision SmolMamba, an energy-efficient spiking state-space architecture that integrates spike-driven dynamics with linear-time selective recurrence. The key idea is a Spike-Guided Spatio-Temporal Token Pruner (SST-TP), which estimates token importance using both spike activation strength and first-spike latency. This mechanism progressively removes redundant tokens while preserving salient spatio-temporal information, enabling efficient scaling with token sparsity. Based on this mechanism, the proposed SmolMamba block incorporates spike events directly into bidirectional state-space recurrence, forming a spiking state-space vision backbone for efficient long-range modeling. Extensive experiments on both static and event-based benchmarks, including ImageNet-1K, CIFAR10/100, CIFAR10-DVS, and DVS128 Gesture, demonstrate that Vision SmolMamba consistently achieves superior accuracy-efficiency trade-offs. In particular, it reduces the estimated energy cost by at least 1.5x compared with prior spiking Transformer baselines and a Spiking Mamba variant while maintaining competitive or improved accuracy. These results demonstrate that combining spike-guided token sparsity with state-space modeling offers a scalable and energy-efficient paradigm for spiking vision systems.</p>
+<h3 id="2-qb-lif-learnable-scale-quantized-burst-neurons-for-efficient-snns">[2] <a href="https://arxiv.org/abs/2604.25688">QB-LIF: Learnable-Scale Quantized Burst Neurons for Efficient SNNs</a></h3>
+<p><em>Dewei Bai, Hongxiang Peng, Jiajun Mei, Yang Ren, Hong Qu, Dawen Xia, Zhang Yi</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>提出Quantized Burst-LIF (QB-LIF)神经元，将爆发脉冲重定义为带可学习尺度的饱和均匀量化，通过可吸收尺度策略和ReLSG-ET代理梯度实现高效多比特脉冲通信与训练，在多种基准上超越二值和固定爆发SNN。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统脉冲神经网络（SNN）中二进制脉冲编码每时间步仅传递1比特信息，在深层架构和短仿真步数下信息吞吐量严重受限，成为制约精度和效率的关键瓶颈。</p>
+<p><strong>Method:</strong> 提出Quantized Burst-LIF (QB-LIF)神经元，将爆发脉冲建模为膜电位的饱和均匀量化，量化尺度作为可学习参数由各层自适应调整；引入可吸收尺度策略，在推理时将量化尺度融合入突触权重，保持纯累加（AC）执行范式；设计ReLSG-ET代理梯度，利用指数尾部修正线性函数以维持爆发间隔内的梯度流动，支持离散多级空间上的稳定优化。</p>
+<p><strong>Result:</strong> 在CIFAR-10/100、ImageNet等静态数据集和CIFAR10-DVS、DVS128-Gesture等事件驱动基准上，QB-LIF在超低延迟条件下显著优于二值SNN和固定爆发SNN，取得了更高精度并保持了神经形态兼容性。</p>
+<p><strong>Conclusion:</strong> 通过将爆发脉冲重新解释为可学习尺度的量化过程，QB-LIF在提升脉冲信息吞吐量的同时保留了SNN的事件驱动和硬件高效特性，为深层SNN在超低延迟场景下的实用化提供了有效方案。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Binary spike coding enables sparse and event-driven computation in spiking neural networks (SNNs), yet its 1-bit-per-timestep representation fundamentally limits information throughput. This bottleneck becomes increasingly restrictive in deep architectures under short simulation horizons. We propose the Quantized Burst-LIF (QB-LIF) neuron, which reformulates burst spiking as a saturated uniform quantization of membrane potentials with a learnable scale. Instead of relying on predefined multi-threshold structures, QB-LIF treats the quantization scale as a trainable parameter, allowing each layer to autonomously adapt its spiking resolution to the underlying membrane-potential statistics. To preserve hardware efficiency, we introduce an absorbable scale strategy that folds the learned quantized scale into synaptic weights during inference, maintaining a strict accumulate-only (AC) execution paradigm. To enable stable optimization in the discrete multi-level space, we further design ReLSG-ET, a rectified-linear surrogate gradient with exponential tails that sustains gradient flow across burst intervals. Extensive experiments on static (CIFAR-10/100, ImageNet) and event-driven (CIFAR10-DVS, DVS128-Gesture) benchmarks demonstrate that QB-LIF consistently outperforms binary and fixed-burst SNNs, achieving higher accuracy under ultra-low latency while preserving neuromorphic compatibility.</p>
+  </article>
+</body>
+</html>
