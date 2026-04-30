@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-04-30.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-event-based-liveness-detection-using-temporal-ocular-dynamics-an-exploratory-approach">[1] <a href="https://arxiv.org/abs/2604.26285">Event-based Liveness Detection using Temporal Ocular Dynamics: An Exploratory Approach</a></h3>
+<p><em>Nicolas Mastropasqua, Ignacio Bugueno-Cordova, Rodrigo Verschae, Daniel Acevedo, Pablo Negri</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文探索将事件相机作为活体检测的新型传感模态，利用其微秒级时间分辨率捕捉眼球运动（如扫视）的时序动态，并基于脉冲卷积神经网络实现了高达95.37%的top-1准确率，证明了事件驱动表示在区分真实与重放攻击方面的有效性。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 基于RGB相机的活体检测在受控条件下性能优异，但跨传感器和攻击场景的泛化能力不足，尤其在面对重放攻击时容易失效。现有方法缺乏对高时间分辨率下眼动动态的利用，本研究旨在引入事件相机这一新型传感模态，通过捕捉扫视等快速眼动中的微秒级时间模式来克服上述局限。</p>
+<p><strong>Method:</strong> 本研究设计了针对重放攻击的事件数据采集协议，在RGBE-Gaze数据集基础上扩展了重放攻击记录，构建了对应的事件域活体检测数据集。从眼部区域提取事件驱动的时序特征，用于眼动运动分割与活体分类，并采用脉冲卷积神经网络（Spiking CNN）作为分类模型进行评估。</p>
+<p><strong>Result:</strong> 实验结果表明，基于事件表示的模型能够有效区分真实与重放序列，在活体检测任务中达到95.37%的top-1准确率，验证了事件数据在时序动态表征上的判别能力优于传统RGB模态。</p>
+<p><strong>Conclusion:</strong> 事件相机凭借其微秒级时间分辨率和稀疏异步采样特性，能够捕获重放攻击中因时序重采样与显示伪影而无法复现的真实眼动动态，为鲁棒且低延迟的活体检测提供了新的传感范式和研究方向。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Face liveness detection has been extensively studied using RGB cameras, achieving strong performance under controlled conditions but often failing to generalize across sensors and attack scenarios. In this work, we explore event cameras as an alternative sensing modality for liveness detection based on temporal ocular dynamics. Event cameras capture sparse, asynchronous changes in brightness with microsecond resolution, enabling precise analysis of fast eye movements such as saccades. Replay attacks cannot faithfully reproduce these dynamics due to temporal resampling and display artifacts, leading to distinctive spatio-temporal patterns in the event domain. We design a data collection protocol to extend RGBE-Gaze with replay-attack recordings, yielding an event-based fake counterpart for liveness detection. We analyze event-driven temporal features from eye regions and evaluate their effectiveness for ocular motion segmentation and liveness classification. Our results show that event-based representations enable reliable discrimination between genuine and replayed sequences, achieving up to 95.37% top-1 accuracy with a spiking convolutional neural network. These preliminary findings highlight the potential of event-based sensing for robust and low-latency liveness detection.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-evolutionary-feature-selection-for-spiking-neural-network-pattern-classifiers">[2] <a href="https://arxiv.org/abs/2604.26654">Evolutionary feature selection for spiking neural network pattern classifiers</a></h3>
+<p><em>Michal Valko, Nuno C. Marques, Marco Castelani</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出将生物启发的JASTAP神经网络模型应用于分类任务，作为多层感知机（MLP）的替代方案，并通过进化策略同时优化特征选择与网络训练，实验表明该模型在IRIS数据集上能以更小的网络规模处理更高噪声的数据且分类精度不降级。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统的多层感知机（MLP）在分类任务中存在对噪声敏感、网络规模较大等问题，而生物启发的神经网络模型能否在保持分类精度的同时实现更小规模、更强鲁棒性的分类器，是本文关注的空白点。</p>
+<p><strong>Method:</strong> 本文采用生物上更真实的JASTAP神经网络模型替代标准MLP，并将一种原本用于MLP同步优化特征选择与网络训练的进化流程扩展至JASTAP模型中，实现特征选择与网络训练的联合优化。</p>
+<p><strong>Result:</strong> 在IRIS标准数据集上的初步实验结果表明，JASTAP模型结合进化特征选择与训练方法，能够在分类精度不降级的前提下，使用更小的神经网络结构，并且对更高噪声的数据具有更好的鲁棒性。</p>
+<p><strong>Conclusion:</strong> JASTAP神经网络模型作为MLP的可行替代方案，在分类任务中展现出更优的规模效率与噪声鲁棒性；未来可进一步验证其在更大规模、更多样化数据集上的泛化能力。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>This paper presents an application of the biologically realistic JASTAP neural network model to classification tasks. The JASTAP neural network model is presented as an alternative to the basic multi-layer perceptron model. An evolutionary procedure previously applied to the simultaneous solution of feature selection and neural network training on standard multi-layer perceptrons is extended with JASTAP model. Preliminary results on IRIS standard data set give evidence that this extension allows the use of smaller neural networks that can handle noisier data without any degradation in classification accuracy.</p>
+  </article>
+</body>
+</html>
