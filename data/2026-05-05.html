@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-05.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 2]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-shiftlif-efficient-multi-level-spiking-neurons-with-power-of-two-quantization">[1] <a href="https://arxiv.org/abs/2605.01866">ShiftLIF: Efficient Multi-Level Spiking Neurons with Power-of-Two Quantization</a></h3>
+<p><em>Kaiwen Tang, Di Yu, Jiaqi Zheng, Changze Lv, Qianhui Liu, Zhanglu Yan, Weng-Fai Wong</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>提出ShiftLIF多级脉冲神经元，将对数分布的2的幂次脉冲集替代均匀量化，在不引入乘法运算的条件下提升脉冲神经网络的表示能力，在多种边缘感知任务中实现了与现有多级脉冲神经元相当的精度，同时维持接近标准二元LIF的突触能耗。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 标准LIF神经元仅通过二元脉冲通信，表示能力严重受限；现有多级脉冲神经元虽能提升信息传递效率，但常采用与膜电位分布不匹配的均匀量化或引入昂贵的突触乘法运算，难以在表达能力和硬件友好性之间取得平衡。</p>
+<p><strong>Method:</strong> 提出ShiftLIF多级脉冲神经元，将对数间隔的2的幂次值集合作为脉冲发射层级，将膜电位映射到该集合上；由于脉冲值为2的幂次，突触计算可通过移位与累加操作实现，无需乘法运算，从而在提升脉冲级表达能力的同时保持SNN计算的硬件友好特性。</p>
+<p><strong>Result:</strong> 在涵盖无线、声学、运动与视觉感知任务的10个数据集上评估，ShiftLIF在精度上与现有多级脉冲神经元持平或更优，同时突触能耗接近标准二元LIF神经元，表明其在跨模态边缘感知中实现了有利的精度-效率权衡。</p>
+<p><strong>Conclusion:</strong> ShiftLIF通过对数量化的多级脉冲设计，有效解决了多级脉冲神经元中表示能力与计算成本之间的矛盾，为神经形态边缘感知提供了一种兼具高表达力和低能耗的神经元方案，具有跨模态部署的潜力。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking neural networks (SNNs) are promising for edge sensing due to their event-driven computation and temporal filtering capability. However, standard leaky integrate-and-fire (LIF) neurons communicate only through binary spikes, which severely limit representational capacity. Existing multi-level spiking neurons improve information transmission, but often rely on uniform quantization that mismatches membrane-potential distributions or introduces costly synaptic multiplications. In this paper, we propose ShiftLIF, a multi-level spiking neuron that maps membrane potentials to a logarithmically spaced power-of-two spike set. This design provides finer representation in the small-amplitude regime, where membrane potentials are densely concentrated, while enabling multiplier-free synaptic computation through bit-shift and accumulation operations. As a result, ShiftLIF improves spike-level expressiveness without sacrificing the hardware-friendly nature of standard SNN computation. We evaluate ShiftLIF on 10 datasets spanning wireless, acoustic, motion, and visual sensing tasks. Results show that ShiftLIF consistently matches or exceeds the accuracy of existing multi-level spiking neurons while maintaining synaptic energy consumption close to standard binary LIF. These results indicate that ShiftLIF provides a favorable accuracy-efficiency trade-off for cross-modal edge sensing.</p>
+<h3 id="2-snnf-an-snn-based-near-sensor-noise-filter-for-dynamic-vision-sensors">[2] <a href="https://arxiv.org/abs/2605.01937">SNNF: An SNN-based Near-Sensor Noise Filter for Dynamic Vision Sensors</a></h3>
+<p><em>Yahan Yang, Pradeep Kumar Gopalakrishnan, Chang Chip Hong, Arindam Basu</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>SNNF是一种面向动态视觉传感器的近传感器背景活动噪声滤波框架，通过事件型二值图像表示、并行存储架构和单层脉冲神经网络分类器，在FPGA和65nm CMOS ASIC上实现了比现有方案显著更低的资源消耗与功耗，同时保持0.89 AUC的滤波精度和29–44.4 Meps的吞吐量。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 动态视觉传感器虽具有高动态范围和低功耗的优势，适合视频物联网边缘部署，但其输出常被虚假的背景活动噪声污染，导致不必要的计算开销；现有滤波方案在硬件效率方面仍有不足，难以满足资源受限的近传感器场景需求。</p>
+<p><strong>Method:</strong> 论文提出SNNF框架，包含三项核心技术：一是紧凑的事件型二值图像表示（EBBI），以二进制数组形式消除时间戳依赖，大幅降低存储占用；二是并行存储架构，支持高效的数据存取；三是单层脉冲神经网络（SNN）分类器，利用脉冲驱动的累加计算替代传统乘加运算，并缩减神经元间数据位宽，实现极低硬件开销。</p>
+<p><strong>Result:</strong> 在标准数据集上，SNN分类器区分信号事件与噪声事件的AUC达到0.89；FPGA实现将存储和逻辑资源分别降至现有最优滤波器的约11%和40%，吞吐量达29 Meps；65 nm CMOS ASIC实现吞吐量为44.4 Meps，面积和功耗分别仅为对应ANN设计的约13%和不足5%。</p>
+<p><strong>Conclusion:</strong> SNNF在滤波精度与硬件效率之间取得了优异平衡，验证了脉冲神经网络与紧凑事件表示相结合在近传感器噪声滤波中的可行性，为资源受限的IoVT边缘部署提供了一种高效解决方案。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Dynamic Vision Sensors (DVS) exhibit exceptional dynamic range and low power consumption, making them ideal for edge applications in the Internet of Video Things (IoVT). However, their output is often degraded by spurious Background Activity (BA) noise, leading to unnecessary computational overhead. This paper proposes SNNF, a near-sensor BA noise filter that integrates a compact Event-Based Binary Image (EBBI) representation, a parallel memory architecture, and a single-layer Spiking Neural Network (SNN) classifier. Trained on representative DVS data, the SNN distinguishes signal events from noise with an AUC of 0.89 on standard datasets. The binary-array-based EBBI eliminates timestamp dependency, significantly reducing memory footprint. Moreover, the SNN's spike-based computation replaces power-hungry multipliers with simple accumulation logic and minimizes inter-neuron data width, resulting in an extremely hardware-efficient design. FPGA implementation results show that SNNF reduces memory and logic resources to approximately 11% and 40%, respectively of state-of-the-art filters, while achieving a throughput of 29 Mega events per second (Meps). In a 65 nm CMOS ASIC implementation, SNNF achieves 44.4 Meps with an area and power consumption of only ~13% and &lt;5% of the corresponding ANN-based designs. These results demonstrate that SNNF provides an excellent balance between filtering accuracy and hardware efficiency, making it highly suitable for resource-constrained, near-sensor deployment.</p>
+  </article>
+</body>
+</html>
