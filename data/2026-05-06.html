@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-06.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-generalization-bounds-of-spiking-neural-networks-via-rademacher-complexity">[1] <a href="https://arxiv.org/abs/2605.02927">Generalization Bounds of Spiking Neural Networks via Rademacher Complexity</a></h3>
+<p><em>Shao-Qun Zhang, Zhi-Hua Zhou</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文通过Rademacher复杂度理论，系统推导了具有多种整合-放电机制的脉冲神经网络的泛化界，揭示了网络深度、时间步长、宽度、参数范数和样本数等因素对泛化误差的影响规律，获得了比以往研究更精确的泛化界上界。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管脉冲神经网络（SNN）在神经形态计算和稀疏计算方面展现出巨大潜力，但目前对于SNN在未见数据上泛化能力的理论理解仍然非常不清晰，现有关于SNN泛化界的研究结果尚不够精确，亟需更深入的理论分析。</p>
+<p><strong>Method:</strong> 本文采用Rademacher复杂度理论框架，对具有多种整合-放电（integration-and-fire）机制的SNN进行泛化界理论分析，系统考察了网络深度、时间窗口长度、网络宽度、参数范数和训练样本数等配置因素对经验Rademacher复杂度的影响。</p>
+<p><strong>Result:</strong> 研究发现，SNN的经验Rademacher复杂度与网络深度和最大输入脉冲序列时间长度呈指数关系，与网络宽度呈超线性且亚二次关系，与参数范数呈多项式关系，与训练样本数呈反比线性关系，且与脉冲神经元内部计算无关，获得了比传统研究更精确的泛化界上界。</p>
+<p><strong>Conclusion:</strong> 本文的理论结果为SNN理论提供了支撑，并揭示了SNN泛化能力的定量依赖关系，为SNN架构设计（如深度、宽度和时间步长的选择）提供了理论指导，有助于推动SNN的发展。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) have garnered increasing attention as one of bio-inspired models due to their great potential in neuromorphic computing and sparse computation. Many practical algorithms and techniques have been developed; however, theoretical understandings of the generalization, that is, the extent to which SNNs perform well on unseen data, are far from clear. Recent advances disclosed an excitation-dependent and architecture-related generalization bound such that the Rademacher complexity of SNNs with stochastic firing can be upper bounded by an exponential function relative to the excitation probability and the architecture depth. In this paper, we theoretically investigate the generalization bounds of SNNs with several integration-and-fire schemes via Rademacher complexity. We recognize that the empirical Rademacher complexity of SNNs is close to the SNN configurations, which is exponential to the network depth and the maximum time duration of received spike sequences, superlinear and subquadratic to the network width, polynomial to the parameter norm, inverse-linear to the number of training samples, and independent of the computations within spiking neurons, achieving a more precise rate than conventional studies. Our theoretical results may support the scope of SNN theories and shed some insight into the development of SNNs.</p>
+  </article>
+</body>
+</html>
