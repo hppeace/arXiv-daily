@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-08.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 3]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-detecting-ai-generated-videos-with-spiking-neural-networks">[1] <a href="https://arxiv.org/abs/2605.05895">Detecting AI-Generated Videos with Spiking Neural Networks</a></h3>
+<p><em>Minsuk Jang, Yujin Yang, Heeseon Kim, Minseok Son, Younghun Kim, Changick Kim</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出MAST，一种基于脉冲神经网络（SNN）的AI生成视频检测器，利用视频帧间残差的多通道时空特征和语义特征轨迹，在跨生成器评估中达到93.14%的平均准确率，展示了SNN在该任务中的有效性。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有AI生成视频检测方法在处理帧间时序证据时，要么采用通用时序骨干网络处理完整帧序列，要么将单一主导时序线索降维为固定视频级描述，要么通过与真实视频统计量比较的检测度量来对比时序特征；这些策略在跨生成器评估中性能急剧下降，因为不同生成器产生的伪影类型和时间尺度各不相同，且现有检测器未能联合利用像素级时序残差平滑性与语义特征空间轨迹紧凑性这两个AI视频的共有特征。</p>
+<p><strong>Method:</strong> MAST（Multi-channel Artifact Spatio-Temporal detector）包含两分支架构：一个基于SNN的脉冲驱动时序分支，处理多通道帧间时序残差，利用SNN的事件驱动、稀疏激活特性响应集中在物体和运动边缘的时序伪影；另一个为冻结的语义编码器分支，用于提取语义特征轨迹；两分支联合实现跨生成器的泛化检测。</p>
+<p><strong>Result:</strong> 在GenVideo基准上，MAST在严格的跨生成器评估下，对10个未见生成器达到93.14%的平均准确率，匹配甚至超越最强的基于ANN的检测器，验证了SNN在AI生成视频检测中的实际应用可行性。</p>
+<p><strong>Conclusion:</strong> AI生成视频在像素级时序残差和语义特征空间轨迹上均表现出比真实视频更平滑的时间动态，形成可检测的时序平滑度差距；SNN的脉冲激活集中在物体和运动边界处，其事件驱动、稀疏激活的动态特性与残差信号的结构天然契合，为跨生成器泛化提供了新的检测范式。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Modern AI-generated videos are photorealistic at the single-frame level, leaving inter-frame dynamics as the main remaining axis for detection. Existing detectors typically handle this temporal evidence in three ways: feeding the full frame sequence to a generic temporal backbone, reducing one dominant temporal cue to fixed video-level descriptors, or comparing temporal features to real-video statistics through a detection metric. These strategies degrade sharply under cross-generator evaluation, where artifact type and timescale vary across generators. On caption-paired benchmark, GenVidBench, we identify two signatures that prior detectors do not jointly exploit: AI-generated videos exhibit smoother frame-to-frame temporal residuals at the pixel level, and more compact trajectories in the semantic feature space, indicating a temporal smoothness gap at both levels. We further observe that, when raw video is fed into a Spiking Neural Networks (SNNs), fake clips elicit firing predominantly at object and motion boundaries, unlike real clips, suggesting that the SNN responds to temporal artifacts localized at edges. These cues are sparse, asynchronous, and concentrated at moments of change, which makes SNNs a natural choice for this task: their event-driven, sparsely-activated dynamics align with the structure of the residual signal in a way that dense ANN backbones do not. Building on this observation, we propose MAST, a detector that processes multi-channel temporal residuals with a spike-driven temporal branch alongside a frozen semantic encoder for cross-generator generalization. On the GenVideo benchmark, MAST achieves 93.14\% mean accuracy across 10 unseen generators under strict cross-generator evaluation, matching or surpassing the strongest ANN-based detectors and demonstrating the practical applicability of SNNs to AI-generated video detection.</p>
+<h3 id="2-neuromorphic-visual-attention-for-sign-language-recognition-on-spinnaker">[2] <a href="https://arxiv.org/abs/2605.06005">Neuromorphic visual attention for Sign-language recognition on SpiNNaker</a></h3>
+<p><em>Sarka Liskova, Olha Vedmedenko, Mazdak Fatahi, Matej Hoffmann, P. Michael Furlong, Giulia D Angelo</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文提出了一种端到端的神经形态架构，集成了脉冲视觉注意力机制与紧凑型脉冲神经网络，用于美国手语手指拼写识别，在SpiNNaker平台上实现，在模拟和硬件部署上分别达到92.27%和83.1%的准确率，同时实现了0.565 mW的极低功耗和3 ms的低延迟。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有手语识别方法虽在分类准确率上取得了显著进展，但其高延迟和高功耗限制了在实时场景中的部署可行性；神经形态感知与处理基于稀疏事件驱动计算，为低延迟、低功耗感知提供了新范式，但仍缺乏针对手语识别的完整端到端神经形态解决方案。</p>
+<p><strong>Method:</strong> 本文设计了一种端到端神经形态架构，包含一个脉冲视觉注意力机制用于在线感兴趣区域提取，以及一个紧凑型脉冲神经网络（SNN）用于分类；整个系统部署在SpiNNaker神经形态硬件平台上，并在合成事件版Sign Language MNIST数据集和原生记录的ASL-DVS数据集上进行评估。</p>
+<p><strong>Result:</strong> 所提系统在仿真中取得92.27%的分类准确率，在神经形态硬件部署上达到83.1%的准确率；功耗仅为0.565 mW，延迟为3 ms，在所有对比方法中实现了最优的能量效率和最低延迟，展现出紧凑架构下的竞争力。</p>
+<p><strong>Conclusion:</strong> 该工作证明了将任务相关的视觉注意力机制与脉冲神经网络相结合在边缘端部署手语识别任务的可行性，尽管模型紧凑，仍能在低功耗和低延迟约束下取得有竞争力的性能，为实时神经形态感知应用提供了有效方案。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Sign-language recognition has achieved substantial gains in classification accuracy in recent years; however, the latency and power requirements of most existing methods limit their suitability for real-time deployment. Neuromorphic sensing and processing offer an alternative paradigm based on sparse, event-driven computation that supports low-latency and energy-efficient perception. In this work, we introduce an end-to-end neuromorphic architecture for American Sign Language (ASL) fingerspelling recognition that integrates a spiking visual attention mechanism for online region-of-interest extraction with a compact spiking neural network deployed on the SpiNNaker neuromorphic platform. We benchmark the proposed system against two datasets: a synthetically generated event-based version of the Sign Language MNIST dataset and a natively recorded ASL-DVS dataset, whilst providing a comprehensive overview of Sign-language recognition and related work. This work yields competitive performance in simulation (92.27%) and comparable performance on neuromorphic hardware deployment (83.1%), while achieving the most energy-efficient architecture (0.565 mW) and low latency (3 ms) across all benchmarked approaches. Despite its compact design, the system demonstrates the suitability of task-dependent visual attention applications for edge deployment.</p>
+<h3 id="3-dynamic-pondering-sparsity-aware-mixture-of-experts-transformer-for-event-stream-based-visual-object-tracking">[3] <a href="https://arxiv.org/abs/2605.06112">Dynamic Pondering Sparsity-aware Mixture-of-Experts Transformer for Event Stream based Visual Object Tracking</a></h3>
+<p><em>Shiao Wang, Xiao Wang, Duoqing Yang, Wenhao Zhang, Bo Jiang, Lin Zhu, Yonghong Tian, Bin Luo</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出一种事件稀疏性感知跟踪框架，通过多尺度事件密度注入、稀疏感知混合专家模块和动态推理深度调整策略，在事件相机跟踪任务中实现了精度与效率的良好平衡。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有RGB跟踪器在低光照和快速运动等挑战性成像条件下表现脆弱，而现有基于事件相机的跟踪器忽视了事件数据固有的空间稀疏性和时间密集性，且依赖单一固定时间窗口采样策略，难以适应变化的运动动态。</p>
+<p><strong>Method:</strong> 提出一种事件稀疏性感知跟踪框架，将稀疏、中等密度和密集的事件搜索区域逐步注入三级Vision Transformer骨干网络，实现层次化多密度特征学习；引入稀疏感知混合专家模块以鼓励专家在不同稀疏模式下的专业化，并设计动态推理策略根据跟踪难度自适应调整推理深度。</p>
+<p><strong>Result:</strong> 在FE240hz、COESOT和EventVOT三个基准数据集上的大量实验表明，该方法在跟踪精度与计算效率之间取得了良好的权衡。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了显式建模事件数据多尺度密度变化对于提升事件相机跟踪性能的重要性，所提出的动态推理机制为实现精度-效率折衷提供了有效途径，未来可通过开源框架进一步推动该领域发展。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Despite significant progress, RGB-based trackers remain vulnerable to challenging imaging conditions, such as low illumination and fast motion. Event cameras offer a promising alternative by asynchronously capturing pixel-wise brightness changes, providing high dynamic range and high temporal resolution. However, existing event-based trackers often neglect the intrinsic spatial sparsity and temporal density of event data, while relying on a single fixed temporal-window sampling strategy that is suboptimal under varying motion dynamics. In this paper, we propose an event sparsity-aware tracking framework that explicitly models event-density variations across multiple temporal scales. Specifically, the proposed framework progressively injects sparse, medium-density, and dense event search regions into a three-stage Vision Transformer backbone, enabling hierarchical multi-density feature learning. Furthermore, we introduce a sparsity-aware Mixture-of-Experts module to encourage expert specialization under different sparsity patterns, and design a dynamic pondering strategy to adaptively adjust the inference depth according to tracking difficulty. Extensive experiments on FE240hz, COESOT, and EventVOT demonstrate that the proposed approach achieves a favorable trade-off between tracking accuracy and computational efficiency. The source code will be released on https://github.com/Event-AHU/OpenEvTracking.</p>
+  </article>
+</body>
+</html>
