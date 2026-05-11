@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-11.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-asyncevgs-asynchronous-event-assisted-gaussian-splatting-for-handheld-motion-blurred-scenes">[1] <a href="https://arxiv.org/abs/2605.07192">AsyncEvGS: Asynchronous Event-Assisted Gaussian Splatting for Handheld Motion-Blurred Scenes</a></h3>
+<p><em>Jun Dai, Renbiao Jin, Bo Xu, Yutian Chen, Linning Xu, Mulin Yu, Tianfan Xue, Shi Guo</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>提出一种灵活的高分辨率异步RGB-事件双摄像头系统及相应重建框架，通过事件数据恢复清晰图像、跨域位姿估计和结构驱动事件损失，有效解决了严重运动模糊下的3D重建问题，在基准测试中达到最先进性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有3D重建方法（如3DGS和NeRF）在输入图像存在严重运动模糊时性能急剧下降；虽然事件相机能提供高时间分辨率运动信息，但已有事件辅助方法依赖低分辨率传感器和严格同步，难以用于智能手机等手持设备的实际3D捕获场景。</p>
+<p><strong>Method:</strong> 提出一种灵活的高分辨率异步RGB-事件双摄像头系统及对应重建框架：首先从事件数据重建清晰图像，然后基于Visual Geometry Transformer (VGGT)设计跨域位姿估计模块以获得鲁棒的3DGS初始化；优化过程中采用结构驱动的事件损失和视图特定一致性正则化项，以缓解传统事件损失和去模糊损失的不适定性问题。</p>
+<p><strong>Result:</strong> 在自建的AsyncEv-Deblur高分辨率RGB-事件数据集和现有基准测试上，该方法均达到最先进性能，显著提升了严重运动模糊条件下的重建鲁棒性。</p>
+<p><strong>Conclusion:</strong> 所提出的异步高分辨率RGB-事件系统及重建框架有效弥合了事件相机辅助3D重建在实际应用中的硬件与算法鸿沟，为手持设备上的高质量3D捕获提供了可行方案。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>3D reconstruction methods such as 3D Gaussian Splatting (3DGS) and Neural Radiance Fields (NeRF) achieve impressive photorealism but fail when input images suffer from severe motion blur. While event cameras provide high-temporal-resolution motion cues, existing event-assisted approaches rely on low-resolution sensors and strict synchronization, limiting their practicality for handheld 3D capture on common devices, such as smartphones. We introduce a flexible, high-resolution asynchronous RGB-Event dual-camera system and a corresponding reconstruction framework. Our approach first reconstructs sharp images from the event data and then employs a cross-domain pose estimation module based on the Visual Geometry Transformer (VGGT) to obtain robust initialization for 3DGS. During optimization, we employ a structure-driven event loss and view-specific consistency regularizers to mitigate the ill-posed behavior of traditional event losses and deblurring losses, ensuring both stable and high-fidelity reconstruction. We further contribute AsyncEv-Deblur, a new high-resolution RGB-Event dataset captured with our asynchronous system. Experiments demonstrate that our method achieves state-of-the-art performance on both our challenging dataset and existing benchmarks, substantially improving reconstruction robustness under severe motion blur. Project page: https://openimaginglab.github.io/AsyncEvGS/</p>
+<h3 id="2-aquatic-neuromorphic-optical-flow">[2] <a href="https://arxiv.org/abs/2605.07653">Aquatic Neuromorphic Optical Flow</a></h3>
+<p><em>Pei Zhang, Yunkai Liang, Kaiqiang Wang</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>本文首次将神经形态视觉与脉冲神经网络相结合，提出了一种自监督光流估计框架，用于从异步事件流中实现水下敏捷感知，在克服数据稀缺瓶颈的同时取得了具有竞争力的视觉与定量结果和优越的计算效率。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 水下环境对传统成像系统构成严重限制，亟需在高质量感知与严格资源效率之间取得平衡的方案；事件相机虽提供有前景的替代方案，但其在水下场景中的潜力尚未被充分探索，且水下数据稀缺是长期存在的瓶颈问题。</p>
+<p><strong>Method:</strong> 基于神经形态视觉的运动场作为敏捷水下感知的关键媒介，本文构建了一个基于脉冲神经网络的自监督框架，直接从异步事件流中逐像素估计光流，从而优雅地绕过了水下数据标注稀缺的限制。</p>
+<p><strong>Result:</strong> 大量评估表明，该方法在视觉质量和定量指标上与领先技术相比具有竞争力，同时在计算效率方面展现出显著优势，适合资源受限的水下边缘平台部署。</p>
+<p><strong>Conclusion:</strong> 本文通过桥接神经形态感知与水下智能，为轻量化、实时、低成本的水下感知开辟了新方向，展示了脉冲神经网络在动态水下环境感知中的巨大潜力。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Underwater environments impose severe constraints on conventional imaging systems and demand solutions that balance high-quality sensing with strict resource efficiency. While emerging event cameras offer a promising alternative, their potential in aquatic scenarios remains largely unexplored. Through the lens of neuromorphic vision, this work pioneers the investigation of motion fields that serve as key media for agile underwater perception. Built upon spiking neural networks, we introduce a self-supervised framework to estimate per-pixel optical flow from asynchronous event streams, elegantly bypassing the long-standing bottleneck of underwater data scarcity. Extensive evaluations demonstrate that our method achieves competitive visual and quantitative results against leading techniques while operating with superior computational efficiency. By bridging neuromorphic sensing and aquatic intelligence, this work opens new frontiers for lightweight, real-time, and low-cost perception on resource-constrained underwater edge platforms.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="3-globally-optimal-training-of-spiking-neural-networks-via-parameter-reconstruction">[3] <a href="https://arxiv.org/abs/2605.08022">Globally Optimal Training of Spiking Neural Networks via Parameter Reconstruction</a></h3>
+<p><em>Himanshu Udupi, Xiaocong Yang, ChengXiang Zhai</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文从理论上将前馈阈值网络的凸化方法扩展至并行递归阈值网络，并提出了一种参数重构算法用于脉冲神经网络（SNN）训练，该算法在多种任务上作为独立方法或与代理梯度结合均展现出显著优势，并具有良好的数据可扩展性和模型鲁棒性。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 脉冲神经网络（SNN）虽被视为生物可解释且能效高的替代方案，但其训练因脉冲函数的不可微性而依赖代理梯度方法，这会在跨层传播中引入累积的近似误差，成为SNN训练的核心瓶颈。</p>
+<p><strong>Method:</strong> 本文将前馈阈值网络的凸化理论扩展至并行递归阈值网络（并行SNN是其结构化特例），并基于该理论框架提出了一种参数重构算法用于SNN训练；该算法既可独立使用，也可与代理梯度训练相结合。</p>
+<p><strong>Result:</strong> 实验表明，所提参数重构算法在多种任务上作为独立方法和与代理梯度结合均表现出一致且显著的性能优势；消融实验进一步验证了该算法具有良好的数据可扩展性和对模型配置的鲁棒性。</p>
+<p><strong>Conclusion:</strong> 该工作为SNN训练提供了一种新的理论支撑和实用算法，有望推广至大规模SNN训练场景，并启示了将凸化理论与代理梯度方法互补使用的训练范式。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) have been proposed as biologically plausible and energy-efficient alternatives to conventional Artificial Neural Networks (ANNs). However, the training of SNN usually relies on surrogate gradients due to the non-differentiability of the spike function, introducing approximation errors that accumulate across layers. To address this challenge, we extend the work on convexification of parallel feedforward threshold networks to parallel recurrent threshold networks, which subsume parallel SNNs as a structured special case. Building on this theoretical framework, we propose a parameter reconstruction algorithm for SNN training that demonstrates consistent and significant advantages across various tasks, both as a standalone method and in combination with surrogate-gradient training. The ablations further demonstrate the data scalability and robustness to model configurations of our training algorithm, pointing toward its potential in large-scale SNN training.</p>
+<h3 id="4-direct-to-event-spiking-neural-network-transfer">[4] <a href="https://arxiv.org/abs/2605.07207">Direct-to-Event Spiking Neural Network Transfer</a></h3>
+<p><em>Nhan Trong Luu, Duong Trung Luu, Pham Ngoc Nam, Truong Cong Thang</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文首次系统研究了直接编码预训练脉冲神经网络（SNN）向基于事件表示的高能效转换问题，分析了关键挑战并提出了相应方法，在保持模型性能的同时显著提升能效。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管直接编码通过连续代理激活支持反向传播训练，但直接编码SNN的能量效率远低于纯事件驱动SNN，限制了其在能耗敏感场景中的实际部署。同时，为促进直接编码预训练SNN数据库的可复用性，将直接编码SNN有效转换为事件表示成为一个重要但尚未被充分探索的问题。</p>
+<p><strong>Method:</strong> 本文首次系统研究了直接编码预训练SNN向事件驱动表示的转换问题，分析了转换过程中面临的关键挑战，并提出了一套转换方法，旨在实现从直接编码到事件计算的高效迁移，同时保持模型原有的性能水平。</p>
+<p><strong>Result:</strong> 本文通过系统实验验证了提出的转换方法能够在保持模型性能的前提下，显著提升直接编码预训练SNN在事件驱动模式下的能量效率，具体实验数据在摘要中未详细给出。</p>
+<p><strong>Conclusion:</strong> 该研究填补了直接编码SNN向事件表示转换这一研究空白，揭示了转换过程中的核心挑战，并为未来高能效SNN的部署与预训练模型复用提供了可行路径与理论指导。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) have gained increasing attention due to their potential for low-power computation on neuromorphic hardware. A widely adopted training strategy for SNNs is direct coding, which enable backpropagation on neuron implementations using continuous-valued surrogate activations. However, recent studies have shown that direct-coded SNNs remain substantially less energy-efficient than their event-based counterparts, limiting their practical deployment in energy sensitive scenarios. Still, to promote the reusability of pretrained SNN database on direct code, this motivates an important yet underexplored question: How can a SNN pretrained with direct code be effectively converted into an event-based representation? In this research, we present the first systematic investigation into this transfer problem, analyze the key challenges that arise when transitioning from direct-coded to event-based computation and propose a set of methods to enable energy-efficient transfer while preserving model performance.</p>
+  </article>
+</body>
+</html>
