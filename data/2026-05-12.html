@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-12.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 5]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-safformerimproving-spiking-transformer-via-active-predictive-filtering">[1] <a href="https://arxiv.org/abs/2605.08270">SAFformer:Improving Spiking Transformer via Active Predictive Filtering</a></h3>
+<p><em>Zequan Xie, Weiming Zeng, Yunhua Chen, Sichang Ling, Tongyang Chen, Jinsheng Xiao</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>SAFformer提出了一种基于主动预测滤波范式的脉冲Transformer架构，借鉴大脑预测编码机制，通过主动抑制可预测信号并聚焦显著视觉特征，在CIFAR-10/100、CIFAR10-DVS和ImageNet-1K上均取得最优性能，在ImageNet-1K上以26.58M参数和5.88mJ能耗达到80.50% Top-1准确率，实现了精度与效率的优异平衡。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有Spiking Transformer遵循被动的反应式范式，难以聚焦任务相关信息，且在处理冗余视觉数据时产生大量计算开销，这一根本性但尚未被充分探索的局限性严重制约了SNN在低功耗Transformer中的性能表现。</p>
+<p><strong>Method:</strong> SAFformer是一种基于主动预测滤波范式的新型Spiking Transformer架构，其核心理念是借鉴大脑的预测编码机制，主动抑制可预测的信号并聚焦于显著的视觉特征，从而克服传统反应式范式的计算冗余和注意力分散问题。</p>
+<p><strong>Result:</strong> 在CIFAR-10/100和CIFAR10-DVS上，SAFformer刷新了最优性能记录。在ImageNet-1K上，它以仅26.58M参数量和5.88mJ的能耗实现了80.50%的Top-1准确率，展现了精度与效率之间的卓越平衡。</p>
+<p><strong>Conclusion:</strong> SAFformer通过引入主动预测滤波范式，不仅解决了现有Spiking Transformer在信息聚焦和计算效率上的根本性缺陷，还为构建高性能低功耗脉冲神经网络视觉模型提供了新的设计方向。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) offer notable advantages in biological plausibility and energy efficiency, making them promising candidates for building low-power Transformers. However, existing Spiking Transformers largely adhere to a passive reactive paradigm, which struggles to focus on task-relevant information and incurs substantial computational overhead when processing redundant visual data. To overcome this fundamental yet underexplored limitation, we propose SAFformer, a novel Spiking Transformer architecture based on an active predictive filtering paradigm. Inspired by the brain's predictive coding mechanism, SAFformer actively suppresses predictable signals and focuses on salient visual features. Extensive experiments show that SAFformer establishes new state-of-the-art performance on CIFAR-10/100 and CIFAR10-DVS. Remarkably, on ImageNet-1K, it achieves 80.50% Top-1 accuracy with only 26.58M parameters and an energy consumption of 5.88 mJ, demonstrating an exceptional balance between accuracy and efficiency.</p>
+<h3 id="2-uiesnn-a-scale-aware-spiking-network-for-underwater-image-enhancement">[2] <a href="https://arxiv.org/abs/2605.08376">UIESNN: A Scale-Aware Spiking Network for Underwater Image Enhancement</a></h3>
+<p><em>Shuang Chen, Ruochen Li, Zihan Zhu, Ronald Thenius, Farshad Arvin, Amir Atapour-Abarghouei</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>提出一种名为UIESNN的尺度感知脉冲神经网络框架用于水下图像增强，通过多尺度池化LIF模块（MPLB）扩大有效感受野并保持细节，在EUVP和LSUI基准上达到SNN方法的最优性能，同时保持低能耗。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 水下图像增强（UIE）是脉冲神经网络（SNN）在低质图像恢复中一个实际重要但尚未充分探索的应用场景，水下退化主要表现为大尺度、低频的特征（如波长依赖的色偏和散射引起的雾状遮挡）；现有SNN方法依赖局部有界的脉冲感知，难以进行全局校正，容易导致表示饱和或不一致。</p>
+<p><strong>Method:</strong> 提出尺度感知的SNN框架UIESNN，核心模块为多尺度池化LIF块（MPLB），该模块将层次化多尺度池化响应注入到膜动力学中，在扩大有效感受野的同时保留细粒度细节并诱导异质尺度依赖的激活；基于MPLB进一步设计了融合频率分解和注意力精炼的全脉冲驱动残差架构。</p>
+<p><strong>Result:</strong> 在EUVP和LSUI两个基准数据集上的大量实验表明，UIESNN在SNN方法中达到了最先进的性能，实现了更好的颜色保真度和空间一致性，同时具有竞争力的能耗水平。</p>
+<p><strong>Conclusion:</strong> UIESNN验证了通过多尺度池化机制增强SNN全局感知能力在水下图像增强任务中的有效性，为SNN在低质图像恢复领域的进一步应用提供了可行的设计范式，兼顾了性能提升与计算效率。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Underwater image enhancement (UIE) is a practically important yet underexplored application of spiking neural networks (SNNs), where the dominant degradations are large-scale and low-frequency, such as wavelength-dependent colour casts and scattering-induced veiling. Existing SNN restoration designs rely on locally bounded spiking perception, which can limit global correction and lead to saturated or inconsistent representations. To address these challenges, we propose a scale-aware SNN framework for UIE named UIESNN. At its core is a Multi-scale Pooling LIF Block (MPLB) that injects hierarchical multi-scale pooling responses into membrane dynamics, thereby enlarging the effective receptive field while preserving fine-grained details and inducing heterogeneous scale-dependent activations. Building on MPLB, we design a spiking residual architecture that integrates frequency decomposition and attention-based refinement in a fully spike-driven pipeline. Extensive experiments on the EUVP and LSUI benchmarks demonstrate that UIESNN achieves state-of-the-art performance among SNN-based methods, delivering improved colour fidelity and spatial coherence with competitive energy cost.</p>
+<h3 id="3-rethinking-event-based-object-dtection-through-representation-level-temporal-aggregation-and-model-level-hypergraph-reasoning">[3] <a href="https://arxiv.org/abs/2605.08825">Rethinking Event-Based Object Dtection through Representation-Level Temporal Aggregation and Model-Level Hypergraph Reasoning</a></h3>
+<p><em>Meisen Wang, Hao Deng, Wei Bao, Ma Yuanxiao, Chengjie Wang, Zhiqiang Tian, Shaoyi Du, Siqi Li</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>Ev-DTAD 提出了一种统一的事件目标检测框架，通过层次化时间聚合（HTA）紧凑伪RGB表示和频率感知超图时间融合（FHTF）高阶推理，在Gen1、1Mpx/Gen4和eTraM数据集上实现了精度提升和最高2.0倍加速，验证了紧凑时间表示与时间超图特征推理的互补性。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有事件目标检测方法在表征和模型两个层面存在局限：事件表示通常通过冗余结构间接编码时间信息，而检测模型难以将碎片化的事件响应显式聚合成连贯的高阶物体特征，导致检测性能受限。</p>
+<p><strong>Method:</strong> Ev-DTAD框架包含两大核心模块：层次化时间聚合（HTA）将窗口内和窗口间事件的时间信息显式嵌入为紧凑的三通道伪RGB表示；频率感知超图时间融合（FHTF）通过时间演化建模和高阶关系推理，在多尺度上对稀疏碎片化事件特征进行精炼和聚合。</p>
+<p><strong>Result:</strong> 在Gen1数据集上mAP提升0.8且速度提升1.7倍，在1Mpx/Gen4上mAP提升0.5且速度提升1.6倍，在eTraM上mAP提升3.0且速度提升2.0倍，验证了紧凑时间表示与时间超图特征推理之间的互补性。</p>
+<p><strong>Conclusion:</strong> Ev-DTAD通过表示层的时间编码与模型层的时间超图推理的统一集成，有效解决了事件目标检测中时间信息表征冗余和碎片化特征聚合困难的问题，实现了具有竞争力的精度-效率权衡，为事件相机感知提供了新范式。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Event cameras provide microsecond-level temporal resolution, low latency, and high dynamic range, offering potential for perception under fast motion and challenging illumination conditions. However, existing Event-based Object Detection (EOD) methods face limitations at both the representation and model levels: prior event representations usually encode temporal information indirectly through redundant structures, while detection models struggle to explicitly aggregate fragmented event responses into coherent high-order object features. To address these limitations, we present Event Dual Temporal-Relational Aggregation Detector (Ev-DTAD), a unified EOD framework that integrates representation-level temporal encoding with model-level temporal-hypergraph reasoning. Specifically, we introduce Hierarchical Temporal Aggregation (HTA), a compact three-channel pseudo-RGB representation that explicitly embeds temporal information across intra- and inter-window events. To further enhance detection under sparse and fragmented event responses, we propose Frequency-aware Hypergraph Temporal Fusion (FHTF), which refines multi-scale event features through temporal evolution modeling and high-order relational reasoning. Extensive experiments on Gen1 (+0.8 mAP and 1.7$\times$ faster), 1Mpx/Gen4 (+0.5 mAP and 1.6$\times$ faster), and eTraM (+3.0 mAP and \textbf{2.0$\times$ faster}) demonstrate that Ev-DTAD achieves a competitive accuracy-efficiency trade-off, validating the complementarity between compact temporal representation and temporal-hypergraph feature reasoning.</p>
+<h3 id="4-fpga-based-hardware-architecture-for-contrast-maximization-in-event-based-vision">[4] <a href="https://arxiv.org/abs/2605.09581">FPGA-Based Hardware Architecture for Contrast Maximization in Event-Based Vision</a></h3>
+<p><em>Michal Filipkowski, Marcin Kowalczyk, Tomasz Kryjak</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文首次提出了一种基于FPGA的硬件架构，用于加速事件视觉中的对比度最大化（CM）算法，在帧率上相较CPU和GPU实现实现了超过200倍的加速，为实时、低功耗嵌入式运动估计系统提供了硬件基础。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件视觉传感器产生高时间分辨率、低空间冗余的稀疏数据，虽天然适合硬件处理，但现有对比度最大化（CM）算法在CPU和GPU上的实现由于计算密集型和串行执行特征难以满足实时嵌入式系统对高吞吐量和低能耗的需求，而目前尚缺乏专门加速CM算法的硬件架构。</p>
+<p><strong>Method:</strong> 本文基于FPGA设计了一种深度流水线架构，通过利用FPGA的确定性、大规模并行结构，实现了事件扭曲（event warping）、对比度计算（contrast computation）和迭代优化（iterative optimization）等核心硬件模块，并采用硬件感知的优化方法指导设计决策。</p>
+<p><strong>Result:</strong> 实验结果表明，所提出的FPGA架构在运动参数估计中相比CPU和GPU实现实现了超过200倍的速度提升，并在处理速度、能效以及硬件资源利用率方面进行了全面评估，最终在基于事件的目标跟踪应用中验证了设计的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究证实了FPGA硬件加速CM算法的可行性与高效性，表明所提架构能够为高速、低功耗嵌入式系统中的实时运动估计提供坚实基础，推动了事件视觉从算法到硬件落地的重要一步。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>This paper presents a hardware architecture that implements the Contrast Maximization (CM) algorithm in Field-Programmable Gate Array (FPGA) resources for event-based vision systems. CM estimates motion parameters by maximizing the contrast of an Image of Warped Events (IWE) reconstructed from asynchronous event streams. Event-based vision sensors generate sparse data with high temporal resolution and low spatial redundancy, which makes them well suited for hardware processing. The deterministic, massively parallel structure of the FPGA is leveraged to design a deeply pipelined architecture capable of high-throughput, energy-efficient processing suitable for real-time embedded applications. This paper details the hardware modules responsible for event warping, contrast computation, and iterative optimization, discusses key implementation decisions, and presents the hardware-aware optimization method used in the design. Experimental results demonstrate a substantial speed and efficiency improvement over CPU- and GPU-based implementations, with motion parameter estimation executing over 200 times faster. To the best of our knowledge, this is the first hardware architecture enabling acceleration of CM algorithm computations. Its performance is evaluated in terms of processing speed, energy efficiency, and hardware resource utilization. The proposed design is validated using an event-based object tracking application. The results confirm that the architecture provides a solid foundation for real-time motion estimation in high-speed, low-power embedded systems.</p>
+<h3 id="5-m2e-uav-a-benchmark-and-analysis-for-onboard-motion-on-motion-event-based-tiny-uav-detection">[5] <a href="https://arxiv.org/abs/2605.10496">M$^2$E-UAV: A Benchmark and Analysis for Onboard Motion-on-Motion Event-Based Tiny UAV Detection</a></h3>
+<p><em>Weiqi Yan, Lixin Chen, Xiangrui Hou, Zhipeng Cai, Youbiao Wang, Yangyang Shi, Yu Zang, Cheng Wang</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出M²E-UAV基准数据集和M²E-Point点基事件检测方法，用于解决事件相机在观测者与目标同时运动（motion-on-motion）条件下的微型无人机检测问题，实验表明点基事件建模表现强劲而简单IMU融合收益有限。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 在观测者与目标同时运动（motion-on-motion）的场景下，机载事件相机检测微型UAV极具挑战性，因为自身运动会激活大量背景边缘事件（建筑、植被、地平线等），而UAV仅表现为稀疏事件簇，现有研究缺乏针对这一实际问题的专门基准和基线方法。</p>
+<p><strong>Method:</strong> 本文提出M²E-Point，一种基于点的事件基线方法，将事件编码为[x,y,t,p]四维点集，利用EdgeConv提取局部事件结构特征，预测事件级UAV前景得分，再通过DBSCAN聚类生成边界框；同时提出IMU条件化变体M²E-Point+IMU，将惯性测量信息作为条件输入以分析其作用；并构建M²E-UAV基准数据集，包含四个场景族共计87,223训练样本和21,395验证样本。</p>
+<p><strong>Result:</strong> 在验证集上，M²E-Point达到0.9673 F1和0.5501 mAP50-95；IMU条件化变体M²E-Point+IMU达到0.5561 mAP50-95，仅带来边际性的聚合性能提升，表明简单的IMU融合策略在motion-on-motion检测中收益有限。</p>
+<p><strong>Conclusion:</strong> 点基事件建模是motion-on-motion事件相机UAV检测的有效基线方案，而简单IMU条件化融合仅带来边际改进，揭示了在该领域需要更复杂的多模态融合策略；M²E-UAV基准和M²E-Point为后续研究提供了标准化评估平台和初始对比基线。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Tiny UAV detection from an onboard event camera is difficult when the observer and target move at the same time. In this motion-on-motion regime, ego-motion activates background edges across buildings, vegetation, and horizon structures, while the UAV may appear as a sparse event cluster. To explore this practical problem, we present M$^2$E-UAV, a benchmark and analysis setup for onboard motion-on-motion event-based tiny UAV detection. The processed M$^2$E-UAV benchmark contains 87,223 training samples and 21,395 validation samples across four scene families: sunny building-forest, sunny farm-village, sunset building-forest, and sunset farm-village. We provide M$^2$E-Point, a point-based event baseline, and M$^2$E-Point + IMU, an IMU-conditioned variant, to analyze the role of inertial cues under onboard motion-on-motion detection. M$^2$E-Point encodes events as $[x,y,t,p]$ point sets, extracts local event structure with EdgeConv, and predicts event-level UAV foreground scores, from which bounding boxes are derived via DBSCAN. Our validation-stage analysis shows that point-based event modeling is a strong baseline, while simple IMU conditioning provides only marginal aggregate gains. Under the train/validation split, M$^2$E-Point achieves 0.9673 F1 and 0.5501 mAP50-95, while the IMU-conditioned variant reaches 0.5561 mAP50-95 with only marginal aggregate changes, serving as an initial baseline for future exploration in this domain. Code will be ready in https://github.com/Wickyan/M2E-UAV.</p>
+  </article>
+</body>
+</html>
