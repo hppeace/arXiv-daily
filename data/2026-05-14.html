@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-14.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-fits-interpretable-spiking-neurons-via-frequency-selectivity-and-temporal-shaping">[1] <a href="https://arxiv.org/abs/2605.13071">FiTS: Interpretable Spiking Neurons via Frequency Selectivity and Temporal Shaping</a></h3>
+<p><em>Jongmin Choi, Joon Son Chung</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>提出FiTS神经元，将脉冲神经元的时序计算分解为频率选择（FS）和时序塑造（TS）两个模块，在无递归或网络级延迟的前馈SNN中，于听觉基准任务上持续优于LIF基线，同时提供可解释的神经元级频率与时序组织信息。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有SNN通过丰富的神经元动力学和网络级机制（如递归和延迟）改进了时序建模能力，但个体脉冲神经元如何在网络内进行功能专门化仍不清楚，缺乏对神经元层面频率选择性与时序塑造能力的显式分解与参数化研究。</p>
+<p><strong>Method:</strong> 提出FiTS（Frequency Selectivity and Temporal Shaping）脉冲神经元，在每个神经元内部将时序计算分解为频率选择模块和时序塑造模块；FS模块通过子阈值幅值响应最大化参数化每个神经元的目标频率，TS模块通过群延迟调制重塑频率分量对膜电压积累的贡献时机。</p>
+<p><strong>Result:</strong> 在频率选择性和时序信息至关重要的听觉基准任务上，采用简单前馈SNN架构（无递归或网络级延迟）的FiTS持续优于普通LIF基线，并与强时序SNN基线性能相当；此外，学习到的目标频率和群延迟偏移提供了网络内部频率与时序组织的可解释神经元级摘要。</p>
+<p><strong>Conclusion:</strong> FiTS表明，在神经元内部显式分解频率选择性与时序塑造能力可以有效提升前馈SNN的时序处理性能，同时学得的参数具有可解释性，为理解SNN中神经元的功能专门化提供了新的视角和工具。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) are a promising framework for event-driven temporal processing. Prior work has improved temporal modeling through richer neuron dynamics and network-level mechanisms such as recurrence and delays, but it remains unclear how individual spiking neurons should specialize within a network. In this work, we introduce FiTS, a spiking neuron that factorizes temporal computation within each neuron into Frequency Selectivity (FS) and Temporal Shaping (TS). The FS module parameterizes each neuron's target frequency as the maximizer of its subthreshold magnitude response, while the TS module reshapes when frequency components contribute to membrane voltage accumulation through group-delay modulation. On auditory benchmarks where frequency selectivity and timing are central to the input structure, FiTS consistently improves over a plain Leaky Integrate-and-Fire (LIF) baseline in simple feedforward SNNs without recurrence or network-level delays, while remaining competitive with strong temporal SNN baselines. Beyond accuracy, the learned target frequencies and group-delay shifts provide interpretable neuron-level summaries of the frequency and timing organization learned within the network.</p>
+  </article>
+</body>
+</html>
