@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-16.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 3]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-bispikclm-a-spiking-language-model-integrating-softmax-free-spiking-attention-and-spike-aware-alignment-distillation">[1] <a href="https://arxiv.org/abs/2605.13859">BiSpikCLM: A Spiking Language Model integrating Softmax-Free Spiking Attention and Spike-Aware Alignment Distillation</a></h3>
+<p><em>Sihang Guo, Chenlin Zhou, Jiaqi Wang, Kehai Chen, Qingyan Meng, Zhengyu Ma</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>提出首个完全二值化的脉冲因果语言模型BiSpikCLM，通过无Softmax脉冲注意力机制和脉冲感知对齐蒸馏方法，在仅需少量训练token的情况下，以约5%的计算成本达到与ANN模型相当的性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有脉冲大语言模型为保持容量仍需大量浮点矩阵乘法和非线性运算，或面临复杂时空动态导致的训练困难，难以同时实现高效推理和稳定训练。</p>
+<p><strong>Method:</strong> BiSpikCLM引入了Softmax-Free Spiking Attention (SFSA)以消除自回归语言建模中的softmax和浮点运算，并提出Spike-Aware Alignment Distillation (SpAD)框架，在嵌入、注意力图、中间特征和输出logits四个层面对齐ANN教师与SNN学生，实现高效训练。</p>
+<p><strong>Result:</strong> BiSpikCLM在仅使用5.6%训练token（1.3B模型）的情况下达到与ANN模型相当的性能，在自然语言生成任务上仅需4.16%-5.87%的计算成本。</p>
+<p><strong>Conclusion:</strong> 该工作验证了完全二值化脉冲驱动大语言模型的可行性和有效性，并将知识蒸馏确立为类脑脉冲自然语言处理的一种有前景的训练范式。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) offer promising energy-efficient alternatives to large language models (LLMs) due to their event-driven nature and ultra-low power consumption. However, to preserve capacity, most existing spiking LLMs still incur intensive floating-point matrix multiplication (MatMul) and nonlinearities, or training difficulties arising from the complex spatiotemporal dynamics. To address these challenges, we propose BiSpikCLM, the first fully binary spiking MatMul-free causal language model. BiSpikCLM introduces Softmax-Free Spiking Attention (SFSA), eliminating softmax and floating-point operations in autoregressive language modeling. For efficient training, we introduce Spike-Aware Alignment Distillation (SpAD), which aligns ANN teacher and SNN student across embeddings, attention maps, intermediate features, and output logits. SpAD framework allows BiSpikCLM to reach comparable performance to ANN counterparts using substantially fewer training tokens (e.g., only 5.6% of the tokens for the 1.3B model). As a result, BiSpikCLM achieves competitive performance at only 4.16% - 5.87% of the computational cost on natural language generation tasks. Our results highlight the feasibility and effectiveness of fully binary spike-driven LLMs and establish the distillation as a promising pathway for brain-inspired spiking NLP.</p>
+<h3 id="2-elastic-spiking-transformers-for-efficient-gesture-understanding">[2] <a href="https://arxiv.org/abs/2605.13869">Elastic Spiking Transformers for Efficient Gesture Understanding</a></h3>
+<p><em>Alberto Ancilotto, Gianluca Amprimo, Stefano Di Carlo, Elisabetta Farella</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>提出弹性脉冲Transformer架构，通过嵌套Matryoshka式表示学习和粒度感知权重共享，使单一模型可在推理时动态调整网络宽度和注意力头数，无需重训练即可适应不同硬件资源约束，在CIFAR和事件手势数据集上达到与独立训练基线相当的性能，同时通过减少活跃神经元降低脉冲发放率和突触操作能耗。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有脉冲神经网络（SNN）尤其是脉冲Transformer架构在训练和部署时是静态的，参数数量和计算图固定不变，这限制了其在Loihi、SpiNNaker等神经形态硬件上的部署，因为片上资源约束往往需要更小的模型，导致在准确率和可行性之间进行权衡。</p>
+<p><strong>Method:</strong> 提出弹性脉冲Transformer架构，借鉴Matryoshka式表示学习思想，在特征提取器、脉冲自注意力和前馈网络中嵌入嵌套弹性；通过粒度感知权重共享，使单一通用模型在推理时可动态裁剪网络宽度和注意力头数，无需重训练即可调整参数规模和计算开销。</p>
+<p><strong>Result:</strong> 在CIFAR10/100、CIFAR10-DVS和EHWGesture临床手势数据集上评估，一个弹性脉冲Transformer模型即可覆盖广泛的复杂度-准确率权衡区间，性能匹配或超越独立训练的基线模型，并支持在资源受限的边缘设备上进行自适应实时手势识别。</p>
+<p><strong>Conclusion:</strong> 弹性脉冲Transformer使SNN首次具备运行时自适应性：一方面可根据不同硬件存储预算动态调整参数规模，另一方面减少活跃神经元会降低脉冲发放率，从而成比例减少突触操作，这是标准人工神经网络无法直接获得的能耗优势，为SNN在资源受限边缘设备上的部署提供了可行路径。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs), particularly Spiking Transformers, offer energy-efficient processing of event-based sensor data for healthcare applications. Yet current architectures are rigid: they are trained and deployed as static networks with fixed parameter counts and computational graphs. This limits deployment on neuromorphic hardware such as Loihi and SpiNNaker, where on-chip constraints often require smaller models that trade accuracy for feasibility. We introduce the Elastic Spiking Transformer, a runtime-adaptive architecture that brings elasticity into the spiking paradigm. Inspired by Matryoshka-style representation learning, it embeds nested elasticity in the Feature Extractor, Spiking Self-Attention, and Feed-Forward blocks. Through granularity-aware weight sharing, a single universal model can dynamically slice network width and attention heads at inference time without retraining. This design provides two key advantages for SNNs. First, it allows the model to adjust its parameter footprint to different hardware memory budgets. Second, reducing active neurons also lowers spike firing rates, yielding proportional reductions in synaptic operations, an energy benefit not directly available in standard artificial neural networks. We evaluate the approach on CIFAR10/100, CIFAR10-DVS, and the EHWGesture clinical gesture understanding dataset. Results show that one Elastic Spiking Transformer spans a broad range of complexity-accuracy trade-offs, matching or surpassing independently trained baselines while supporting adaptive, real-time gesture recognition on resource-constrained edge devices.</p>
+<h3 id="3-dual-axis-attribution-of-zebrafish-tectal-microcircuits-for-energy-efficient-and-robust-neurocomputing">[3] <a href="https://arxiv.org/abs/2605.13924">Dual-axis attribution of zebrafish tectal microcircuits for energy-efficient and robust neurocomputing</a></h3>
+<p><em>Ningping Li, Hao Zhang, Yi Zhou</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文通过对斑马鱼视顶盖微环路进行功能解离分析，识别出两个子环路分别负责节能高效信息处理和鲁棒性稳定维持，并将这些生物功能属性迁移到ResNet18中，在CIFAR-10上验证了其提升计算效率与抗噪声鲁棒性的效果。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 生物神经环路中包含支持不同计算功能的特化子结构，但现有生物启发神经网络多直接借用生物机制而未识别其环路级别的功能来源，缺乏从子环路层面将生物组织与人工神经网络设计相关联的系统性途径。</p>
+<p><strong>Method:</strong> 研究首先构建了一个斑马鱼视顶盖微环路的定向有向图，并通过动态仿真验证了视网膜-顶盖信号传播；随后采用泄露积分点火（LIF）脉冲神经网络作为非线性扰动测试平台，选择性消融预定义的子环路，并利用能量敏感指数和鲁棒性敏感指数进行定量评估；最后将解离出的功能属性迁移到ResNet18中，在CIFAR-10上通过降低推理预算和高斯噪声干扰进行验证。</p>
+<p><strong>Result:</strong> ns_TIN子环路呈现出低脉冲足迹但对预测误差有显著影响，表明其扮演脉冲高效内部信息门的角色；superficial_TIN子环路则产生最高的鲁棒性敏感度，暗示其具有维持系统级稳定性的类反馈功能；在ResNet18迁移实验中，ns_TIN启发模块在计算缩减下提升了性能保持度，superficial_TIN启发模块则在输入噪声下增强了鲁棒性。</p>
+<p><strong>Conclusion:</strong> 该研究揭示了斑马鱼视顶盖微环路中两个子环路的功能解离，为生物环路组织与生物启发神经架构设计之间建立了子环路级别的关联路径，表明生物子环路功能属性可被有效迁移至人工神经网络以提升特定计算性能。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Biological neural circuits contain specialized substructures that support distinct computational functions, yet many bio-inspired neural networks borrow biological motifs without identifying their circuit-level origins. In this study, we investigate whether zebrafish tectal microcircuits can be attributed along two computational axes: energy-efficient information processing and robustness-preserving stabilization. We reconstruct a directed zebrafish-inspired retinotectal microcircuit graph and verify retinotectal signal propagation through dynamic simulation. A leaky integrate-and-fire spiking neural network is then used as a nonlinear perturbation testbed, where predefined subcircuits are selectively ablated and evaluated using the Energy Sensitivity Index and the Robustness Sensitivity Index.The results reveal a functional dissociation between two tectal subcircuits.The \textit{ns_TIN} subcircuit shows a low spike footprint but a measurable influence on prediction error, suggesting a role as a spike-efficient internal information gate.In contrast, the \textit{superficial_TIN} subcircuit produces the highest robustness sensitivity, suggesting a feedback-like role in maintaining system-level stability.We further transfer these attributed functions into ResNet18-based artificial neural networks and evaluate them on CIFAR-10 under inference-budget reduction and Gaussian noise corruption. The \textit{ns_TIN}-inspired module improves performance preservation under reduced computation, whereas the \textit{superficial_TIN}-inspired module improves robustness under input noise. These findings provide a subcircuit-level route for linking biological circuit organization with bio-inspired neural architecture design.</p>
+  </article>
+</body>
+</html>
