@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-19.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 4]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-noise2params-unification-and-parameter-determination-from-noise-via-a-probabilistic-event-camera-model">[1] <a href="https://arxiv.org/abs/2605.16317">Noise2Params: Unification and Parameter Determination from Noise via a Probabilistic Event Camera Model</a></h3>
+<p><em>Owen Root, Julinda Mujo, Min Xu</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>提出了一种基于光子统计的事件相机（EC）基础概率模型，统一了静态场景噪声与S曲线的描述，并基于该模型开发了Noise2Params方法，仅需静态均匀场景即可标定相机参数，合成噪声数据训练的CNN在实验数据上的表现优于纯实验数据训练的模型。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机（EC）缺乏精确且统一的模型，阻碍了校准和算法设计的进展；现有的方法要么依赖于专门的动态光源，要么无法统一描述静态场景噪声事件和阶跃响应曲线（S-curves）这两种看似无关的行为。</p>
+<p><strong>Method:</strong> 基于光子统计推导了事件检测的概率模型，覆盖全部强度区间的三种分布形式（精确Poisson、鞍点近似、Gaussian）；提出Noise2Params方法，通过最小化观测噪声事件分布与模型之间的误差来标定相机参数（对数对比度阈值B、勒克斯-光子转换因子α、泄漏项θ）；利用合成的噪声图像训练CNN以重建静态场景。</p>
+<p><strong>Result:</strong> Noise2Params仅需静态均匀场景即可标定相机参数，且发现泄漏项θ具有强度依赖性；合成噪声数据训练的CNN在实验数据上表现优于仅用实验数据训练的CNN，验证了模型的有效性。</p>
+<p><strong>Conclusion:</strong> 该框架为事件相机的定量校准、噪声感知算法设计以及在光子受限条件下的应用提供了理论基础，揭示了S曲线解释的微妙性（并非简单的固定概率阈值选择），并提供了实验上易于实现的参数标定途径。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Accurate, unified models for event cameras (ECs) remain elusive, hampering calibration and algorithm design. We develop a foundational probabilistic model for EC event detection, grounded in photon statistics, that unifies the description of static scene noise events and step response curves (S-curves) within a single analytical framework. Three formulations of the probability distributions are derived, spanning all intensity regimes: exact Poisson, saddle-point, and Gaussian. The model reveals the underlying connection between these otherwise disparate EC behaviors and clarifies the interpretation of S-curves, which we show is more nuanced than selecting a fixed probability threshold. Based on this model, we propose Noise2Params, a method for determining camera-specific values of the log-contrast threshold $B$, the lux-to-photon conversion factor $α$, and the leakage term $θ$ (found to be intensity dependent), via error minimization against observed noise-event distributions. Noise2Params requires only recordings of static, uniform scenes, offering an experimentally accessible alternative to approaches that demand specialized dynamic light sources. We further support the validity the model by training convolutional neural networks (CNNs) on synthetic noise images generated from our distributions and evaluating their ability to reconstruct static scenes from experimental data. We further demonstrate the utility of our model by showing that CNNs incorporating synthetic data outperform those trained solely on experimental data. Our framework provides a quantitative foundation for EC calibration, noise-aware algorithm design, and applications in photon-limited regimes.</p>
+<h3 id="2-nerve-a-neuromorphic-vision-and-radar-ensemble-for-multi-sensor-fusion-research">[2] <a href="https://arxiv.org/abs/2605.16414">NERVE: A Neuromorphic Vision and Radar Ensemble for Multi-Sensor Fusion Research</a></h3>
+<p><em>Omar Mansour, Pietro Martinello, Ethan Milon, YingFu Xu, Manolis Sifalakis, Guangzhi Tang, Amirreza Yousefzadeh</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>NERVE是一个包含257分钟多传感器同步记录（DVS、RGB-D相机、24GHz和77GHz雷达）的大规模数据集，通过基线实验证明DVS与77GHz雷达融合可显著提升人检测与距离估计性能，循环检测器达到47.5% mAP且距离误差低于1.8m。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有神经形态视觉与雷达融合研究缺乏大规模、多传感器同步标注的真实场景数据集，难以系统评估多模态融合在动态感知任务中的协同效果。</p>
+<p><strong>Method:</strong> 论文构建了NERVE数据集，包含两个DVS、一个RGB-D相机和两个雷达单元（24GHz和77GHz）的同步记录，共计约600GB数据、914,000帧和960万RGB COCO格式标注，涵盖16类目标；并构建DVS+Radar子集用于人检测与距离估计，使用前馈和循环检测器作为基线模型评估多模态融合性能。</p>
+<p><strong>Result:</strong> 基线实验表明，DVS与77GHz雷达融合相比单模态一致提升检测性能，循环检测器达到47.5% mAP，且平均雷达距离估计误差相对于LiDAR真值低于1.8m。</p>
+<p><strong>Conclusion:</strong> NERVE数据集为神经形态视觉与雷达融合研究提供了高质量多模态基准，验证了DVS与77GHz雷达融合在检测与距离估计任务上的有效性，为该方向后续研究奠定了数据与方法基础。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>We present NERVE (Neuromorphic Vision and Radar Ensemble), a multi-sensor dataset comprising 257 minutes of synchronized recordings from five sensors: two Dynamic Vision Sensors (DVS), an RGB-D camera, and two Radar units (24GHz and 77GHz). Captured across 12 measurement days in office environments, NERVE contains around 600GB of uncompressed temporally aligned data with around 914,000 frames and around 9.6 million RGB COCO-formatted annotations covering 16 relevant object categories. To evaluate multi-modal fusion, we construct a DVS+Radar subset for human detection and distance estimation. Baseline experiments using feed-forward and recurrent detectors show that combining DVS with 77GHz Radar consistently improves detection, with recurrent models achieving up to 47.5% mAP and mean absolute Radar distance errors below 1.8m against LiDAR ground truth.</p>
+<h3 id="3-neurolidar-adaptive-frame-rate-depth-sensing-via-neuromorphic-event-lidar-fusion">[3] <a href="https://arxiv.org/abs/2605.16805">NeuroLiDAR: Adaptive Frame Rate Depth Sensing via Neuromorphic Event-LiDAR Fusion</a></h3>
+<p><em>Darshana Rathnayake, Dulanga Weerakoon, Meera Radhakrishnan, Archan Misra</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>NeuroLiDAR 提出一种自适应深度感知框架，通过融合稀疏 LiDAR 数据与密集事件相机输入，实现高达约66 Hz的有效帧率，并在深度重建误差上降低约29%。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> LiDAR 系统受限于硬件约束，在探测范围、空间分辨率和帧率之间存在固有折衷，通常以低帧率（5-10 Hz）运行以优先保障远距离感知，难以适应快速变化的场景动态。</p>
+<p><strong>Method:</strong> NeuroLiDAR 融合时间稀疏的 LiDAR 数据与时间密集的神经形态事件相机输入，通过事件驱动的关键帧检测和事件引导的深度外推两个核心组件，根据场景动态自适应调整感知帧率。</p>
+<p><strong>Result:</strong> 在自建 ELiDAR 数据集（涵盖室内外场景）上，NeuroLiDAR 在深度重建的均方根误差（RMSE）上降低了约29%，同时实现了27.8–47.3 Hz的自适应帧率。</p>
+<p><strong>Conclusion:</strong> NeuroLiDAR 证明通过事件相机与 LiDAR 的异源融合，能够在不牺牲感知范围的前提下显著提升有效帧率和深度重建精度，为突破 LiDAR 硬件限制提供了有效途径。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>LiDARs are widely used for 3D depth reconstruction, but their performance is often limited by inherent hardware constraints that impose trade-offs between range, spatial resolution, and frame rate. Many LiDAR systems typically operate at low frame rates (e.g., 5-10 Hz), prioritizing long-range sensing over responsiveness to rapid scene changes. We present NeuroLiDAR, an adaptive depth sensing framework that achieves effective frame rates of up to $\approx$66 Hz by fusing temporally sparse LiDAR data with temporally dense inputs from neuromorphic event cameras. NeuroLiDAR integrates two components: event-based keyframe detection and event-guided depth extrapolation, to dynamically adjust the sensing rate in response to scene dynamics. To evaluate our approach, we introduce ELiDAR, a dataset spanning outdoor and indoor scenarios, and show that NeuroLiDAR reduces depth reconstruction error by $\approx$29\% in RMSE while achieving adaptive frame rates between 27.8-47.3 Hz. Our code and dataset are available at https://github.com/darshanakgr/neurolidar.</p>
+<h3 id="4-brain-inspired-spike-timing-plasticity-for-reliable-label-efficient-event-camera-vision">[4] <a href="https://arxiv.org/abs/2605.17686">Brain-inspired spike-timing plasticity for reliable label-efficient event-camera vision</a></h3>
+<p><em>Mohamad Yazan Sadoun, Sarah Sharif, Yaser Mike Banad</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出基于局部STDP的三模块无GPU框架，在事件相机目标检测中实现零标签监督（53.8% mAP@30）和极低标签高效检测，并证明其在不依赖梯度训练与密集矩阵乘法条件下超越传统方法。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机目标检测面临两个核心瓶颈：逐帧标注成本高昂以及推理对GPU算力的强依赖。现有方法无法同时满足低标签需求、轻量计算（单CPU）与无梯度/无密集矩阵乘法约束，亟需一种不依赖梯度训练和密集矩阵乘法的局部可塑性方案。</p>
+<p><strong>Method:</strong> 提出三个局部STDP模块：序列模块、候选模块和管道可靠性模块，全部运行在单CPU线程上无需GPU。构建三层次标签高效监督框架：严格零标签检测器、约26位训练衍生比特的检测器、以及STDP候选可靠性门控模块。门控模块还包括一个基于队列的可靠性门控机制用于抗偏移场景，并在管道层面引入STDP层进行虚警抑制。</p>
+<p><strong>Result:</strong> 在FRED无人机基准上：零标签检测器达53.8% mAP@30；约26个训练衍生比特达76.9% mAP@30；STDP候选可靠性门控达78.60±0.42% mAP@30。在采集顺序漂移下，队列门控在20/20次正试验中平均超越流式k-means 2.03±0.58个百分点，无漂移对照验证了效果显著性。STDP使单模型方差降低6.6倍，单个训练好的门控等效于44个种子的集成上界。该门控迁移至Intel Lava框架达89% top-2一致性。在EVUAV基准上，管道级STDP层在Pd≥88%条件下将虚警从454降至331e-4。</p>
+<p><strong>Conclusion:</strong> 本文证明局部STDP模块可在无梯度训练、无GPU、无密集矩阵乘法条件下实现高水平事件相机目标检测，且具备低标签依赖、低方差、抗分布漂移等优势，与Lava框架的兼容性表明其可嵌入神经形态硬件生态，为事件视觉提供了一种全新且资源高效的范式。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Deploying event-camera object detectors is constrained by per-frame labeling requirements and GPU compute demands. This work introduces three local spike-timing-dependent plasticity (STDP) modules, including sequence, candidate, and tube-reliability modules, that operate on a single CPU thread without GPU support. On the FRED drone benchmark, the proposed framework spans three label-efficient supervision tiers. A strict zero-label detector achieves 53.8% mAP@30, approximately 26 train-derived bits achieve 76.9% mAP@30, and an STDP candidate-reliability gate achieves 78.60 +/- 0.42% mAP@30. Under acquisition-order drift, the cohort gate outperforms streaming k-means by 2.03 +/- 0.58 percentage points across 20 of 20 positive trials, while a no-drift control falsifies the effect. STDP reduces single-model variance by 6.6 times, and one trained gate matches a 44-seed ensemble bound. The gate transfers to Intel Lava with 89% top-2 agreement. On the EVUAV benchmark, a tube-level STDP layer reduces false alarms from 454 to 331e-4 at Pd &gt;= 88%. Dense gradient-trained detectors cannot provide this combination of gradient training, dense matrix multiplication, and local plasticity-free operation by construction.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="5-spiker-ll-an-energy-efficient-fpga-accelerator-enabling-adaptive-local-learning-in-spiking-neural-networks">[5] <a href="https://arxiv.org/abs/2605.18003">Spiker-LL: An Energy-Efficient FPGA Accelerator Enabling Adaptive Local Learning in Spiking Neural Networks</a></h3>
+<p><em>Alessio Caviglia, Filippo Marostica, Alessandro Savino, Stefano Di Carlo</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>本文提出SPIKER-LL，一种基于FPGA的脉冲神经网络加速器，通过微架构扩展支持STSF局部学习规则，在边缘设备上实现高效的在线学习，在多个数据集上达到93%准确率、亚毫秒延迟和低于0.1mJ每推理的能耗，且无需DSP单元。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 在边缘设备上部署自适应智能面临神经模型训练带来的高计算和能耗成本的挑战，脉冲神经网络虽提供有潜力的替代方案，但实现设备端学习需要硬件与算法的协同设计，现有方案缺乏高效支持在线学习的轻量化硬件加速器。</p>
+<p><strong>Method:</strong> SPIKER-LL在开源Spiker+推理架构基础上，通过针对性的微架构扩展，引入对STSF（Spatio-Temporal Spike Feature）局部学习规则的高效硬件支持，使其能够在FPGA上同时执行推理和在线学习，且不依赖DSP单元，保持高度可扩展性。</p>
+<p><strong>Result:</strong> 在MNIST、F-MNIST和DIGITS数据集上，SPIKER-LL达到最高93%的准确率，推理延迟低于亚毫秒级别，每次推理能耗小于0.1mJ，验证了其在边缘FPGA部署中的高效性与实用性。</p>
+<p><strong>Conclusion:</strong> SPIKER-LL证明了通过硬件-算法协同设计，可以在资源受限的边缘设备上实现高效的SNN在线学习，其无DSP、低功耗、低延迟和可扩展的特性为边缘智能部署提供了可行的解决方案和设计参考。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Deploying adaptive intelligence at the edge remains challenging due to the high computational and energy cost of training neural models. Spiking Neural Networks (SNNs) offer a promising alternative, but enabling on-device learning requires hardware-algorithm co-design. This paper presents SPIKER-LL, an FPGA-based SNN accelerator that extends the open-source Spiker+ inference architecture with efficient support for the STSF local learning rule. Through targeted microarchitectural extensions, SPIKER-LL performs inference and online learning with minimal overhead. Across MNIST, F-MNIST, and DIGITS, it achieves up to 93% accuracy, sub-millisecond latency, and less than 0.1 mJ per inference, while remaining DSP-free and highly scalable for edge-FPGA deployments.</p>
+  </article>
+</body>
+</html>
