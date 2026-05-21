@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-21.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-darkshake-dvs-event-based-human-action-recognition-under-low-light-andshaking-camera-conditions">[1] <a href="https://arxiv.org/abs/2605.20680">DarkShake-DVS: Event-based Human Action Recognition under Low-light andShaking Camera Conditions</a></h3>
+<p><em>Jiaqi Chen, Qinfu Xu, Liyuan Pan</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出事件相机与IMU融合的EIS-HAR框架，通过非线性运动补偿与四阶段混合架构实现低光照与剧烈6-DoF运动下的高精度人体动作识别，并构建了首个大规模真实世界事件基准数据集DarkShake-DVS，在三个数据集上一致超越现有方法。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有HAR方法在低光照与多自由度相机运动条件下性能严重下降，而事件相机虽具有高低光灵敏度和微秒级时间分辨率，但缺乏同时包含低光照、6-DoF运动与同步IMU数据的基准数据集，且缺乏有效的运动补偿技术，这两大空白阻碍了事件相机在HAR领域的实际部署。</p>
+<p><strong>Method:</strong> EIS-HAR由两个模块构成：事件-IMU稳定化（EIS）模块通过非线性扭曲函数重建运动补偿输入以降低运动模糊；HAR模块采用四阶段混合架构高效提取时空特征进行动作识别。此外，作者构建了DarkShake-DVS数据集，包含18,041个在低光照与剧烈6-DoF运动下采集的真实世界事件流片段及其同步IMU数据。</p>
+<p><strong>Result:</strong> 在三个数据集上的大量实验表明，EIS-HAR在所有评估场景中均一致优于现有最先进方法，验证了所提运动补偿机制与混合架构在低光照及剧烈运动条件下的有效性与泛化能力。</p>
+<p><strong>Conclusion:</strong> 本研究证明了事件相机与IMU融合在退化成像条件下进行人体动作识别的可行性与优势，所提出的运动补偿框架和混合架构为鲁棒HAR提供了有效技术路径，DarkShake-DVS数据集为后续研究提供了标准化评估基准。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Human Action Recognition (HAR) is a fundamental computer vision task with diverse real-world applications. Practical deployments often involve low-light environments and unconstrained 6-DoF camera motion, conditions that degrade visual quality, disrupt temporal coherence, and compromise reliability of existing methods. Event cameras, with high low-light sensitivity and microsecond-level temporal resolution, paired with an inertial measurement unit (IMU), present a promising solution. However, current research faces two key challenges: absence of a benchmark integrating low-light conditions, 6-DoF motion, and synchronized IMU data; and lack of effective motion compensation techniques. To address these, we propose Event-IMU Stabilized HAR (EIS-HAR), with two modules. The first is an EIS module that reduces motion blur via a non-linear warping function to reconstruct a motion-compensated input. The second is a HAR module with a four-stage hybrid architecture to efficiently extract spatiotemporal features for accurate action recognition. To alleviate data scarcity, we introduce DarkShake-DVS, the first large-scale event-based HAR benchmark that includes 18,041 realworld clips captured in low light and intense 6-DoF motion, supplemented by synchronized IMU data. Extensive experiments on three datasets demonstrate consistent superiority of EIS-HAR over state-of-the-art methods.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-e-recon-an-energy-and-resource-efficient-precision-configurable-sparse-nvcim-macro-for-conventional-and-spiking-neural-edge-inference">[2] <a href="https://arxiv.org/abs/2605.20717">E-ReCON: An Energy- and Resource-Efficient Precision-Configurable Sparse nvCIM Macro for Conventional and Spiking Neural Edge Inference</a></h3>
+<p><em>Ankit Kumar Tenwar, Mukul Lokhande, Santosh Kumar Vishvakarma</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>E-ReCON是一款基于紧凑型3T1R ReRAM位单元（0.85 µm²）的16 Kb数字存内计算宏，通过新颖的交错式10T/28T加法树和AND型存内乘法，在65nm CMOS下实现高达419 TOPS/W的能效和2.31-3.1 TOPS的吞吐量，同时支持CNN和SNN工作负载，并在PVT和ReRAM变异性下保持稳健运行。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有的基于ReRAM的模拟存内计算（CIM）设计通常依赖模数转换器（ADC），导致高延迟和低能效；同时，传统的数字CIM宏存在位单元面积大、累加开销高的问题，难以满足边缘AI推理对低功耗、低延迟和小面积的需求。此外，现有方案多针对单一网络类型（CNN或SNN）优化，缺乏统一的硬件平台。</p>
+<p><strong>Method:</strong> 提出了一种基于3T1R ReRAM位单元（0.85 µm²）的16 Kb数字存内计算宏E-ReCON，支持可靠的AND型存内乘法，可同时处理CNN和SNN工作负载。为了降低累加开销，设计了一种新颖的交错式10T/28T加法树结构，相比传统的28T行波进位加法器（RCA）设计，晶体管数和功耗分别降低了37%和28%。芯片采用65nm CMOS工艺，在1.2V电压下实现。</p>
+<p><strong>Result:</strong> 该宏在工作电压1.2V下实现最低延迟0.48 ns，吞吐量2.31-3.1 TOPS，能效高达419 TOPS/W。在LeNet-5/AlexNet/CNN-8模型上分别对MNIST-AZ、CIFAR10和SVHN数据集达到97.81%、93.23%和96.51%的准确率。40%剪枝后保留了约99.8%的原始精度。在SNN负载下，2A2W配置在VGG-8、VGG-16和ResNet-18网络上达到接近FP32基线的准确率。相比基于ADC的ReRAM-CIM设计，延迟和能效提升约30-40%。</p>
+<p><strong>Conclusion:</strong> E-ReCON通过紧凑的3T1R位单元、AND型存内乘法和高效的加法树架构，在保证精度的前提下显著提升了能效和速度，为边缘AI、物联网、生物医疗传感和神经形态计算提供了一种可扩展、低延迟且高能效的非易失性存内计算平台。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>This work presents E-ReCON, a 16 Kb energy and resource-efficient digital compute-in-memory (DCIM) macro based on a compact 3T1R ReRAM bitcell for edge-AI inference. The proposed bitcell occupies only 0.85 um^2 and supports reliable AND-based in-memory multiplication for both conventional convolutional neural network (CNN) and spiking neural network (SNN) workloads. To reduce accumulation overhead, a novel interleaved 10T/28T adder tree is introduced, reducing transistor count and power consumption by 37% and 28%, respectively, compared to a conventional 28T RCA-based design. Implemented in 65 nm CMOS at 1.2 V, the proposed macro achieves a minimum latency of 0.48 ns, throughput of 2.31-3.1 TOPS, and energy efficiency of up to 419 TOPS/W. When evaluated on LeNet-5, AlexNet, and CNN-8 models, the macro achieves 97.81%, 93.23%, and 96.51% accuracy on MNIST/A-Z, CIFAR10, and SVHN datasets, respectively. In addition, 40% pruning preserves nearly 99.8% of the original accuracy while reducing MAC operations and computation cycles. For SNN-oriented workloads, the proposed AND-type bitcell efficiently supports spike-weight multiplication with low switching activity, where the 2A2W configuration achieves accuracy close to the FP32 baseline across VGG-8, VGG-16, and ResNet-18 networks on CIFAR-10, CIFAR-100, and ImageNet-1K datasets. Compared to prior ADC-based ReRAM-CIM designs, the proposed architecture improves latency and energy efficiency by nearly 30-40% while maintaining robust operation under full PVT and ReRAM variability. Overall, E-ReCON provides a scalable, low-latency, and energy-efficient nvCIM platform for next-generation edge-AI, IoT, biomedical sensing, and neuromorphic applications.</p>
+  </article>
+</body>
+</html>
