@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-25.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-exploring-deep-learning-for-event-based-saliency-prediction-with-a-transformer-based-model">[1] <a href="https://arxiv.org/abs/2605.23790">Exploring deep learning for Event-Based Saliency Prediction with a Transformer-based model</a></h3>
+<p><em>Romaric Mazna, Jean Martinet, Sai Deepesh Pokala</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文首次将深度学习方法应用于事件相机显著性预测，提出基于Swin Transformer的SEST模型，并构建两个合成事件显著性数据集，在多项实验中显著超越现有事件方法，缩小了与RGB模型的差距。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管事件相机具有生物启发性和优越的感知特性，但事件数据上的显著性预测研究几乎空白，主要受限于缺乏大规模事件显著性数据集和强基线模型。</p>
+<p><strong>Method:</strong> SEST采用自监督预训练的事件Swin Transformer骨干网络结合轻量级CNN解码器，利用事件本地预训练和合成监督信号生成动态显著性图；同时从RGB显著性基准生成N-DHF1K和N-UCF Sports两个合成事件显著性数据集以缓解数据稀缺问题。</p>
+<p><strong>Result:</strong> SEST在合成事件数据集上显著优于现有事件显著性方法，缩小了与SOTA RGB模型之间的性能差距；在真实事件相机数据上的零样本评估表明模型从合成数据学习后具有良好的跨域迁移能力。</p>
+<p><strong>Conclusion:</strong> 本文打开了事件视觉与神经形态视觉注意力交叉领域的新研究方向，验证了深度学习方法用于事件显著性预测的可行性，并为后续研究提供了数据集和基线。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Saliency prediction has been extensively studied in RGB images and videos as a computational model of human visual attention. In contrast, predicting saliency from event-based data remains largely unexplored, despite the biological inspiration and favorable sensing properties of event cameras. Two obstacles have held this direction back: the absence of large-scale event saliency datasets, and the lack of a strong baseline. In this paper, we introduce SEST (Swin Event-based Saliency Transformer), a transformer-based model for saliency prediction from event data, bridging the data scarcity barrier through event-native pretraining and synthetic supervision. SEST leverages a self-supervised pretrained event-based Swin Transformer backbone combined with a lightweight CNN decoder to produce dynamic saliency maps. To address the scarcity of annotated event-based saliency data, we introduce two new benchmark datasets, N-DHF1K and N-UCF Sports, generated from large-scale RGB saliency benchmarks. Experimental results show that SEST clearly outperforms existing event-based saliency methods and narrows the performance gap with state-of-the-art RGB models. Zero-shot evaluation on a real event camera dataset further demonstrates that our model trained on synthetic data remains transferable on real event streams. To the best of our knowledge, this work is the first to apply deep learning to event-based saliency prediction, opening a new research direction at the intersection of event-based vision and neuromorphic visual attention.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-spikingmoe-sdprompt-guided-dynamic-expert-fusion-in-spiking-neural-networks">[2] <a href="https://arxiv.org/abs/2605.23188">SpikingMoE: SDPrompt-Guided Dynamic Expert Fusion in Spiking Neural Networks</a></h3>
+<p><em>Yukai Yang, Chenxi Qin, Jungang Li, Xin Zhang, Wenwei Shao, Liqun Chen</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>SpikingMoE 是首个将脉冲驱动 Transformer 与混合专家（MoE）框架集成的开源 SNN 方法，受外侧膝状体启发提出 SDprompt 实现输入依赖的专家路由，在 CIFAR-10/100 上分别达到 94.09% 和 74.54% 的 top-1 准确率。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有脉冲神经网络（SNN）在视觉识别任务中缺乏动态计算能力，难以兼顾能效与性能；同时，如何将混合专家（MoE）机制以生物合理的方式融入脉冲驱动架构仍是一个未解决的研究空白。</p>
+<p><strong>Method:</strong> SpikingMoE 将脉冲驱动 Transformer 与 MoE 框架相结合，用脉冲兼容的专家模块替换标准 MLP，并强制使用二进制脉冲通信以适配神经形态硬件；受外侧膝状体（LGN）启发，设计了脉冲驱动提示（SDprompt），以生物合理的方式实现输入依赖的专家路由。</p>
+<p><strong>Result:</strong> 在 CIFAR-10 和 CIFAR-100 数据集上，SpikingMoE 分别取得了 94.09% 和 74.54% 的 top-1 分类准确率，验证了模块化专家路由可以在保持合理性能的前提下融入脉冲驱动架构。</p>
+<p><strong>Conclusion:</strong> 该研究证明，将 MoE 机制以生物启发的路由方式集成到脉冲驱动 Transformer 中是可行的，为面向神经形态硬件的动态计算 SNN 设计提供了新范式；SpikingMoE 是首个开源的此类框架。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) provide an energy-efficient paradigm for visual recognition. We present SpikingMoE, which integrates a spike-driven Transformer with a Mixture-of-Experts (MoE) framework for dynamic computation. Inspired by the lateral geniculate nucleus (LGN), a spike-driven prompt (SDprompt) enables input-dependent expert routing in a biologically plausible manner. By replacing standard MLPs with spike-compatible expert modules and enforcing binary spike communication, SpikingMoE is designed for neuromorphic hardware. Experiments on CIFAR-10 and CIFAR-100 achieve 94.09% and 74.54% top-1 accuracy, showing that modular expert routing can be incorporated while retaining reasonable performance. To our knowledge, SpikingMoE is the first open-source SNN framework that integrates MoE into a spike-driven Transformer with LGN-inspired routing.</p>
+<h3 id="3-unispike-accelerating-spiking-neural-networks-on-neuromorphic-systems-via-eliminating-address-redundancy">[3] <a href="https://arxiv.org/abs/2605.23796">UniSpike: Accelerating Spiking Neural Networks on Neuromorphic Systems via Eliminating Address Redundancy</a></h3>
+<p><em>Qinghui Xing, Zhuo Chen, Xin Du, Ouwen Jin, Ming Zhang, Pan Lv, Ying Li, Shuiguang Deng, Gang Pan</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>UniSpike是一种硬件-软件协同设计，通过目标核聚合聚合和紧凑打包来消除脉冲神经网络中尖峰数据包的目的地址冗余，平均减少1.93倍流量、实现1.77倍加速和1.50倍能效提升。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 在多核神经形态系统中，基于数据包的尖峰通信会反复传输目标地址，导致大量流量和能耗开销。由于尖峰数据包的有效负载很小，这种地址冗余尤为突出——在代表性工作负载中，重复地址传输占总流量的比例高达49%。</p>
+<p><strong>Method:</strong> UniSpike采用硬件-软件协同设计方法，通过三个关键技术消除地址冗余：目标中心化的尖峰调度（destination-centric spike scheduling）、轻量级运行时数据包组装硬件（lightweight runtime packet assembly hardware），以及目标感知的SNN分区策略（destination-aware SNN partitioning）。其核心思想是将发往同一目标核的多个尖峰聚合并打包成紧凑的数据包。</p>
+<p><strong>Result:</strong> 在多种SNN工作负载上，UniSpike平均减少1.93倍的通信流量，相比最先进的设计实现了1.77倍的加速和1.50倍的能效提升。</p>
+<p><strong>Conclusion:</strong> 通过有针对性地消除神经形态系统中尖峰通信的地址冗余，UniSpike在流量、速度和能效方面均取得了显著改进，为大规模SNN加速器的通信优化提供了有效的硬件-软件协同设计范式。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Many-core neuromorphic systems accelerate Spiking Neural Networks (SNNs), yet their packet-based spike communication can spend substantial traffic and energy repeatedly transmitting destination addresses. This overhead is amplified by the small payload of spike packets: in representative workloads, duplicate address transmissions account for up to 49% of the total traffic. This paper presents UniSpike, a hardware-software co-design that removes address redundancy by aggregating spikes destined for the same core into compact packets. UniSpike combines destination-centric spike scheduling, lightweight runtime packet assembly hardware, and destination-aware SNN partitioning. Across diverse SNN workloads, UniSpike reduces traffic by 1.93$\times$ on average, delivering 1.77$\times$ speedup and 1.50$\times$ energy efficiency improvement over state-of-the-art designs.</p>
+  </article>
+</body>
+</html>
