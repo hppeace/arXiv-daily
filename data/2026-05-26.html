@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-05-26.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 5]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-neuromorphic-lidar-based-birds-eye-view-object-detection-using-energy-efficient-spiking-neural-networks">[1] <a href="https://arxiv.org/abs/2605.25293">Neuromorphic LiDAR-based Bird's Eye View Object Detection using Energy-efficient Spiking Neural Networks</a></h3>
+<p><em>Sambit Mohapatra, Senthil Yogamani, Heinrich Gotzig, Patrick Mader</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了一种端到端的脉冲编码器-解码器网络，用于基于LiDAR点云鸟瞰图的三维目标检测，通过膜电位变体（最高92.05 AP）和全脉冲变体实现高精度与低能耗，并在KITTI基准上验证了学习式脉冲编码优于手工编码策略，能量消耗相比等效CNN降低3.33倍。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统卷积神经网络在自动驾驶三维感知中检测精度高但计算密集，难以部署在资源受限的神经形态平台上；脉冲神经网络虽具备事件驱动稀疏计算的优势，但在复杂三维目标检测等真实感知任务中的应用仍十分有限。</p>
+<p><strong>Method:</strong> 提出了一种端到端的脉冲编码器-解码器网络，在LiDAR点云的鸟瞰图表示上进行目标检测，采用替代梯度反向传播训练；训练了两个变体：膜电位变体在输出阶段读取连续神经元状态以追求最大精度，全脉冲变体所有层仅使用脉冲序列以适配神经形态部署；评估了四种输入脉冲编码策略，并让网络直接从数据中学习脉冲表示。</p>
+<p><strong>Result:</strong> 膜电位变体在KITTI基准上IoU=0.5时达到Easy/Moderate/Hard 92.05/87.04/86.51 AP；全脉冲变体可直接部署于神经形态硬件；学习式脉冲编码优于手工设计的泊松、延迟和z轴编码方案；块级能量分析显示相比等效CNN节省3.33倍突触运算能量。</p>
+<p><strong>Conclusion:</strong> 该研究证明了脉冲神经网络在自动驾驶中实现高精度且节能的神经形态感知的可行性，学习式脉冲编码策略和全脉冲变体的设计为在资源受限平台上部署三维感知模型提供了有效路径。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Autonomous driving perception demands accurate and efficient processing of three-dimensional sensor data under strict power constraints. Traditional convolutional neural networks achieve strong detection accuracy but are computationally intensive, limiting their suitability for deployment on resource-constrained neuromorphic platforms. Spiking neural networks offer a compelling alternative through event-driven sparse computation, yet their application to complex real-world perception tasks such as three-dimensional object detection remains limited. In this work, we propose an end-to-end spiking encoder-decoder network for object detection in bird's eye view representations of LiDAR point clouds, trained using surrogate gradient backpropagation. We train two variants: a membrane potential variant that reads continuous neuron state at the output stage for maximum accuracy, achieving $92.05$/$87.04$/$86.51$ AP at $\mathrm{IoU}!=!0.5$ (Easy/Moderate/Hard), and, a fully binary spiking variant that operates exclusively on spike trains at every layer for direct neuromorphic deployment. We evaluate four input spike encoding strategies and demonstrate that allowing the network to learn spike representations directly from data outperforms hand-crafted Poisson, latency, and z-axis encoding schemes on the KITTI benchmark, where sequential frames are unavailable and the BEV input is presented repeatedly across timesteps as a proxy for temporal streaming. A block-wise energy analysis demonstrates a $3.33\times$ reduction in synaptic operation energy over an equivalent CNN under conservative loop-based operation. Together, these results demonstrate the viability of spiking neural networks for accurate and energy-efficient neuromorphic perception in autonomous driving.</p>
+<h3 id="2-lc-flow-learning-local-continuous-optical-flow-and-confidence-from-events">[2] <a href="https://arxiv.org/abs/2605.24604">LC-Flow: Learning Local Continuous Optical Flow and Confidence from events</a></h3>
+<p><em>Gunwoo Jeon, Chaesong Park, Jongwoo Lim</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>LC-Flow 是首个基于局部事件流、完全利用时间连续性的学习型光流估计器。它通过连续局部递归网络维持持久隐状态以累积运动历史，并联合学习置信度分数以处理局部歧义，在 MVSEC 和 DSEC 基准上达到了局部方法中的最优性能，其中置信度引导的全局聚合在 MVSEC 上甚至超越了依赖全局空间先验的帧基网络，树立了新的整体最优水平。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有事件相机光流方法未能充分利用事件数据的微秒级时间连续性：帧基方法引入人为累积延迟且易域过拟合，而基于模型的局部方法无状态运行，丢弃预测间的时间历史，导致光流估计不准确。为填补这一空白，LC-Flow 被提出作为首个完全基于局部事件的时间连续型可学习光流估计器。</p>
+<p><strong>Method:</strong> LC-Flow 的核心是一个连续局部递归网络，为每个空间网格维持持久隐状态，随事件到达逐步累积时间上下文，从而在任意时间戳产生稀疏局部光流估计。针对局部观测固有的歧义性（事件稀疏性与孔径问题），该方法联合学习一个置信度分数以量化每次预测的可靠性；该置信度一方面用于为下游任务（如视觉里程计）过滤不可靠估计，另一方面提供原则性权重以进行多尺度置信度引导的聚合，从稀疏局部输出重建全局一致的光流。</p>
+<p><strong>Result:</strong> 在 MVSEC 和 DSEC 两个基准上，LC-Flow 在局部方法中均达到了最优性能。置信度引导的全局聚合在 MVSEC 基准上确立了新的整体最优水平，甚至超越了依赖全局空间先验的、计算量大的帧基网络。</p>
+<p><strong>Conclusion:</strong> LC-Flow 证明了利用事件数据的时间连续性构建持续学习的局部光流估计器是可行的，置信度学习机制有效缓解了局部观测的歧义问题。该工作为事件相机上的高效、连续光流估计提供了新范式，并展示了通过置信度引导聚合在无需全局先验的情况下超越帧基方法的潜力。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Event cameras capture brightness changes asynchronously with microsecond resolution, yet existing optical flow methods fail to fully exploit this temporal continuity. Frame-based approaches impose artificial accumulation latency and suffer from domain overfitting, while model-based local methods operate statelessly, discarding temporal history between predictions and yielding inaccurate flows.
+  We propose \textbf{LC-Flow}, the first temporally continuous, learning-based optical flow estimator that operates purely from local events. At its core, a Continuous Local Recurrent Network maintains persistent hidden states per spatial grid, incrementally accumulating temporal context as events arrive. Unlike frame-based methods constrained to fixed accumulation windows, and unlike stateless model-based methods that recompute motion from scratch at each step, LC-Flow produces sparse local flow estimates at arbitrary timestamps with full motion history.
+  To address the inherent ambiguity of local observations, we jointly learn a confidence score that quantifies the reliability of each prediction, explicitly handling event sparsity and the aperture problem. This confidence serves a dual role: filtering unreliable estimates for downstream tasks such as visual odometry, and providing principled weights for a multi-scale confidence-guided aggregation that reconstructs globally consistent flow from the sparse local outputs. LC-Flow achieves state-of-the-art performance among local methods on both MVSEC and DSEC, while the confidence-guided aggregation establishes a new overall state-of-the-art on the MVSEC benchmark, surpassing heavy frame-based networks that rely on global spatial priors.</p>
+<h3 id="3-adafuse-det-adaptive-cross-modal-fusion-of-event-cameras-for-robust-object-detection-in-low-light-rgb-imagery">[3] <a href="https://arxiv.org/abs/2605.24691">AdaFuse-Det: Adaptive Cross-Modal Fusion of Event Cameras for Robust Object Detection in Low-Light RGB Imagery</a></h3>
+<p><em>Raju Imandi, Chethana B, Bharatesh Chakravarthi, Yong-Guk Kim, Manipriya S, Pavan Kumar B N</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>AdaFuse-Det 提出了一种双流融合框架，通过自适应跨模态融合模块对 CLAHE 增强的 RGB 和体素化事件相机数据进行融合，在极低光照条件下显著提升目标检测性能，并理论上证明了其融合权重的渐近最优性。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 在极低光照条件下，传统 RGB 相机因光子通量低而性能严重退化，而事件相机虽能在微秒分辨率和高动态范围内提供照度不变的结构线索，但如何有效融合这两种互补模态以实现鲁棒目标检测仍是一个开放问题。</p>
+<p><strong>Method:</strong> 提出 AdaFuse-Det 双流框架，分别处理 CLAHE 增强后的 RGB 帧和体素化事件张量，并通过基于最小方差线性估计理论的自适应跨模态融合（ACMF）模块学习注意力图，理论证明该注意力图渐近恢复 Gauss-Markov 最优融合权重，同时对体素化阶段建立了事件守恒和时间分辨率界限。</p>
+<p><strong>Result:</strong> 在 LLE-VOS 基准上，AdaFuse-Det 在严重光照退化条件下取得 Recall 65.54%、Precision 53.85%、F1-Score 59.12%，单模态检测器在召回率上的提升幅度与理论预测的照度自适应行为一致。</p>
+<p><strong>Conclusion:</strong> 实验结果验证了理论推导中照度自适应行为的正确性，表明基于最优线性估计的跨模态融合策略能够在极端低光条件下有效融合事件和 RGB 信息，为夜间监视和搜救机器人等实际应用提供了可靠技术方案。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Detecting objects reliably under extreme low-light conditions is an open problem in computer vision, with practical urgency in applications ranging from nighttime surveillance to search-and-rescue robotics. Conventional RGB cameras degrade sharply at low photon flux, while event cameras which record asynchronous per-pixel brightness changes at microsecond resolution and high dynamic range provide complementary structural cues that are largely illumination-invariant. We present AdaFuse-Det, a dual-stream framework that fuses CLAHE-enhanced RGB frames with voxelized event tensors through an Adaptive Cross-Modal Fusion (ACMF) module grounded in minimum-variance linear estimation theory. We formally show that the learned attention map asymptotically recovers the Gauss-Markov optimal fusion weights, and establish event conservation and temporal resolution bounds for the voxelization stage. On the LLE-VOS benchmark, AdaFuse-Det achieves a Recall of $65.54\%$, Precision of $53.85\%$, and F1-Score of $59.12\%$ under severe illumination degradation, outperforming single-modality detectors in recall by a margin that reflects the theoretically predicted illumination-adaptation behavior.</p>
+<h3 id="4-spikereg-energy-efficient-3d-deformable-medical-image-registration-with-spiking-neural-networks">[4] <a href="https://arxiv.org/abs/2605.25144">SpikeReg: Energy-Efficient 3D Deformable Medical Image Registration with Spiking Neural Networks</a></h3>
+<p><em>Ali Mikaeili Barzili, Behzad Moshiri, Hamid Azadegan, Mohammad-Reza A. Dehaqani</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>SpikeReg提出了首个脉冲U-Net用于3D脑部MRI可变形配准，通过ANN权重迁移和激活百分位阈值校准初始化，再以替代梯度微调，在OASIS数据集上达到与ANN教师相当的Dice分数（0.7474 vs 0.7480，p=0.67），同时仅需12.8%平均脉冲发放率和预计55.5倍算术能量缩减，证明了稀疏事件驱动计算可用于密集几何预测任务。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 可变形医学图像配准在3D分辨率下计算密集，而脉冲神经网络（SNNs）具有稀疏事件驱动计算的潜力，但尚未被系统研究用于可变形医学图像配准任务，亟需探索SNN在该领域的可行性与效率优势。</p>
+<p><strong>Method:</strong> 提出SpikeReg，一种基于脉冲U-Net的3D脑部MRI配准框架。首先从模拟ANN配准教师模型通过逐层权重迁移和激活百分位阈值校准进行初始化，然后使用替代梯度目标函数微调，该目标函数结合了局部互相关、扩散正则化和脉冲发放率稀疏惩罚项。</p>
+<p><strong>Result:</strong> 在OASIS Learn2Reg验证集（19个图像对）上，SpikeReg达到Dice 0.7474±0.032，与ANN教师模型（0.7480±0.037）无显著差异（p=0.67），平均脉冲发放率为12.8%，在事件稀疏SynOps/MAC代理下相比密集ANN基线预计可实现55.5倍算术能量缩减。此外报告两个负面发现：位移蒸馏会损害性能，使用标签Dice损失训练的ANN教师无法通过速率编码转换迁移。</p>
+<p><strong>Conclusion:</strong> 研究表明密集几何预测任务可以在稀疏事件驱动计算下完成，为神经形态医学图像配准开辟了新路径；同时揭示了ANN到SNN转换中蒸馏策略和损失函数选择的关键局限性。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Deformable medical image registration aligns anatomical structures across images but remains computationally dense at 3D resolution. Spiking neural networks (SNNs) offer sparse event-driven computation, yet have not been systematically studied for deformable medical image registration. We introduce SpikeReg, a spiking U-Net for 3D brain MRI registration. SpikeReg is initialized from an analog ANN registration teacher, converted by layer-wise weight transfer and activation-percentile threshold calibration, and fine-tuned with a surrogate-gradient objective combining local cross-correlation, diffusion regularization, and spike-rate sparsity. On the OASIS Learn2Reg validation split ($19$ image pairs), SpikeReg reaches Dice $0.7474 \pm 0.032$, with no significant paired Dice difference from the ANN teacher ($0.7480 \pm 0.037$, $p = 0.67$), at a $12.8\%$ mean spike rate and a $55.5\times$ projected arithmetic-energy reduction under an event-sparse SynOps/MAC proxy relative to the dense-ANN baseline. We additionally report two negative findings: displacement distillation from the ANN teacher hurts performance, and ANN teachers trained with a label-Dice loss fail to transfer through rate-code conversion. Together these results show that dense geometric prediction can be performed under sparse event-driven computation, opening a path toward neuromorphic medical image registration.</p>
+<h3 id="5-event-to-video-reconstruction-using-spatio-temporal-and-frequency-enhanced-deep-neural-networks">[5] <a href="https://arxiv.org/abs/2605.25804">Event-to-Video Reconstruction using Spatio-Temporal and Frequency-Enhanced Deep Neural Networks</a></h3>
+<p><em>Ramna Maqsood, Paulo Nunes, Luís Ducla Soares, Caroline Conti</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>MSFET-E2V提出了一种多尺度频域增强Transformer模型，利用跨域注意力机制融合时空特征与小波变换的频域表示，实现从事件流到视频帧的高质量重建，在多个真实事件数据集上超越现有方法，同时显著降低了参数量、GPU内存和推理时间。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基于CNN和Transformer的事件到视频重建方法主要在空间域操作，难以恢复精细的结构细节并抑制严重的重建伪影；传统基于帧的计算机视觉方法因事件相机缺乏稠密强度帧而无法直接适用，亟需一种能有效结合空间与频域信息以提升重建质量的方法。</p>
+<p><strong>Method:</strong> 提出MSFET-E2V多尺度频域增强Transformer模型，核心是跨域注意力模块，该模块将离散小波变换导出的频域感知表示与时空特征进行融合，同时关注低频与高频分量以捕获局部和全局结构；此外提出轻量级小波增强跳跃块作为跳跃连接，通过空间-频域联合处理实现伪影抑制和结构细节精炼。</p>
+<p><strong>Result:</strong> 在多个真实世界事件数据集上的大量实验表明，MSFET-E2V在重建质量上显著优于现有最先进方法；与基于Transformer的现有方法相比，模型参数量、GPU内存占用和推理时间均大幅减少。</p>
+<p><strong>Conclusion:</strong> 所提出的跨域频域-空间融合机制能有效提升事件到视频重建的细节保真度和鲁棒性，轻量化的频域跳跃连接设计在保持高性能的同时显著降低了计算开销，为事件相机的实际部署提供了更高效的解决方案。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Event cameras offer significant advantages over conventional frame-based counterparts, including high temporal resolution, low latency, and energy efficiency. These characteristics make them suitable for high-speed and high-dynamic range scene acquisition scenarios; however, the lack of dense intensity frames limits the direct applicability of conventional computer vision methods for scene understanding. Event-to-video (E2V) reconstruction seeks to bridge this gap by converting asynchronous event streams into a sequence of synchronous video frames. Existing E2V reconstruction methods based on convolutional neural networks and transformers operate primarily in the spatial domain and often struggle to recover fine structural details while suppressing severe reconstruction artifacts. To address these issues, we propose MSFET-E2V, a novel multiscale frequency-enhanced transformer model. At its core lies a cross-domain attention module, which fuses spatio-temporal features with frequency-aware representations derived from the discrete wavelet transform. Unlike prior methods relying solely on spatial attention, our approach effectively captures both local and global structures by taking into account low- and high-frequency components, enhancing detail preservation and robustness across various motion scenarios. Furthermore, we propose a lightweight wavelet-enhanced skip block that serves as a skip connection, facilitating artifact suppression and structural detail refinement through joint spatial-frequency domain processing. Extensive experiments demonstrate that MSFET-E2V achieves superior performance over state-of-the-art methods on multiple real-world event datasets, offering significant gains in reconstruction quality. Moreover, compared to the existing transformer-based method, our proposed model significantly reduces the number of parameters, the GPU memory usage, and inference time.</p>
+  </article>
+</body>
+</html>
