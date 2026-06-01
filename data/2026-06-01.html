@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-06-01.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 4]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-gradient-free-training-of-spiking-neural-networks-via-low-rank-evolution-strategies">[1] <a href="https://arxiv.org/abs/2605.30361">Gradient-Free Training of Spiking Neural Networks via Low-Rank Evolution Strategies</a></h3>
+<p><em>Dhruv Patankar, Sachit Ramesha Gowda</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>提出EGGROLL方法，通过低秩分解ES扰动将每代记忆复杂度从O(mn)降至O(r(m+n))，实现了无需梯度、兼容神经形态硬件的SNN训练，在N-MNIST上达到79.21%准确率并加速2.23倍。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> SNN的离散脉冲阈值不可微，替代梯度方法虽能近似导数但需反向传播基础设施，无法兼容片上学习；进化策略虽无需梯度但计算开销随参数数量线性增长，难以应用于大规模权重矩阵，因此亟需一种高效且与神经形态硬件兼容的无梯度SNN训练方法。</p>
+<p><strong>Method:</strong> 提出EGGROLL方法，采用低秩分解对进化策略的扰动矩阵进行因式分解，将每代记忆复杂度从O(mn)降至O(r(m+n))；结合Leaky Integrate-and-Fire（LIF）SNN模型在N-MNIST数据集上进行无梯度训练。</p>
+<p><strong>Result:</strong> 在N-MNIST数据集上，EGGROLL方法达到79.21%的测试准确率，同时每代运行时间较全秩进化策略减少2.23倍，表明该方法在SNN训练中可行且具有明确的准确率-速度权衡。</p>
+<p><strong>Conclusion:</strong> EGGROLL证明了无替代梯度的进化策略在SNN训练中的可行性，其低秩分解策略能有效降低计算开销，同时保持与神经形态硬件的兼容性，为SNN的片上学习提供了一条新途径。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) offer compelling energy efficiency on neuromorphic hardware, yet their training remains challenging because the discrete spike threshold is non-differentiable. Surrogate-gradient methods sidestep this by approximating the derivative, but they impose backpropagation infrastructure that is incompatible with on-chip learning. Evolution Strategies (\es) are a natural gradient-free alternative, yet their computational cost scales with the number of parameters, making them impractical for large weight matrices.
+  We present a method for training SNNs using EGGROLL, a low-rank factorisation of ES perturbations that reduces per-generation memory from $\mathcal{O}(mn)$ to $\mathcal{O}(r(m{+}n))$. Combining EGGROLL with a Leaky Integrate-and-Fire SNN on N-MNIST, we demonstrate that gradient-free training achieves 79.21% test accuracy while reducing per-generation wall-clock time by 2.23$\times$ relative to full-rank ES. Our results demonstrate EGGROLL is viable for SNN training, with a clear accuracy-speed tradeoff, compatible with training on neuromorphic hardware without surrogate gradients.</p>
+<h3 id="2-xoresnet-exclusive-or-meta-residuals-facilitate-deep-spiking-neural-networks-learning">[2] <a href="https://arxiv.org/abs/2605.30362">XOResNet: Exclusive-OR Meta-Residuals Facilitate Deep Spiking Neural Networks Learning</a></h3>
+<p><em>Jianfang Wu, Junsong Wang</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>提出OR-ADD (OA)短路连接和XOR元残差机制，构建XOR残差块与XOResNet，解决SNN残差结构中的脉冲冗余、信息丢失和冗余学习问题，在多个数据集上超越现有SNN方法。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有深度脉冲神经网络（SNN）的残差结构存在恒等映射中的脉冲冗余、非恒等映射中的信息丢失以及骨干分支中的冗余学习等挑战，限制了深层SNN的训练效率和表示能力。</p>
+<p><strong>Method:</strong> 提出OR-ADD (OA)短路连接，用于合并残差结构中两个分支的输出脉冲/电流以缓解信号冗余与信息丢失；引入XOR元残差概念，通过异或运算为骨干分支选择预学习残差以减少冗余学习；将OA短路与XOR元残差集成构建XOR残差块，并基于该块构建不同深度的XOResNet。</p>
+<p><strong>Result:</strong> 在Fashion-MNIST、CIFAR-10、CIFAR-100和miniImageNet四个数据集上的实验表明，XOResNet在分类性能上优于现有基于梯度下降优化的深度SNN方法，验证了OA短路连接和XOR元残差模块在解决SNN残差学习中的有效性。</p>
+<p><strong>Conclusion:</strong> 本工作通过OA短路和XOR元残差机制克服了SNN中残差学习的基本局限性，为构建高性能神经形态系统提供了新的架构设计思路和指导。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Spiking neural networks (SNNs) hold promise for demonstrating superior learning and representation capabilities in deep models. Given the tremendous success of ResNet in deep learning, it would naturally follow to train deep SNNs with residual learning. However, existing residual structures for constructing deep SNNs still present challenges of spike redundancy or information loss, as well as redundant learning. In the present study, we first aim to address issues of relative spike redundancy in identity mapping and information loss in non-identity mapping. To this end, we propose an OR-ADD (OA) shortcut connection to merge output spikes/currents from two branches in the residual structure. Furthermore, to mitigate redundant learning in the backbone branch of the residual structure, we introduce the concept of XOR meta-residuals, i.e., selecting pre-learning residuals using the Exclusive-OR (XOR) operation for the backbone branch. Finally, by integrating the OA shortcut and XOR meta-residuals, we devise the XOR residual block and further construct XOResNet with varying depths based on this block. Extensive experiments on four datasets, Fashion-MNIST, CIFAR-10, CIFAR-100, and miniImageNet, show that the proposed XOResNet outperforms existing state-of-the-art deep SNNs optimized via gradient descent. These results validate the effectiveness of our OA shortcut and XOR meta-residual components in overcoming fundamental limitations of residual learning in SNNs, providing new architectural insights for building high-performance neuromorphic systems.</p>
+<h3 id="3-reinterpreting-safety-thresholds-as-neuron-spiking-thresholds">[3] <a href="https://arxiv.org/abs/2605.30368">Reinterpreting Safety Thresholds as Neuron Spiking Thresholds</a></h3>
+<p><em>Enrico Del Re, Mohamed Sabry, Cristina Olaverri-Monreal</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出将替代安全度量（SSM）的固定阈值重新解释为脉冲神经网络（SNN）中LIF神经元的激发阈值，通过学习与人类刹车行为对齐的脉冲活动，实现客观SSM与主观安全感知的融合。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有SSM评估方法大多采用固定阈值，无法捕捉人类在持续临界状态下的响应行为，也难以反映对短暂高风险峰值的反应，导致客观安全度量与主观人类安全感知之间存在鸿沟。</p>
+<p><strong>Method:</strong> 本文提出一种受生物启发的SSM阈值重新解释方法，将多个SSM输入组合到基于泄漏整合-发放（LIF）神经元的脉冲神经网络（SNN）中，SNN被训练用于发射与人类刹车开始时刻对齐的脉冲；训练数据来自使用3D-CoAutoSim平台（基于CARLA/Unreal和六自由度运动平台）的受控跟车实验，其中诱导产生了关键临界事件。</p>
+<p><strong>Result:</strong> 实验结果表明，学习到的脉冲活动在多个场景下与刹车行为定性对齐，并能捕获那些不能仅由阈值跨过一致解释的反应；跨参与者分析显示，学习到的输入阈值相对一致，而学习到的衰减因子编码了不同SSM的时间敏感度差异。</p>
+<p><strong>Conclusion:</strong> 本研究表明脉冲动力学可以作为促使客观SSM与主观人类安全感知趋于一致的机制，为自动驾驶风险评估提供了融合生物启发计算的新方向。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Surrogate Safety Measures (SSMs) are extensively utilised in the evaluation of traffic risk in automated driving contexts. However, the majority of SSM-based evaluations employ fixed thresholds that fail to capture the human response to sustained borderline conditions or the reaction to brief, high-risk peaks. The present work proposes a biologically inspired reinterpretation of SSM thresholds. This is modelled as spiking thresholds of leaky integrate-and-fire (LIF) neurons, with multiple SSM inputs combined into a spiking neural network (SNN). The SNN is trained to emit spikes that are aligned with human braking onsets. The training data was recorded in a controlled car-following experiment using the 3D-CoAutoSim platform with CARLA/Unreal and a 6-DOF motion platform, where induced critical events were generated. The results demonstrate that the learned spiking activity qualitatively aligns with braking behaviour across scenarios and captures reactions that are not consistently explained by threshold crossings alone. Analysis across participants further indicates that learned input thresholds remain relatively consistent, while learned decay factors encode different temporal sensitivities for the SSMs. The findings of this study indicate that spiking dynamics may serve as a mechanism to facilitate the convergence of objective SSMs with subjective human safety perception.</p>
+<h3 id="4-memristor-based-spiking-neural-network-accelerator-for-bio-inspired-interception-task">[4] <a href="https://arxiv.org/abs/2605.31299">Memristor-Based Spiking Neural Network Accelerator for Bio-inspired Interception Task</a></h3>
+<p><em>Qianhou Qu, Sheng Lu, Liuting Shang, Jaihan Utailawon, Sungyong Jung, Qilian Liang, Chenyun Pan</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>本文提出了一种基于模拟忆阻器的脉冲神经网络加速器，通过存内突触计算与模拟积分-放电神经元实现异步事件驱动运算，相比5nm数字基线的能耗降低12.7倍，延迟降低1.26倍，在捕食者-猎物追踪任务中推理MSE仅为0.004，展示了忆阻器神经形态电路在高效边缘智能中的应用潜力。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有脉冲神经网络（SNN）实际部署仍依赖基于冯·诺依曼架构的GPU和CPU平台，存储与计算分离导致严重的能效瓶颈，亟需探索非冯·诺依曼的硬件加速方案以释放SNN事件驱动、低功耗的潜在优势。</p>
+<p><strong>Method:</strong> 提出一种基于模拟忆阻器的SNN加速器架构，将存内突触计算与模拟积分-放电（IF）神经元集成，消除了传统多晶体管CMOS突触电路，实现异步事件驱动运算，设计基于45nm工艺节点；同时设计并优化了5nm工艺节点的数字SNN加速器作为对比基线，采用捕食者-猎物追踪任务作为评估基准。</p>
+<p><strong>Result:</strong> 在捕食者-猎物追踪任务中，模拟SNN加速器的推理结果与理想软件推理高度吻合，均方误差（MSE）仅为0.004；HSPICE仿真结果表明，相比5nm数字基线，所提模拟SNN加速器能耗降低12.7倍，延迟降低1.26倍。</p>
+<p><strong>Conclusion:</strong> 忆阻器基神经形态电路能够显著超越先进工艺节点（5nm）数字方案的能量效率和延迟表现，验证了通过存内计算与模拟神经元实现高效实时边缘智能的可行性和巨大潜力，为SNN硬件加速提供了有前景的非冯·诺依曼实现路径。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Spiking neural networks (SNNs) provide event-driven and low-power computation inspired by biological neural systems, but current implementations rely on von Neumann graphics processing units (GPUs) and central processing units (CPUs) platforms, where memory and computation bottlenecks limit energy efficiency. To address this challenge, this paper proposes an analog memristor-based spiking neural network (SNN) accelerator that integrates in-memory synaptic computation with analog integrate-and-fire (IF) neurons, eliminating multi-transistor CMOS synapse circuits and enabling asynchronous event-driven operation at the 45nm technology node. Additionally, a digital SNN accelerator is designed and optimized at the 5 nm technology node for comparison. The proposed architecture is evaluated using a predator-prey tracking task that emulates pursuit behavior. In this task, the analog SNN accelerator's inference closely matches the ideal software inference with a mean squared error (MSE) of 0.004. HSPICE simulation results show that the proposed analog SNN accelerator achieves 12.7 times lower energy consumption and 1.26 times lower delay compared to the digital baseline, demonstrating the potential of memristor-based neuromorphic circuits for energy-efficient real-time edge intelligence.</p>
+  </article>
+</body>
+</html>
