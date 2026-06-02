@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-06-02.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-beyond-low-rank-low-rank-sparse-prompting-via-spiking-neural-network-and-prompt-factorization">[1] <a href="https://arxiv.org/abs/2606.01945">Beyond Low-Rank: Low-Rank Sparse Prompting via Spiking Neural Network and Prompt Factorization</a></h3>
+<p><em>Yumiao Zhao, Bo Jiang, Beibei Wang, Xixi Wan, Xiao Wang, Jin Tang</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>提出LoRSP框架，将脑启发式脉冲学习引入视觉提示学习，通过脉冲神经元的稀疏发放机制和低秩分解生成实例级稀疏视觉提示，在减少可调参数的同时实现了与现有VP方法相当的竞争性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有视觉提示（VP）方法通常采用密集像素级提示，存在冗余扰动、泛化能力有限和能效低等问题，亟需一种更紧凑、高效且鲁棒的提示学习范式。</p>
+<p><strong>Method:</strong> 提出LoRSP框架，首先通过低秩分解构造一系列提示因子以捕获不同的提示子空间，然后将这些因子输入脉冲神经网络（SNN）架构，利用脉冲神经元的积分-发放机制（integrate-and-fire）产生离散脉冲序列，从而为每个实例生成稀疏且满足低秩约束的视觉提示，实现实例级选择性提示。</p>
+<p><strong>Result:</strong> 在五种异构视觉主干网络和多个基准数据集上的大量实验表明，LoRSP在需要更少可调参数的情况下，达到了与现有视觉提示方法相竞争的优异性能。</p>
+<p><strong>Conclusion:</strong> LoRSP验证了脑启发式脉冲学习机制在视觉提示任务中的有效性，表明通过低秩分解与脉冲稀疏发放相结合可以同时实现提示的紧凑性与鲁棒性，为构建高效、低能耗的视觉适配方法提供了新思路。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Visual Prompting (VP) has emerged as an efficient paradigm for adapting large-scale pre-trained vision models to downstream tasks by incorporating learnable prompts at the input level. However, existing VP methods typically employ dense pixel-level prompts, which often suffer from redundant perturbations, limited generalization and energy inefficiency. To overcome these limitations, we propose to integrate brain-inspired spiking learning into visual prompt learning tasks. As we know that spiking neuron can perform inexpensive information processing by transmitting the input data into discrete spike trains and return sparse outputs. Inspired by this, we propose \textbf{Lo}w-\textbf{R}ank visual \textbf{S}pike \textbf{P}rompting (LoRSP), a novel framework that learns dynamic low-rank sparse visual prompts naturally via a Spiking neuron learning mechanism. The core idea of LoRSP is to exploit the brain-inspired sparse firing mechanism of spiking neurons to generate pixel-level sparse prompt for each instance. To be specific, we first construct a series of prompt factors via low-rank factorization to capture distinct prompt subspaces. These prompt factors are then fed into an SNN architecture, which performs the integrate-and-fire process to emit spikes. As a result, our LoRSP generates a \emph{sparse} visual prompt while maintaining the low-rank constraint. This design enables instance-specific selective prompting, leading to more compact and robust adaptation across diverse downstream tasks. Extensive experiments on five heterogeneous vision backbones and multiple benchmarks demonstrate that LoRSP achieves competitive performance while requiring fewer tunable parameters compared to existing VP methods.</p>
+<h3 id="2-tides-time-derivative-event-simulation-via-deformable-reconstruction">[2] <a href="https://arxiv.org/abs/2606.02058">TIDES: Time-Derivative Event Simulation via Deformable Reconstruction</a></h3>
+<p><em>Christopher Thirgood, Dipon Kumar Ghosh, Simon Hadfield</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>TIDES是一种基于动态高斯泼溅的连续时间事件相机模拟器，通过从显式3D场景表示中直接推导逐像素强度动态来避免传统模拟器中的时间戳批处理问题，并利用场景几何和运动信息指导自适应时间步进以及建模有限传感器带宽，在事件流保真度和下游任务迁移性上达到最优。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有事件相机模拟器大多从帧序列推断事件时间戳，导致大量阈值交叉事件共享少量离散时间点（称为时间戳批处理），该问题在快速运动和遮挡条件下显著恶化；同时，真实世界事件数据集稀缺，亟需高保真度的仿真方法。</p>
+<p><strong>Method:</strong> TIDES构建在动态高斯泼溅之上，采用具备学习得到的几何与运动的显式3D场景表示，直接从场景推导逐像素强度动态而非通过帧差分，从而在一次渲染步骤中实现准确的阈值交叉预测（包括多次交叉），无需时间上采样或帧插值；利用同一3D场景模型识别部分遮挡区域，指导自适应时间步进，仅在遮挡动态使简单亮度变化模型不可靠的区域集中计算；通过瓦片级仲裁器建模有限传感器带宽，模拟吞吐量、抖动和事件丢失等真实传感器伪影。</p>
+<p><strong>Result:</strong> 在成对的RGB-事件基准上，TIDES取得了最优的事件流保真度；实验还表明，TIDES模拟的事件相较于竞争方法能够更有效地迁移到真实下游任务中。</p>
+<p><strong>Conclusion:</strong> 基于连续时间场景表示的事件模拟方法能够从根本上克服离散帧差分带来的时间批处理问题，显式建模遮挡和传感器带宽进一步提升了仿真真实度；高保真模拟事件在真实下游任务中的有效迁移验证了该方法作为事件相机研究基础设施的实用价值。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Event cameras emit asynchronous events in response to environmental appearance changes. The scarcity of real-world event datasets makes simulation essential. However, most simulators infer event timestamps from frame sequences, forcing many threshold crossings to share a small set of discrete times; a failure mode we term timestamp batching that worsens under fast motion and occlusion.
+  We present TIDES, a continuous-time event simulator built on dynamic Gaussian splatting. Because TIDES operates on an explicit 3D scene representation with learnt geometry and motion, it can derive per-pixel intensity dynamics directly from the scene, rather than by differencing rendered frames. This enables accurate threshold-crossing prediction, including multiple crossings per rendering step, without temporal upsampling or frame interpolation. The same 3D scene model reveals where objects partially occlude one another; TIDES uses this to guide adaptive time stepping, concentrating computation only in regions where occlusion dynamics make simple models of brightness change unreliable.
+  Finally, we model finite sensor bandwidth using a tile-level arbiter whose throughput, jitter, and event drops reproduce realistic sensor artifacts. Across paired RGB-event benchmarks, TIDES attains state-of-the-art event-stream fidelity. We also show that events simulated by TIDES transfer more effectively to real downstream tasks than competitors'.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="3-rare-events-real-signals-functional-ensembles-as-units-of-computation-in-deep-spiking-networks">[3] <a href="https://arxiv.org/abs/2606.00073">Rare Events, Real Signals: Functional Ensembles as Units of Computation in Deep Spiking Networks</a></h3>
+<p><em>Aditi Aravind, Konstantinos Ladakis, Mario Alexios Savaglio, Stelios M. Smirnakis, Maria Papadopouli</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文借鉴系统神经科学与信息论，提出基于一阶功能连接（1FC）的分析框架，用于解析深度脉冲神经网络中神经元群体的功能连接结构，发现其保留了生物皮层的关键原则，且信息编码集中发生在罕见但高度协调的共发放事件中。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 当前对深度脉冲神经网络（SNN）内部表征的分析缺乏神经科学启发的结构化视角，尤其是在层级处理系统中功能连接如何涌现、信息如何编码与传递等核心问题尚未得到系统研究。</p>
+<p><strong>Method:</strong> 基于神经科学与信息论概念，定义一阶功能连接（1FC）群体：通过统计显著的两两相关性，将当前层神经元与上一层的功能相关神经元分组；在脉冲ResNet架构上训练SNN，并在多种条件下（随机噪声、对抗扰动、权重置乱）追踪1FC群体的响应特性。</p>
+<p><strong>Result:</strong> 1FC群体展现类似ReLU的输入-输出关系，且增益随群体规模增大而扩展；类别可靠编码仅在1FC高共发放事件中出现，且此类事件频率极低；噪声与对抗扰动会破坏响应轮廓，尤其以早期和中间层为甚；功能连接结构由学习塑造且在权重置乱下崩溃。</p>
+<p><strong>Conclusion:</strong> 1FC群体作为输入编码与信息传递的功能性基元具有生物学合理性，为理解脉冲网络中的信息流提供了新的分析工具，并有望用于设计针对信息通路的细粒度诊断方法。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>We investigate how internal representations emerge across hierarchical processing systems by introducing a neuroscience-inspired framework for analyzing deep spiking neural networks (SNN) through the lens of functional connectivity. Drawing on concepts from systems neuroscience and information theory, we form the first-order functionally-connected (1FC) group of a neuron based on its statistically significant pairwise correlations with neurons from the previous layer of a trained SNN architecture. We then track its response properties during inference under various conditions. Our analysis shows that several principles of functional connectivity previously observed in biological cortex are preserved in spiking ResNet architectures. These 1FC ensembles display interesting properties: their aggregate cofiring reliably predicts downstream neuronal responses through a robust, ReLU-like input-output relationship, whose gain scales systematically with ensemble size. Reliable encoding of the presented class emerges only during high 1FC cofiring events, which themselves occur infrequently, indicating that informative representations are concentrated in rare but highly coordinated activity patterns. Under uniform random noise or adversarial perturbations, these response profiles are disrupted, particularly in early and intermediate layers. This enables a targeted high-resolution interrogation at specific nodes and pathways. We showed that the functional connectivity structure is shaped by learning and this structure breaks under weight permutation. These establish 1FC ensembles as a functionally meaningful substrate for input encoding and information transfer, with potential implications in designing targeted fine-grained diagnostics on the information flow.</p>
+  </article>
+</body>
+</html>
