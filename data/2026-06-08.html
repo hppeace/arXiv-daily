@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-06-08.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-fs-dvs-a-frequency-selective-dynamic-visual-sensing-paradigm-for-enhancing-information-completeness">[1] <a href="https://arxiv.org/abs/2606.06856">FS-DVS: A Frequency-Selective Dynamic Visual Sensing Paradigm for Enhancing Information Completeness</a></h3>
+<p><em>Feiyu Ji, Xiaokang Yang, Xiaoyun Yuan</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出FS-DVS，一种通过在事件触发前引入可学习空间滤波器来模拟视网膜神经节细胞聚合机制的新型动态视觉传感器范式，使学习到的滤波器自发演化为中心-环绕模式，强调中频分量并与人类对比度敏感函数一致，在物体检测和动作识别任务上取得显著性能提升。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统动态视觉传感器（DVS）采用逐像素独立触发机制，忽略了生物视网膜神经节细胞（RGC）的空间整合特性，因而缺乏对比度敏感函数（CSF）及其对中空间频率的固有敏感性，导致亚阈值信号损失引发信息不完整性。本文旨在弥合这一差距，将生物视觉的空间聚合机制融入DVS设计。</p>
+<p><strong>Method:</strong> 本文提出FS-DVS（Frequency-Selective Dynamic Vision Sensor）范式，核心创新在于在事件触发过程之前引入一个可学习的空间滤波器，以模拟RGC的聚合机制；同时开发了可微分事件仿真框架，使得空间滤波器能够与下游任务进行端到端联合优化。</p>
+<p><strong>Result:</strong> 实验表明，从delta函数初始化后，学习到的空间滤波器自发演化为中心-环绕模式，强调中频分量，与人类CSF高度一致；在物体检测和动作识别任务上取得显著性能提升，且不同任务中收敛到类似人类CSF的特性证明了该中频选择性机制的普适性；相比简单提高传感器灵敏度或依赖后处理，该方法具有高噪声鲁棒性。</p>
+<p><strong>Conclusion:</strong> FS-DVS通过生物启发的空间滤波机制实现了选择性的信息增强，在保持高噪声鲁棒性的同时显著提升了任务性能，为下一代神经形态传感器提供了具有生物合理性的稳健设计蓝图；学习到的滤波器与人类CSF的一致性暗示了中频选择性视觉处理可能是一种普适的计算原则。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Dynamic vision sensors (DVS) offer exceptional temporal resolution and dynamic range by asynchronously reporting pixel-level intensity changes. However, conventional DVS rely on a per-pixel independent triggering mechanism, ignoring the spatial integration performed by biological retinal ganglion cells (RGCs). Consequently, they lack the contrast sensitivity function (CSF) and its inherent sensitivity to mid-spatial frequencies, which inevitably leads to information incompleteness due to sub-threshold signal loss. To bridge this gap, we propose FS-DVS (Frequency-Selective Dynamic Vision Sensor), a novel paradigm that integrates a learnable spatial filter strictly preceding the event triggering process to mimic the RGC aggregation mechanism. By developing a differentiable event simulation framework, the spatial filter can be optimized end-to-end with downstream tasks. Our study reveals that starting from a delta function, the learned spatial filters spontaneously evolve into center-surround patterns that emphasize mid-frequency components, consistently aligning with human CSF. Beyond achieving substantial performance gains in object detection and action recognition, the consistent convergence to human-like CSF characteristics across different tasks underscores the universality of this mid-frequency selective mechanism. Compared to naively increasing sensor sensitivity or relying on post-processing, our paradigm achieves selective information enhancement with high noise resilience, providing a robust, biologically plausible blueprint for next-generation neuromorphic sensors.</p>
+<h3 id="2-openglass-open-source-smart-glasses-for-on-device-event-based-gesture-recognition">[2] <a href="https://arxiv.org/abs/2606.07431">OpenGlass: Open-Source Smart Glasses for On-Device Event-Based Gesture Recognition</a></h3>
+<p><em>Pietro Bonazzi, Julian Moosmann, Ahmet Celik, Philipp Mayer, Michele Magno</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>提出并开源了一种模块化、低功耗的智能眼镜硬件平台，支持事件相机和帧相机，通过软硬件协同电源管理实现最高11.8小时连续ML推理，并在手势识别任务上验证了其有效性。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 智能眼镜受限于功耗、内存和计算资源，缺乏支持事件视觉和嵌入式ML的开源硬件平台，现有方案难以在紧凑形态下快速原型验证新型传感器与算法。</p>
+<p><strong>Method:</strong> 采用模块化FPC转接板实现事件与帧相机的灵活切换，无需重新设计PCB；软硬件协同电源管理系统通过可配置PMIC和nRF5340协调器的事件驱动唤醒机制，在推理间隔期间关闭GAP9 RISC-V SoC电源；手势识别采用极性分离事件直方图作为输入，使用R(2+1)D模型并在GAP9上部署。</p>
+<p><strong>Result:</strong> 原型在200 mAh电池下实现最高11.8小时连续ML推理；基于LynX数据集的留二被试验证中，R(2+1)D达到83.94%的跨被试准确率和0.781的宏F1，在GAP9上端到端延迟为33.9 ms；时间增强与去除模糊类别带来最大性能提升（+8.9 pp）。</p>
+<p><strong>Conclusion:</strong> 该开源平台填补了智能眼镜快速原型化空白，验证了事件驱动电源管理与事件视觉在低功耗边缘ML中的实用性，为可穿戴感知系统的算法与硬件协同设计提供了可复用的开放方案。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Smart eyewear enables unobtrusive, context-aware interaction through multimodal sensors and on-device intelligence, but is severely limited by power, memory, and compute constraints in a compact form factor. Open-hardware platforms supporting event-based vision and embedded ML at this scale are rare. This work introduces an open-source smart glasses platform for rapid prototyping of novel sensors and algorithms. Its modular design uses a flexible FPC interposer to support both event-based and frame-based cameras without full PCB redesign. A hardware-software co-designed power management system combines a configurable PMIC with event-driven wake-up via an nRF5340 coordinator, keeping the GAP9 RISC-V SoC powered down between inferences. The prototype achieves up to 11.8 hours of continuous on-device ML from a 200 mAh battery. As a demonstration, an egocentric hand gesture recognition pipeline was evaluated on the LynX dataset using polarity-separated event histograms from a Prophesee GENX320 camera. R(2+1)D achieved the best cross-subject accuracy of 83.94\% (macro F1 = 0.781) under leave-two-subjects-out validation, with 33.9 ms end-to-end latency on the GAP9. Temporal augmentation and removal of ambiguous classes provided the largest gains (+8.9 pp). All hardware designs, firmware, and models are released open source.</p>
+  </article>
+</body>
+</html>
