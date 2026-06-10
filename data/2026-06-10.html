@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-06-10.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="1-spiking-neural-network-inference-on-fpgas-with-hls4ml">[1] <a href="https://arxiv.org/abs/2606.10008">Spiking Neural Network inference on FPGAs with hls4ml</a></h3>
+<p><em>Barry M. Dillon</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出了hls4ml的扩展，使其能够将PyTorch训练的脉冲神经网络（SNN）时钟驱动部署到FPGA固件上，在Heidelberg Spiking Digits数据集上实现了约34微秒的推理延迟，为实时推理场景中的神经形态计算提供了高效的工具链。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管SNN具有天然的时序推理优势，但其部署通常依赖异步神经形态处理器，而许多科学实时推理系统却基于传统的同步FPGA和HLS工作流。现有hls4ml工具链缺乏对SNN模型的支持，无法实现从PyTorch训练到FPGA固件的端到端自动部署。</p>
+<p><strong>Method:</strong> 本文扩展了hls4ml框架，使其支持时钟驱动方式的SNN部署：首先在PyTorch中训练量化的稠密SNN，然后通过HLS工作流将训练好的模型自动综合并部署到FPGA上。工作流涵盖软件参考对比、HLS C仿真、HLS综合、导出及Vivado综合报告等验证步骤。</p>
+<p><strong>Result:</strong> 在Heidelberg Spiking Digits数据集上，使用量化的稠密SNN模型，所部署的FPGA设计实现了约34微秒的推理延迟，并通过多级验证流程（软件参考对比、HLS C仿真、HLS综合、Vivado综合报告）确认了设计正确性。</p>
+<p><strong>Conclusion:</strong> 该工作将hls4ml工具包扩展到神经形态计算领域，使得SNN模型的优化、综合和部署流程得以简化，为实时推理场景下的SNN应用提供了高效的FPGA实现路径。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) provide a naturally temporal machine-learning framework. Their neurons maintain an internal state and propagate information through discrete spikes, enabling low-latency temporal inference. Although SNNs are often associated with asynchronous neuromorphic processors, many scientific real-time inference systems rely on conventional synchronous field-programmable gate arrays (FPGAs) and high-level synthesis (HLS) workflows. In this paper we present an extension of hls4ml that enables clock-driven deployment of SNNs trained in pytorch onto FPGA firmware. We demonstrate the workflow using a dense quantised SNN trained on the Heidelberg Spiking Digits dataset where it achieves inference latencies of approximately $34μ$s. We validate the generated design through software reference comparisons, HLS C simulation, HLS synthesis, export, and Vivado synthesis reports. This work opens up the hls4ml toolkit to neuromorphic computing, allowing streamlined optimisation, synthesis, and deployment of SNN models for real-time inference.</p>
+  </article>
+</body>
+</html>
