@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-06-11.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 2]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-spiketad-spiking-neural-networks-for-end-to-end-temporal-action-detection">[1] <a href="https://arxiv.org/abs/2606.12033">SpikeTAD: Spiking Neural Networks for End-to-End Temporal Action Detection</a></h3>
+<p><em>Min Yang, Mi Zhou, Limin Wang</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出首个基于脉冲神经网络(SNN)的端到端时序动作检测(TAD)架构SpikeTAD，在保持极低功耗的同时，在THUMOS14和ActivityNet-1.3数据集上分别取得了67.2%和37.42%的平均mAP，验证了低功耗TAD模型的可行性。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有视频理解模型因体积庞大且功耗过高难以部署在移动设备上，而脉冲神经网络(SNN)具有生物 plausibility 和低功耗优势，但过长的转换时间步长和严重的性能退化问题限制了其在视频理解任务中的应用。本文旨在解决上述问题，探索SNN在时序动作检测(TAD)任务上的应用。</p>
+<p><strong>Method:</strong> 本文提出了SpikeTAD，这是首个基于SNN的端到端时序动作检测(TAD)架构。该架构利用SNN的低功耗特性，通过设计适应SNN特性的网络结构和训练策略，在保持极低功耗的同时实现时序动作检测任务。</p>
+<p><strong>Result:</strong> SpikeTAD在THUMOS14数据集上实现了67.2%的平均mAP，在ActivityNet-1.3数据集上实现了37.42%的平均mAP，验证了SNN在时序动作检测任务上的可行性和有效性，同时保持了极低的功耗水平。</p>
+<p><strong>Conclusion:</strong> 本文研究表明，SNN能够有效应用于时序动作检测任务，在保持极低功耗的同时达到有竞争力的检测性能，为在移动设备上部署低功耗视频理解模型提供了新的可行方向。代码已开源。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Video understanding is a crucial part of computer vision, with numerous application scenarios. With the increasing popularity of mobile devices, an increasing number of efforts are trying to deploy video understanding models on them. However, existing video understanding models are difficult to deploy due to their large size and prohibitive power consumption. Spiking Neural Networks (SNNs) have shown bioplausibility and low power advantages over Artificial Neural Networks (ANNs), especially on neuromorphic chips which are regarded as essential components of future mobile devices. However, excessively long conversion time-steps and severe performance degradation problems limit their application. To solve the problems above, we explore the application of SNNs on temporal action detection (TAD), which is an important task in video understanding, and propose the first SNN-based end-to-end TAD architecture coined as SpikeTAD. While maintaining extremely low power consumption, SpikeTAD achieves an average mAP of 67.2% in THUMOS14 and 37.42% in ActivityNet-1.3, demonstrating the feasibility of a low-power TAD model. Our code is available at https://github.com/MCG-NJU/SpikeTAD.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-a2sgadaptive-and-asymmetric-surrogate-gradients-for-training-deep-spiking-neural-networks">[2] <a href="https://arxiv.org/abs/2606.11236">A2SG:Adaptive and Asymmetric Surrogate Gradients for Training Deep Spiking Neural Networks</a></h3>
+<p><em>Yechan Kang, Yongjin Kweon, Mingyeong Seo, Sohee Park, Yeonguk Jeon, Jongkil Park, Hyun Jae Jang, Jaewook Kim, YeonJoo Jeong, Suyoun Lee, Seongsik Park</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>提出自适应与非对称替代梯度框架A2SG，通过自适应梯度调整时空有效窗口、非对称梯度反映神经元膜电位差异，理论连接局部梯度变化与损失景观曲率，在CNN/Transformer类SNN的图像分类、神经形态数据集和分割任务中一致提升精度与能效。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 训练深度脉冲神经网络（SNN）面临两大挑战：替代梯度导致的尖锐损失景观和时间不一致性，现有方法难以有效缓解梯度方差大和收敛困难的问题。</p>
+<p><strong>Method:</strong> 提出统一框架A2SG，包含自适应梯度（调整时空有效窗口以降低梯度空间变化并保持时序方向一致性）与非对称梯度（为高膜电位神经元分配更大梯度，理论证明其方差低于对称替代梯度），并建立局部梯度变化与损失景观曲率之间的直接理论联系，解释A2SG如何促进收敛到更平坦极小值。</p>
+<p><strong>Result:</strong> 在CNN和Transformer架构的SNN上，涵盖静态图像分类、神经形态数据集分类和分割任务，A2SG均一致提升分类精度和能量效率，验证其作为通用可靠训练方案的有效性。</p>
+<p><strong>Conclusion:</strong> A2SG通过理论分析和实验验证，证明其能有效缓解SNN训练中的梯度问题并促进泛化，为深度SNN训练提供了一种通用且可靠的解决方案。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Training deep spiking neural networks (SNNs) remains challenging due to sharp loss landscapes and temporal inconsistency caused by surrogate gradients. To address these challenges, we propose a unified framework: adaptive and asymmetric surrogate gradients A2SG. The adaptive gradients adjust an effective window for spatio-temporal adaptation, reducing spatial gradient variation and maintaining directional consistency of gradients over time. The asymmetric gradients reflect neuronal dynamics by assigning larger gradients to neurons with higher membrane potentials, and we prove that they yield lower variation than symmetric surrogates. Our analysis further establishes a direct connection between local gradient variation and the curvature of the loss landscape, providing a principled explanation for how A2SG promotes convergence to flatter minima and improves generalization. We conduct extensive experiments on diverse models, including CNN-based and Transformer-based SNNs, across various tasks such as image classification using both static and neuromorphic datasets, as well as segmentation. The results demonstrate that A2SG consistently improves accuracy and energy efficiency, establishing it as a general and reliable solution for training deep SNNs. Our code is available at https://github.com/KIST-NCL/A2SG.git.</p>
+<h3 id="3-spikedecoder-realizing-the-gpt-architecture-with-spiking-neural-networks">[3] <a href="https://arxiv.org/abs/2606.12287">SpikeDecoder: Realizing the GPT Architecture with Spiking Neural Networks</a></h3>
+<p><em>Claas Beger, Florian Walter, Alois Knoll</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出 SpikeDecoder，一种完全基于脉冲神经网络（SNN）的 Transformer 解码器实现，用于自然语言处理任务。实验表明，该模型相比传统 ANN Transformer 降低了 87% 至 93% 的理论能耗，同时系统分析了不同 SNN 替代模块、残差连接和归一化技术对性能的影响，并提出了多种文本到脉冲的嵌入方法。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> Transformer 架构在自然语言处理中性能强大，但由于其包含大量复杂运算，能耗极高。脉冲神经网络（SNN）因其事件驱动的信息处理方式具有天然的低能耗优势，但难以直接训练，现有 SNN 版本的 Transformer 大多应用于计算机视觉领域且仅包含编码器模块，缺乏面向 NLP 的 SNN 解码器设计。本文旨在填补这一空白，探索在 NLP 中实现全 SNN 的 Transformer 解码器并评估其能效与性能折衷。</p>
+<p><strong>Method:</strong> 本文提出 SpikeDecoder，一种完全基于 SNN 的 Transformer 解码器块，应用于自然语言处理。作者系统地将 ANN 模型中的不同模块替换为基于脉冲的替代方案，以识别性能损失的主要来源；同时研究了残差连接的作用和兼容 SNN 的归一化技术选择。此外，还提出并比较了多种将文本数据投影为脉冲信号的嵌入方法。</p>
+<p><strong>Result:</strong> 实验表明，SpikeDecoder 相比 ANN 基线模型可降低 87% 至 93% 的理论能耗。通过逐步替换 ANN 模块为 SNN 替代方案，论文分析了不同模块替换带来的性能折衷与显著性能损失来源，并对残差连接和 SNN 兼容归一化技术的影响进行了定量评估。</p>
+<p><strong>Conclusion:</strong> 本文验证了全 SNN 解码器在 NLP 任务中的可行性与显著能效优势，揭示了模块级替换、残差连接和归一化策略对性能的关键影响。研究为构建低功耗、事件驱动的 NLP 模型提供了架构设计和嵌入方法上的指导方向，推动了 SNN 在语言处理领域的应用探索。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>The Transformer architecture is widely regarded as the most powerful tool for natural language processing, but due to a high number of complex operations, it inherently faces the issue of high energy consumption. To address this issue, we consider Spiking Neural Networks (SNNs), which are an energy-efficient alternative to conventional Artificial Neural Networks (ANNs) due to their naturally event-driven approach to processing information. However, this inherently makes them difficult to train. Often, many SNN-based models circumvent this issue by converting pre-trained ANNs. More recently, attempts have been made to design directly trainable SNN-based adaptations of the Transformer model structure. Although the results showed great promise, the application field was computer vision. Moreover, the proposed model incorporates only encoder blocks. In this paper, we propose SpikeDecoder, a fully SNN-based implementation of the Transformer decoder block, for applications in natural language processing. In a series of experiments, we analyze the impact of exchanging different blocks of the ANN model with spike-based alternatives to identify trade-offs and significant sources of performance loss. We further investigate the role of residual connections and the selection of SNN-compatible normalization techniques. Besides the work on the model architecture, we formulate and compare different embedding methods to project text data into spikes. Finally, we demonstrate that our proposed SNN-based decoder block reduces the theoretical energy consumption by 87% to 93% compared to the ANN baseline.</p>
+  </article>
+</body>
+</html>
