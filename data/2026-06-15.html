@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-06-15.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-femot-multi-object-tracking-using-frame-and-event-cameras">[1] <a href="https://arxiv.org/abs/2606.14094">FEMOT: Multi-Object Tracking using Frame and Event Cameras</a></h3>
+<p><em>Shiao Wang, Xiao Wang, Chao Wang, Yitao Li, Menghao Liu, Bo Jiang, Yaowei Wang, Yonghong Tian, Jin Tang</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>提出首个大规模RGB-事件多目标跟踪数据集FEMOT及配套基准，并设计了一种频域解耦融合多模态跟踪框架FEMOTR，有效利用事件相机高时间分辨率和高动态范围优势弥补RGB相机在极端场景下的不足。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统RGB相机在多目标跟踪中依赖丰富的表观与语义信息，但在运动模糊、低光照、过曝等复杂现实挑战下性能显著下降；事件相机虽具有高时间分辨率和高动态范围等互补优势，但RGB-事件多目标跟踪领域因缺乏大规模、高质量标注的数据集而研究不足。</p>
+<p><strong>Method:</strong> 提出了FEMOTR多模态跟踪框架，该框架对RGB特征和事件特征进行解耦，并在频域中实现融合，从而有效利用两种模态的互补特性以实现鲁棒的目标定位和身份关联；同时构建了FEMOT大规模数据集，覆盖多种真实场景和14种挑战属性，并在其上对十余种强基线跟踪器进行重训与评估以建立基准。</p>
+<p><strong>Result:</strong> 在FEMOT和DSEC-MOT两个数据集上的大量实验验证了所提方法的有效性；FEMOT数据集提供了多样化的真实场景和高质量标注，为RGB-事件多目标跟踪提供了可靠的评测平台。</p>
+<p><strong>Conclusion:</strong> FEMOT数据集和FEMOTR框架有效填补了RGB-事件多目标跟踪领域的数据集空白，频域解耦融合策略为利用互补模态信息提供了新思路，源代码和数据集已公开以推动后续研究。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Conventional RGB cameras have been widely used in multi-object tracking due to their ability to capture rich appearance and semantic information. However, their performance is often degraded under complex real-world challenges, such as motion blur, low illumination, and overexposure. Bio-inspired event cameras offer high temporal resolution and high dynamic range, providing complementary cues under extreme scenarios. Nevertheless, RGB-event multi-object tracking remains underexplored due to the lack of large-scale and well-annotated datasets. To address this issue, we propose FEMOT, a large-scale RGB-event multi-object tracking dataset that covers diverse real-world scenarios and 14 challenging attributes. With both RGB and event data as well as high-quality annotations, FEMOT provides a reliable platform for systematically evaluating RGB-event multi-object tracking methods. Based on FEMOT, we retrain and evaluate over ten strong trackers, thereby establishing a comprehensive benchmark for future research. Furthermore, we propose FEMOTR, a multimodal tracking framework that decouples RGB and event features and fuses them in the frequency domain, thereby effectively exploiting their complementary characteristics for robust object localization and identity association. Extensive experiments on FEMOT and DSEC-MOT datasets demonstrate the effectiveness of the proposed method. The source code and benchmark dataset have been released on https://github.com/Event-AHU/FEMOT.</p>
+<h3 id="2-sedlightweight-saliency-prediction-for-event-based-data-via-distillation">[2] <a href="https://arxiv.org/abs/2606.14631">SED:Lightweight Saliency prediction for Event-based data via Distillation</a></h3>
+<p><em>Romaric Mazna, Jean Martinet, Michele Magno</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>提出基于深度可分时空卷积（DSTconv）的轻量级事件相机显著性预测网络，通过知识蒸馏将模型压缩562倍（180MB→0.32MB），参数量减少554倍（45M→81k），在N-DHF1K和N-UCF Sports数据集上匹配或超越教师模型性能，并展现出从合成数据到真实数据的强泛化能力。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有事件相机显著性预测方法存在两难困境：神经形态方法性能不佳，而基于Transformer或3D卷积的方法虽性能好但模型过大，无法部署在资源受限的边缘设备上。亟需一种既能有效利用事件数据时序信息、又足够轻量化的网络架构。</p>
+<p><strong>Method:</strong> 受高效卷积模块SED启发，提出轻量级网络，核心是深度可分时空卷积块（DSTconv），该模块是对3D深度可分卷积的分解。模型通过知识蒸馏训练，以大型教师模型指导小模型学习，在不显著损失性能的前提下实现极度压缩。</p>
+<p><strong>Result:</strong> 模型大小从180MB降至0.32MB（压缩562倍），参数量从45M降至81k（减少554倍），在N-DHF1K和N-UCF Sports数据集上匹配甚至超越教师模型性能。此外，模型展现出强大的跨分布泛化能力，能从合成事件数据迁移到真实事件数据，而直接从头训练的真实数据模型则失败。</p>
+<p><strong>Conclusion:</strong> 通过深度可分时空卷积的分解设计与知识蒸馏训练，可在极小参数量下达到甚至超越大型模型的显著性预测性能，为边缘端事件相机感知提供了高效的前置处理方案。模型在合成到真实数据上的强泛化能力进一步验证了其设计优越性和实用性。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Event-based saliency prediction has gained attention recently, as combining event cameras with saliency estimation can act as an upstream stage that naturally improves the efficiency of downstream eventbased perception at the edge. However, current approaches are either neuromorphic, underperforming on event-based saliency benchmarks, or too heavy for resource-constrained edge applications due to their reliance on transformers or 3D convolutions. Drawing inspiration from efficient convolutional modules, SED and aiming to exploit the temporal information in event data, we propose a lightweight network, trained through knowledge distillation, built on a Depthwise Spatio-Temporal Block (DSTconv) -- a factorization of the 3D depthwise separable convolution. Relative to its teacher, our model reduces the model size from 180 MB to 0.32 MB (562x) and the parameter count from 45M to 81k (554x), while matching or outperforming it on the N-DHF1K and N-UCF Sports datasets. Moreover, it generalizes strongly beyond its training distribution, transferring from synthetic to real event data where a model trained from scratch fails.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="3-co-evolved-spiking-neural-network-ensembles-via-marginal-contribution-fitness">[3] <a href="https://arxiv.org/abs/2606.13985">Co-Evolved Spiking Neural Network Ensembles via Marginal Contribution Fitness</a></h3>
+<p><em>Catherine Rodriquez, James Ghawaly</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>提出了一个基于协同进化与博弈论差分评价函数的脉冲神经网络集成框架，通过边际贡献分配信用来鼓励网络互补专业化，在分类、回归和控制任务上显著优于单网络进化和事后集成，尤其在控制任务上实现了从失败到近最优的性能跃迁。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 随着任务复杂度增加，脉冲神经网络（SNN）的进化优化面临拓扑-参数联合空间超指数增长的扩展性挑战，现有方法难以有效搜索大规模网络。</p>
+<p><strong>Method:</strong> 提出一种协同进化集成框架，将候选SNN种群以各网络对整体性能的边际贡献（基于合作博弈论与多智能体系统的差分评价函数）定义适应度，通过奖励持续提升集成性能的网络并惩罚冗余，在进化过程中鼓励互补专业化而非事后组合独立训练的网络。</p>
+<p><strong>Result:</strong> 在μCaspian神经形态硬件约束下的分类、回归和控制任务中，协同进化集成在所有任务上均显著优于单网络进化和事后集成，其中在控制任务上提升最为显著——标准进化完全无法发现有效策略，而协同进化实现了向近最优性能的质变跨越。</p>
+<p><strong>Conclusion:</strong> 基于边际贡献的协同进化信用分配有效解决了SNN进化优化的扩展性问题，通过在线促进网络间互补专业化，能够实现远超传统方法（尤其是单网络进化无法解决的高复杂度任务）的性能突破。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Evolutionary optimization of spiking neural networks (SNNs) becomes increasingly difficult as task complexity grows because they must search a combined topology--parameter space that grows super-exponentially with network size. We address this scaling challenge through a co-evolutionary ensemble framework in which a population of candidate SNNs is evolved with fitness defined by each network's marginal contribution to group performance. Grounded in cooperative game theory and difference evaluation functions from multiagent systems, this credit assignment rewards networks that consistently improve ensemble performance and penalizes redundancy, encouraging complementary specialization during evolution rather than relying on post-hoc combination of independently trained networks. We evaluate the approach on classification, regression, and control tasks under $μ$Caspian neuromorphic hardware constraints. Co-evolved ensembles achieve statistically significant improvements over both single-network evolution and post-hoc ensembles across all tasks, with the most pronounced gains in control, where standard evolution fails to discover effective policies and co-evolution enables a qualitative transition to near-optimal performance.</p>
+  </article>
+</body>
+</html>
