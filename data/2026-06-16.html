@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-06-16.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-fusion-e2pulse-a-multimodal-event-rgb-fusion-network-for-non-contact-pulse-wave-reconstruction">[1] <a href="https://arxiv.org/abs/2606.15597">Fusion-E2Pulse: A Multimodal Event-RGB Fusion Network for Non-contact Pulse Wave Reconstruction</a></h3>
+<p><em>Qian Feng, Hao Guo, Yan Niu, Zhenhuan Xu, Yidi Li</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本论文提出Fusion-E2Pulse，一种融合RGB帧信号与事件流的多模态网络，用于非接触式脉搏波重建，通过RGB结构先验抑制运动伪影、事件流高灵敏度恢复细微形态细节，在心率估计、波形相关性和收缩期持续时间误差等指标上达到最优性能。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 传统RGB视频心率检测方法受限于标准相机的积分成像机制，曝光过程产生平滑效应，削弱了微弱的血管搏动细节；神经形态事件相机虽对强度波动极为敏感，但易受微小运动引起的噪声和伪影干扰。现有方法无法同时兼顾噪声抑制与形态保真度，缺乏有效融合两种互补传感模态的框架。</p>
+<p><strong>Method:</strong> 提出一种名为Fusion-E2Pulse的多模态网络，该框架利用滤波后的RGB信号作为结构先验来抑制运动伪影，同时利用事件流的高灵敏度恢复精细的波形形态细节，实现帧积分信号与事件差分信号的协同融合，以重建包含重搏波切迹在内的完整脉搏波形态。</p>
+<p><strong>Result:</strong> 实验结果表明，Fusion-E2Pulse在心率估计上达到0.78 bpm的平均绝对误差，波形相关性为0.89，收缩期持续时间误差为16.74 ms，在噪声抑制与形态保真度之间取得有效平衡，并在多项指标上达到最优性能，验证了其在重建精细病理特征方面的有效性。</p>
+<p><strong>Conclusion:</strong> 该研究证明，融合RGB帧积分信号与事件相机差分信号的多模态策略能够有效克服单一传感模态的局限性，为非接触式脉搏波重建提供了一种兼具噪声鲁棒性和形态细节恢复能力的新范式，具有临床应用潜力。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Non-contact pulse wave reconstruction hinges on the precise recovery of waveform morphology, including the dicrotic notch. Conventional Red-Green-Blue (RGB)-based methods, which extract physiological signals from recorded facial videos, are constrained by the integral imaging mechanism of standard cameras, where the exposure process induces a smoothing effect that attenuates subtle vascular pulsation details. Conversely, neuromorphic event cameras, while offering exceptional sensitivity to intensity fluctuations, are inherently susceptible to noise and artifacts induced by minor motion. To exploit the synergy between frame-based integration and event-based differential sensing, we propose a novel multimodal network named Fusion-E2Pulse. This framework utilizes filtered RGB signals as structural priors to suppress motion artifacts, while leveraging the high-sensitivity of event streams to recover fine-grained morphological details. Experimental results demonstrate that Fusion-E2Pulse achieves state-of-the-art performance, effectively balancing noise suppression and morphological fidelity, achieving a mean absolute error of 0.78 bpm for heart rate estimation, a waveform correlation of 0.89, and a systolic phase duration error of 16.74 ms, validating its efficacy in reconstructing fine-grained pathological features.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-test-time-adaptation-of-spiking-neural-networks-for-intracortical-neural-decoding-using-membrane-potential-alignment">[2] <a href="https://arxiv.org/abs/2606.14866">Test-Time Adaptation of Spiking Neural Networks for Intracortical Neural Decoding using Membrane Potential Alignment</a></h3>
+<p><em>Guangzhi Tang</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>提出膜电位对齐（MPA），一种基于脉冲神经网络（SNN）的测试时自适应方法，通过KL散度匹配膜电位分布并仅更新低秩（LoRA）权重，在非人灵长类动物运动任务中实现与最新方法NoMAD相当的性能，同时使用更简单的架构和更细的时间分辨率（4 ms vs. 20 ms）。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 脑机接口面临日常神经信号漂移导致预训练解码器性能退化的问题，现有无监督自适应方法（如深度循环或对抗架构）计算开销过大，无法部署于植入式硬件。</p>
+<p><strong>Method:</strong> 提出膜电位对齐（MPA），一种基于SNN的测试时自适应方法，通过KL散度匹配当前测试数据与预训练数据之间的膜电位分布来实现解码器重对齐；更新过程仅限制在低秩（LoRA）权重上，少于9%的参数被更新，从而保持计算效率。</p>
+<p><strong>Result:</strong> 在跨度超过一个月的非人灵长类动物伸手任务实验中，MPA达到与当前最先进方法NoMAD相当的性能，但采用更简单的架构和更细的时间分辨率（4 ms vs. 20 ms）。</p>
+<p><strong>Conclusion:</strong> 高效SNN测试时自适应是实现长期免重校准脑机接口的可行路径，MPA在保持低计算开销的同时实现了竞争力的自适应性能。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Intracortical brain-computer interfaces suffer from day-to-day neural signal shifts that degrade pretrained decoders. Existing unsupervised adaptation methods rely on deep recurrent or adversarial architectures that are too computationally expensive for implantable hardware. We propose Membrane Potential Alignment (MPA), a test-time adaptation method for spiking neural networks that realigns a pretrained decoder to shifted recordings by only matching membrane potential distributions via KL divergence. By restricting updates to low-rank (LoRA) weights, MPA adapts fewer than 9% of parameters. On a non-human primate reaching task spanning over one month, MPA achieves performance competitive with the state-of-the-art NoMAD method, while using a simpler architecture and finer temporal resolution (4 ms vs. 20 ms). These results show that efficient SNN-based test-time adaptation is a practical path toward long-term, recalibration-free brain-computer interfaces.</p>
+  </article>
+</body>
+</html>
