@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-06-17.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-fate-pillar-encoding-and-frequency-aware-training-for-event-based-object-detection">[1] <a href="https://arxiv.org/abs/2606.17334">FATE: Pillar Encoding and Frequency-Aware Training for Event-Based Object Detection</a></h3>
+<p><em>Md Tawheedul Islam Bhuian, Kyoung-Don Kang</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>FATE提出了一种基于柱状编码（Pillar Encoding）的统一框架，通过连续时间正交多项式基逼近事件流在宏累积窗口内的演化，并结合频率感知训练（FAT）的软均值教师课程生成时间密集伪标签，从而在不进行内部时间子分箱的情况下实现高达200 Hz的高时间分辨率鲁棒目标检测，且参数量和推理延迟开销极小。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有事件相机深度学习方法将累积窗口划分为固定时间子箱，这种内部离散化丢弃了细粒度时间结构，并将推理限制在训练监督所施加的低时间频率上，无法同时兼顾高时间分辨率与模型兼容性。</p>
+<p><strong>Method:</strong> FATE框架包含两个核心组件：柱状编码（Pillar Encoding, PE）将事件组织为空间柱体，利用连续时间正交多项式基投影近似事件在宏累积窗口内的演化，生成保持丰富时间动态的密集伪图像；频率感知训练（Frequency-Aware Training, FAT）采用软均值教师课程产生时间密集伪标签，弥合低频监督与高频推理之间的不匹配。</p>
+<p><strong>Result:</strong> 实验表明FATE能够跨不同架构范式泛化，并持续优于强基线方法，在高达200 Hz的时间分辨率下实现鲁棒的目标检测，同时参数数量和推理延迟的增加极小。</p>
+<p><strong>Conclusion:</strong> FATE通过避免内部时间子分箱并引入频率感知训练机制，有效解决了事件流细粒度时间信息丢失与低频监督限制的问题，为事件相机在高频场景下的实时应用提供了一种高效且通用的解决方案。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Event cameras are bio-inspired sensors that asynchronously capture logarithmic intensity changes, offering inherent advantages in high-speed and high-dynamic-range scenarios. However, the sparse and asynchronous nature of event streams poses a fundamental challenge for modern deep learning architectures. To enable compatibility with standard models, most existing approaches partition the accumulation window into fixed temporal sub-bins. While effective for spatial processing, this internal discretization discards fine-grained temporal structure and constrains inference to the low temporal frequencies imposed by training supervision. To address this limitation, we propose FATE, a unified framework built upon a novel Pillar Encoding (PE). While operating over discrete macro-accumulation windows dictated by the target frequency, PE avoids internal temporal sub-binning. It organizes events into spatial pillars and approximates their intra-window evolution via projection onto a continuous-time orthogonal polynomial basis. This formulation yields an L2-optimal representation that retains rich temporal dynamics in a dense pseudo-image, mitigating information loss under sparse event conditions. To fully leverage this representation, we introduce Frequency-Aware Training (FAT), a soft mean-teacher curriculum that generates temporally dense pseudo-labels, effectively bridging the mismatch between low-frequency supervision and high-frequency inference. Extensive experiments demonstrate that FATE generalizes across architectural paradigms and consistently outperforms strong baselines. It enables robust object detection at high temporal resolutions up to 200 Hz, while incurring minimal overhead in parameter count and inference latency</p>
+<h3 id="2-eventdrive-event-cameras-for-vision-language-driving-intelligence">[2] <a href="https://arxiv.org/abs/2606.18242">EventDrive: Event Cameras for Vision-Language Driving Intelligence</a></h3>
+<p><em>Dongyue Lu, Rong Li, Ao Liang, Lingdong Kong, Wei Yin, Lai Xing Ng, Benoit R. Cottereau, Camille Simon Chane, Wei Tsang Ooi</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>EventDrive 提出了一个覆盖感知、理解、预测与规划四维度的多模态基准与模型套件，通过多尺度事件金字塔和时域混合专家模块，显著提升了事件流与RGB帧融合在自动驾驶推理与决策中的时序精度和运动鲁棒性。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有事件感知视觉-语言模型局限于通用感知任务，未能揭示事件信号如何在完整自动驾驶循环（推理与决策）中发挥作用，缺乏统一评估事件与RGB融合在感知、理解、预测、规划等多维任务表现的大规模基准。</p>
+<p><strong>Method:</strong> EventDrive 构建了统一事件流、RGB帧与语言标注的四维基准（感知、理解、预测、规划），覆盖描述生成、结构化QA、视觉定位、运动状态识别、轨迹预测与规划任务；在此基础上提出 EventDrive-VLM，包含多尺度事件金字塔结构与时域混合专家模块（Temporal-Horizon Mixture-of-Experts），用于自适应编码与融合异步事件与帧基信息以支持下游推理。</p>
+<p><strong>Result:</strong> 在跨多种任务的全面评估中，事件流在时序精度、运动感知与鲁棒性方面带来了显著的性能提升，验证了事件信号在驾驶智能中的核心价值。</p>
+<p><strong>Conclusion:</strong> 事件数据在时序精确性、运动感知与鲁棒性方面具有显著优势，将其与RGB融合能够有效推动自动驾驶系统在复杂场景下的推理与决策能力，事件感知应被置于驾驶智能的中心位置。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Event cameras sense the world through asynchronous brightness changes with microsecond latency and high dynamic range, offering motion fidelity far beyond frame-based sensors and capturing temporal structure that conventional exposures often miss. These properties make events a powerful complement to RGB in autonomous driving, especially under blur, glare, and rapid motion, where frame-based perception can become unreliable. However, existing event-aware vision-language models remain limited to generic perception and do not reveal how event sensing contributes to reasoning and decision-making across the full driving loop. We present EventDrive, a large-scale benchmark and model suite that unifies event streams, RGB frames, and language supervision across four core dimensions: Perception, Understanding, Prediction, and Planning, covering captions, structured QA, grounding, motion-state recognition, trajectory forecasting, and planning tasks. Building on this foundation, EventDrive-VLM introduces a multi-horizon event pyramid and a temporal-horizon mixture-of-experts module to adaptively encode and fuse asynchronous and frame-based information for downstream reasoning. Comprehensive evaluation across diverse tasks shows that event streams provide substantial gains in temporal precision, motion awareness, and robustness, bringing event sensing into the center of driving intelligence.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="3-an-optimization-framework-for-automated-assessment-of-biological-plausibility-of-spiking-neurons">[3] <a href="https://arxiv.org/abs/2606.17853">An Optimization Framework for Automated Assessment of Biological Plausibility of Spiking Neurons</a></h3>
+<p><em>Sven Nitzsche, Alexandru Ionita, Andreas Faust, Bogdan Ionescu, Juergen Becker</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>提出了一个用于评估脉冲神经元模型生物合理性的开源框架，通过自动化匹配标准发放模式来量化生物合理性，无需先验解析建模。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 生物合理性是神经形态计算和脉冲神经网络中的核心概念，但其定义不一致且难以量化，现有评估方法缺乏系统性和自动化手段。</p>
+<p><strong>Method:</strong> 基于Izhikevich提出的规范神经元发放模式分类，将这些模式编码为目标函数，通过优化模型参数实现自动化评估；将神经元模型视为黑盒，兼容PyTorch和Norse库，采用Python实现。</p>
+<p><strong>Result:</strong> 在多个已有模型和一个此前未探索的自定义模型上验证了框架的有效性，证明了其作为灵活实用的生物合理性评估工具的可行性。</p>
+<p><strong>Conclusion:</strong> 该框架为系统研究生物合理性与网络级性能指标（如准确率、能效、鲁棒性和适应性）之间的关系提供了起点，有助于推动神经形态计算领域对生物合理性的标准化量化研究。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Biological plausibility is a key concept in neuromorphic computing and spiking neural networks, yet it remains inconsistently defined and difficult to quantify. In this work, we present an open-source framework for the automated assessment of biological plausibility in spiking neuron models. Our method builds on the idea of evaluating a model's ability to replicate canonical neuronal firing patterns observed in biological systems, following the classification proposed by Izhikevich. By encoding these patterns into objective functions and optimizing model parameters accordingly, our framework enables empirical assessment without requiring prior analytical modeling. Treating neuron models as black boxes, it provides a practical and flexible means of characterizing their dynamic capabilities. We demonstrate the effectiveness of the framework on several established models and a previously unexplored custom model. Implemented in Python and compatible with PyTorch and the Norse library, the framework is tailored for machine learning contexts. It is intended as a starting point for systematic research into the relationship between biological plausibility and network-level performance metrics such as accuracy, energy efficiency, robustness, and adaptability.</p>
+  </article>
+</body>
+</html>
