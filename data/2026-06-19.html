@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-06-19.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-neural-events-discrete-asynchronous-autoencoders-for-event-based-vision">[1] <a href="https://arxiv.org/abs/2606.19835">Neural Events: Discrete Asynchronous Autoencoders for Event-Based Vision</a></h3>
+<p><em>Roberto Pellerito, Daniel Gehrig, Shintaro Shiba, Davide Scaramuzza</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文提出神经事件（neural events）框架，将事件流重新令牌化为少量高信息密度的离散可学习码，每次码翻转触发一个神经事件，实现高倍数据压缩，在目标检测与分类任务上性能与SOTA相当甚至更优，同时将事件率降低2.0倍。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 事件相机以微秒级分辨率捕捉动态场景，但单个事件仅携带极低语义信息（局部亮度变化），下游算法需从海量低信息事件中快速整合线索。现有架构难以兼顾捕捉细粒度时间动态与维持可控的数据吞吐量，易被事件流淹没。</p>
+<p><strong>Method:</strong> 提出一个重新令牌化（re-tokenize）事件流的框架，将事件流转换为少量高信息量的神经事件（neural events），每个神经事件表示一个局部时空上下文窗口，并关联一个离散的可学习码（learnable code）。每次该可学习码发生翻转时，即触发一个神经事件，从而生成高度压缩的数据流。</p>
+<p><strong>Result:</strong> 在目标检测与分类任务上，基于神经事件训练的网络性能与最先进方法相当或更优，同时将事件率（event rate）降低了2.0倍。</p>
+<p><strong>Conclusion:</strong> 神经事件框架通过紧凑的离散编码有效平衡了事件流的时间精细度与数据吞吐量，证明高倍压缩下仍能保持甚至提升语义任务性能，为事件驱动的高效视觉感知提供了新方向。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Event cameras capture dynamic scenes with exceptional temporal fidelity by representing them as a continuous stream of microsecond resolution \textit{events}. Each individual event, however, only carries minimal semantic value, merely signaling a localized brightness change. To derive meaningful signals, downstream algorithms need to quickly integrate cues from a potentially massive torrent of low-information events. Current architectures, however, are easily overwhelmed, struggling to balance capturing fine-grained temporal dynamics and maintaining a manageable data throughput. This paper proposes a framework to re-tokenize event streams into a small set of highly informative \textit{neural events}, each representing a local spatio-temporal context window with a discrete learnable code. Every time this code flips, a neural event is triggered, yielding a highly compressed data stream. We demonstrate that, across object detection and classification, networks trained on neural events are on par or surpass the performance of state-of-the-art approaches while reducing the event rate by a factor of 2.0.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="2-hybrid-ann-snn-pipeline-with-local-plasticity">[2] <a href="https://arxiv.org/abs/2606.20151">Hybrid ANN-SNN Pipeline with Local Plasticity</a></h3>
+<p><em>Denis Larionov, Khairutin Shtanchaev, Mikhail Kiselev, Mikhail Korovin, Ivan Tugoy</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>提出了一种混合ANN-SNN流水线，将预训练EfficientNet编码器与CoLaNET脉冲分类器结合，通过速率编码和局部生物学习规则训练，在64类ImageNet上达到99.09%的精度，实现了高性能且生物合理的SNN框架。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有SNN在高性能视觉任务中往往需要端到端梯度传播，缺乏生物合理性，且难以直接利用预训练ANN的丰富表征能力；本文旨在构建一种既能充分利用强大的预训练ANN嵌入、又能通过生物可解释的学习规则训练SNN的高效框架。</p>
+<p><strong>Method:</strong> 提出混合ANN-SNN架构，使用预训练的EfficientNet作为编码器提取特征，通过速率编码将其激活转换为脉冲序列，然后送入CoLaNET脉冲分类器；分类器采用局部、生物启发的学习规则进行训练，而非端到端反向梯度传播。</p>
+<p><strong>Result:</strong> 在包含64个类别的ImageNet基准测试上达到99.09%的准确率，性能与传统深度网络相当，验证了所提框架在生物合理性前提下的高分类能力。</p>
+<p><strong>Conclusion:</strong> 该工作展示了将强大预训练ANN编码器适配到下游SNN任务的可行性与高效性，为构建兼具生物可解释性与高性能的脉冲神经网络提供了一种新的范式。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>This work proposes a hybrid ANN-SNN pipeline that effectively leverages the rich embeddings of pretrained artificial neural networks (ANNs) to enable high-performance spiking neural networks (SNNs). The architecture couples a pretrained EfficientNet encoder with a CoLaNET spiking classifier. We convert the encoder's activations into spike trains via rate-coding and train the subsequent SNN classifier using local, biologically inspired learning rules, bypassing end-to-end gradient propagation. This approach achieves 99.09% accuracy on a 64-class ImageNet benchmark, demonstrating performance on par with conventional deep networks. The work presents a biologically plausible and efficient framework for adapting powerful pretrained encoders to downstream spiking neural network tasks.</p>
+  </article>
+</body>
+</html>
