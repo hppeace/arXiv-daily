@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-06-23.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 2]</li>
+<li><a href="#cs.AI">cs.AI</a> [Total: 1]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 3]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-a-projection-based-surrogate-gradient-interpretation-for-neural-codec-wrappers">[1] <a href="https://arxiv.org/abs/2606.20671">A Projection-Based Surrogate Gradient Interpretation for Neural Codec Wrappers</a></h3>
+<p><em>Esteban Pesnel, Julien Le Tanou, Michael Ropert, Aline Roumy, Thomas Maugey</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>本文表明，针对不可微视频编码器提出的SCALED代理梯度可被解释为编码器的一阶局部近似，并证明该方法不仅适用于下采样器学习，还能有效训练完整的神经网络预处理和后处理包装器，在x264和VVenC上分别实现高达-23.59%和-20.07%的BD-Rate(PSNR)降低。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 尽管神经包装器能显著提升传统视频编码器的压缩效率，但由于编码过程中涉及大量离散决策导致编码器不可微，训练此类预处理和后处理网络面临挑战。现有代理梯度方法如SCALED虽已展现有效性，但其最初作为重参数化技巧提出，可解释性有限，且尚未被验证是否能适用于完整的神经包装器训练任务。</p>
+<p><strong>Method:</strong> 本文首先将SCALED代理梯度重新解释为视频编码器的一阶局部近似，从而揭示了其有效性的理论依据。在此基础上，该方法被推广用于训练完整的神经包装器，即同时学习预处理网络（如下采样器）和后处理网络，而不仅限于此前单一的预处理任务。实验在多个视频编码器（x264和VVenC）、不同质量因子和多种下采样比率下评估该方法的泛化能力。</p>
+<p><strong>Result:</strong> 该方法在完整神经包装器训练任务上表现优异，相对于标准重采样基线，在x264和VVenC上分别实现了高达-23.59%和-20.07%的BD-Rate(PSNR)降低。实验验证了该方法对多种视频编码器、质量因子以及多下采样比率任务均具有良好的泛化能力。</p>
+<p><strong>Conclusion:</strong> 本文通过将SCALED代理梯度解释为编码器的一阶局部近似，不仅增强了方法的可解释性，还证明其适用于更复杂的全神经包装器训练任务。该发现为不可微编码器条件下的端到端学习提供了更清晰的数学视角，并为在更广泛视频压缩场景中应用代理梯度方法奠定了基础。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Neural wrappers are learned pre-and postprocessing networks designed to enhance the performance of conventional video codecs. Although these approaches can significantly improve compression efficiency, training them remains challenging due to the non-differentiability of video codecs, which arises from the multiple discrete decisions involved in the encoding process. Surrogate gradients have recently emerged as an effective solution for enabling end-to-end learning with conventional codecs. They offer two main advantages: they avoid training an additional network to mimic the codec, and they can improve compression performance. In particular, the recently proposed SCALED method, which leverages the true compression error, has shown strong results for training neural pre-processors such as downscalers. However, this SCALED gradient was originally introduced as a reparameterization trick, which limits its interpretability. In this paper, we show that this surrogate gradient can be interpreted as a first-order local approximation of the video codec, providing insight into its effectiveness. We further demonstrate that it is effective not only for learning downscaling operations, but also for the more challenging task of full neural wrapping with pre-and post-processing networks. Finally, we show that the approach generalizes well across different video codecs, quality factors, and tasks, including multiple downscaling ratios, yielding BD-Rate (PSNR) reductions of up to -23.59% on x264 and -20.07% on VVenC relative to standard resampling baselines.</p>
+<h3 id="2-following-the-flow-advection-consistent-modeling-for-event-based-small-object-detection">[2] <a href="https://arxiv.org/abs/2606.22378">Following the Flow: Advection-Consistent Modeling for Event-based Small Object Detection</a></h3>
+<p><em>Wen Guo, Fulong Cai, Wuzhou Quan</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>提出PACT框架，通过物理启发的平流一致性建模将事件演化建模为运动驱动的特征传输过程，在事件相机小目标检测任务上IoU提升20.72%、准确率提升15.03%。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 基于事件相机的高频视觉感知在小目标检测中面临挑战：稀疏异步测量和弱目标响应易受噪声干扰，有限的空间支撑导致小目标信号失去时间连续性，产生碎片化和不稳定的预测结果。</p>
+<p><strong>Method:</strong> 提出PACT（Physics-guided Advection-Consistent modeling）框架，将事件演化形式化为运动驱动的特征传输过程；设计运动感知特征提取模块与可微分的平流传输算子，沿估计的速度场传播特征并通过平流约束强制轨迹级一致性，以保留弱事件响应并抑制复杂背景干扰下的信号退化。</p>
+<p><strong>Result:</strong> 在公开事件相机基准数据集上的大量实验表明，PACT在IoU上提升20.72%、准确率提升15.03%，同时保持与现有方法相当的计算效率，持续优于最先进方法。</p>
+<p><strong>Conclusion:</strong> 基于平流一致性的运动驱动特征传播机制有效解决了事件相机小目标检测中弱信号退化与预测不稳定的问题，验证了物理建模思想在事件数据处理中的可扩展性和有效性。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>Event cameras enable high-frequency visual perception with microsecond latency, offering advantages for dynamic scenes. However, event-based small object detection remains challenging due to sparse asynchronous measurements and weak object responses that are easily disrupted by noise. Limited spatial support causes small-object signals to lose temporal continuity, resulting in fragmented and unstable predictions. To address this issue, we propose a physics-guided advection-consistent modeling framework, termed PACT, which formulates event evolution as a motion-driven feature transport process. Instead of relying solely on local spatio-temporal aggregation, PACT propagates features along estimated velocity fields and enforces trajectory-level consistency through advection constraints. This design preserves weak event responses over time and prevents their degradation under complex background interference. Technically, PACT integrates motion-aware feature extraction with a differentiable advection-based transport operator, enabling coherent motion representation and effective noise suppression during temporal evolution. Extensive experiments on benchmark event-based datasets demonstrate that PACT consistently outperforms state-of-the-art methods, achieving improvements of 20.72\% in IoU and 15.03\% in accuracy while maintaining comparable computational efficiency. The code is publicly available at https://github.com/fulongcai/PACT.</p>
+<div id='cs.AI'></div>
+
+<h1 id="csai-back">cs.AI <a href="#toc">[Back]</a></h1>
+<h3 id="3-a-differentiable-atari-vcsa-complex-fully-known-ground-truth-for-explainable-ai">[3] <a href="https://arxiv.org/abs/2606.22447">A Differentiable Atari VCS:A Complex, Fully Known Ground Truth for Explainable AI</a></h3>
+<p><em>Andreas Maier, Siming Bayer, Patrick Krauss</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出了一种完全可微分且可内省（ground-truth accessible）的Atari 2600视频计算机系统端到端仿真框架（jutari/jaxtari），解决了可解释AI（XAI）在复杂系统中缺乏真实内部状态验证的困境，并证明了基于梯度的XAI在此类完全指定系统上的可行性。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有XAI方法面临根本性矛盾：简单系统（如决策树）机制已知但无需解释，复杂系统（如深度网络）亟需XAI却缺乏可验证的真实内部状态（ground truth），导致解释可能看似合理但实际错误而无法甄别。本文旨在消除这一二元对立，构建一个既具备真正复杂性又完全可内省的研究对象。</p>
+<p><strong>Method:</strong> 本文在Julia（jutari）和JAX（jaxtari）中独立实现了两个端到端可微分的Atari 2600 VCS仿真器，均通过逐位验证与xitari一致（64/64游戏字节级RAM一致、像素级画面一致）。核心方法是将卡带ROM视为权重张量、RAM视为软磁带、控制流视为门控，证明在任意有限温度下，可微（软）执行在前向传播中与原（硬）执行逐位等价，同时为无梯度的位逻辑暴露代理梯度。</p>
+<p><strong>Result:</strong> 两个仿真器在全部64个ALE支持的游戏上均通过验证，与xitari实现字节级RAM一致和像素级屏幕一致。JAX版本（jaxtari）支持GPU加速，批量化可微循迹在单块消费级GPU上可达数百万环境步/秒。整个系统在约29个日历日、137个活跃小时内完成构建，大部分代码由编码代理自动编写。</p>
+<p><strong>Conclusion:</strong> 本文从理论和定性梯度研究两方面验证了在此类完全指定、完全可微的复杂系统上开展基于梯度的XAI的可行性，为后续研究提供了开源基础设施（MIT许可证）。该工作打破了XAI研究中复杂性与可验证性不可兼得的僵局，为解释深层神经网络的内部机制开辟了新范式。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>Explanation requires ground truth: to verify an account of a system we must know its inner functioning-just what is missing where explainable AI (XAI) is most needed. Systems we can study fall into two camps. Simple, procedural one-decision trees, rule lists, sparse linear models-have a known but trivial mechanism, so explaining them tests nothing; genuinely complex ones-deep networks, real-world tasks-need XAI but have no ground-truth inner functioning, so an explanation can be plausible, confident, and wrong with no way to tell. We remove this dichotomy with a study object both genuinely complex and fully specified-inspectable by construction-and, so gradient methods apply, fully differentiable. We reimplement the Atari 2600 Video Computer System (VCS)-a real computer architecture, and the cradle of deep reinforcement learning-as two independent end-to-end differentiable emulators in Julia (jutari) and JAX (jaxtari), each validated bit-for-bit against xitari. Both reproduce xitari on all 64 supported Arcade Learning Environment (ALE) games: 64/64 byte-identical RAM and 64/64 pixel-identical screens. Treating the cartridge ROM as a weight tensor, RAM as a soft tape, and control flow as gates, we prove the differentiable (soft) execution equals the original (hard) one bit-for-bit in the forward pass at any finite temperature, while exposing surrogate gradients where the bit logic has none. The JAX port also opens a GPU path: batched differentiable rollouts reach millions of environment-steps/s on one commodity GPU. The system was built in roughly 137 active hours over 29 calendar days, much of it written autonomously by coding agents. This paper builds and validates the foundation, showing-theoretically and in a qualitative gradient study-that gradient-based XAI on it is feasible. Both ports' full code is available under the MIT license at https://github.com/akmaier/UnderstandingVCS.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="4-a-formal-tool-for-verification-of-probabilistic-spiking-neural-networks-based-on-quotient-abstractions">[4] <a href="https://arxiv.org/abs/2606.20674">A Formal Tool for Verification of Probabilistic Spiking Neural Networks Based on Quotient Abstractions</a></h3>
+<p><em>Nikan Zandian Jazi, Elisabetta De Maria, Christopher Leturc</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>提出了一种权重离散化的商模型抽象方法，将连续突触权重映射到紧致整数范围，并结合CogSpike工作台实现SNN的PRISM形式化验证；该方法在保持突触相对贡献的前提下实现了每神经元约17倍的状态空间缩减，并提供了严格的形式化正确性保证。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 脉冲神经网络（SNN）因离子通道噪声和突触囊泡释放不可靠性而具有随机事件驱动特性，需要概率模型进行形式化描述，但确定性抽象在数学上不充分；形式验证中DTMC编码面临状态空间爆炸问题（状态数随神经元数量指数增长），而现有通用商模型抽象丢弃了突触权重信息，限制了可验证的性质范围。</p>
+<p><strong>Method:</strong> 本文提出一种权重离散化的商模型抽象方法，将连续突触权重映射到紧致整数范围（离散化参数W）同时保留各突触的相对贡献；基于此构建CogSpike统一工作台，集成了SNN设计、仿真与PRISM形式化验证功能于单一同构工具链；并建立了双面保真度定理（将放电分歧限制在阈值附近的有界灰色区域内）和渐近静默定理（确保非强制神经元最终永久静默）作为形式化正确性保证。</p>
+<p><strong>Result:</strong> 拓扑依赖的规模分析表明，在离散化参数W=3时，每神经元状态空间缩减约17倍，呈指数级复合缩减效应；在七个经典拓扑上的实验验证了该方法能够验证原本不可处理的网络，并确认了状态空间缩减的实际有效性。</p>
+<p><strong>Conclusion:</strong> 权重离散化商模型抽象在保持突触权重信息的前提下有效缓解了SNN概率模型检测中的状态空间爆炸问题，CogSpike工作台为SNN的设计与形式验证提供了统一工具链；双面保真度和渐近静默定理为方法的正确性提供了严格的理论保障，为更大规模SNN的形式化分析与验证开辟了新途径。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) model biological neural dynamics more faithfully than classical artificial networks, but their stochastic, event-driven computation -- rooted in ion-channel noise and unreliable synaptic vesicle release -- demands probabilistic models for which deterministic abstractions are mathematically inadequate. Formal verification of such models via probabilistic model checking faces a fundamental barrier: the state space explosion problem, where the Discrete-Time Markov Chain (DTMC) encoding grows exponentially with the number of neurons. General-purpose quotient model abstractions [1] can in principle mitigate this growth by partitioning membrane potentials into equivalence classes, but a naïve application to SNNs discards synaptic weight information, limiting the properties that can be verified. This paper introduces a weight-discretized quotient model abstraction that maps continuous synaptic weights to a compact integer range while preserving the relative contribution of each synapse, and presents CogSpike, a unified workbench that integrates SNN design, simulation, and PRISM-based formal verification within a single isomorphic tool chain. The discretization is accompanied by formal correctness guarantees: a two-sided fidelity theorem confines any firing disagreement to a bounded gray zone around threshold, and an Asymptotic Silence theorem gives the exact limit guarantee that unforced neurons fall permanently silent. A topology-dependent scaling analysis shows that the state space reduction compounds exponentially -- approximately $17\times$ per neuron for discretization parameter $W = 3$ -- enabling verification of networks that are otherwise intractable, as confirmed empirically across seven canonical topologies.</p>
+<h3 id="5-vq4snn-vector-quantization-for-memory-efficient-fpga-spiking-neural-networks">[5] <a href="https://arxiv.org/abs/2606.20675">VQ4SNN: Vector Quantization for Memory-Efficient FPGA Spiking Neural Networks</a></h3>
+<p><em>Dimitrios Sekertzis, Giorgos Dimitrakopoulos</em></p>
+<h4 id="tldr_4">🧩 TL;DR</h4>
+<p>提出VQ4SNN架构，首次将向量量化（VQ）应用于FPGA上流水线空间数据流SNN加速器，通过两级存储组织（指针+码本）替代传统权重存储，在保持推理精度的前提下将BRAM用量减少52-61%。</p>
+<hr />
+<h4 id="detailed-summary_4">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> SNN虽以能效优势适合边缘AI硬件加速，但密集SNN在FPGA上部署时受限于片上内存容量无法存储全部突触权重，现有方案缺乏针对流水线空间数据流SNN加速器的有效权重压缩方法。</p>
+<p><strong>Method:</strong> 提出VQ4SNN硬件感知架构，采用基于向量量化（VQ）的权重共享策略，将传统权重存储替换为紧凑指针与共享量化权重向量码本组成的两级存储结构；同时结合FPGA感知的内存映射与解析式VQ参数选择方法，实现高效部署。</p>
+<p><strong>Result:</strong> 与当前最先进的未压缩FPGA SNN实现相比，VQ4SNN在不增加整体逻辑资源利用率的前提下，将BRAM总数减少52-61%。</p>
+<p><strong>Conclusion:</strong> VQ4SNN首次证明了向量量化可有效解决FPGA上流水线空间数据流SNN加速器的片上存储瓶颈，为资源受限边缘设备上的高效SNN部署提供了可行路径。</p>
+<hr />
+<h4 id="abstract_4">📄 Abstract</h4>
+<p>Spiking Neural Networks (SNNs) offer an energy-efficient paradigm for edge AI, making them attractive for hardware acceleration. However, deploying dense SNNs on FPGAs is constrained by limited on-chip memory for synaptic weight storage. To address this bottleneck, we propose VQ4SNN, a hardware-aware architecture that reduces memory requirements through Vector Quantization (VQ)-based weight sharing. To the best of our knowledge, this is the first application of VQ to pipelined spatial-dataflow SNN accelerators on FPGAs. VQ4SNN replaces conventional weight storage with a two-level memory organization consisting of compact pointers and a shared codebook of quantized weight vectors. The proposed design integrates FPGA-aware memory mapping with analytical VQ parameter selection, enabling efficient deployment on such accelerators while preserving inference accuracy. The experimental results show a reduction of 52-61% in the total number of BRAMs compared to the state-of-the-art uncompressed FPGA SNNs without increasing overall logic utilization.</p>
+<h3 id="6-soliton-like-waves-in-a-two-dimensional-recurrent-spiking-neural-network-with-weighted-spike-timing-dependent-plasticity">[6] <a href="https://arxiv.org/abs/2606.21432">Soliton-like Waves in a Two-Dimensional Recurrent Spiking Neural Network with Weighted Spike-Timing-Dependent Plasticity</a></h3>
+<p><em>Ch. Meessen</em></p>
+<h4 id="tldr_5">🧩 TL;DR</h4>
+<p>本文构建了一个最小且生物可解释的离散时间脉冲神经元模型，结合了WSTDP、除性归一化、稳态阈值适应和不应期，在二维循环网络中自发产生了具有耗散孤子特性的稳定自传播波包，其方向由突触可塑性学习编码，碰撞时产生编码相对相位与频率的半持久边界。</p>
+<hr />
+<h4 id="detailed-summary_5">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有模型缺乏从局部可塑性规则出发，以最小计算单元解释皮层 traveling waves、活动区域划分和空间记忆等自组织涌现现象的生物学可解释框架，本文旨在填补这一空白。</p>
+<p><strong>Method:</strong> 提出离散时间最小生物可解释脉冲神经元模型，整合了乘性脉冲时序依赖可塑性（WSTDP）、突触整合的除性归一化、稳态阈值适应以及单步不应期。该归一化通过仅依赖局部可用信息的二元突触连接实现了生物可解释的树突实现。在此基础上构建兴奋-抑制神经元对的二维循环网络，施加周期性局部刺激，并引入兴奋性与抑制性连接半径的几何不对称性以及初始抑制性突触强于兴奋性突触的条件。</p>
+<p><strong>Result:</strong> 网络自发产生稳定的自传播波包，具备耗散孤子特性：稳定的空间轮廓、恒定传播速度以及正面碰撞时湮灭。WSTDP将传播方向刻印到突触权重分布中，使网络自主学习维持单向传播并抑制反向传播。当两个源同时激活时，碰撞产生的波湮灭形成半持久边界，其位置编码了两个源的相对相位和频率。</p>
+<p><strong>Conclusion:</strong> 该工作为从局部可塑性规则出发研究皮层 traveling waves 的涌现、活动区划分和空间记忆提供了最小计算框架，揭示了连接几何不对称性与突触可塑性在自组织波动力学中的核心作用。</p>
+<hr />
+<h4 id="abstract_5">📄 Abstract</h4>
+<p>We construct a minimal but biologically plausible spiking neuron model operating in discrete time, combining multiplicative spike-timing-dependent plasticity (WSTDP), divisive normalization of synaptic integration, homeostatic threshold adaptation, and a one-step refractory period. We show that this normalization admits a biologically plausible dendritic implementation in which each binary junction operates using only locally available information.
+  Assembling excitatory-inhibitory pairs of such neurons into a two-dimensional recurrent network and applying periodic localized stimulation, we find that the network spontaneously gives rise to stable, self-propagating wave packets with the properties of dissipative solitons: they maintain a stable spatial profile, propagate at constant speed, and annihilate upon frontal collision. Their emergence requires a geometric asymmetry between excitatory and inhibitory connection radii, and initial inhibitory synapses stronger than excitatory ones. WSTDP engraves the direction of propagation into the synaptic weight profile, so that the network learns by itself to sustain propagation in one direction while suppressing the reverse. When two sources are active simultaneously, the resulting waves annihilate upon collision, defining a semi-persistent boundary whose position encodes the relative phase and frequency of the two sources.
+  These results provide a minimal computational framework for studying the emergence of cortical traveling waves, activity zone delimitation, and spatial memory from local plasticity rules alone.</p>
+  </article>
+</body>
+</html>
