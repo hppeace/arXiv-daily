@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2026-07-01.md</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    .markdown-body {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <article class="markdown-body">
+    <div id=toc></div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#cs.CV">cs.CV</a> [Total: 3]</li>
+<li><a href="#cs.NE">cs.NE</a> [Total: 1]</li>
+</ul>
+<div id='cs.CV'></div>
+
+<h1 id="cscv-back">cs.CV <a href="#toc">[Back]</a></h1>
+<h3 id="1-spikelogbert-energy-efficient-log-parsing-using-spiking-transformer-networks">[1] <a href="https://arxiv.org/abs/2606.31781">SpikeLogBERT: Energy-Efficient Log Parsing Using Spiking Transformer Networks</a></h3>
+<p><em>Thuan Bui, Duong Do, Tung Vu, Duc-Tho Mai, Cong-Kha Pham</em></p>
+<h4 id="tldr">🧩 TL;DR</h4>
+<p>SpikeLogBERT 提出了一种基于脉冲神经网络和 Transformer 架构的日志解析框架，通过脉冲驱动计算和知识蒸馏在保持高解析精度的同时显著降低理论能耗。</p>
+<hr />
+<h4 id="detailed-summary">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有基于神经网络的日志解析方法依赖稠密矩阵乘法，导致计算成本高、能耗大，而该问题在资源受限或大规模日志处理的场景下尤为突出，亟需一种兼具语义表示能力与高能效的日志解析方案。</p>
+<p><strong>Method:</strong> SpikeLogBERT 将脉冲神经网络与 Transformer 架构相结合，采用脉冲驱动计算替代传统 ANN 的稠密矩阵运算，并通过知识蒸馏从 BERT 教师模型中迁移语义表示能力，使得模型在推理时仅依赖稀疏脉冲激活和事件驱动处理，从而大幅减少活跃操作数。</p>
+<p><strong>Result:</strong> 在 HDFS 数据集上的实验表明，SpikeLogBERT 解析精度达到 0.99997，优于基于 ANN 的神经日志解析模型；同时，在标准 45nm CMOS 工艺假设下，其理论能耗降低最高达 62.6%。</p>
+<p><strong>Conclusion:</strong> 该研究首次将脉冲神经网络引入日志解析任务，验证了脉冲驱动计算在 NLP 领域下游任务中实现高精度与高能效并存的可行性，为绿色日志分析及更广泛的节能 NLP 系统设计提供了新的方向。</p>
+<hr />
+<h4 id="abstract">📄 Abstract</h4>
+<p>Log parsing is a fundamental step in automated log analysis, transforming raw system logs into structured event templates for downstream tasks such as anomaly detection and system monitoring. Existing log parsing methods range from rule-based and clustering-based approaches to neural models that learn semantic representations from log messages. However, neural approaches typically rely on dense matrix multiplications, which can result in high computational cost and energy consumption. This paper presents SpikeLogBERT, a spiking neural network framework for energy-efficient log parsing. The proposed model integrates a spiking transformer architecture with knowledge distillation from a BERT teacher model, enabling spike-driven computation while preserving semantic representation capability. By leveraging sparse spike activations and event-driven processing, the number of active operations during inference can be significantly reduced. As an initial benchmark study, experiments on the HDFS dataset demonstrate that SpikeLogBERT outperforms ANN-based neural log parsing models with a parsing accuracy of 0.99997, while reducing estimated theoretical energy consumption by up to 62.6% under standard 45nm CMOS assumptions.</p>
+<h3 id="2-msnn-linet-cross-modal-learning-via-continuous-linear-integration">[2] <a href="https://arxiv.org/abs/2606.31135">MSNN-LINet: Cross-Modal Learning via Continuous Linear Integration</a></h3>
+<p><em>Gabriel Clinger</em></p>
+<h4 id="tldr_1">🧩 TL;DR</h4>
+<p>LINet提出了一种多流神经网络架构，通过线性积分卷积算子(LIConv2d)实现RGB-D场景分类中逐层的连续跨模态融合，并在SUN RGB-D数据集上取得了优于先前从头训练方法的性能。</p>
+<hr />
+<h4 id="detailed-summary_1">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有RGB-D多模态架构将特征融合视为离散的、临时性事件：早期融合过早纠缠表征，晚期融合直到最后层才进行交互，而混合或注意力方法则需要架构上的试错来放置中间融合模块，缺乏系统性的连续融合机制。</p>
+<p><strong>Method:</strong> LINet维护三条并行流（RGB、深度和积分流），其中创新性地提出线性积分卷积算子(LIConv2d)，在每层的非线性激活阈值之前连续地跨模态整合信号；针对连续融合暴露的初始化病理问题，采用1/N常数初始化替代Kaiming初始化以修复梯度流；引入渐进式模态丢弃（从零开始递增的遮掩概率）来防止路径坍塌和负共学习。</p>
+<p><strong>Result:</strong> 在SUN RGB-D 19类场景分类任务上从头训练的LINet在ResNet18规模下达到45.2%的平均类别准确率，优于先前从头训练的结果；使用ScanNet领域内RGB-D预训练后性能提升至49.6%。</p>
+<p><strong>Conclusion:</strong> 连续跨模态融合设计能够有效提升多模态场景分类性能；连续融合暴露的梯度流病理问题需专门初始化策略来解决；渐进式模态丢弃是防止多流网络路径坍塌的有效正则化手段。</p>
+<hr />
+<h4 id="abstract_1">📄 Abstract</h4>
+<p>We present LINet (Linear Integration Network), a Multi-Stream Neural Network (MSNN) for RGB-D scene classification. Current multi-modal architectures treat feature fusion as a discrete, ad-hoc event: early fusion entangles representations prematurely, late fusion isolates them until the final layer, and hybrid or attention-based methods require architectural guesswork to place intermediate fusion blocks. LINet addresses this structural compromise by maintaining three dedicated parallel streams (RGB, depth, and integration) where a novel Linear Integration Convolution (LIConv2d) operator enables continuous cross-modal learning at every layer. The integration stream receives raw filtered signals from both modality streams and combines them before the nonlinear activation threshold, conceptually inspired by somatic integration preceding the neuronal firing decision. Implementing continuous integration exposes a critical initialization pathology: Kaiming initialization of the bridging weights scrambles gradients before they reach the stream backbones, producing a failure mode that resembles overfitting but is corrupted gradient flow. A 1/N constant initialization mitigates this. We employ progressive modality dropout, a curriculum adapted to continuous fusion in which blanking probability increases from zero, preventing pathway collapse, a form of negative co-learning, by forcing robust independent stream representations. Trained from scratch on SUN RGB-D 19-class scene classification, LINet reaches 45.2% mean class accuracy at ResNet18 scale, outperforming prior from-scratch results, and rises to 49.6% with in-domain RGB-D (ScanNet) pretraining.</p>
+<h3 id="3-intrinsically-stable-spiking-neural-networks-overcoming-the-performance-barrier-in-the-absence-of-batch-normalization">[3] <a href="https://arxiv.org/abs/2606.31695">Intrinsically Stable Spiking Neural Networks: Overcoming the Performance Barrier in the Absence of Batch Normalization</a></h3>
+<p><em>Ruichen Ma, Xiaoyang Zhang, Jian Bai, Guanchao Qiao, Liwei Meng, Ning Ning, Yang Liu, Shaogang Hu</em></p>
+<h4 id="tldr_2">🧩 TL;DR</h4>
+<p>本文提出IS-SNN架构，通过拓扑感知权重标准化和修改残差连接去除归一化层，在不引入运行时乘法的前提下实现与动态批归一化可比的性能，并在ImageNet上达到68.05%准确率，同时减少96.4%的FPGA查找表资源消耗。</p>
+<hr />
+<h4 id="detailed-summary_2">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 深度脉冲神经网络依赖批归一化获得高性能，但当前最先进模型采用的动态批归一化变体引入了运行时乘法运算，削弱了SNN的硬件高效性优势；同时，无归一化的SNN存在严重的性能退化问题，其主要原因被识别为灾难性发放率衰减。</p>
+<p><strong>Method:</strong> 本文提出Intrinsically Stable SNN（IS-SNN）架构，通过拓扑感知权重标准化和修改残差连接来强制信号稳态，从而去除激活归一化层；标准化操作在离线状态下被融合到静态权重中，消除了运行时统计量跟踪和乘法运算，恢复面向累加的推理数据通路。</p>
+<p><strong>Result:</strong> IS-SNN在VGG、ResNet和基于Transformer的模型上取得了与计算昂贵的动态批归一化技术相当或更优的性能，在ImageNet上达到68.05%的竞争性准确率，克服了此前无归一化方法的深度限制，并将FPGA神经元实现的查找表资源消耗降低了96.4%。</p>
+<p><strong>Conclusion:</strong> 本研究证明，通过架构层面的信号稳态设计而非运行时归一化，可以在保持SNN硬件友好性的同时实现高性能，为构建准确且硬件高效的深度神经形态系统提供了实用框架。</p>
+<hr />
+<h4 id="abstract_2">📄 Abstract</h4>
+<p>The performance of deep spiking neural networks (SNNs) often relies on batch normalization (BN). However, the advanced dynamic BN variants used in state-of-the-art models introduce runtime multiplications, which weaken the hardware-efficiency motivation of SNNs. To address this tension, we identify catastrophic firing-rate decay as a primary cause of severe performance degradation in normalization-free SNNs. Guided by this insight, this work proposes the Intrinsically Stable SNN (IS-SNN) architecture, which removes activation-normalization layers by enforcing signal homeostasis through topology-aware weight standardization and modified residual connections. By folding the standardization operations into static weights offline, IS-SNN removes the runtime statistics tracking and multiplications introduced by activation normalization, restoring an accumulation-oriented inference datapath. Comprehensive experiments show that IS-SNN achieves performance competitive with or superior to computationally expensive dynamic BN techniques across VGG, ResNet, and Transformer-based models. Notably, it achieves a competitive accuracy of 68.05\% on ImageNet and overcomes the severe depth limitations of prior BN-free attempts. Together with a 96.4\% reduction in FPGA lookup table resource consumption for neuron implementations, these results support IS-SNN as a practical framework for building accurate and hardware-friendly deep neuromorphic systems.</p>
+<div id='cs.NE'></div>
+
+<h1 id="csne-back">cs.NE <a href="#toc">[Back]</a></h1>
+<h3 id="4-criticality-constrained-iterative-pruning-for-energy-efficient-spiking-neural-networks-via-combined-importance-scoring">[4] <a href="https://arxiv.org/abs/2606.30676">Criticality-Constrained Iterative Pruning for Energy-Efficient Spiking Neural Networks via Combined Importance Scoring</a></h3>
+<p><em>Muhammad Hamza</em></p>
+<h4 id="tldr_3">🧩 TL;DR</h4>
+<p>提出Criticality-Constrained Quadratic Pruning (CQP)，一种融合权重幅值和代理梯度临界性的精确重要性度量方法，用于脉冲神经网络的高效剪枝，在90%稀疏度下MNIST精度达95.6%，并实现73%的推理能耗降低。</p>
+<hr />
+<h4 id="detailed-summary_3">📘 Detailed Summary</h4>
+<p><strong>Motivation:</strong> 现有的SNN剪枝策略要么忽略神经元临界性，要么依赖组合剪枝问题的凸松弛，其分数掩码在二值化后会在中高稀疏度下严重破坏精度；此外，Adam优化器的一阶动量张量会导致已剪枝突触复活，破坏二元稀疏性保证，亟需一种无需求解器且能保持稀疏性约束的精确剪枝方法。</p>
+<p><strong>Method:</strong> 提出CQP方法，在原生PyTorch框架中将权重幅值与代理梯度临界性融合为解析精确的重要性度量，消除求解器方法的舍入伪影；采用迭代式剪枝-微调（梯度掩蔽）—重新计算临界性的调度策略消除高稀疏度下的梯度过时问题；通过KL散度时序分析识别冗余仿真时间步，实现无需修改权重的理论能耗降低。</p>
+<p><strong>Result:</strong> 在MNIST上，CQP在90%稀疏度下达到95.6%准确率，优于幅值剪枝的93.4%（提升2.2个百分点）；揭示了OSQP求解器分数掩码会导致稀疏度超出目标高达12个百分点并引发44个百分点的精度崩塌；发现了Adam的zombie-weight失效模式；临界性阈值扫描显示当τ=0.9时准确率从87.0%骤降至14.4%，构成SNN层面的Critical Brain Hypothesis定量类比；权重稀疏化与时间截断联合实现70%稀疏度下73%的推理能耗降低。</p>
+<p><strong>Conclusion:</strong> CQP在无求解器条件下实现了精确的二进制稀疏性保证，验证了临界性约束在SNN剪枝中的核心作用，并揭示了SNN中的临界性悬崖现象；该工作为神经形态硬件上的能效部署提供了实用且完整的剪枝流水线。</p>
+<hr />
+<h4 id="abstract_3">📄 Abstract</h4>
+<p>Deploying spiking neural networks (SNNs) on neuromorphic hardware demands aggressive synaptic pruning while preserving temporal computation integrity. Existing strategies either neglect neuronal criticality or rely on convex relaxations of the inherently combinatorial pruning problem whose fractional masks, upon binarisation, destroy accuracy at moderate-to-high sparsity. We present Criticality-Constrained Quadratic Pruning (CQP), a native PyTorch pipeline that fuses weight magnitude with surrogate-gradient criticality into an analytically exact importance metric, eliminating the rounding artefacts endemic to solver-based approaches. We formally characterise a continuous-relaxation trap wherein OSQP-solver fractional masks overshoot the intended sparsity by up to 12 percentage points (pp), precipitating a 44 pp accuracy collapse. We identify and remediate a zombie-weight failure mode in which Adam's first-moment tensors resurrect pruned synapses, violating the binary sparsity guarantee. An iterative schedule - prune, fine-tune with gradient masking, recompute criticality, and repeat - eliminates gradient staleness at high sparsity. A KL-divergence temporal analysis identifies a redundant simulation timestep, enabling a free 10% theoretical energy reduction without weight modification. On MNIST (60,000 training examples), CQP yields 95.6% accuracy at 90% sparsity versus 93.4% for magnitude pruning (+2.2 pp). A criticality-threshold sweep reveals an empirical criticality cliff: accuracy falls from 87.0% to 14.4% as the threshold reaches tau = 0.9, constituting a quantitative SNN-level analogue of the Critical Brain Hypothesis. Combined weight sparsification and temporal truncation yield a compound 73% reduction in per-inference energy at 70% sparsity, confirming the practical value of the proposed pipeline for neuromorphic deployment.</p>
+  </article>
+</body>
+</html>
